@@ -158,7 +158,7 @@ https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out
 
 # 66 - RADIO 105 TV
 #EXTINF:-1 tvg-chno="66" tvg-logo="https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/66-radio105.png" group-title="Radio TV",Radio 105 TV
-https://live2-radio-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(ec)/index.m3u8
+https://live02-seg.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/index.m3u8
 
 # 69 - DEEJAY TV HD
 #EXTINF:-1 tvg-chno="69" tvg-logo="https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/69-deejay.png" group-title="Radio TV",Deejay TV HD
@@ -179,7 +179,7 @@ https://kk.fluid.stream/KKMulti/smil:KissKissTV.smil/playlist.m3u8
 
 # 257 - GAMBERO ROSSO
 #EXTINF:-1 tvg-chno="257" tvg-logo="https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/257-gamberorosso.png" group-title="Extra",Gambero Rosso
-https://smplu.link/xN1ckuz-GamberoRosso.m3u8
+https://www.dailymotion.com/cdn/live/video/x9u215s.mpd?sec=3FE6qHnAR5mSywqiY3XmMw
 
 # 404 - HELL'S KITCHEN ITALY
 #EXTINF:-1 tvg-chno="404" tvg-logo="https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/404-hellskitchen.png" group-title="Extra",Hell's Kitchen Italy
