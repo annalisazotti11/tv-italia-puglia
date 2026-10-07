@@ -1,0 +1,156 @@
+#EXTM3U
+
+# =========================================
+# TV ITALIA + PUGLIA
+# =========================================
+
+# 1 - RAI 1
+#EXTINF:-1 tvg-chno="1" group-title="TV Italia",Rai 1 HD
+https://dash2.antik.sk/live/test_rai_uno_tizen/playlist.m3u8
+
+# 2 - RAI 2
+#EXTINF:-1 tvg-chno="2" group-title="TV Italia",Rai 2 HD
+https://raidue3-live.akamaized.net/hls/live/2017983/raidue3/raidue3/playlist.m3u8
+
+# 3 - RAI 3 NAZIONALE
+#EXTINF:-1 tvg-chno="3" group-title="TV Italia",Rai 3 HD
+https://raitre3-live.akamaized.net/hls/live/2018002/raitre3/raitre3/playlist.m3u8
+
+# 103 - RAI 3 TGR PUGLIA
+# Da usare durante il telegiornale regionale
+#EXTINF:-1 tvg-chno="103" group-title="TV Italia",Rai 3 TGR Puglia
+https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8
+
+# 4 - RETE 4
+#EXTINF:-1 tvg-chno="4" group-title="TV Italia",Rete 4 HD
+https://live02-seg.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/index.m3u8
+
+# 5 - CANALE 5
+#EXTINF:-1 tvg-chno="5" group-title="TV Italia",Canale 5 HD
+https://live02-seg.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/index.m3u8
+
+# 6 - ITALIA 1
+#EXTINF:-1 tvg-chno="6" group-title="TV Italia",Italia 1 HD
+https://live02-seg.msf.cdn.mediaset.net/live/ch-i1/i1-clr.isml/index.m3u8
+
+# 7 - LA7
+#EXTINF:-1 tvg-chno="7" group-title="TV Italia",LA7 HD
+https://d1chghleocc9sm.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-evfku205gqrtf/Live.m3u8
+
+# 8 - TV8
+# Funziona, ma al nostro test era 854x480
+#EXTINF:-1 tvg-chno="8" group-title="TV Italia",TV8
+https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/11223/tv8web/master.m3u8?hdnts=st=1764666351~exp=1829466206~acl=/*~hmac=b0e9165b6c55027903ad103c8219f363d8765eb300c0d9a339e9767fc3509556
+
+# 9 - NOVE
+#EXTINF:-1 tvg-chno="9" group-title="TV Italia",NOVE
+https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/NOVE/CMAF/index.m3u8
+
+
+# =========================================
+# PUGLIA
+# =========================================
+
+# 11 - RADIONORBA TV
+#EXTINF:-1 tvg-chno="11" group-title="TV Italia",Radionorba TV
+https://router.xdevel.com/video0s975885-462/stream/playlist_dvr.m3u8
+
+# 13 - TG NORBA 24
+# Funziona ma qualità bassa
+#EXTINF:-1 tvg-chno="13" group-title="TV Italia",TG Norba 24
+https://stream6.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8
+
+# 14 - ANTENNA SUD
+#EXTINF:-1 tvg-chno="14" group-title="TV Italia",Antenna Sud
+https://live-antennasud.cdn.netrw.it/antennasud/hls/ccr/antennasud/master.m3u8
+
+# 17 - TELEBARI
+#EXTINF:-1 tvg-chno="17" group-title="TV Italia",Telebari
+https://w1.mediastreaming.it/telebari/livestream/playlist.m3u8
+
+
+# =========================================
+# ALTRI NAZIONALI
+# =========================================
+
+# 20 - 20 MEDIASET
+#EXTINF:-1 tvg-chno="20" group-title="TV Italia",20 Mediaset HD
+https://live02-seg.msf.cdn.mediaset.net/live/ch-lb/lb-clr.isml/index.m3u8
+
+# 21 - RAI 4
+#EXTINF:-1 tvg-chno="21" group-title="TV Italia",Rai 4
+https://raiquattro3-live.akamaized.net/hls/live/2018003/raiquattro3/raiquattro3/playlist.m3u8
+
+# 22 - IRIS
+#EXTINF:-1 tvg-chno="22" group-title="TV Italia",Iris
+https://live02-col.msf.cdn.mediaset.net/live/ch-ki/ki-clr.isml/index.m3u8
+
+# 23 - RAI 5
+#EXTINF:-1 tvg-chno="23" group-title="TV Italia",Rai 5
+http://raicinque3-live.akamaized.net/hls/live/2018007/raicinque3/raicinque3/playlist.m3u8
+
+# 24 - RAI MOVIE
+#EXTINF:-1 tvg-chno="24" group-title="TV Italia",Rai Movie
+https://raimovie3-live.akamaized.net/hls/live/2018010/raimovie3/raimovie3/playlist.m3u8
+
+# 26 - CIELO
+#EXTINF:-1 tvg-chno="26" group-title="TV Italia",Cielo
+https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/11219/cieloweb/master.m3u8?hdnts=st=1764666351~exp=1829466206~acl=/*~hmac=b0e9165b6c55027903ad103c8219f363d8765eb300c0d9a339e9767fc3509556
+
+# 27 - TWENTYSEVEN
+#EXTINF:-1 tvg-chno="27" group-title="TV Italia",27 Twentyseven
+https://live02-seg.msf.cdn.mediaset.net/live/ch-ts/ts-clr.isml/index.m3u8
+
+# 30 - LA5
+#EXTINF:-1 tvg-chno="30" group-title="TV Italia",La5
+https://live02-col.msf.cdn.mediaset.net/live/ch-ka/ka-clr.isml/index.m3u8
+
+# 31 - REAL TIME
+#EXTINF:-1 tvg-chno="31" group-title="TV Italia",Real Time
+https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/REALTIME/CMAF/index.m3u8
+
+# 33 - FOOD NETWORK
+#EXTINF:-1 tvg-chno="33" group-title="TV Italia",Food Network
+https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/FOODNETWORK/CMAF/index.m3u8
+
+# 34 - CINE34
+#EXTINF:-1 tvg-chno="34" group-title="TV Italia",Cine34
+https://live02-col.msf.cdn.mediaset.net/live/ch-b6/b6-clr.isml/index.m3u8
+
+# 35 - FOCUS
+#EXTINF:-1 tvg-chno="35" group-title="TV Italia",Focus
+https://live02-col.msf.cdn.mediaset.net/live/ch-fu/fu-clr.isml/index.m3u8
+
+# 36 - RTL 102.5
+#EXTINF:-1 tvg-chno="36" group-title="TV Italia",RTL 102.5
+https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_video.m3u8
+
+
+# =========================================
+# NEWS
+# =========================================
+
+# 48 - RAI NEWS 24
+#EXTINF:-1 tvg-chno="48" group-title="TV Italia",Rai News 24
+https://d3k8wzt41aflvx.cloudfront.net/RAINEWS24/Live.m3u8
+
+# 50 - SKY TG24
+# Funziona, ma qualità bassa
+#EXTINF:-1 tvg-chno="50" group-title="TV Italia",Sky TG24
+https://hlslive-web-gcdn-skycdn-it.akamaized.net/TACT/12221/web/master.m3u8?hdnts=st=1764666351~exp=1829466206~acl=/*~hmac=b0e9165b6c55027903ad103c8219f363d8765eb300c0d9a339e9767fc3509556
+
+# 51 - TGCOM24
+#EXTINF:-1 tvg-chno="51" group-title="TV Italia",TGCOM24
+https://d3k8wzt41aflvx.cloudfront.net/TGCOM24/Live.m3u8
+
+# 52 - DMAX
+#EXTINF:-1 tvg-chno="52" group-title="TV Italia",DMAX
+https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8
+
+# 54 - RAI STORIA
+#EXTINF:-1 tvg-chno="54" group-title="TV Italia",Rai Storia
+https://raistoria3-live.akamaized.net/hls/live/2018017/raistoria3/raistoria3/playlist.m3u8
+
+# 56 - HGTV
+#EXTINF:-1 tvg-chno="56" group-title="TV Italia",HGTV
+https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/HGTV/CMAF/index.m3u8
