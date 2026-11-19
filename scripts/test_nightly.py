@@ -46,6 +46,23 @@ class NightlyCheckTests(unittest.TestCase):
         self.assertTrue(nightly.permitted_stream_url('NOVE', 'https://streaming.aurora.enhanced.live/live/mpc/public-id/out/v1/IT_SIMULCAST/NOVE/CMAF/index.m3u8'))
         self.assertFalse(nightly.permitted_stream_url('NOVE', 'https://streaming.aurora.enhanced.live/live/mpc/public-id/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8'))
 
+    def test_public_broadcaster_alternatives_are_channel_scoped(self):
+        rai_one = ('https://mediapolis.rai.it/relinker/relinkerServlet.htm'
+                   '?cont=2606803&output=7&forceUserAgent=rainet/4.0.5')
+        self.assertTrue(nightly.permitted_stream_url('Rai 1 HD', rai_one))
+        self.assertFalse(nightly.permitted_stream_url('Rai 2 HD', rai_one))
+        self.assertFalse(nightly.permitted_stream_url('Rai 1 HD', rai_one + '&token=secret'))
+        self.assertTrue(nightly.permitted_stream_url(
+            'Rete 4 HD', 'https://live03-col.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/manifest.mpd'))
+        self.assertTrue(nightly.permitted_stream_url(
+            'Canale 5 HD', 'https://live03-col.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/manifest.mpd'))
+        self.assertFalse(nightly.wrong_channel_redirect(
+            'tvip_4_rete-4-hd',
+            'https://live03-col.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/manifest.mpd'))
+        self.assertTrue(nightly.wrong_channel_redirect(
+            'tvip_4_rete-4-hd',
+            'https://live03-col.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/manifest.mpd'))
+
     def test_playlist_matching_is_exact(self):
         with tempfile.TemporaryDirectory() as tmp:
             m3u = Path(tmp) / 'base.m3u'
