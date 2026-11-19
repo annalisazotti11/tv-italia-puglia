@@ -60,7 +60,7 @@ assert.ok(pageText.includes('LIVE'));
 let epgResp=await worker.fetch(request('/api/guida.json','IT'));
 assert.equal(epgResp.status,200);
 let api=await epgResp.json();
-assert.equal(api.channels.find(c=>c.name==='Rai 1 HD').current.title,'Programma verificato');
+assert.equal(api.channels.find(c=>c.name==='TV2000').current.title,'Programma verificato');
 assert.equal(api.channels.find(c=>c.name==='Sky Atlantic'),undefined);
 const catalog='/catalog/tv/tv-italia-puglia.json';
 let res=await worker.fetch(request(catalog,'DE'));
