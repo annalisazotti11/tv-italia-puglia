@@ -442,6 +442,37 @@ def probe_one(cid: str, item: dict):
     return out
 
 
+
+# A 403 or timeout from GitHub's datacenter is inconclusive. These candidates
+# are NOT marked verified: an Italian Cloudflare edge may test them separately.
+GEO_UNCERTAIN = {'HTTP 403', 'HTTP 429', 'TimeoutError', 'URLError',
+                 'ConnectionResetError', 'Unplayable HLS variant: HTTPError'}
+
+
+def regional_candidates(channel_name: str, results: list[dict], already_verified: set[str]) -> list[dict]:
+    candidates = []
+    seen = set(already_verified)
+    # Original broadcaster links have priority over URLs from third-party directories.
+    ordered = sorted(results, key=lambda x: (x.get('source') != 'Playlist originale', x.get('url', '')))
+    for result in ordered:
+        url = result.get('url', '')
+        reason = str(result.get('reason') or '')
+        if result.get('ok') or reason not in GEO_UNCERTAIN or url in seen:
+            continue
+        if not permitted_stream_url(channel_name, url) or not url.startswith('https://'):
+            continue
+        # Do not expose URLs with access tokens/queries in the public snapshot.
+        parts = urllib.parse.urlsplit(url)
+        if parts.query or parts.fragment:
+            continue
+        seen.add(url)
+        candidates.append({'url': url, 'source': result['source'], 'reason': reason})
+        if len(candidates) >= 2:
+            break
+    return candidates
+
+
+
 def main():
     channels, names = inventory()
     playlist_status = scan_playlists(channels, names)
@@ -495,16 +526,19 @@ def main():
                 continue
             entries.append({**old, 'stale': True})
             fresh_urls.add(url)
-        # Do not publish long-lived unverified URLs or error-bearing tokens in reports.
+        # Keep inconclusive geographic failures separate; never label them as verified.
+        pending = regional_candidates(ch['name'], ch['results'], fresh_urls)
         snapshot['channels'][cid] = {
-            'name': ch['name'], 'verified': entries, 'tested': len(ch['results']),
-            'visible': bool(entries), 'checked_at': stamped,
+            'name': ch['name'], 'verified': entries, 'regional_candidates': pending,
+            'tested': len(ch['results']), 'visible': bool(entries),
+            'checked_at': stamped,
             'failures': dict(Counter(x.get('reason') or 'Unknown' for x in ch['results'] if not x['ok'])),
         }
     snapshot['summary'] = {
         'channels': len(channels), 'visible': sum(bool(x['visible']) for x in snapshot['channels'].values()),
         'hidden': sum(not x['visible'] for x in snapshot['channels'].values()),
         'sources_verified': verified_count, 'links_tested': len(jobs),
+        'regional_recheck_channels': sum(bool(x['regional_candidates']) and not x['visible'] for x in snapshot['channels'].values()),
         'playlists_loaded': sum(p['read'] for p in playlist_status),
         'failure_reasons': dict(Counter(x.get('reason') or 'Unknown' for x in results if not x['ok'])),
     }
@@ -549,7 +583,7 @@ def main():
                    str(best.get('latency_ms') or '?') + ' ms', backup]
         else:
             blocked = any(k in entry.get('failures', {}) for k in ('HTTP 403','HTTP 429','TimeoutError','URLError'))
-            row = [esc(channel['name']), 'Non verificato' if blocked else 'Nessuna sorgente verificata',
+            row = [esc(channel['name']), 'Da verificare in Italia' if entry.get('regional_candidates') else ('Non verificato' if blocked else 'Nessuna sorgente verificata'),
                    '—', '—', '—', '—']
         report_lines.append('| ' + ' | '.join(row) + ' |')
     report = OUTPUT.parent / 'stream-report.md'
