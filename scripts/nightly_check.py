@@ -306,8 +306,10 @@ def scan_playlists(channels, by_name):
         try:
             raw, _ct, _url = get(url, MAX_PLAYLIST_BYTES, timeout=12)
             text = raw.decode('utf-8-sig', errors='replace')
-            if not text.startswith('#EXTM3U'):
-                raise ValueError('Missing EXTM3U')
+            # Some public lists omit the global #EXTM3U header but still contain
+            # valid #EXTINF entries. Accept these without weakening URL validation.
+            if not (text.startswith('#EXTM3U') or (text.startswith('#EXTINF:') and text.count('#EXTINF:') >= 2)):
+                raise ValueError('Missing EXTM3U/EXTINF')
             n = 0
             for item in parse_m3u(text):
                 assign_candidate(channels, by_name, item['name'], item['attrs'], item['url'], name)
