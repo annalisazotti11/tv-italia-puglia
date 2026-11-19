@@ -1,27 +1,27 @@
 # TV Italia + Puglia — controllo notturno
 
-Generato: 2026-11-19T19:04:02Z UTC
+Generato: 2026-11-19T19:13:18Z UTC
 
-Playlist lette: 18 · Link testati: 175 · Canali verificati: 66/217
+Playlist lette: 18 · Link testati: 175 · Canali verificati: 65/217
 
 **Attenzione:** un errore HTTP 403 o un timeout dal server GitHub non dimostra che la diretta non funzioni dalla TV in Italia.
 
 | Canale | Stato | Sorgente migliore | Risoluzione | Latenza test | Riserve |
 |---|---|---|---:|---:|---|
-| Rai 1 HD | Verificato | iptv-org Italy | 1080p | 2055 ms | — |
-| Rai 2 HD | Verificato | FTA curate (iptv-org) | 720p | 1486 ms | — |
-| Rai 3 HD | Verificato | FTA curate (iptv-org) | 720p | 1971 ms | — |
-| Rai 3 TGR Puglia | Verificato | Playlist originale | 408p | 1309 ms | — |
-| Rete 4 HD | Verificato | iptv-org Italy | 720p | 1328 ms | — |
-| Canale 5 HD | Verificato | iptv-org Italy | 1080p | 1326 ms | — |
-| Italia 1 HD | Verificato | iptv-org Italy | 720p | 1329 ms | — |
-| LA7 HD | Verificato | TvIt public Italian TV | 1080p | 1554 ms | — |
+| Rai 1 HD | Verificato | iptv-org Italy | 1080p | 1587 ms | — |
+| Rai 2 HD | Verificato | FTA curate (iptv-org) | 720p | 1142 ms | — |
+| Rai 3 HD | Verificato | FTA curate (iptv-org) | 720p | 1498 ms | — |
+| Rai 3 TGR Puglia | Da verificare in Italia | — | — | — | — |
+| Rete 4 HD | Verificato | iptv-org Italy | 720p | 844 ms | — |
+| Canale 5 HD | Verificato | iptv-org Italy | 1080p | 843 ms | — |
+| Italia 1 HD | Verificato | iptv-org Italy | 720p | 865 ms | — |
+| LA7 HD | Verificato | TvIt public Italian TV | 1080p | 542 ms | — |
 | TV8 | Da verificare in Italia | — | — | — | — |
-| NOVE | Verificato | TvIt public Italian TV | 1080p | 981 ms | Playlist originale |
-| Radionorba TV | Verificato | Playlist originale | 1080p | 3525 ms | — |
-| TG Norba 24 | Verificato | Playlist originale | 404p | 2481 ms | — |
-| Antenna Sud | Verificato | Playlist originale | 1080p | 4900 ms | — |
-| Telebari | Verificato | Playlist originale | 1080p | 2644 ms | OpenIPTVItaly |
+| NOVE | Verificato | Playlist originale | 1080p | 586 ms | TvIt public Italian TV |
+| Radionorba TV | Verificato | Playlist originale | 1080p | 3668 ms | — |
+| TG Norba 24 | Verificato | Playlist originale | 404p | 1902 ms | — |
+| Antenna Sud | Verificato | Playlist originale | 1080p | 2881 ms | — |
+| Telebari | Verificato | Playlist originale | 1080p | 1848 ms | OpenIPTVItaly |
 | 20 Mediaset HD | Da verificare in Italia | — | — | — | — |
 | Rai 4 | Da verificare in Italia | — | — | — | — |
 | Iris | Da verificare in Italia | — | — | — | — |
@@ -30,29 +30,29 @@ Playlist lette: 18 · Link testati: 175 · Canali verificati: 66/217
 | Cielo | Da verificare in Italia | — | — | — | — |
 | 27 Twentyseven | Da verificare in Italia | — | — | — | — |
 | La5 | Da verificare in Italia | — | — | — | — |
-| Real Time | Verificato | TvIt public Italian TV | 1080p | 958 ms | Playlist originale |
-| Food Network | Verificato | Playlist originale | 1080p | 983 ms | — |
+| Real Time | Verificato | TvIt public Italian TV | 1080p | 594 ms | Playlist originale |
+| Food Network | Verificato | Playlist originale | 1080p | 512 ms | — |
 | Cine34 | Da verificare in Italia | — | — | — | — |
 | Focus | Da verificare in Italia | — | — | — | — |
-| RTL 102.5 | Verificato | Free-TV Italia | 1080p | 2178 ms | Playlist originale |
-| Rai News 24 | Verificato | FTA curate (iptv-org) | 540p | 1357 ms | — |
+| RTL 102.5 | Verificato | Playlist originale | 1080p | 1392 ms | Free-TV Italia |
+| Rai News 24 | Verificato | FTA curate (iptv-org) | 540p | 881 ms | — |
 | Sky TG24 | Non verificato | — | — | — | — |
-| TGCOM24 | Verificato | FTA curate (iptv-org) | 720p | 1352 ms | — |
-| DMAX | Verificato | TvIt public Italian TV | 1080p | 813 ms | Playlist originale |
+| TGCOM24 | Verificato | FTA curate (iptv-org) | 720p | 879 ms | — |
+| DMAX | Verificato | Playlist originale | 1080p | 424 ms | TvIt public Italian TV |
 | Rai Storia | Da verificare in Italia | — | — | — | — |
-| HGTV | Verificato | Playlist originale | 1080p | 1207 ms | — |
-| Radio 105 TV | Verificato | Playlist originale | 1080p | 1419 ms | — |
-| Deejay TV HD | Verificato | Playlist originale | 1080p | 2005 ms | — |
-| RadioItaliaTV | Verificato | Playlist originale | 576p | 1115 ms | — |
-| Radio Kiss Kiss TV | Verificato | Playlist originale | 720p | 1654 ms | — |
+| HGTV | Verificato | Playlist originale | 1080p | 472 ms | — |
+| Radio 105 TV | Verificato | Playlist originale | 1080p | 1424 ms | — |
+| Deejay TV HD | Verificato | Playlist originale | 1080p | 1537 ms | — |
+| RadioItaliaTV | Verificato | Playlist originale | 576p | 304 ms | — |
+| Radio Kiss Kiss TV | Verificato | Playlist originale | 720p | 824 ms | — |
 | Gambero Rosso | Nessuna sorgente verificata | — | — | — | — |
 | Hell's Kitchen Italy | Nessuna sorgente verificata | — | — | — | — |
 | Rai Premium | Da verificare in Italia | — | — | — | — |
-| TV2000 | Verificato | Tundrak canali aggiuntivi | 1080p | 707 ms | — |
-| LA7 Cinema | Verificato | TvIt public Italian TV | 720p | 1473 ms | — |
-| QVC | Verificato | Tundrak canali aggiuntivi | 720p | 379 ms | — |
-| Warner TV | Verificato | TvIt public Italian TV | 1080p | 1370 ms | — |
-| Giallo | Verificato | TvIt public Italian TV | 1080p | 1191 ms | — |
+| TV2000 | Verificato | Tundrak canali aggiuntivi | 1080p | 411 ms | — |
+| LA7 Cinema | Verificato | TvIt public Italian TV | 720p | 1099 ms | — |
+| QVC | Verificato | Tundrak canali aggiuntivi | 720p | 236 ms | — |
+| Warner TV | Verificato | TvIt public Italian TV | 1080p | 906 ms | — |
+| Giallo | Verificato | TvIt public Italian TV | 1080p | 658 ms | — |
 | Top Crime | Da verificare in Italia | — | — | — | — |
 | Boing | Da verificare in Italia | — | — | — | — |
 | K2 | Da verificare in Italia | — | — | — | — |
@@ -60,32 +60,32 @@ Playlist lette: 18 · Link testati: 175 · Canali verificati: 66/217
 | Rai Yoyo | Da verificare in Italia | — | — | — | — |
 | Frisbee | Da verificare in Italia | — | — | — | — |
 | Cartoonito | Da verificare in Italia | — | — | — | — |
-| Super! | Verificato | iptv-org Italy | 720p | 1866 ms | — |
+| Super! | Verificato | iptv-org Italy | 720p | 1334 ms | — |
 | Italia 2 | Da verificare in Italia | — | — | — | — |
-| Mediaset Extra | Verificato | FTA curate (iptv-org) | 540p | 1883 ms | — |
+| Mediaset Extra | Verificato | FTA curate (iptv-org) | 540p | 1784 ms | — |
 | Rai Scuola | Nessuna sorgente verificata | — | — | — | — |
 | Rai Sport + HD | Nessuna sorgente verificata | — | — | — | — |
-| Discovery Turbo | Verificato | Tundrak canali aggiuntivi | 1080p | 540 ms | — |
-| Sportitalia | Verificato | TvIt public Italian TV | 1080p | 2826 ms | — |
+| Discovery Turbo | Verificato | Tundrak canali aggiuntivi | 1080p | 236 ms | — |
+| Sportitalia | Verificato | TvIt public Italian TV | 1080p | 2015 ms | — |
 | Donna TV | Da verificare in Italia | — | — | — | — |
 | Supertennis | Da verificare in Italia | — | — | — | — |
 | ALMA TV | Da verificare in Italia | — | — | — | — |
-| R101 TV | Verificato | Tundrak canali aggiuntivi | 1080p | 631 ms | — |
-| BOM CHANNEL | Verificato | Tundrak canali aggiuntivi | 720p | 2654 ms | — |
+| R101 TV | Verificato | Tundrak canali aggiuntivi | 1080p | 504 ms | — |
+| BOM CHANNEL | Verificato | Tundrak canali aggiuntivi | 720p | 1516 ms | — |
 | Rai 4K (HbbTV) | Da verificare in Italia | — | — | — | — |
-| Padre Pio TV | Verificato | Tundrak canali aggiuntivi | 1080p | 1374 ms | — |
+| Padre Pio TV | Verificato | Tundrak canali aggiuntivi | 1080p | 1046 ms | — |
 | Rai Radio 2 Visual | Nessuna sorgente verificata | — | — | — | — |
-| RTL 102.5 News | Verificato | Tundrak canali aggiuntivi | 1080p | 1807 ms | — |
-| RADIOFRECCIA | Verificato | Tundrak canali aggiuntivi | 1080p | 1916 ms | — |
+| RTL 102.5 News | Verificato | Tundrak canali aggiuntivi | 1080p | 1426 ms | — |
+| RADIOFRECCIA | Verificato | Tundrak canali aggiuntivi | 1080p | 1416 ms | — |
 | Byoblu | Da verificare in Italia | — | — | — | — |
-| RDS Social TV | Verificato | Tundrak canali aggiuntivi | 1080p | 1010 ms | — |
-| RADIO ZETA | Verificato | Tundrak canali aggiuntivi | 1080p | 1916 ms | — |
-| Radio Capital TV | Verificato | Tundrak canali aggiuntivi | 720p | 1885 ms | — |
-| M2O TV | Verificato | Tundrak canali aggiuntivi | 1080p | 1948 ms | — |
-| Radio Montecarlo TV | Verificato | Tundrak canali aggiuntivi | 1080p | 186 ms | — |
+| RDS Social TV | Verificato | Tundrak canali aggiuntivi | 1080p | 447 ms | — |
+| RADIO ZETA | Verificato | Tundrak canali aggiuntivi | 1080p | 1321 ms | — |
+| Radio Capital TV | Verificato | Tundrak canali aggiuntivi | 720p | 1346 ms | — |
+| M2O TV | Verificato | Tundrak canali aggiuntivi | 1080p | 1339 ms | — |
+| Radio Montecarlo TV | Verificato | Tundrak canali aggiuntivi | 1080p | 400 ms | — |
 | RTV San Marino | Nessuna sorgente verificata | — | — | — | — |
 | Radio TV Serie A con RDS | Da verificare in Italia | — | — | — | — |
-| Il Sole 24 ORE TV | Verificato | Tundrak canali aggiuntivi | 1080p | 956 ms | — |
+| Il Sole 24 ORE TV | Verificato | Tundrak canali aggiuntivi | 1080p | 662 ms | — |
 | Sky Uno + | Nessuna sorgente verificata | — | — | — | — |
 | Sky Atlantic | Nessuna sorgente verificata | — | — | — | — |
 | Sky Serie | Nessuna sorgente verificata | — | — | — | — |
@@ -138,13 +138,13 @@ Playlist lette: 18 · Link testati: 175 · Canali verificati: 66/217
 | Boomerang | Nessuna sorgente verificata | — | — | — | — |
 | Eurosport 1 | Nessuna sorgente verificata | — | — | — | — |
 | Eurosport 2 | Nessuna sorgente verificata | — | — | — | — |
-| Class CNBC | Verificato | Free-TV Italia | 1080p | 642 ms | — |
+| Class CNBC | Verificato | Free-TV Italia | 1080p | 221 ms | — |
 | Milan TV | Nessuna sorgente verificata | — | — | — | — |
 | Inter TV | Nessuna sorgente verificata | — | — | — | — |
 | DAZN 1 | Nessuna sorgente verificata | — | — | — | — |
 | DAZN 2 | Nessuna sorgente verificata | — | — | — | — |
 | Bike | Nessuna sorgente verificata | — | — | — | — |
-| Horse TV | Verificato | FTA curate (iptv-org) | 288p | 2545 ms | — |
+| Horse TV | Verificato | FTA curate (iptv-org) | 288p | 1852 ms | — |
 | Caccia e Pesca | Nessuna sorgente verificata | — | — | — | — |
 | Discovery Italy | Nessuna sorgente verificata | — | — | — | — |
 | Boing Plus | Nessuna sorgente verificata | — | — | — | — |
@@ -152,36 +152,36 @@ Playlist lette: 18 · Link testati: 175 · Canali verificati: 66/217
 | CLUB TV | Nessuna sorgente verificata | — | — | — | — |
 | Italiana | Da verificare in Italia | — | — | — | — |
 | Sky News | Da verificare in Italia | — | — | — | — |
-| Sky News Arabia | Verificato | FTA curate (iptv-org) | 1080p | 484 ms | — |
+| Sky News Arabia | Verificato | FTA curate (iptv-org) | 1080p | 482 ms | — |
 | EQUtv | Nessuna sorgente verificata | — | — | — | — |
-| ACI Sport TV | Verificato | iptv-org Italy | 720p | 1908 ms | — |
+| ACI Sport TV | Verificato | iptv-org Italy | 720p | 1679 ms | — |
 | Class TV Moda | Nessuna sorgente verificata | — | — | — | — |
-| Vatican Media Europa | Verificato | FTA curate (iptv-org) | 720p | 1951 ms | — |
+| Vatican Media Europa | Verificato | FTA curate (iptv-org) | 720p | 1281 ms | — |
 | TRM h24 | Nessuna sorgente verificata | — | — | — | — |
-| Euronews Italiano | Verificato | FTA curate (iptv-org) | 720p | 1402 ms | — |
-| Camera dei Deputati | Verificato | Free-TV Italia | 360p | 3377 ms | — |
+| Euronews Italiano | Verificato | FTA curate (iptv-org) | 720p | 637 ms | — |
+| Camera dei Deputati | Verificato | Free-TV Italia | 360p | 2529 ms | — |
 | Senato TV | Nessuna sorgente verificata | — | — | — | — |
-| CNBC | Verificato | FTA curate (iptv-org) | 720p | 2577 ms | — |
-| Bloomberg Television | Verificato | FTA curate (iptv-org) | 720p | 1490 ms | — |
-| France 24 English | Verificato | FTA curate (iptv-org) | ?p | 165 ms | — |
-| Al Jazeera English | Verificato | FTA curate (iptv-org) | 1080p | 1351 ms | — |
-| NHK World Japan | Verificato | FTA curate (iptv-org) | 1080p | 1094 ms | — |
+| CNBC | Verificato | FTA curate (iptv-org) | 720p | 1360 ms | — |
+| Bloomberg Television | Verificato | FTA curate (iptv-org) | 720p | 226 ms | — |
+| France 24 English | Verificato | FTA curate (iptv-org) | ?p | 129 ms | — |
+| Al Jazeera English | Verificato | FTA curate (iptv-org) | 1080p | 1734 ms | — |
+| NHK World Japan | Verificato | FTA curate (iptv-org) | 1080p | 660 ms | — |
 | Arirang TV | Nessuna sorgente verificata | — | — | — | — |
 | CGTN | Nessuna sorgente verificata | — | — | — | — |
-| Euronews English | Verificato | FTA curate (iptv-org) | 720p | 433 ms | — |
-| France 24 Français | Verificato | FTA curate (iptv-org) | ?p | 112 ms | — |
-| DW English | Verificato | FreeCastHub public directory | 1080p | 817 ms | — |
+| Euronews English | Verificato | FTA curate (iptv-org) | 720p | 891 ms | — |
+| France 24 Français | Verificato | FTA curate (iptv-org) | ?p | 436 ms | — |
+| DW English | Verificato | FreeCastHub public directory | 1080p | 173 ms | — |
 | TVP Polonia | Nessuna sorgente verificata | — | — | — | — |
 | TVR International | Nessuna sorgente verificata | — | — | — | — |
-| Al Jazeera Arabic | Verificato | FreeCastHub public directory | 1080p | 461 ms | — |
-| Al Arabiya | Verificato | FTA curate (iptv-org) | 1080p | 393 ms | — |
+| Al Jazeera Arabic | Verificato | FreeCastHub public directory | 1080p | 484 ms | — |
+| Al Arabiya | Verificato | FTA curate (iptv-org) | 1080p | 363 ms | — |
 | BBC Arabic | Nessuna sorgente verificata | — | — | — | — |
 | Al Masriyah | Nessuna sorgente verificata | — | — | — | — |
 | Tunis 7 | Nessuna sorgente verificata | — | — | — | — |
 | Record TV Europa | Nessuna sorgente verificata | — | — | — | — |
 | PRIMASET 149 | Nessuna sorgente verificata | — | — | — | — |
 | GO-TV Channel | Nessuna sorgente verificata | — | — | — | — |
-| UNINETTUNO University TV | Verificato | iptv-org Italy | 720p | 1372 ms | — |
+| UNINETTUNO University TV | Verificato | iptv-org Italy | 720p | 542 ms | — |
 | Med TV | Nessuna sorgente verificata | — | — | — | — |
 | wedotv Movies | Nessuna sorgente verificata | — | — | — | — |
 | wedotv Big Stories | Nessuna sorgente verificata | — | — | — | — |
@@ -196,18 +196,18 @@ Playlist lette: 18 · Link testati: 175 · Canali verificati: 66/217
 | Sonlife Broadcasting Network | Nessuna sorgente verificata | — | — | — | — |
 | Daystar | Nessuna sorgente verificata | — | — | — | — |
 | The Word Network | Nessuna sorgente verificata | — | — | — | — |
-| Parole di Vita | Verificato | iptv-org Italy | 1080p | 1522 ms | — |
+| Parole di Vita | Verificato | iptv-org Italy | 1080p | 1183 ms | — |
 | EWTN English | Nessuna sorgente verificata | — | — | — | — |
 | Teleradiopace TV | Nessuna sorgente verificata | — | — | — | — |
-| BeJoy Kids | Verificato | iptv-org Italy | 1080p | 1470 ms | — |
+| BeJoy Kids | Verificato | iptv-org Italy | 1080p | 1162 ms | — |
 | Arte Investimenti | Nessuna sorgente verificata | — | — | — | — |
 | TLC Telecampione | Nessuna sorgente verificata | — | — | — | — |
 | Virgin Radio TV | Nessuna sorgente verificata | — | — | — | — |
 | Radio Italia Live | Nessuna sorgente verificata | — | — | — | — |
-| RTL 102.5 Caliente | Verificato | iptv-org Italy | 1080p | 1713 ms | — |
+| RTL 102.5 Caliente | Verificato | iptv-org Italy | 1080p | 1486 ms | — |
 | Telenorba | Nessuna sorgente verificata | — | — | — | — |
 | Teledue | Nessuna sorgente verificata | — | — | — | — |
-| Telerama | Verificato | Free-TV Italia | 576p | 1391 ms | — |
+| Telerama | Verificato | Free-TV Italia | 576p | 987 ms | — |
 | Tele Dehon | Nessuna sorgente verificata | — | — | — | — |
 | Canale 7 Puglia | Nessuna sorgente verificata | — | — | — | — |
 | Delta TV | Nessuna sorgente verificata | — | — | — | — |
