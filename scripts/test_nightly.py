@@ -29,7 +29,20 @@ class NightlyCheckTests(unittest.TestCase):
         self.assertEqual(nightly.js_slug('Rai 1 HD'), 'rai-1-hd')
         self.assertEqual(nightly.normalize('IT: Sky Sport Uno HD'), 'sky sport uno')
         self.assertEqual(nightly.normalize('Rai Uno'), 'rai 1')
-        self.assertEqual(nightly.normalize('Sky Sport 24'), 'sky sport 24')
+        self.assertEqual(nightly.normalize('Sky Sport 24'), 'sky sport24')
+
+    def test_sky_watchlist_has_real_names_without_phantom_streams(self):
+        channels, by_name = nightly.inventory()
+        self.assertIn('tvip_sky_sky_atlantic', channels)
+        self.assertIn('tvip_sky_sky_sport_f1', channels)
+        self.assertIn('tvip_sky_sky_cinema_uno', channels)
+        self.assertIn('tvip_sky_sky_uno_plus', channels)
+        self.assertEqual(channels['tvip_sky_sky_uno']['name'], 'Sky Uno')
+        self.assertEqual(channels['tvip_sky_sky_uno_plus']['name'], 'Sky Uno +')
+        self.assertEqual(channels['tvip_sky_sky_atlantic']['urls'], [])
+        self.assertIn('tvip_45_boing-plus', channels)
+        self.assertIn('tvip_61_club-tv', channels)
+        self.assertIn('tvip_63_il-sole-24-ore-tv', channels)
 
     def test_url_safety(self):
         for bad in ('file:///etc/passwd', 'http://127.0.0.1/a', 'http://192.168.1.10/live',
