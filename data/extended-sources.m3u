@@ -127,3 +127,24 @@ https://amg14891-amg14891c5-amgplt0020.playout.now3.amagi.tv/playlist.m3u8
 
 #EXTINF:-1 group-title="Sky News in chiaro",Sky News
 https://viamotionhsi.netplus.ch/live/eds/skynews/browser-HLS8/skynews.m3u8
+
+# Puglia DTT: direct free-to-air sources from broadcaster CDN / reviewed public directories.
+# Every entry must pass HLS manifest and video segment tests; a published link alone is not playable.
+#EXTINF:-1 tvg-chno="10" tvg-logo="https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/10-telenorba.png" group-title="Puglia",Telenorba
+https://live-telenorba.cdn.netrw.it/telenorba/hls/ccr/telenorba/master.m3u8
+
+#EXTINF:-1 tvg-chno="12" tvg-logo="https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/12-teledue.png" group-title="Puglia",Teledue
+https://stream12.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8
+
+#EXTINF:-1 tvg-chno="13" tvg-logo="https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/13-tgnorba24.png" group-title="Puglia",TG Norba 24
+https://live-telenorba.cdn.netrw.it/telenorba/hls/ccr/tgnorba/master.m3u8
+
+#EXTINF:-1 tvg-chno="18" tvg-logo="https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/18-telesveva.png" group-title="Puglia",Telesveva
+https://live2.telesveva.com/hls/svevahd.m3u8
+
+#EXTINF:-1 tvg-chno="19" tvg-logo="https://cdn.jsdelivr.net/gh/Tundrak/IPTV-Italia/logos/teledehon.png" group-title="Puglia",Tele Dehon
+https://5f22d76e220e1.streamlock.net/Teledehon/smil:Teledehon.smil/playlist.m3u8
+
+#EXTINF:-1 tvg-chno="155" tvg-logo="https://i.imgur.com/fqTLtvs.png" group-title="Puglia",Tele Sud Puglia
+https://64b16f23efbee.streamlock.net/telesud/telesud/playlist.m3u8
+
