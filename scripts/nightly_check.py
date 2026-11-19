@@ -26,6 +26,7 @@ import urllib.request
 ROOT = Path(__file__).resolve().parents[1]
 MAIN_M3U = ROOT / 'TV_Italia_Puglia_con_loghi.m3u'
 EXTRA_M3U = ROOT / 'data' / 'additional-channels.m3u'
+WATCHLIST = ROOT / 'data' / 'channel-watchlist.json'
 OUTPUT = ROOT / 'data' / 'verified-streams.json'
 
 # Explicitly selected public playlists. Do not accept arbitrary user-supplied URLs.
@@ -83,7 +84,8 @@ ALIASES = {
     'rai 3 puglia': 'rai 3 tgr puglia', 'tgr puglia': 'rai 3 tgr puglia',
     'tg norba24': 'tg norba 24', 'radionorba': 'radionorba tv',
     'gambero rosso tv': 'gambero rosso',
-    'tgcom 24': 'tgcom24',
+    'tgcom 24': 'tgcom24', 'sky sport 24': 'sky sport24',
+    'sky sport twenty four': 'sky sport24',
 }
 ATTR_RE = re.compile(r'([\w-]+)="([^"]*)"')
 HLS_RE = re.compile(r'^#EXT-X-(?:STREAM-INF|TARGETDURATION|MEDIA|INF|MAP)\b', re.I | re.M)
@@ -316,6 +318,25 @@ def inventory():
                 ids[cid]['urls'].append({'url': item['url'], 'source': 'Tundrak canali aggiuntivi'})
             by_name.setdefault(normalize(name), []).append(cid)
             existing_numbers.add(n)
+    # Sky, specialty TV and incomplete DTT channels may be monitored without
+    # pretending they have any working/authorized stream. Only the same strict
+    # source validator can later add a URL. Keep existing channel IDs unchanged.
+    if WATCHLIST.exists():
+        watch = json.loads(WATCHLIST.read_text(encoding='utf-8'))
+        if watch.get('schema') != 1 or not isinstance(watch.get('channels'), list):
+            raise ValueError('Invalid watched channels list')
+        for item in watch['channels']:
+            cid = str(item.get('id', ''))
+            name = str(item.get('name', '')).strip()
+            number = str(item.get('number', '')).strip()
+            group = str(item.get('group', 'Canali TV')).strip()
+            if not re.fullmatch(r'tvip_[a-z0-9_-]{3,90}', cid) or not name or len(name) > 100:
+                continue
+            if cid in ids:
+                continue
+            ids[cid] = {'id': cid, 'name': name, 'number': number, 'group': group,
+                        'urls': [], 'results': []}
+            by_name.setdefault(normalize(name), []).append(cid)
     for name, code in EXTRA_CHANNELS:
         cid = 'tvip_sky_' + code.replace('-', '_')
         ids[cid] = {'id': cid, 'name': name, 'number': '', 'urls': [], 'results': []}
@@ -564,7 +585,8 @@ def main():
         # Keep inconclusive geographic failures separate; never label them as verified.
         pending = regional_candidates(ch['name'], ch['results'], fresh_urls)
         snapshot['channels'][cid] = {
-            'name': ch['name'], 'verified': entries, 'regional_candidates': pending,
+            'name': ch['name'], 'number': ch.get('number',''), 'group': ch.get('group','Canali TV'),
+            'verified': entries, 'regional_candidates': pending,
             'tested': len(ch['results']), 'visible': bool(entries),
             'checked_at': stamped,
             'failures': dict(Counter(x.get('reason') or 'Unknown' for x in ch['results'] if not x['ok'])),
@@ -575,7 +597,8 @@ def main():
         'sources_verified': verified_count, 'links_tested': len(jobs),
         'regional_recheck_channels': sum(bool(x['regional_candidates']) and not x['visible'] for x in snapshot['channels'].values()),
         'playlists_loaded': sum(p['read'] for p in playlist_status),
-        'additional_channels': len([n for n in additional_exact_urls() if n not in {normalize('Sky Uno')}]),
+        'additional_channels': len(additional_exact_urls()),
+        'watchlist_channels': sum(cid.startswith('tvip_sky_') or c.get('group')=='Digitale terrestre' for cid,c in channels.items()),
         'failure_reasons': dict(Counter(x.get('reason') or 'Unknown' for x in results if not x['ok'])),
     }
     # The first run must publish a truthful snapshot even if no links work.
