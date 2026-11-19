@@ -122,6 +122,8 @@ def extract(raw: bytes, wanted: dict, now: dt.datetime):
         if not title:
             continue
         title = re.sub(r'\s+', ' ', title)[:110]
+        if norm(title) in {'no data', 'n a', 'tba', 'no information', 'unknown', 'nessun dato', 'programma non disponibile'}:
+            continue
         item = {'start': iso(start), 'stop': iso(stop), 'title': title}
         subtitle = re.sub(r'\s+', ' ', pr.findtext('sub-title') or '').strip()[:85]
         if subtitle:
