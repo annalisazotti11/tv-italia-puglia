@@ -104,7 +104,16 @@ APPROVED_STREAM_HOSTS = {
     'antenna sud': {'live-antennasud.cdn.netrw.it'},
     'telebari': {'w1.mediastreaming.it'},
     'radio kiss kiss tv': {'kk.fluid.stream'},
+    'nove': {'streaming.aurora.enhanced.live'},
+    'real time': {'streaming.aurora.enhanced.live'},
+    'food network': {'streaming.aurora.enhanced.live'},
+    'dmax': {'streaming.aurora.enhanced.live'},
+    'hgtv': {'streaming.aurora.enhanced.live'},
+    'rtl 102 5': {'dd782ed59e2a4e86aabf6fc508674b59.msvdn.net'},
+    'deejay tv': {'4c4b867c89244861ac216426883d1ad0.msvdn.net'},
 }
+
+DISCOVERY_ROUTES = {'nove':'NOVE','real time':'REALTIME','food network':'FOODNETWORK','dmax':'DMAX','hgtv':'HGTV'}
 
 # Shared streaming providers must also match this channel's own route.
 APPROVED_STREAM_PATH_PREFIXES = {
@@ -113,6 +122,8 @@ APPROVED_STREAM_PATH_PREFIXES = {
     'antenna sud': ('/antennasud/',),
     'telebari': ('/telebari/',),
     'radio kiss kiss tv': ('/KKMulti/smil:KissKissTV.smil/',),
+    'rtl 102 5': ('/live/S97044836/',),
+    'deejay tv': ('/live/S85984808/',),
 }
 
 
@@ -177,6 +188,8 @@ def permitted_stream_url(name: str, url: str) -> bool:
     u = urllib.parse.urlsplit(url)
     canonical = normalize(name)
     prefixes = APPROVED_STREAM_PATH_PREFIXES.get(canonical)
+    if canonical in DISCOVERY_ROUTES and not re.fullmatch(r'/live/mpc/[^/]+/out/v1/IT_SIMULCAST/' + DISCOVERY_ROUTES[canonical] + r'/CMAF/[^/]+\.m3u8', u.path):
+        return False
     return (u.scheme == 'https' and not u.query and not u.fragment
             and u.hostname in APPROVED_STREAM_HOSTS.get(canonical, set())
             and (not prefixes or u.path.startswith(prefixes)))
