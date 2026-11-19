@@ -121,6 +121,24 @@ class NightlyCheckTests(unittest.TestCase):
         self.assertEqual(nightly.regional_candidates('Rai 1 HD', rows, {source}), [])
         self.assertEqual(nightly.regional_candidates('Sky Uno', rows, set()), [])
 
+    def test_signed_sky_fta_paths_and_expiry(self):
+        import time
+        now = int(time.time())
+        token = f"st={now-60}~exp={now+3600}~acl=/*~hmac={'a'*64}"
+        url = ('https://hlslive-web-gcdn-skycdn-it.akamaized.net'
+               '/TACT/12221/web/master.m3u8?hdnts=' + token)
+        self.assertTrue(nightly.permitted_stream_url('Sky TG24', url))
+        self.assertFalse(nightly.permitted_stream_url('Sky Uno', url))
+        self.assertFalse(nightly.permitted_stream_url('TV8', url))
+        self.assertFalse(nightly.permitted_stream_url(
+            'Sky TG24', url.replace('/12221/', '/11223/')))
+        self.assertFalse(nightly.permitted_stream_url(
+            'Sky TG24', url.replace('hdnts=', 'api_key=')))
+        expired = f"st={now-7200}~exp={now-3600}~acl=/*~hmac={'a'*64}"
+        self.assertFalse(nightly.permitted_stream_url(
+            'Sky TG24', url.replace(token, expired)))
+        self.assertEqual(nightly.normalize('Cielo TV'), 'cielo')
+
     def test_playlist_matching_is_exact(self):
         with tempfile.TemporaryDirectory() as tmp:
             m3u = Path(tmp) / 'base.m3u'
