@@ -253,8 +253,8 @@ async function regionalChecks(request,all,snap,onlyChannelId=null){
     const options=all.filter(c=>(!onlyChannelId||c.id===onlyChannelId)&&!eligible(snap,c.id).length&&Array.isArray(snap.channels[c.id]?.regional_candidates)&&snap.channels[c.id].regional_candidates.length)
       .map(c=>({channel:c,source:snap.channels[c.id].regional_candidates[0]}))
       .filter(x=>safeUrl(x.source.url)&&x.source.url.endsWith('.m3u8'))
-      .sort((a,b)=>(Number(b.channel.number)==='103'?2:groupType(b.channel)==='puglia'?1:0)
-        -(Number(a.channel.number)==='103'?2:groupType(a.channel)==='puglia'?1:0)
+      .sort((a,b)=>(Number(b.channel.number)===103?2:groupType(b.channel)==='puglia'?1:0)
+        -(Number(a.channel.number)===103?2:groupType(a.channel)==='puglia'?1:0)
         ||order(a.channel)-order(b.channel))
       .slice(0,MAX_REGIONAL_CHANNELS);
     const checks=await Promise.all(options.map(async x=>({x,result:await regionPlayable(x.source)})));
