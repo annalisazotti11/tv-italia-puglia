@@ -38,7 +38,7 @@ assert.equal(res.status,200);
 assert.deepEqual((await res.json()).metas.map(x=>x.name),['TV2000'],'Extra verified channel visible; original IDs preserved');
 res=await worker.fetch(request(catalog,'IT'));
 assert.equal(res.status,200);
-assert.deepEqual((await res.json()).metas.map(x=>x.name),['TV2000','Rai 1 HD'],'Include one verified extra and a successfully checked Italian stream');
+assert.deepEqual((await res.json()).metas.map(x=>x.name),['Rai 1 HD','TV2000'],'Preserve original channel order, then append verified extras');
 assert.equal(probeCount,1);
 res=await worker.fetch(request('/debug/italia.json','IT'));
 let state=await res.json();
