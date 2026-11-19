@@ -40,6 +40,7 @@ PUBLIC_PLAYLISTS = [
     ('IPTV Italia alternativa', 'https://raw.githubusercontent.com/giovanni69/iptvita/main/iptvitalia.m3u'),
     ('FreeCastHub public directory', 'https://raw.githubusercontent.com/freecasthub/public-iptv/main/playlist.m3u'),
     ('GioeleGregorini TV Italia', 'https://raw.githubusercontent.com/GioeleGregorini/IPTV_ITALIA/main/playlist.m3u8'),
+    ('TvIt public Italian TV', 'https://tvit.leicaflorianrobert.dev/iptv/list.m3u'),
 ]
 # Additional published, unauthenticated entry for an existing channel only.
 # Keep the original M3U unchanged and use the normal HTTPS request.
@@ -216,6 +217,12 @@ def permitted_stream_url(name: str, url: str) -> bool:
         return (set(q) <= {'cont', 'output', 'forceUserAgent'} and
                 q.get('cont') == [RAI_RELINKER_CODES[canonical]] and q.get('output') == ['7'] and
                 all(len(v) == 1 and len(v[0]) < 120 for v in q.values()))
+    # Public TvIt playlist relays/relinks free-to-air channels. Require
+    # that the URL channel slug exactly matches the selected channel.
+    if u.scheme == 'https' and u.hostname == 'tvit.leicaflorianrobert.dev' and not u.query and not u.fragment:
+        m = re.fullmatch(r'/([a-z0-9-]+)/([a-z0-9-]+)/stream\\.m3u8', u.path)
+        if m and m.group(2) == canonical.replace(' ', '-'):
+            return True
     prefixes = APPROVED_STREAM_PATH_PREFIXES.get(canonical)
     if canonical in DISCOVERY_ROUTES and not re.fullmatch(r'/live/mpc/[^/]+/out/v1/IT_SIMULCAST/' + DISCOVERY_ROUTES[canonical] + r'/CMAF/[^/]+\.m3u8', u.path):
         return False
