@@ -1,0 +1,475 @@
+{
+  "schema": 1,
+  "description": "Canali aggiuntivi da monitorare. Non creano locandine finché non si trova una diretta valida.",
+  "channels": [
+    {
+      "id": "tvip_sky_sky_uno",
+      "name": "Sky Uno +",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_atlantic",
+      "name": "Sky Atlantic",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_serie",
+      "name": "Sky Serie",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_investigation",
+      "name": "Sky Investigation",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_collection",
+      "name": "Sky Collection",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_crime",
+      "name": "Sky Crime",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_voices",
+      "name": "Sky Voices",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_nature",
+      "name": "Sky Nature",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_arte",
+      "name": "Sky Arte",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_adventure",
+      "name": "Sky Adventure",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_classica",
+      "name": "Sky Classica",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_meteo24",
+      "name": "Sky Meteo24",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_tg24_primo_piano",
+      "name": "Sky TG24 Primo Piano",
+      "number": "",
+      "group": "Intrattenimento Sky",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport24",
+      "name": "Sky Sport24",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_calcio",
+      "name": "Sky Sport Calcio",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_tennis",
+      "name": "Sky Sport Tennis",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_arena",
+      "name": "Sky Sport Arena",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_basket",
+      "name": "Sky Sport Basket",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_max",
+      "name": "Sky Sport Max",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_f1",
+      "name": "Sky Sport F1",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_motogp",
+      "name": "Sky Sport MotoGP",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_golf",
+      "name": "Sky Sport Golf",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_legend",
+      "name": "Sky Sport Legend",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_mix",
+      "name": "Sky Sport Mix",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_4k",
+      "name": "Sky Sport 4K",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_info",
+      "name": "Sky Sport Info",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_251",
+      "name": "Sky Sport 251",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_252",
+      "name": "Sky Sport 252",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_253",
+      "name": "Sky Sport 253",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_254",
+      "name": "Sky Sport 254",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_255",
+      "name": "Sky Sport 255",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_256",
+      "name": "Sky Sport 256",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_257",
+      "name": "Sky Sport 257",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_258",
+      "name": "Sky Sport 258",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_sport_259",
+      "name": "Sky Sport 259",
+      "number": "",
+      "group": "Sky Sport",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_cinema_uno",
+      "name": "Sky Cinema Uno",
+      "number": "",
+      "group": "Sky Cinema",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_cinema_stories",
+      "name": "Sky Cinema Stories",
+      "number": "",
+      "group": "Sky Cinema",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_cinema_collection",
+      "name": "Sky Cinema Collection",
+      "number": "",
+      "group": "Sky Cinema",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_cinema_suspense",
+      "name": "Sky Cinema Suspense",
+      "number": "",
+      "group": "Sky Cinema",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_sky_cinema_uno_24",
+      "name": "Sky Cinema Uno +24",
+      "number": "",
+      "group": "Sky Cinema",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_comedy_central",
+      "name": "Comedy Central",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_mtv",
+      "name": "MTV",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_cnn_international",
+      "name": "CNN International",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_nickelodeon",
+      "name": "Nickelodeon",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_nick_jr",
+      "name": "Nick Jr.",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_disney_junior",
+      "name": "Disney Junior",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_deakids",
+      "name": "DeaKids",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_deajunior",
+      "name": "DeaJunior",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_cartoon_network",
+      "name": "Cartoon Network",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_boomerang",
+      "name": "Boomerang",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_eurosport_1",
+      "name": "Eurosport 1",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_eurosport_2",
+      "name": "Eurosport 2",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_class_cnbc",
+      "name": "Class CNBC",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_milan_tv",
+      "name": "Milan TV",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_inter_tv",
+      "name": "Inter TV",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_dazn_1",
+      "name": "DAZN 1",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_dazn_2",
+      "name": "DAZN 2",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_bike",
+      "name": "Bike",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_horse_tv",
+      "name": "Horse TV",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_caccia_e_pesca",
+      "name": "Caccia e Pesca",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_sky_discovery_italy",
+      "name": "Discovery Italy",
+      "number": "",
+      "group": "Altri canali pay TV",
+      "premium": true
+    },
+    {
+      "id": "tvip_45_boing-plus",
+      "name": "Boing Plus",
+      "number": "45",
+      "group": "Digitale terrestre",
+      "premium": false
+    },
+    {
+      "id": "tvip_53_italia-53",
+      "name": "Italia 53",
+      "number": "53",
+      "group": "Digitale terrestre",
+      "premium": false
+    },
+    {
+      "id": "tvip_61_club-tv",
+      "name": "CLUB TV",
+      "number": "61",
+      "group": "Digitale terrestre",
+      "premium": false
+    },
+    {
+      "id": "tvip_63_il-sole-24-ore-tv",
+      "name": "Il Sole 24 ORE TV",
+      "number": "63",
+      "group": "Digitale terrestre",
+      "premium": false
+    },
+    {
+      "id": "tvip_57_italiana",
+      "name": "Italiana",
+      "number": "57",
+      "group": "Digitale terrestre",
+      "premium": false
+    },
+    {
+      "id": "tvip_59_discovery-turbo",
+      "name": "Discovery Turbo",
+      "number": "59",
+      "group": "Digitale terrestre",
+      "premium": false
+    }
+  ]
+}
