@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import concurrent.futures
 from collections import Counter
+from functools import lru_cache
 import datetime as dt
 import ipaddress
 import json
@@ -24,6 +25,7 @@ import urllib.request
 
 ROOT = Path(__file__).resolve().parents[1]
 MAIN_M3U = ROOT / 'TV_Italia_Puglia_con_loghi.m3u'
+EXTRA_M3U = ROOT / 'data' / 'additional-channels.m3u'
 OUTPUT = ROOT / 'data' / 'verified-streams.json'
 
 # Explicitly selected public playlists. Do not accept arbitrary user-supplied URLs.
@@ -211,6 +213,10 @@ def permitted_stream_url(name: str, url: str) -> bool:
         return False
     u = urllib.parse.urlsplit(url)
     canonical = normalize(name)
+    # Explicit, fixed-URL sources for additional Italian free-to-air channels.
+    # Never trust a new hostname just because it appears in a public playlist.
+    if url in additional_exact_urls().get(canonical, set()):
+        return urllib.parse.urlsplit(url).scheme == 'https'
     # Rai's own public HTTPS relinker is channel-scoped, with no arbitrary query keys.
     if canonical in RAI_RELINKER_CODES and u.scheme == 'https' and u.hostname == 'mediapolis.rai.it' and u.path == '/relinker/relinkerServlet.htm':
         q = urllib.parse.parse_qs(u.query, keep_blank_values=True)
@@ -267,6 +273,18 @@ def parse_m3u(text: str):
             entry = None
 
 
+@lru_cache(maxsize=1)
+def additional_exact_urls():
+    """Static source allowlist from our reviewed extra-channel M3U."""
+    approved = {}
+    if EXTRA_M3U.exists():
+        for item in parse_m3u(EXTRA_M3U.read_text(encoding='utf-8-sig')):
+            url = item['url']
+            if safe_url(url) and urllib.parse.urlsplit(url).scheme == 'https':
+                approved.setdefault(normalize(item['name']), set()).add(url)
+    return approved
+
+
 def inventory():
     contents = MAIN_M3U.read_text(encoding='utf-8-sig')
     if not contents.startswith('#EXTM3U'):
@@ -281,6 +299,23 @@ def inventory():
         if permitted_stream_url(name, item['url']):
             ids[cid]['urls'].append({'url': item['url'], 'source': 'Playlist originale'})
         by_name.setdefault(normalize(name), []).append(cid)
+    # Add the extra public channels after the original ones. The original
+    # IDs, logos and ordering are untouched; no duplicate LCN is introduced.
+    existing_numbers = {ch['number'] for ch in ids.values() if ch['number']}
+    if EXTRA_M3U.exists():
+        for item in parse_m3u(EXTRA_M3U.read_text(encoding='utf-8-sig')):
+            name = item['name']
+            n = item['attrs'].get('tvg-chno', '').strip()
+            if not n or n in existing_numbers:
+                continue
+            cid = 'tvip_' + n + '_' + js_slug(name)
+            if cid in ids:
+                continue
+            ids[cid] = {'id': cid, 'name': name, 'number': n, 'urls': [], 'results': []}
+            if permitted_stream_url(name, item['url']):
+                ids[cid]['urls'].append({'url': item['url'], 'source': 'Tundrak canali aggiuntivi'})
+            by_name.setdefault(normalize(name), []).append(cid)
+            existing_numbers.add(n)
     for name, code in EXTRA_CHANNELS:
         cid = 'tvip_sky_' + code.replace('-', '_')
         ids[cid] = {'id': cid, 'name': name, 'number': '', 'urls': [], 'results': []}
@@ -540,6 +575,7 @@ def main():
         'sources_verified': verified_count, 'links_tested': len(jobs),
         'regional_recheck_channels': sum(bool(x['regional_candidates']) and not x['visible'] for x in snapshot['channels'].values()),
         'playlists_loaded': sum(p['read'] for p in playlist_status),
+        'additional_channels': len([n for n in additional_exact_urls() if n not in {normalize('Sky Uno')}]),
         'failure_reasons': dict(Counter(x.get('reason') or 'Unknown' for x in results if not x['ok'])),
     }
     # The first run must publish a truthful snapshot even if no links work.
