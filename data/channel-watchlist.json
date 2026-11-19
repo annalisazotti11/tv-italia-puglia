@@ -470,6 +470,522 @@
       "number": "59",
       "group": "Digitale terrestre",
       "premium": false
+    },
+    {
+      "id": "tvip_sat_sky_news",
+      "name": "Sky News",
+      "number": "",
+      "group": "Sky, sport e altri canali",
+      "premium": true,
+      "sky_lcn": "522"
+    },
+    {
+      "id": "tvip_sat_sky_news_arabia",
+      "name": "Sky News Arabia",
+      "number": "",
+      "group": "Sky, sport e altri canali",
+      "premium": true,
+      "sky_lcn": "563"
+    },
+    {
+      "id": "tvip_sat_equtv",
+      "name": "EQUtv",
+      "number": "",
+      "group": "Sky, sport e altri canali",
+      "premium": false,
+      "sky_lcn": "220"
+    },
+    {
+      "id": "tvip_sat_aci_sport_tv",
+      "name": "ACI Sport TV",
+      "number": "",
+      "group": "Sky, sport e altri canali",
+      "premium": false,
+      "sky_lcn": "228"
+    },
+    {
+      "id": "tvip_sat_class_tv_moda",
+      "name": "Class TV Moda",
+      "number": "",
+      "group": "Sky, sport e altri canali",
+      "premium": false,
+      "sky_lcn": "180"
+    },
+    {
+      "id": "tvip_sat_vatican_media_europa",
+      "name": "Vatican Media Europa",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "515"
+    },
+    {
+      "id": "tvip_sat_trm_h24",
+      "name": "TRM h24",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "519"
+    },
+    {
+      "id": "tvip_sat_euronews_italiano",
+      "name": "Euronews Italiano",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "521"
+    },
+    {
+      "id": "tvip_sat_camera_dei_deputati",
+      "name": "Camera dei Deputati",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "524"
+    },
+    {
+      "id": "tvip_sat_senato_tv",
+      "name": "Senato TV",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "525"
+    },
+    {
+      "id": "tvip_sat_cnbc",
+      "name": "CNBC",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "528"
+    },
+    {
+      "id": "tvip_sat_bloomberg_television",
+      "name": "Bloomberg Television",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "529"
+    },
+    {
+      "id": "tvip_sat_france_24_english",
+      "name": "France 24 English",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "531"
+    },
+    {
+      "id": "tvip_sat_al_jazeera_english",
+      "name": "Al Jazeera English",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "532"
+    },
+    {
+      "id": "tvip_sat_nhk_world_japan",
+      "name": "NHK World Japan",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "533"
+    },
+    {
+      "id": "tvip_sat_arirang_tv",
+      "name": "Arirang TV",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "534"
+    },
+    {
+      "id": "tvip_sat_cgtn",
+      "name": "CGTN",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "535"
+    },
+    {
+      "id": "tvip_sat_euronews_english",
+      "name": "Euronews English",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "538"
+    },
+    {
+      "id": "tvip_sat_france_24_francais",
+      "name": "France 24 Français",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "541"
+    },
+    {
+      "id": "tvip_sat_dw_english",
+      "name": "DW English",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "543"
+    },
+    {
+      "id": "tvip_sat_tvp_polonia",
+      "name": "TVP Polonia",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "552"
+    },
+    {
+      "id": "tvip_sat_tvr_international",
+      "name": "TVR International",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "558"
+    },
+    {
+      "id": "tvip_sat_al_jazeera_arabic",
+      "name": "Al Jazeera Arabic",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "560"
+    },
+    {
+      "id": "tvip_sat_al_arabiya",
+      "name": "Al Arabiya",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "561"
+    },
+    {
+      "id": "tvip_sat_bbc_arabic",
+      "name": "BBC Arabic",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "562"
+    },
+    {
+      "id": "tvip_sat_al_masriyah",
+      "name": "Al Masriyah",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "568"
+    },
+    {
+      "id": "tvip_sat_tunis_7",
+      "name": "Tunis 7",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "569"
+    },
+    {
+      "id": "tvip_sat_record_tv_europa",
+      "name": "Record TV Europa",
+      "number": "",
+      "group": "News e internazionali",
+      "premium": false,
+      "sky_lcn": "571"
+    },
+    {
+      "id": "tvip_sat_primaset_149",
+      "name": "PRIMASET 149",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "808"
+    },
+    {
+      "id": "tvip_sat_go_tv_channel",
+      "name": "GO-TV Channel",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "809"
+    },
+    {
+      "id": "tvip_sat_uninettuno_university_tv",
+      "name": "UNINETTUNO University TV",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "812"
+    },
+    {
+      "id": "tvip_sat_med_tv",
+      "name": "Med TV",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "813"
+    },
+    {
+      "id": "tvip_sat_wedotv_movies",
+      "name": "wedotv Movies",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "814"
+    },
+    {
+      "id": "tvip_sat_wedotv_big_stories",
+      "name": "wedotv Big Stories",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "815"
+    },
+    {
+      "id": "tvip_sat_videolina",
+      "name": "Videolina",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "819"
+    },
+    {
+      "id": "tvip_sat_canale_italia",
+      "name": "Canale Italia",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "821"
+    },
+    {
+      "id": "tvip_sat_telesardegna",
+      "name": "Telesardegna",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "822"
+    },
+    {
+      "id": "tvip_sat_marcopolo",
+      "name": "Marcopolo",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "823"
+    },
+    {
+      "id": "tvip_sat_telecupole",
+      "name": "Telecupole",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "824"
+    },
+    {
+      "id": "tvip_sat_people_tv_rete_7",
+      "name": "People TV - Rete 7",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "825"
+    },
+    {
+      "id": "tvip_sat_canzoni_napoletane",
+      "name": "Canzoni Napoletane",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "827"
+    },
+    {
+      "id": "tvip_sat_tva_vicenza",
+      "name": "TVA Vicenza",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "832"
+    },
+    {
+      "id": "tvip_sat_sonlife_broadcasting_network",
+      "name": "Sonlife Broadcasting Network",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "850"
+    },
+    {
+      "id": "tvip_sat_daystar",
+      "name": "Daystar",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "851"
+    },
+    {
+      "id": "tvip_sat_the_word_network",
+      "name": "The Word Network",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "853"
+    },
+    {
+      "id": "tvip_sat_parole_di_vita",
+      "name": "Parole di Vita",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "854"
+    },
+    {
+      "id": "tvip_sat_ewtn_english",
+      "name": "EWTN English",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "855"
+    },
+    {
+      "id": "tvip_sat_teleradiopace_tv",
+      "name": "Teleradiopace TV",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "858"
+    },
+    {
+      "id": "tvip_sat_bejoy_kids",
+      "name": "BeJoy Kids",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "860"
+    },
+    {
+      "id": "tvip_sat_arte_investimenti",
+      "name": "Arte Investimenti",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "863"
+    },
+    {
+      "id": "tvip_sat_tlc_telecampione",
+      "name": "TLC Telecampione",
+      "number": "",
+      "group": "Satellite e emittenti tematiche",
+      "premium": false,
+      "sky_lcn": "867"
+    },
+    {
+      "id": "tvip_sat_virgin_radio_tv",
+      "name": "Virgin Radio TV",
+      "number": "",
+      "group": "Musica e radiovisione",
+      "premium": false,
+      "sky_lcn": "717"
+    },
+    {
+      "id": "tvip_sat_radio_italia_live",
+      "name": "Radio Italia Live",
+      "number": "",
+      "group": "Musica e radiovisione",
+      "premium": false,
+      "sky_lcn": "726"
+    },
+    {
+      "id": "tvip_sat_rtl_102_5_caliente",
+      "name": "RTL 102.5 Caliente",
+      "number": "",
+      "group": "Musica e radiovisione",
+      "premium": false,
+      "sky_lcn": "737"
+    },
+    {
+      "id": "tvip_puglia_telenorba",
+      "name": "Telenorba",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "10"
+    },
+    {
+      "id": "tvip_puglia_teledue",
+      "name": "Teledue",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "12"
+    },
+    {
+      "id": "tvip_puglia_telerama",
+      "name": "Telerama",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "15"
+    },
+    {
+      "id": "tvip_puglia_tele_dehon",
+      "name": "Tele Dehon",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "19"
+    },
+    {
+      "id": "tvip_puglia_canale_7_puglia",
+      "name": "Canale 7 Puglia",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "78"
+    },
+    {
+      "id": "tvip_puglia_delta_tv",
+      "name": "Delta TV",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false
+    },
+    {
+      "id": "tvip_puglia_teleregione_color",
+      "name": "Teleregione Color",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "77"
+    },
+    {
+      "id": "tvip_puglia_antenna_sud_extra",
+      "name": "Antenna Sud Extra",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false
+    },
+    {
+      "id": "tvip_puglia_7_gold_puglia",
+      "name": "7 Gold Puglia",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false
+    },
+    {
+      "id": "tvip_puglia_btv",
+      "name": "BTV",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "85"
+    },
+    {
+      "id": "tvip_puglia_la_nuova_tv",
+      "name": "La Nuova TV",
+      "number": "",
+      "group": "TV locali Puglia",
+      "premium": false
     }
   ]
 }
