@@ -44,11 +44,34 @@ jobs:
         run: python scripts/nightly_check.py
       - name: Pubblica l'elenco aggiornato
         run: |
+          set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/verified-streams.json data/stream-report.md
-          if ! git diff --cached --quiet; then
+          cp data/verified-streams.json /tmp/verified-streams.json
+          cp data/stream-report.md /tmp/stream-report.md
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git reset --hard origin/main
+            # A slower run must not replace the output of a later scan.
+            if [ -f data/verified-streams.json ]; then
+              if python -c "import json,sys; old=json.load(open('data/verified-streams.json')); new=json.load(open('/tmp/verified-streams.json')); sys.exit(0 if old.get('generated_at','') > new.get('generated_at','') else 1)"; then
+                echo 'A newer verified snapshot already exists; keeping it.'
+                exit 0
+              fi
+            fi
+            cp /tmp/verified-streams.json data/verified-streams.json
+            cp /tmp/stream-report.md data/stream-report.md
+            git add data/verified-streams.json data/stream-report.md
+            if git diff --cached --quiet; then
+              echo 'No changes to publish.'
+              exit 0
+            fi
             git commit -m 'chore(tv): aggiorna fonti verificate'
-            git pull --rebase origin main
-            git push
-          fi
+            if git push origin HEAD:main; then
+              echo 'Verified snapshot published.'
+              exit 0
+            fi
+            sleep 2
+          done
+          echo 'Publishing failed after four attempts.'
+          exit 1
