@@ -1,0 +1,60 @@
+#EXTM3U
+# TV Italia + Puglia: collegamenti HLS gratuiti da emittenti/CDN individuati in directory pubbliche (iptv-org).
+# Fonti da testare durante la scansione notturna, non considerate verificate fino alla prova di manifest e segmenti.
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",ACI Sport TV
+https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",Camera dei Deputati
+https://video-ar.radioradicale.it/diretta/camera2/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",UNINETTUNO University TV
+https://stream6-rai-it.akamaized.net/live/uninettuno/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",Parole di Vita
+https://stream.paroledivita.org/paroledivita.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",BeJoy Kids
+https://stream.paroledivita.org/bejoy.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",RTL 102.5 Caliente
+https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S8448465/zTYa1Z5Op9ue/playlist_video.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",Telerama
+https://58d921499d3d3.streamlock.net/TeleRama/livestream/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",La Nuova TV
+https://5dcabf026b188.streamlock.net/lanuovatvbas/livestream/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",Euronews Italiano
+https://cdn-euronews.akamaized.net/live/eds/euronews-it/25085/index.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",Euronews English
+https://cdn-euronews.akamaized.net/live/eds/euronews-en/25002/index.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",France 24 English
+https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",NHK World Japan
+https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",Vatican Media Europa
+https://r.eu.cdn-redge.media/livehls/oeu/mt/live/vatican_media_europa/live.livx/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",Al Jazeera English
+https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",Al Jazeera Arabic
+https://live-hls-web-aja.getaj.net/AJA/index.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",Sky News Arabia
+https://live-stream.skynewsarabia.com/c-horizontal-channel/horizontal-stream/index.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",DW English
+https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/master.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",Bloomberg Television
+https://bloomberg.com/media-manifest/streams/eu.m3u8
+
+#EXTINF:-1 group-title="Sorgenti pubbliche curate",CNBC
+https://r.eu.cdn-redge.media/livehls/oeu/mt/live/cnbc_europe/live.livx/playlist.m3u8
