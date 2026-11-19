@@ -518,6 +518,43 @@ def main():
     print('Probe failure reasons: ' + json.dumps(snapshot['summary']['failure_reasons']), flush=True)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
+    # Human-readable nightly report: keep source ranking inspectable without
+    # exposing stream URLs, tokens or diagnostic payloads.
+    report_lines = [
+        '# TV Italia + Puglia — controllo notturno',
+        '',
+        'Generato: ' + stamped + ' UTC',
+        '',
+        'Playlist lette: ' + str(snapshot['summary']['playlists_loaded']) +
+        ' · Link testati: ' + str(snapshot['summary']['links_tested']) +
+        ' · Canali verificati: ' + str(snapshot['summary']['visible']) +
+        '/' + str(snapshot['summary']['channels']),
+        '',
+        '**Attenzione:** un errore HTTP 403 o un timeout dal server GitHub non dimostra '
+        'che la diretta non funzioni dalla TV in Italia.',
+        '',
+        '| Canale | Stato | Sorgente migliore | Risoluzione | Latenza test | Riserve |',
+        '|---|---|---|---:|---:|---|',
+    ]
+    for cid, channel in channels.items():
+        entry = snapshot['channels'][cid]
+        verified = entry['verified']
+        esc = lambda value: str(value).replace('|', '\\|').replace('\\n', ' ')
+        if verified:
+            best = verified[0]
+            backup = ', '.join(esc(x['source']) for x in verified[1:]) or '—'
+            status = 'Riserva precedente' if best.get('stale') else 'Verificato'
+            row = [esc(channel['name']), status, esc(best['source']),
+                   str(best.get('height') or '?') + 'p',
+                   str(best.get('latency_ms') or '?') + ' ms', backup]
+        else:
+            blocked = any(k in entry.get('failures', {}) for k in ('HTTP 403','HTTP 429','TimeoutError','URLError'))
+            row = [esc(channel['name']), 'Non verificato' if blocked else 'Nessuna sorgente verificata',
+                   '—', '—', '—', '—']
+        report_lines.append('| ' + ' | '.join(row) + ' |')
+    report = OUTPUT.parent / 'stream-report.md'
+    report.write_text('\\n'.join(report_lines) + '\\n', encoding='utf-8')
+    print(f'Wrote {report}', flush=True)
     print(f'Wrote {OUTPUT}: {json.dumps(snapshot["summary"], ensure_ascii=False)}')
 
 
