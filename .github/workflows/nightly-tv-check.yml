@@ -13,6 +13,9 @@ on:
       - 'scripts/test_worker_v389.mjs'
       - 'cloudflare/worker-tv-v3.8.9.js'
       - 'cloudflare/worker-tv-v3.9.0.js'
+      - 'cloudflare/worker-tv-v3.9.1.js'
+      - 'scripts/test_worker_v391.mjs'
+      - 'data/channel-watchlist.json'
       - 'scripts/test_worker_v390.mjs'
       - 'data/additional-channels.m3u'
       - '.github/workflows/nightly-tv-check.yml'
@@ -45,6 +48,8 @@ jobs:
           node scripts/test_worker_v389.mjs
           node --check cloudflare/worker-tv-v3.9.0.js
           node scripts/test_worker_v390.mjs
+          node --check cloudflare/worker-tv-v3.9.1.js
+          node scripts/test_worker_v391.mjs
       - name: Test playlist e stream
         run: python scripts/nightly_check.py
       - name: Pubblica l'elenco aggiornato
