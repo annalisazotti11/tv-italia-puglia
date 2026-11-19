@@ -45,6 +45,10 @@ PUBLIC_PLAYLISTS = [
     ('FreeCastHub public directory', 'https://raw.githubusercontent.com/freecasthub/public-iptv/main/playlist.m3u'),
     ('GioeleGregorini TV Italia', 'https://raw.githubusercontent.com/GioeleGregorini/IPTV_ITALIA/main/playlist.m3u8'),
     ('TvIt public Italian TV', 'https://tvit.leicaflorianrobert.dev/iptv/list.m3u'),
+    ('dearbulut Italy health index', 'https://dearbulut.github.io/iptv/playlists/country/it.m3u'),
+    ('DuckKota Italy health index', 'https://DuckKota.github.io/iptv/playlists/country/it.m3u'),
+    ('peppenamir IPTV Italia', 'https://raw.githubusercontent.com/peppenamir/iptv_italia/main/lista.m3u'),
+    ('mauro-midolo IPTV Italia', 'https://raw.githubusercontent.com/mauro-midolo/IPTV-Italia/main/iptvitalia.m3u'),
 ]
 # Additional published, unauthenticated entry for an existing channel only.
 # Keep the original M3U unchanged and use the normal HTTPS request.
