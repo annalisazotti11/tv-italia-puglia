@@ -619,9 +619,23 @@ def main():
     snapshot = {'schema': 1, 'generated_at': stamped, 'playlists': playlist_status, 'channels': {}}
     verified_count = 0
     for cid, ch in channels.items():
+        # Reward streams that survived multiple nightly scans. A good HD feed
+        # that stays healthy is preferred over a briefly faster, unstable link.
+        history = {x.get('url'): x for x in previous.get(cid, {}).get('verified', [])
+                   if isinstance(x, dict) and x.get('url')}
+        for result in ch['results']:
+            if not result['ok']:
+                continue
+            old = history.get(result['url'], {})
+            runs = old.get('success_runs', 0)
+            runs = runs if isinstance(runs, int) and runs >= 0 else 0
+            result['success_runs'] = min(runs + 1, 30)
+            reliability_bonus = min(runs * 3, 24)
+            official_bonus = 6 if result['source'] == 'Playlist originale' else 0
+            result['score'] = round(result['score'] + reliability_bonus + official_bonus, 2)
         verified = sorted((x for x in ch['results'] if x['ok']), key=lambda x: x['score'], reverse=True)
         verified_count += len(verified)
-        entries = [{k: x[k] for k in ('url','source','kind','height','bandwidth','audio','latency_ms','score')}
+        entries = [{k: x[k] for k in ('url','source','kind','height','bandwidth','audio','latency_ms','score','success_runs')}
                    | {'last_ok': stamped, 'stale': False}
                    for x in verified[:MAX_VERIFIED_PER_CHANNEL]]
         # Geography-specific 403 / timeout in the GitHub runner is NOT proof of a dead stream.
