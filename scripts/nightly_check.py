@@ -91,6 +91,7 @@ ALIASES = {
     'gambero rosso tv': 'gambero rosso',
     'tgcom 24': 'tgcom24', 'sky sport 24': 'sky sport24',
     'sky sport twenty four': 'sky sport24',
+    'cielo tv': 'cielo',
 }
 ATTR_RE = re.compile(r'([\w-]+)="([^"]*)"')
 HLS_RE = re.compile(r'^#EXT-X-(?:STREAM-INF|TARGETDURATION|MEDIA|INF|MAP)\b', re.I | re.M)
@@ -142,6 +143,36 @@ APPROVED_STREAM_HOSTS = {
 }
 
 RAI_RELINKER_CODES = {'rai 1':'2606803', 'rai 2':'308718', 'rai 3':'308709', 'rai 4':'746966', 'rai 5':'395276', 'rai movie':'747002', 'rai storia':'746990', 'rai news 24':'1'}
+
+SKY_FTA_SIGNED_PATHS = {
+    'tv8': '/TACT/11223/tv8web/master.m3u8',
+    'cielo': '/TACT/11219/cieloweb/master.m3u8',
+    'sky tg24': '/TACT/12221/web/master.m3u8',
+}
+
+
+def public_sky_fta_url(canonical: str, u: urllib.parse.SplitResult) -> bool:
+    """Permit only the known public FTA CDN route with a time-limited signature.
+
+    This is NOT a generic authorization bypass for pay-TV channels.
+    """
+    if (canonical not in SKY_FTA_SIGNED_PATHS or u.scheme != 'https'
+            or u.hostname != 'hlslive-web-gcdn-skycdn-it.akamaized.net'
+            or u.port is not None or u.fragment or u.path != SKY_FTA_SIGNED_PATHS[canonical]):
+        return False
+    query = urllib.parse.parse_qs(u.query, keep_blank_values=True)
+    if len(query) != 1 or not set(query) <= {'hdnts', 'hdnea'}:
+        return False
+    token = next(iter(query.values()))
+    if len(token) != 1:
+        return False
+    matched = re.fullmatch(r'st=(\d{10})~exp=(\d{10})~acl=/\*~hmac=[a-fA-F0-9]{64}', token[0])
+    if not matched:
+        return False
+    start, expires = map(int, matched.groups())
+    now = int(time.time())
+    return start <= now + 300 and expires > now + 600 and expires <= now + 3*365*86400
+
 
 DISCOVERY_ROUTES = {'nove':'NOVE','real time':'REALTIME','food network':'FOODNETWORK','dmax':'DMAX','hgtv':'HGTV'}
 
@@ -220,6 +251,8 @@ def permitted_stream_url(name: str, url: str) -> bool:
         return False
     u = urllib.parse.urlsplit(url)
     canonical = normalize(name)
+    if public_sky_fta_url(canonical, u):
+        return True
     # Explicit, fixed-URL sources for additional Italian free-to-air channels.
     # Never trust a new hostname just because it appears in a public playlist.
     if url in additional_exact_urls().get(canonical, set()):
