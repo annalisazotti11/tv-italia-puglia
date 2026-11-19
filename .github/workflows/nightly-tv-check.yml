@@ -1,0 +1,41 @@
+name: TV Italia + Puglia - verifica notturna delle dirette
+
+on:
+  schedule:
+    # 02:17 UTC = 03:17 a Roma in inverno, 04:17 in estate.
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nightly-tv-check
+  cancel-in-progress: false
+
+jobs:
+  check-streams:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test automatici offline
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Test playlist e stream
+        run: python scripts/nightly_check.py
+      - name: Pubblica l'elenco aggiornato
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/verified-streams.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(tv): aggiorna fonti verificate'
+            git push
+          fi
