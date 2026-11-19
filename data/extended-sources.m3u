@@ -70,3 +70,57 @@ https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_5000.m3u8
 
 #EXTINF:-1 group-title="Notizie internazionali in chiaro",Al Arabiya
 https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Rai 1 HD
+https://r.eu.cdn-redge.media/livehls/oeu/mt/live/rai_uno/live.livx/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Rai 2 HD
+https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/rai_due/live.livx/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Rai 3 HD
+https://r.eu.cdn-redge.media/livehls/oeu/mt/live/rai_tre/live.livx/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Rete 4 HD
+https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/rete_4/live.livx/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Canale 5 HD
+https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/canale_5/live.livx/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Italia 1 HD
+https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/italia_1/live.livx/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",TGCOM24
+https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/tgcom24/live.livx/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Mediaset Extra
+https://r.eu.cdn-redge.media/livehls/oeu/mt/live/mediaset_extra/live.livx/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Rai News 24
+https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/rai_news_24/live.livx/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Iris
+https://live02-seg.msf.cdn.mediaset.net/live/ch-ki/ki-clr.isml/index.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Cine34
+https://live02-seg.msf.cdn.mediaset.net/live/ch-b6/b6-clr.isml/index.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",20 Mediaset HD
+https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(lb)/index.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",La5
+https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(ka)/index.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Top Crime
+https://live3-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(lt)/index.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Super!
+https://495c5a85d9074f29acffeaea9e0215eb.msvdn.net/super/super_main/super_main_hbbtv/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Donna TV
+https://streaming.softwarecreation.it/DonnaTv/DonnaTv/playlist.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Horse TV
+https://cdn78-at.azotosolutions.com/cdnedge39/Canale4/master.m3u8
+
+#EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Class CNBC
+https://amg14891-amg14891c5-amgplt0020.playout.now3.amagi.tv/playlist.m3u8
