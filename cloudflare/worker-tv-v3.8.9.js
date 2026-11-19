@@ -158,17 +158,17 @@ async function regionPlayable(entry){
     return {ok:false,reason:'Segmento non riproducibile'};
   return {ok:true,reason:'Manifest e segmento verificati'};
 }
-async function regionalChecks(request,all,snap){
+async function regionalChecks(request,all,snap,onlyChannelId=null){
   const country=request.cf&&request.cf.country;
   if(country!=='IT'||!snap||Date.now()-Date.parse(snap.generated_at)>MAX_AGE)
     return {found:new Map(),tested:0,reason:country==='IT'?'Dati notturni scaduti':'Controllo disponibile soltanto da connessione italiana'};
-  const key=snap.generated_at+'-IT';
+  const key=snap.generated_at+'-IT-'+(onlyChannelId||'catalog');
   if(regionalMemo.key===key&&Date.now()<regionalMemo.until)
     return {found:regionalMemo.found,tested:regionalMemo.tested,reason:regionalMemo.reason};
   if(regionalMemo.key===key&&regionalMemo.pending)return regionalMemo.pending;
   regionalMemo.key=key;
   regionalMemo.pending=(async()=>{
-    const options=all.filter(c=>!eligible(snap,c.id).length&&Array.isArray(snap.channels[c.id]?.regional_candidates)&&snap.channels[c.id].regional_candidates.length)
+    const options=all.filter(c=>(!onlyChannelId||c.id===onlyChannelId)&&!eligible(snap,c.id).length&&Array.isArray(snap.channels[c.id]?.regional_candidates)&&snap.channels[c.id].regional_candidates.length)
       .map(c=>({channel:c,source:snap.channels[c.id].regional_candidates[0]}))
       .filter(x=>safeUrl(x.source.url)&&x.source.url.endsWith('.m3u8'))
       .slice(0,MAX_REGIONAL_CHANNELS);
@@ -196,7 +196,8 @@ export default {
       if(path==='/')return new Response('<!doctype html><meta charset="utf-8"><title>TV Italia + Puglia</title><h1>TV Italia + Puglia</h1><p>Catalogo con sole dirette verificate.</p><a href="/manifest.json">Manifest</a> · <a href="/debug/notte.json">Stato scansione</a>',{headers:{...CORS,'Content-Type':'text/html; charset=utf-8'}});
       const [all,snap]=await Promise.all([channels(),snapshot()]);
       const regionNeeded=path.startsWith('/catalog/tv/')||path.startsWith('/stream/tv/')||path==='/debug/italia.json';
-      const regional=regionNeeded?await regionalChecks(request,all,snap):{found:new Map(),tested:0,reason:'Non richiesto'};
+      const streamId=path.match(/^\/stream\/tv\/([^/]+)\.json$/);
+      const regional=regionNeeded?await regionalChecks(request,all,snap,streamId?decodeURIComponent(streamId[1]):null):{found:new Map(),tested:0,reason:'Non richiesto'};
       const visible=all.filter(c=>eligible(snap,c.id).length||regional.found.has(c.id));
       if(path==='/debug/italia.json')return json({version:VERSION,country:request.cf?.country||null,nightlyGeneratedAt:snap?.generated_at||null,regionalTested:regional.tested,recovered:[...regional.found.keys()].map(id=>all.find(c=>c.id===id)?.name||id),reason:regional.reason});
       if(path==='/debug/notte.json'||path==='/debug/channels.json')return json({version:VERSION,active:!!snap,generatedAt:snap?.generated_at||null,summary:snap?.summary||null,visible:visible.length,archiveStatus:{channels:cache.channels?.error||'ok',snapshot:cache.snapshot?.error||'ok'},channels:all.map(c=>({id:c.id,name:c.name,visible:eligible(snap,c.id).length>0,verified:eligible(snap,c.id).length,tested:snap?.channels[c.id]?.tested||0}))});
