@@ -40,6 +40,9 @@ class NightlyCheckTests(unittest.TestCase):
         self.assertFalse(nightly.permitted_stream_url('Sky Sport Uno', 'https://example.org/live.m3u8'))
         self.assertFalse(nightly.permitted_stream_url('Rai 2', 'https://raidue3-live.akamaized.net/live.m3u8?token=secret'))
         self.assertTrue(nightly.permitted_stream_url('Rai 2', 'https://raidue3-live.akamaized.net/live.m3u8'))
+        self.assertTrue(nightly.permitted_stream_url('Telebari', 'https://w1.mediastreaming.it/telebari/live.m3u8'))
+        self.assertFalse(nightly.permitted_stream_url('Telebari', 'https://w1.mediastreaming.it/other/live.m3u8'))
+        self.assertFalse(nightly.permitted_stream_url('Radio Norba TV', 'https://router.xdevel.com/another/stream/live.m3u8'))
 
     def test_playlist_matching_is_exact(self):
         with tempfile.TemporaryDirectory() as tmp:
