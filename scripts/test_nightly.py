@@ -45,6 +45,8 @@ class NightlyCheckTests(unittest.TestCase):
         self.assertFalse(nightly.permitted_stream_url('Radio Norba TV', 'https://router.xdevel.com/another/stream/live.m3u8'))
         self.assertTrue(nightly.permitted_stream_url('NOVE', 'https://streaming.aurora.enhanced.live/live/mpc/public-id/out/v1/IT_SIMULCAST/NOVE/CMAF/index.m3u8'))
         self.assertFalse(nightly.permitted_stream_url('NOVE', 'https://streaming.aurora.enhanced.live/live/mpc/public-id/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8'))
+        self.assertTrue(nightly.permitted_stream_url('Radio Freccia TV', 'https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/public-id/playlist.m3u8'))
+        self.assertFalse(nightly.permitted_stream_url('Radio Zeta', 'https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/public-id/playlist.m3u8'))
 
     def test_playlist_matching_is_exact(self):
         with tempfile.TemporaryDirectory() as tmp:
