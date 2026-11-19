@@ -65,8 +65,6 @@ ALIASES = {
     'rai 3 puglia': 'rai 3 tgr puglia', 'tgr puglia': 'rai 3 tgr puglia',
     'tg norba24': 'tg norba 24', 'radionorba': 'radionorba tv',
     'gambero rosso tv': 'gambero rosso',
-    'radio capital tv': 'radio capital tivu', 'radio m2o tv': 'm2o tv',
-    'radio freccia tv': 'radiofreccia', 'radio zeta tv': 'radio zeta',
 }
 ATTR_RE = re.compile(r'([\w-]+)="([^"]*)"')
 HLS_RE = re.compile(r'^#EXT-X-(?:STREAM-INF|TARGETDURATION|MEDIA|INF|MAP)\b', re.I | re.M)
@@ -113,24 +111,9 @@ APPROVED_STREAM_HOSTS = {
     'hgtv': {'streaming.aurora.enhanced.live'},
     'rtl 102 5': {'dd782ed59e2a4e86aabf6fc508674b59.msvdn.net'},
     'deejay tv': {'4c4b867c89244861ac216426883d1ad0.msvdn.net'},
-    'giallo': {'streaming.aurora.enhanced.live'},
-    'telenorba': {'live-telenorba.cdn.netrw.it'},
-    'aci sport tv': {'webstream.multistream.it'},
-    'bike channel': {'018e1901ad234f04ae16388eda6778e5.msvdn.net'},
-    'bergamo tv': {'db142859fd5541b09de25d6507f1f2d3.msvdn.net'},
-    'cusano italia tv': {'router.xdevel.com'},
-    'espansione tv': {'b53136fc0d724da78cac7754d601393d.msvdn.net'},
-    'etna espresso channel': {'5db313b643fd8.streamlock.net'},
-    'giornale radio tv': {'5f204aff97bee.streamlock.net'},
-    'italian fishing tv': {'fms.premio.link'},
-    'lac news 24': {'f5842579ff984c1c98d63b8d789673eb.msvdn.net'},
-    'radio capital tivu': {'4c4b867c89244861ac216426883d1ad0.msvdn.net'},
-    'm2o tv': {'4c4b867c89244861ac216426883d1ad0.msvdn.net'},
-    'radiofreccia': {'dd782ed59e2a4e86aabf6fc508674b59.msvdn.net'},
-    'radio zeta': {'dd782ed59e2a4e86aabf6fc508674b59.msvdn.net'},
 }
 
-DISCOVERY_ROUTES = {'nove':'NOVE','real time':'REALTIME','food network':'FOODNETWORK','dmax':'DMAX','hgtv':'HGTV','giallo':'GIALLO'}
+DISCOVERY_ROUTES = {'nove':'NOVE','real time':'REALTIME','food network':'FOODNETWORK','dmax':'DMAX','hgtv':'HGTV'}
 
 # Shared streaming providers must also match this channel's own route.
 APPROVED_STREAM_PATH_PREFIXES = {
@@ -141,20 +124,6 @@ APPROVED_STREAM_PATH_PREFIXES = {
     'radio kiss kiss tv': ('/KKMulti/smil:KissKissTV.smil/',),
     'rtl 102 5': ('/live/S97044836/',),
     'deejay tv': ('/live/S85984808/',),
-    'telenorba': ('/telenorba/',),
-    'aci sport tv': ('/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8',),
-    'bike channel': ('/live/S94763187/',),
-    'bergamo tv': ('/live/S17501676/',),
-    'cusano italia tv': ('/video0s975363-69/stream/',),
-    'espansione tv': ('/live/S13070333/',),
-    'etna espresso channel': ('/Etnachannelponte/',),
-    'giornale radio tv': ('/GR_tv/livestream/',),
-    'italian fishing tv': ('/fishingtv/',),
-    'lac news 24': ('/live/S27391994/',),
-    'radio capital tivu': ('/live/S35394734/',),
-    'm2o tv': ('/live/S62628868/',),
-    'radiofreccia': ('/live/S3160845/',),
-    'radio zeta': ('/live/S9346184/',),
 }
 
 
