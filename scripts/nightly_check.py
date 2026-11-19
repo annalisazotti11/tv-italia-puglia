@@ -97,6 +97,22 @@ APPROVED_STREAM_HOSTS = {
     'cielo': {'hlslive-web-gcdn-skycdn-it.akamaized.net'},
     'sky tg24': {'hlslive-web-gcdn-skycdn-it.akamaized.net'},
     'radio italia tv': {'radioitaliatv.akamaized.net'},
+    # Public live services confirmed on the broadcasters' or service providers'
+    # sites. These source hosts are already in the user's original playlist.
+    'radionorba tv': {'router.xdevel.com'},
+    'tg norba 24': {'stream6.xdevel.com'},
+    'antenna sud': {'live-antennasud.cdn.netrw.it'},
+    'telebari': {'w1.mediastreaming.it'},
+    'radio kiss kiss tv': {'kk.fluid.stream'},
+}
+
+# Shared streaming providers must also match this channel's own route.
+APPROVED_STREAM_PATH_PREFIXES = {
+    'radionorba tv': ('/video0s975885-462/stream/',),
+    'tg norba 24': ('/video0s976570-1326/stream/',),
+    'antenna sud': ('/antennasud/',),
+    'telebari': ('/telebari/',),
+    'radio kiss kiss tv': ('/KKMulti/smil:KissKissTV.smil/',),
 }
 
 
@@ -159,8 +175,11 @@ def permitted_stream_url(name: str, url: str) -> bool:
     if not safe_url(url):
         return False
     u = urllib.parse.urlsplit(url)
+    canonical = normalize(name)
+    prefixes = APPROVED_STREAM_PATH_PREFIXES.get(canonical)
     return (u.scheme == 'https' and not u.query and not u.fragment
-            and u.hostname in APPROVED_STREAM_HOSTS.get(normalize(name), set()))
+            and u.hostname in APPROVED_STREAM_HOSTS.get(canonical, set())
+            and (not prefixes or u.path.startswith(prefixes)))
 
 
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
