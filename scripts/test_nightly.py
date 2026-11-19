@@ -63,6 +63,14 @@ class NightlyCheckTests(unittest.TestCase):
             'tvip_4_rete-4-hd',
             'https://live03-col.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/manifest.mpd'))
 
+    def test_tvit_exact_channel_routing(self):
+        rai = 'https://tvit.leicaflorianrobert.dev/rai/rai-1/stream.m3u8'
+        self.assertTrue(nightly.permitted_stream_url('Rai 1 HD', rai))
+        self.assertFalse(nightly.permitted_stream_url('Rai 2 HD', rai))
+        self.assertFalse(nightly.permitted_stream_url('Rai 1 HD', rai + '?key=hidden'))
+        self.assertFalse(nightly.permitted_stream_url(
+            'Rai 1 HD', 'https://tvit.leicaflorianrobert.dev/rai/rai-1/streamX.m3u8'))
+
     def test_playlist_matching_is_exact(self):
         with tempfile.TemporaryDirectory() as tmp:
             m3u = Path(tmp) / 'base.m3u'
