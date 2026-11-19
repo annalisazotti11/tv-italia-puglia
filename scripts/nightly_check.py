@@ -9,6 +9,7 @@ random web crawling or sensitive URLs are used.
 from __future__ import annotations
 
 import concurrent.futures
+from collections import Counter
 import datetime as dt
 import ipaddress
 import json
@@ -368,7 +369,9 @@ def main():
     channels, names = inventory()
     playlist_status = scan_playlists(channels, names)
     jobs = [(cid, candidate) for cid, c in channels.items() for candidate in c['urls']]
-    print(f'Candidates: {len(jobs)} across {len(channels)} configured channels')
+    print(f'Candidates: {len(jobs)} across {len(channels)} configured channels', flush=True)
+    for p in playlist_status:
+        print(f"Playlist {p['name']}: " + (f"{p['entries']} entries" if p['read'] else f"unavailable ({p.get('reason', 'unknown')})"), flush=True)
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=WORKERS) as ex:
         for result in ex.map(lambda pair: probe_one(*pair), jobs):
@@ -419,17 +422,23 @@ def main():
         snapshot['channels'][cid] = {
             'name': ch['name'], 'verified': entries, 'tested': len(ch['results']),
             'visible': bool(entries), 'checked_at': stamped,
+            'failures': dict(Counter(x.get('reason') or 'Unknown' for x in ch['results'] if not x['ok'])),
         }
     snapshot['summary'] = {
         'channels': len(channels), 'visible': sum(bool(x['visible']) for x in snapshot['channels'].values()),
         'hidden': sum(not x['visible'] for x in snapshot['channels'].values()),
         'sources_verified': verified_count, 'links_tested': len(jobs),
         'playlists_loaded': sum(p['read'] for p in playlist_status),
+        'failure_reasons': dict(Counter(x.get('reason') or 'Unknown' for x in results if not x['ok'])),
     }
-    # If all upstream services fail together, preserve the previous valid snapshot.
-    if snapshot['summary']['visible'] < 3:
-        print('ERROR: fewer than 3 live channels; keeping last known-good snapshot', file=sys.stderr)
-        sys.exit(1)
+    # The first run must publish a truthful snapshot even if no links work.
+    # On later runs, previously verified links may only survive via the 36-hour
+    # grace rule above; never republish an old catalog indefinitely.
+    visible_count = snapshot['summary']['visible']
+    snapshot['summary']['status'] = 'ok' if visible_count >= 3 else ('degraded' if visible_count else 'no_verified_streams')
+    if visible_count < 3:
+        print(f'WARNING: only {visible_count} visible channel(s); publishing diagnostic snapshot with no unverified links', flush=True)
+    print('Probe failure reasons: ' + json.dumps(snapshot['summary']['failure_reasons']), flush=True)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2, sort_keys=True) + '\n', encoding='utf-8')
     print(f'Wrote {OUTPUT}: {json.dumps(snapshot["summary"], ensure_ascii=False)}')
