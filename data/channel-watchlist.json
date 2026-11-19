@@ -3,7 +3,7 @@
   "description": "Canali aggiuntivi da monitorare. Non creano locandine finché non si trova una diretta valida.",
   "channels": [
     {
-      "id": "tvip_sky_sky_uno",
+      "id": "tvip_sky_sky_uno_plus",
       "name": "Sky Uno +",
       "number": "",
       "group": "Intrattenimento Sky",
