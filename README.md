@@ -5,7 +5,7 @@ Catalogo TV italiano con monitoraggio notturno delle playlist M3U/HLS/DASH.
 ## Stato e copertura
 
 - **217 canali monitorati** nell'ultima scansione: playlist originale, 39 emittenti aggiuntive, Sky/Sky Cinema/Sky Sport, news internazionali e TV locali pugliesi. Il numero può variare con gli aggiornamenti. La presenza nel database non garantisce una diretta funzionante.
-- **14 raccolte pubbliche o curate** controllate automaticamente, con 19 nuovi collegamenti ufficiali/pubblici selezionati da verificare ogni notte.
+- **18 raccolte pubbliche o curate** controllate automaticamente, comprese quattro nuove playlist italiane. Sono ora presenti **42 sorgenti aggiuntive curate**, tutte sottoposte ai test di disponibilità. Nell'ultima esecuzione 66 canali hanno superato il controllo.
 - Le locandine in Nuvio compaiono **solo se esiste una sorgente verificata** o se una verifica aggiuntiva effettuata dal Worker conferma manifest e segmento video.
 - I canali non confermati restano nella scansione notturna, ma **non vengono eliminati definitivamente**.
 - Le dirette a pagamento non vengono aggirate né decriptate.
@@ -25,7 +25,7 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 - [Lista originale](TV_Italia_Puglia_con_loghi.m3u)
 - [39 emittenti aggiuntive](data/additional-channels.m3u)
 - [Sky, news internazionali e altre emittenti monitorate](data/channel-watchlist.json)
-- [19 sorgenti gratuite curate da verificare](data/extended-sources.m3u)
+- [Sorgenti gratuite curate e verificate dalla scansione](data/extended-sources.m3u)
 - [Worker 3.9.1](cloudflare/worker-tv-v3.9.1.js)
 
 ## Pubblicazione in Cloudflare
