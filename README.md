@@ -15,11 +15,12 @@ Catalogo TV italiano con monitoraggio notturno delle playlist M3U/HLS/DASH.
 1. `scripts/nightly_check.py`: recupera playlist M3U, confronta nomi/LCN e verifica gli stream. Controlla manifest HLS e segmenti o manifest DASH non protetti.
 2. `.github/workflows/nightly-tv-check.yml`: esegue i test e rigenera `data/verified-streams.json`, `data/stream-report.md` e la guida `data/epg-guide.json` ogni notte alle **02:17 UTC**.
 3. `scripts/update_epg.py`: acquisisce XMLTV da TvIt/SuperGuidaTV e IPTV-EPG Italia; associa solo nomi non ambigui, converte gli orari UTC e scarta i titoli fittizi come «No Data».
-4. `cloudflare/worker-tv-v4.0.0.js`: conserva ID, catalogo e ordine originale, ma aggiunge locandine con loghi, informazioni «Ora in onda» e «A seguire», orari locali, guide TV web e JSON. Accetta le sorgenti verificate e ricontrolla le fonti geograficamente incerte nei limiti del piano gratuito.
+4. `cloudflare/worker-tv-v4.1.0.js`: conserva ID, catalogo e ordine originale, ma aggiunge locandine con loghi, informazioni «Ora in onda» e «A seguire», orari locali, guide TV web e JSON. Accetta le sorgenti verificate e ricontrolla le fonti geograficamente incerte nei limiti del piano gratuito.
 
-### Interfaccia TV versione 4.0
+### Interfaccia TV versione 4.1
 
-- Le immagini dei canali usano prima i loghi già presenti e, per le emittenti aggiuntive, quelli identificati nelle playlist su host di immagini consentiti. Se manca un logo valido, viene mostrata una locandina grafica con il nome del canale.
+- Le locandine ora hanno sfondo antracite neutro, bordo discreto e niente enorme riquadro bianco. I loghi nuovi rilevati dalla scansione vengono preferiti a quelli vecchi, con fallback se l'immagine principale non è più raggiungibile. Per i PNG opachi viene attenuato/rimosso il bianco del fondale, senza modificare i nomi dei canali.
+- **Rai 3 TGR Puglia** è prioritario: ID stabile `tvip_103_rai-3-tgr-puglia`, numero visualizzato come **3 Puglia**, prima posizione nella lista, loghi dedicati e nuova verifica HbbTV. Se la scansione rileva soltanto un errore HLS ambiguo può mantenere per massimo 36 ore l'ultima sorgente davvero verificata, indicandola come non più fresca; la riproduzione viene ricontrollata all'apertura.
 - Le schede Nuvio riportano **programma in onda, orari e programma successivo** soltanto se esiste un palinsesto XMLTV affidabile; altrimenti indicano che la programmazione non è disponibile.
 - La pagina `/guida` permette ricerca, filtri per categoria, stato LIVE e avanzamento del programma. I programmi possono cambiare senza preavviso.
 - Gli stream non verificati rimangono nascosti e i canali Sky premium non vengono aggirati.
@@ -37,15 +38,15 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 - [Sorgenti gratuite curate e verificate dalla scansione](data/extended-sources.m3u)
 - [Guida EPG con programmi e orari](data/epg-guide.json)
 - [Template responsive della guida TV](data/guide-ui.html)
-- [Worker 4.0.0](cloudflare/worker-tv-v4.0.0.js)
+- [Worker 4.1.0](cloudflare/worker-tv-v4.1.0.js)
 
 ## Pubblicazione in Cloudflare
 
 L'aggiornamento dello script GitHub **non pubblica automaticamente il Worker**.
 
 1. Accedi a Cloudflare → **Workers & Pages** → Worker `tv-italia-puglia` (usa il nome esatto mostrato nella dashboard).
-2. Apri **Edit code**, incolla tutto il contenuto di `cloudflare/worker-tv-v4.0.0.js` e premi **Deploy**.
-3. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `4.0.0`.
+2. Apri **Edit code**, incolla tutto il contenuto di `cloudflare/worker-tv-v4.1.0.js` e premi **Deploy**.
+3. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `4.1.0`.
 4. Apri `/guida` per la nuova guida visiva, `/api/guida.json` per i programmi in corso, `/debug/notte.json` per gli esiti della scansione oppure `/debug/italia.json` da una connessione italiana per la seconda verifica.
 
 Mantieni lo stesso Worker e lo stesso manifest già installato in Nuvio: l'ID addon non cambia.
