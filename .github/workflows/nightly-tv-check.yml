@@ -14,7 +14,9 @@ on:
       - 'scripts/test_epg.py'
       - 'cloudflare/worker-tv-v4.0.0.js'
       - 'cloudflare/worker-tv-v4.1.0.js'
+      - 'cloudflare/worker-tv-v4.2.0.js'
       - 'scripts/test_worker_v410.mjs'
+      - 'scripts/test_worker_v420.mjs'
       - 'data/guide-ui.html'
       - 'scripts/test_worker_v400.mjs'
       - 'data/guide-ui.html'
@@ -63,6 +65,8 @@ jobs:
           node scripts/test_worker_v400.mjs
           node --check cloudflare/worker-tv-v4.1.0.js
           node scripts/test_worker_v410.mjs
+          node --check cloudflare/worker-tv-v4.2.0.js
+          node scripts/test_worker_v420.mjs
       - name: Test playlist e stream
         run: python scripts/nightly_check.py
       - name: Aggiorna guida programmi XMLTV
