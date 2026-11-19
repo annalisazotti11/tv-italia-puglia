@@ -26,6 +26,7 @@ import urllib.request
 ROOT = Path(__file__).resolve().parents[1]
 MAIN_M3U = ROOT / 'TV_Italia_Puglia_con_loghi.m3u'
 EXTRA_M3U = ROOT / 'data' / 'additional-channels.m3u'
+EXTENDED_M3U = ROOT / 'data' / 'extended-sources.m3u'
 WATCHLIST = ROOT / 'data' / 'channel-watchlist.json'
 OUTPUT = ROOT / 'data' / 'verified-streams.json'
 
@@ -277,12 +278,15 @@ def parse_m3u(text: str):
 
 @lru_cache(maxsize=1)
 def additional_exact_urls():
-    """Static source allowlist from our reviewed extra-channel M3U."""
+    """Exact URL allowlist: reviewed FTA channels, never arbitrary IPTV hosts."""
     approved = {}
-    if EXTRA_M3U.exists():
-        for item in parse_m3u(EXTRA_M3U.read_text(encoding='utf-8-sig')):
+    for path in (EXTRA_M3U, EXTENDED_M3U):
+        if not path.exists():
+            continue
+        for item in parse_m3u(path.read_text(encoding='utf-8-sig')):
             url = item['url']
-            if safe_url(url) and urllib.parse.urlsplit(url).scheme == 'https':
+            parts = urllib.parse.urlsplit(url)
+            if safe_url(url) and parts.scheme == 'https' and not parts.query and not parts.fragment:
                 approved.setdefault(normalize(item['name']), set()).add(url)
     return approved
 
@@ -380,6 +384,12 @@ def scan_playlists(channels, by_name):
             status.append({'name': name, 'read': True, 'entries': n})
         except Exception as exc:
             status.append({'name': name, 'read': False, 'reason': type(exc).__name__})
+    if EXTENDED_M3U.exists():
+        curated = list(parse_m3u(EXTENDED_M3U.read_text(encoding='utf-8-sig')))
+        for item in curated:
+            assign_candidate(channels, by_name, item['name'], item['attrs'], item['url'],
+                             'FTA curate (iptv-org)')
+        status.append({'name': 'FTA curate', 'read': True, 'entries': len(curated)})
     for name, url in EXPLICIT_PUBLIC_ALTERNATIVES:
         assign_candidate(channels, by_name, name, {}, url, 'Fonte HTTPS pubblicata')
     return status
@@ -598,6 +608,7 @@ def main():
         'regional_recheck_channels': sum(bool(x['regional_candidates']) and not x['visible'] for x in snapshot['channels'].values()),
         'playlists_loaded': sum(p['read'] for p in playlist_status),
         'additional_channels': len(additional_exact_urls()),
+        'extended_curated_sources': sum(1 for p in playlist_status if p['name']=='FTA curate' for _ in range(p['entries'])),
         'watchlist_channels': sum(cid.startswith('tvip_sky_') or c.get('group')=='Digitale terrestre' for cid,c in channels.items()),
         'failure_reasons': dict(Counter(x.get('reason') or 'Unknown' for x in results if not x['ok'])),
     }
