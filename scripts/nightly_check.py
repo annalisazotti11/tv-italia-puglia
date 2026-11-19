@@ -539,7 +539,7 @@ def main():
     for cid, channel in channels.items():
         entry = snapshot['channels'][cid]
         verified = entry['verified']
-        esc = lambda value: str(value).replace('|', '\\|').replace('\\n', ' ')
+        esc = lambda value: str(value).replace('|', '/').replace('\n', ' ')
         if verified:
             best = verified[0]
             backup = ', '.join(esc(x['source']) for x in verified[1:]) or '—'
@@ -553,7 +553,7 @@ def main():
                    '—', '—', '—', '—']
         report_lines.append('| ' + ' | '.join(row) + ' |')
     report = OUTPUT.parent / 'stream-report.md'
-    report.write_text('\\n'.join(report_lines) + '\\n', encoding='utf-8')
+    report.write_text('\n'.join(report_lines) + '\n', encoding='utf-8')
     print(f'Wrote {report}', flush=True)
     print(f'Wrote {OUTPUT}: {json.dumps(snapshot["summary"], ensure_ascii=False)}')
 
