@@ -39,6 +39,7 @@ PUBLIC_PLAYLISTS = [
     ('Canali Italiani', 'https://raw.githubusercontent.com/nicolofajette/Canali/main/Italia.m3u'),
     ('IPTV Italia alternativa', 'https://raw.githubusercontent.com/giovanni69/iptvita/main/iptvitalia.m3u'),
     ('FreeCastHub public directory', 'https://raw.githubusercontent.com/freecasthub/public-iptv/main/playlist.m3u'),
+    ('GioeleGregorini TV Italia', 'https://raw.githubusercontent.com/GioeleGregorini/IPTV_ITALIA/main/playlist.m3u8'),
 ]
 # Additional published, unauthenticated entry for an existing channel only.
 # Keep the original M3U unchanged and use the normal HTTPS request.
@@ -64,7 +65,7 @@ USER_AGENT = 'TVItalia-Puglia-Health/1.0 (+https://github.com/annalisazotti11/tv
 HEADERS = {'User-Agent': USER_AGENT, 'Accept': '*/*'}
 MAX_PLAYLIST_BYTES = 2_000_000
 MAX_MANIFEST_BYTES = 90_000
-MAX_CANDIDATES_PER_CHANNEL = 10
+MAX_CANDIDATES_PER_CHANNEL = 16
 MAX_VERIFIED_PER_CHANNEL = 5
 WORKERS = 14
 TIMEOUT = 5.5
@@ -100,15 +101,15 @@ APPROVED_STREAM_HOSTS = {
     'tgcom24': {'live2-mediaset-it.akamaized.net'},
     'rai movie': {'raimovie3-live.akamaized.net'},
     'rai storia': {'raistoria3-live.akamaized.net'},
-    'rete 4': {'live02-seg.msf.cdn.mediaset.net'},
-    'canale 5': {'live02-seg.msf.cdn.mediaset.net'},
-    'italia 1': {'live02-seg.msf.cdn.mediaset.net'},
-    '20 mediaset': {'live02-seg.msf.cdn.mediaset.net'},
-    '27 twentyseven': {'live02-seg.msf.cdn.mediaset.net'},
-    'iris': {'live02-col.msf.cdn.mediaset.net'},
-    'la 5': {'live02-col.msf.cdn.mediaset.net'},
-    'cine34': {'live02-col.msf.cdn.mediaset.net'},
-    'focus': {'live02-col.msf.cdn.mediaset.net'},
+    'rete 4': {'live02-seg.msf.cdn.mediaset.net', 'live03-col.msf.cdn.mediaset.net'},
+    'canale 5': {'live02-seg.msf.cdn.mediaset.net', 'live03-col.msf.cdn.mediaset.net'},
+    'italia 1': {'live02-seg.msf.cdn.mediaset.net', 'live03-col.msf.cdn.mediaset.net'},
+    '20 mediaset': {'live02-seg.msf.cdn.mediaset.net', 'live03-col.msf.cdn.mediaset.net'},
+    '27 twentyseven': {'live02-seg.msf.cdn.mediaset.net', 'live03-col.msf.cdn.mediaset.net'},
+    'iris': {'live02-col.msf.cdn.mediaset.net', 'live03-col.msf.cdn.mediaset.net'},
+    'la 5': {'live02-col.msf.cdn.mediaset.net', 'live03-col.msf.cdn.mediaset.net'},
+    'cine34': {'live02-col.msf.cdn.mediaset.net', 'live03-col.msf.cdn.mediaset.net'},
+    'focus': {'live02-col.msf.cdn.mediaset.net', 'live03-col.msf.cdn.mediaset.net'},
     'radio 105 tv': {'live02-seg.msr.cdn.mediaset.net'},
     'tv8': {'hlslive-web-gcdn-skycdn-it.akamaized.net'},
     'cielo': {'hlslive-web-gcdn-skycdn-it.akamaized.net'},
@@ -129,6 +130,8 @@ APPROVED_STREAM_HOSTS = {
     'rtl 102 5': {'dd782ed59e2a4e86aabf6fc508674b59.msvdn.net'},
     'deejay tv': {'4c4b867c89244861ac216426883d1ad0.msvdn.net'},
 }
+
+RAI_RELINKER_CODES = {'rai 1':'2606803', 'rai 2':'308718', 'rai 3':'308709', 'rai 4':'746966', 'rai 5':'395276', 'rai movie':'747002', 'rai storia':'746990', 'rai news 24':'1'}
 
 DISCOVERY_ROUTES = {'nove':'NOVE','real time':'REALTIME','food network':'FOODNETWORK','dmax':'DMAX','hgtv':'HGTV'}
 
@@ -207,6 +210,12 @@ def permitted_stream_url(name: str, url: str) -> bool:
         return False
     u = urllib.parse.urlsplit(url)
     canonical = normalize(name)
+    # Rai's own public HTTPS relinker is channel-scoped, with no arbitrary query keys.
+    if canonical in RAI_RELINKER_CODES and u.scheme == 'https' and u.hostname == 'mediapolis.rai.it' and u.path == '/relinker/relinkerServlet.htm':
+        q = urllib.parse.parse_qs(u.query, keep_blank_values=True)
+        return (set(q) <= {'cont', 'output', 'forceUserAgent'} and
+                q.get('cont') == [RAI_RELINKER_CODES[canonical]] and q.get('output') == ['7'] and
+                all(len(v) == 1 and len(v[0]) < 120 for v in q.values()))
     prefixes = APPROVED_STREAM_PATH_PREFIXES.get(canonical)
     if canonical in DISCOVERY_ROUTES and not re.fullmatch(r'/live/mpc/[^/]+/out/v1/IT_SIMULCAST/' + DISCOVERY_ROUTES[canonical] + r'/CMAF/[^/]+\.m3u8', u.path):
         return False
