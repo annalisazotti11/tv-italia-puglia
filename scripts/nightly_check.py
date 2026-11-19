@@ -34,6 +34,13 @@ PUBLIC_PLAYLISTS = [
     ('Tundrak IPTV-Italia', 'https://raw.githubusercontent.com/Tundrak/IPTV-Italia/main/iptvita.m3u'),
     ('TVITALIA', 'https://raw.githubusercontent.com/maginetweb-arch/TVITALIA/main/iptvit.m3u'),
 ]
+# Additional published, unauthenticated entry for an existing channel only.
+# Keep the original M3U unchanged and use the normal HTTPS request.
+EXPLICIT_PUBLIC_ALTERNATIVES = [
+    ('Rai 5', 'https://raicinque3-live.akamaized.net/hls/live/2018007/raicinque3/raicinque3/playlist.m3u8'),
+    ('Rai News 24', 'https://rainews1-live.akamaized.net/hls/live/598326/rainews1/rainews1/playlist.m3u8'),
+    ('TGCOM24', 'https://live2-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(kf)/index.m3u8'),
+]
 EXTRA_CHANNELS = [
     ('Sky Cinema Romance', 'sky-cinema-romance'),
     ('Sky Uno', 'sky-uno'),
@@ -65,6 +72,7 @@ ALIASES = {
     'rai 3 puglia': 'rai 3 tgr puglia', 'tgr puglia': 'rai 3 tgr puglia',
     'tg norba24': 'tg norba 24', 'radionorba': 'radionorba tv',
     'gambero rosso tv': 'gambero rosso',
+    'tgcom 24': 'tgcom24',
 }
 ATTR_RE = re.compile(r'([\w-]+)="([^"]*)"')
 HLS_RE = re.compile(r'^#EXT-X-(?:STREAM-INF|TARGETDURATION|MEDIA|INF|MAP)\b', re.I | re.M)
@@ -81,6 +89,8 @@ APPROVED_STREAM_HOSTS = {
     'rai 3 tgr puglia': {'tgrpuglia-live.akamaized.net'},
     'rai 4': {'raiquattro3-live.akamaized.net'},
     'rai 5': {'raicinque3-live.akamaized.net'},
+    'rai news 24': {'rainews1-live.akamaized.net'},
+    'tgcom24': {'live2-mediaset-it.akamaized.net'},
     'rai movie': {'raimovie3-live.akamaized.net'},
     'rai storia': {'raistoria3-live.akamaized.net'},
     'rete 4': {'live02-seg.msf.cdn.mediaset.net'},
@@ -122,6 +132,8 @@ APPROVED_STREAM_PATH_PREFIXES = {
     'antenna sud': ('/antennasud/',),
     'telebari': ('/telebari/',),
     'radio kiss kiss tv': ('/KKMulti/smil:KissKissTV.smil/',),
+    'rai news 24': ('/hls/live/598326/rainews1/',),
+    'tgcom24': ('/Content/hls_h0_clr_vos/live/channel(kf)/',),
     'rtl 102 5': ('/live/S97044836/',),
     'deejay tv': ('/live/S85984808/',),
 }
@@ -286,6 +298,8 @@ def scan_playlists(channels, by_name):
             status.append({'name': name, 'read': True, 'entries': n})
         except Exception as exc:
             status.append({'name': name, 'read': False, 'reason': type(exc).__name__})
+    for name, url in EXPLICIT_PUBLIC_ALTERNATIVES:
+        assign_candidate(channels, by_name, name, {}, url, 'Fonte HTTPS pubblicata')
     return status
 
 
@@ -392,6 +406,11 @@ def probe_one(cid: str, item: dict):
                    latency_ms=latency_ms, score=round(score, 2))
     except urllib.error.HTTPError as exc:
         out['reason'] = f'HTTP {exc.code}'
+    except ValueError as exc:
+        # Our validation errors contain no addresses or content from the source.
+        known = ('Unsupported or unsafe URL', 'Unsafe final URL', 'Redirect to different channel', 'HTML instead of manifest', 'HLS protected session', 'Encrypted HLS', 'Not a media playlist', 'Missing segment URL', 'No media segment bytes', 'Protected DASH', 'Missing DASH tracks', 'DASH not recognized as video', 'Not an HLS/DASH manifest')
+        reason = str(exc)
+        out['reason'] = reason if reason in known or reason.startswith('Unplayable HLS variant: ') else 'ValueError'
     except Exception as exc:
         out['reason'] = type(exc).__name__
     return out
