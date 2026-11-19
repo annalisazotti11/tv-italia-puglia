@@ -220,7 +220,7 @@ def permitted_stream_url(name: str, url: str) -> bool:
     # Public TvIt playlist relays/relinks free-to-air channels. Require
     # that the URL channel slug exactly matches the selected channel.
     if u.scheme == 'https' and u.hostname == 'tvit.leicaflorianrobert.dev' and not u.query and not u.fragment:
-        m = re.fullmatch(r'/([a-z0-9-]+)/([a-z0-9-]+)/stream\\.m3u8', u.path)
+        m = re.fullmatch(r'/([a-z0-9-]+)/([a-z0-9-]+)/stream\.m3u8', u.path)
         if m and m.group(2) == canonical.replace(' ', '-'):
             return True
     prefixes = APPROVED_STREAM_PATH_PREFIXES.get(canonical)
