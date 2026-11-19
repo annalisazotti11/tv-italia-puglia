@@ -1,7 +1,7 @@
 {
   "channels": {
     "tvip_103_rai-3-tgr-puglia": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "Unplayable HLS variant: HTTPError": 1
       },
@@ -18,7 +18,7 @@
       "visible": false
     },
     "tvip_11_radionorba-tv": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Radionorba TV",
       "regional_candidates": [],
@@ -26,12 +26,12 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2172668,
+          "bandwidth": 2171173,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 2263,
-          "score": 176.95,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 2293,
+          "score": 176.83,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://router.xdevel.com/video0s975885-462/stream/playlist_dvr.m3u8"
@@ -40,7 +40,7 @@
       "visible": true
     },
     "tvip_13_tg-norba-24": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "TG Norba 24",
       "regional_candidates": [],
@@ -51,9 +51,9 @@
           "bandwidth": 2134066,
           "height": 404,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1729,
-          "score": 141.53,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 1596,
+          "score": 142.06,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://stream6.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8"
@@ -62,7 +62,7 @@
       "visible": true
     },
     "tvip_14_antenna-sud": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Antenna Sud",
       "regional_candidates": [],
@@ -73,9 +73,9 @@
           "bandwidth": 6192000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 4124,
-          "score": 169.5,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 2275,
+          "score": 176.9,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://live-antennasud.cdn.netrw.it/antennasud/hls/ccr/antennasud/master.m3u8"
@@ -84,7 +84,7 @@
       "visible": true
     },
     "tvip_158_radio-kiss-kiss-tv": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Radio Kiss Kiss TV",
       "regional_candidates": [],
@@ -95,9 +95,9 @@
           "bandwidth": 3128000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 850,
-          "score": 144.6,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 909,
+          "score": 144.36,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://kk.fluid.stream/KKMulti/smil:KissKissTV.smil/playlist.m3u8"
@@ -106,7 +106,7 @@
       "visible": true
     },
     "tvip_17_telebari": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Telebari",
       "regional_candidates": [],
@@ -114,12 +114,12 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2802704,
+          "bandwidth": 2824512,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1858,
-          "score": 178.57,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 1680,
+          "score": 179.28,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://w1.mediastreaming.it/telebari/livestream/playlist.m3u8"
@@ -129,8 +129,8 @@
           "bandwidth": 2393457,
           "height": 1080,
           "kind": "DASH",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 583,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 582,
           "score": 163.67,
           "source": "OpenIPTVItaly",
           "stale": false,
@@ -140,9 +140,10 @@
       "visible": true
     },
     "tvip_1_rai-1-hd": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
-        "HTTP 403": 4
+        "HTTP 403": 2,
+        "Not an HLS/DASH manifest": 2
       },
       "name": "Rai 1 HD",
       "regional_candidates": [
@@ -162,7 +163,7 @@
       "visible": false
     },
     "tvip_20_20-mediaset-hd": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 2
       },
@@ -184,9 +185,10 @@
       "visible": false
     },
     "tvip_21_rai-4": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
-        "HTTP 403": 4
+        "HTTP 403": 2,
+        "Not an HLS/DASH manifest": 2
       },
       "name": "Rai 4",
       "regional_candidates": [
@@ -206,7 +208,7 @@
       "visible": false
     },
     "tvip_22_iris": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 3
       },
@@ -228,9 +230,10 @@
       "visible": false
     },
     "tvip_23_rai-5": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
-        "HTTP 403": 4
+        "HTTP 403": 2,
+        "Not an HLS/DASH manifest": 2
       },
       "name": "Rai 5",
       "regional_candidates": [
@@ -250,9 +253,10 @@
       "visible": false
     },
     "tvip_24_rai-movie": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
-        "HTTP 403": 4
+        "HTTP 403": 2,
+        "Not an HLS/DASH manifest": 2
       },
       "name": "Rai Movie",
       "regional_candidates": [
@@ -272,7 +276,7 @@
       "visible": false
     },
     "tvip_257_gambero-rosso": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Gambero Rosso",
       "regional_candidates": [],
@@ -281,7 +285,7 @@
       "visible": false
     },
     "tvip_26_cielo": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -298,7 +302,7 @@
       "visible": false
     },
     "tvip_27_27-twentyseven": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 2
       },
@@ -320,9 +324,10 @@
       "visible": false
     },
     "tvip_2_rai-2-hd": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
-        "HTTP 403": 4
+        "HTTP 403": 2,
+        "Not an HLS/DASH manifest": 2
       },
       "name": "Rai 2 HD",
       "regional_candidates": [
@@ -342,7 +347,7 @@
       "visible": false
     },
     "tvip_30_la5": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 3
       },
@@ -364,7 +369,7 @@
       "visible": false
     },
     "tvip_31_real-time": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Real Time",
       "regional_candidates": [],
@@ -375,30 +380,30 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 834,
-          "score": 182.66,
-          "source": "Playlist originale",
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 671,
+          "score": 183.32,
+          "source": "TvIt public Italian TV",
           "stale": false,
-          "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/REALTIME/CMAF/index.m3u8"
+          "url": "https://tvit.leicaflorianrobert.dev/discovery/real-time/stream.m3u8"
         },
         {
           "audio": true,
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1094,
-          "score": 181.62,
-          "source": "TvIt public Italian TV",
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 694,
+          "score": 183.22,
+          "source": "Playlist originale",
           "stale": false,
-          "url": "https://tvit.leicaflorianrobert.dev/discovery/real-time/stream.m3u8"
+          "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/REALTIME/CMAF/index.m3u8"
         }
       ],
       "visible": true
     },
     "tvip_33_food-network": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Food Network",
       "regional_candidates": [],
@@ -409,9 +414,9 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 508,
-          "score": 183.97,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 555,
+          "score": 183.78,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/FOODNETWORK/CMAF/index.m3u8"
@@ -420,7 +425,7 @@
       "visible": true
     },
     "tvip_34_cine34": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 3
       },
@@ -442,7 +447,7 @@
       "visible": false
     },
     "tvip_35_focus": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 3
       },
@@ -464,7 +469,7 @@
       "visible": false
     },
     "tvip_36_rtl-102-5": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "RTL 102.5",
       "regional_candidates": [],
@@ -475,9 +480,9 @@
           "bandwidth": 3256000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1443,
-          "score": 180.23,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 1524,
+          "score": 179.9,
           "source": "Free-TV Italia",
           "stale": false,
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist.m3u8"
@@ -487,9 +492,9 @@
           "bandwidth": 3256000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1622,
-          "score": 179.51,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 1588,
+          "score": 179.65,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_video.m3u8"
@@ -498,9 +503,10 @@
       "visible": true
     },
     "tvip_3_rai-3-hd": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
-        "HTTP 403": 4
+        "HTTP 403": 2,
+        "Not an HLS/DASH manifest": 2
       },
       "name": "Rai 3 HD",
       "regional_candidates": [
@@ -520,7 +526,7 @@
       "visible": false
     },
     "tvip_404_hell-s-kitchen-italy": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Hell's Kitchen Italy",
       "regional_candidates": [],
@@ -529,7 +535,7 @@
       "visible": false
     },
     "tvip_48_rai-news-24": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 1,
         "Unplayable HLS variant: ValueError": 2
@@ -547,7 +553,7 @@
       "visible": false
     },
     "tvip_4_rete-4-hd": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 3
       },
@@ -569,7 +575,7 @@
       "visible": false
     },
     "tvip_50_sky-tg24": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 400": 1
       },
@@ -580,7 +586,7 @@
       "visible": false
     },
     "tvip_51_tgcom24": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 1,
         "URLError": 1
@@ -603,7 +609,7 @@
       "visible": false
     },
     "tvip_52_dmax": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "DMAX",
       "regional_candidates": [],
@@ -614,32 +620,33 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 709,
-          "score": 183.16,
-          "source": "TvIt public Italian TV",
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 540,
+          "score": 183.84,
+          "source": "Playlist originale",
           "stale": false,
-          "url": "https://tvit.leicaflorianrobert.dev/discovery/dmax/stream.m3u8"
+          "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8"
         },
         {
           "audio": true,
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 753,
-          "score": 182.99,
-          "source": "Playlist originale",
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 572,
+          "score": 183.71,
+          "source": "TvIt public Italian TV",
           "stale": false,
-          "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8"
+          "url": "https://tvit.leicaflorianrobert.dev/discovery/dmax/stream.m3u8"
         }
       ],
       "visible": true
     },
     "tvip_54_rai-storia": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
-        "HTTP 403": 4
+        "HTTP 403": 2,
+        "Not an HLS/DASH manifest": 2
       },
       "name": "Rai Storia",
       "regional_candidates": [
@@ -659,7 +666,7 @@
       "visible": false
     },
     "tvip_56_hgtv": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "HGTV",
       "regional_candidates": [],
@@ -670,9 +677,9 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 205,
-          "score": 185.18,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 442,
+          "score": 184.23,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/HGTV/CMAF/index.m3u8"
@@ -681,7 +688,7 @@
       "visible": true
     },
     "tvip_5_canale-5-hd": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 3
       },
@@ -703,7 +710,7 @@
       "visible": false
     },
     "tvip_66_radio-105-tv": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Radio 105 TV",
       "regional_candidates": [],
@@ -714,9 +721,9 @@
           "bandwidth": 5704000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1796,
-          "score": 178.82,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 1100,
+          "score": 181.6,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/index.m3u8"
@@ -725,7 +732,7 @@
       "visible": true
     },
     "tvip_69_deejay-tv-hd": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Deejay TV HD",
       "regional_candidates": [],
@@ -736,9 +743,9 @@
           "bandwidth": 3179586,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1677,
-          "score": 179.29,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 1670,
+          "score": 179.32,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S85984808/sMO0tz9Sr2Rk/playlist.m3u8"
@@ -747,7 +754,7 @@
       "visible": true
     },
     "tvip_6_italia-1-hd": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 3
       },
@@ -769,7 +776,7 @@
       "visible": false
     },
     "tvip_70_radioitaliatv": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "RadioItaliaTV",
       "regional_candidates": [],
@@ -780,9 +787,9 @@
           "bandwidth": 1300970,
           "height": 576,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1235,
-          "score": 153.06,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 514,
+          "score": 155.94,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8"
@@ -791,7 +798,7 @@
       "visible": true
     },
     "tvip_7_la7-hd": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "LA7 HD",
       "regional_candidates": [],
@@ -802,9 +809,9 @@
           "bandwidth": 5915800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1388,
-          "score": 180.45,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 633,
+          "score": 183.47,
           "source": "TvIt public Italian TV",
           "stale": false,
           "url": "https://tvit.leicaflorianrobert.dev/la7/la7/stream.m3u8"
@@ -813,7 +820,7 @@
       "visible": true
     },
     "tvip_8_tv8": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -830,7 +837,7 @@
       "visible": false
     },
     "tvip_9_nove": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "NOVE",
       "regional_candidates": [],
@@ -841,9 +848,9 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1002,
-          "score": 181.99,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 614,
+          "score": 183.54,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/NOVE/CMAF/index.m3u8"
@@ -853,9 +860,9 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T17:07:17Z",
-          "latency_ms": 1067,
-          "score": 181.73,
+          "last_ok": "2026-11-19T17:11:43Z",
+          "latency_ms": 747,
+          "score": 183.01,
           "source": "TvIt public Italian TV",
           "stale": false,
           "url": "https://tvit.leicaflorianrobert.dev/discovery/nove/stream.m3u8"
@@ -864,7 +871,7 @@
       "visible": true
     },
     "tvip_sky_history": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "History",
       "regional_candidates": [],
@@ -873,7 +880,7 @@
       "visible": false
     },
     "tvip_sky_sky_cinema_action": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Sky Cinema Action",
       "regional_candidates": [],
@@ -882,7 +889,7 @@
       "visible": false
     },
     "tvip_sky_sky_cinema_comedy": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Sky Cinema Comedy",
       "regional_candidates": [],
@@ -891,7 +898,7 @@
       "visible": false
     },
     "tvip_sky_sky_cinema_drama": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Sky Cinema Drama",
       "regional_candidates": [],
@@ -900,7 +907,7 @@
       "visible": false
     },
     "tvip_sky_sky_cinema_family": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Sky Cinema Family",
       "regional_candidates": [],
@@ -909,7 +916,7 @@
       "visible": false
     },
     "tvip_sky_sky_cinema_romance": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Sky Cinema Romance",
       "regional_candidates": [],
@@ -918,7 +925,7 @@
       "visible": false
     },
     "tvip_sky_sky_documentaries": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Sky Documentaries",
       "regional_candidates": [],
@@ -927,7 +934,7 @@
       "visible": false
     },
     "tvip_sky_sky_sport_uno": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Sky Sport Uno",
       "regional_candidates": [],
@@ -936,7 +943,7 @@
       "visible": false
     },
     "tvip_sky_sky_uno": {
-      "checked_at": "2026-11-19T17:07:17Z",
+      "checked_at": "2026-11-19T17:11:43Z",
       "failures": {},
       "name": "Sky Uno",
       "regional_candidates": [],
@@ -945,7 +952,7 @@
       "visible": false
     }
   },
-  "generated_at": "2026-11-19T17:07:17Z",
+  "generated_at": "2026-11-19T17:11:43Z",
   "playlists": [
     {
       "entries": 363,
@@ -1018,7 +1025,8 @@
     "channels": 48,
     "failure_reasons": {
       "HTTP 400": 1,
-      "HTTP 403": 57,
+      "HTTP 403": 43,
+      "Not an HLS/DASH manifest": 14,
       "URLError": 1,
       "Unplayable HLS variant: HTTPError": 1,
       "Unplayable HLS variant: ValueError": 2
