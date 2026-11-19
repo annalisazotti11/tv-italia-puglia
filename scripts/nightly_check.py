@@ -33,6 +33,12 @@ PUBLIC_PLAYLISTS = [
     ('OpenIPTVItaly', 'https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/main/OpenIPTVItaly_No_EPG.m3u'),
     ('Tundrak IPTV-Italia', 'https://raw.githubusercontent.com/Tundrak/IPTV-Italia/main/iptvita.m3u'),
     ('TVITALIA', 'https://raw.githubusercontent.com/maginetweb-arch/TVITALIA/main/iptvit.m3u'),
+    ('Doubo free directory', 'https://raw.githubusercontent.com/streamline-iptv/iptv-playlists/dist/countries/it.m3u'),
+    ('Tundrak IPTV-Italia Plus', 'https://raw.githubusercontent.com/Tundrak/IPTV-Italia/main/iptvitaplus.m3u'),
+    ('IPTV-Italy', 'https://raw.githubusercontent.com/sfiorini/IPTV-Italy/main/iptvitaly.m3u'),
+    ('Canali Italiani', 'https://raw.githubusercontent.com/nicolofajette/Canali/main/Italia.m3u'),
+    ('IPTV Italia alternativa', 'https://raw.githubusercontent.com/giovanni69/iptvita/main/iptvitalia.m3u'),
+    ('FreeCastHub public directory', 'https://raw.githubusercontent.com/freecasthub/public-iptv/main/playlist.m3u'),
 ]
 # Additional published, unauthenticated entry for an existing channel only.
 # Keep the original M3U unchanged and use the normal HTTPS request.
@@ -40,6 +46,7 @@ EXPLICIT_PUBLIC_ALTERNATIVES = [
     ('Rai 5', 'https://raicinque3-live.akamaized.net/hls/live/2018007/raicinque3/raicinque3/playlist.m3u8'),
     ('Rai News 24', 'https://rainews1-live.akamaized.net/hls/live/598326/rainews1/rainews1/playlist.m3u8'),
     ('TGCOM24', 'https://live2-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(kf)/index.m3u8'),
+    ('Sky TG24', 'https://skyanywhere3-i.akamaihd.net/hls/live/510696/tg24/playlist.m3u8'),
 ]
 EXTRA_CHANNELS = [
     ('Sky Cinema Romance', 'sky-cinema-romance'),
@@ -105,7 +112,7 @@ APPROVED_STREAM_HOSTS = {
     'radio 105 tv': {'live02-seg.msr.cdn.mediaset.net'},
     'tv8': {'hlslive-web-gcdn-skycdn-it.akamaized.net'},
     'cielo': {'hlslive-web-gcdn-skycdn-it.akamaized.net'},
-    'sky tg24': {'hlslive-web-gcdn-skycdn-it.akamaized.net'},
+    'sky tg24': {'hlslive-web-gcdn-skycdn-it.akamaized.net', 'skyanywhere3-i.akamaihd.net'},
     'radio italia tv': {'radioitaliatv.akamaized.net'},
     # Public live services confirmed on the broadcasters' or service providers'
     # sites. These source hosts are already in the user's original playlist.
@@ -134,6 +141,7 @@ APPROVED_STREAM_PATH_PREFIXES = {
     'radio kiss kiss tv': ('/KKMulti/smil:KissKissTV.smil/',),
     'rai news 24': ('/hls/live/598326/rainews1/',),
     'tgcom24': ('/Content/hls_h0_clr_vos/live/channel(kf)/',),
+    'sky tg24': ('/hls/live/510696/tg24/',),
     'rtl 102 5': ('/live/S97044836/',),
     'deejay tv': ('/live/S85984808/',),
 }
