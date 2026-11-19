@@ -906,7 +906,7 @@
     {
       "id": "tvip_puglia_telenorba",
       "name": "Telenorba",
-      "number": "",
+      "number": "10",
       "group": "TV locali Puglia",
       "premium": false,
       "puglia_lcn": "10"
@@ -914,7 +914,7 @@
     {
       "id": "tvip_puglia_teledue",
       "name": "Teledue",
-      "number": "",
+      "number": "12",
       "group": "TV locali Puglia",
       "premium": false,
       "puglia_lcn": "12"
@@ -922,7 +922,7 @@
     {
       "id": "tvip_puglia_telerama",
       "name": "Telerama",
-      "number": "",
+      "number": "15",
       "group": "TV locali Puglia",
       "premium": false,
       "puglia_lcn": "15"
@@ -930,7 +930,7 @@
     {
       "id": "tvip_puglia_tele_dehon",
       "name": "Tele Dehon",
-      "number": "",
+      "number": "19",
       "group": "TV locali Puglia",
       "premium": false,
       "puglia_lcn": "19"
@@ -938,7 +938,7 @@
     {
       "id": "tvip_puglia_canale_7_puglia",
       "name": "Canale 7 Puglia",
-      "number": "",
+      "number": "78",
       "group": "TV locali Puglia",
       "premium": false,
       "puglia_lcn": "78"
@@ -986,6 +986,22 @@
       "number": "",
       "group": "TV locali Puglia",
       "premium": false
+    },
+    {
+      "id": "tvip_puglia_telesveva",
+      "name": "Telesveva",
+      "number": "18",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "18"
+    },
+    {
+      "id": "tvip_puglia_telesud",
+      "name": "Tele Sud Puglia",
+      "number": "155",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "155"
     }
   ]
 }
