@@ -40,8 +40,9 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/verified-streams.json
+          git add data/verified-streams.json data/stream-report.md
           if ! git diff --cached --quiet; then
             git commit -m 'chore(tv): aggiorna fonti verificate'
+            git pull --rebase origin main
             git push
           fi
