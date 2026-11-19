@@ -18,6 +18,7 @@ on:
       - 'data/channel-watchlist.json'
       - 'scripts/test_worker_v390.mjs'
       - 'data/additional-channels.m3u'
+      - 'data/extended-sources.m3u'
       - '.github/workflows/nightly-tv-check.yml'
 
 permissions:
