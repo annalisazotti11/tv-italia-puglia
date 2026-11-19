@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a101d">
+<title>TV Italia + Puglia · Guida in diretta</title>
+<style>
+:root{color-scheme:dark;--bg:#0a101d;--panel:#121b2c;--panel2:#182337;--line:#2a364b;--text:#f4f6ff;--muted:#a4b3ca;--cyan:#72ddd6}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(ellipse at 0 0,#153045 0,transparent 38%),radial-gradient(ellipse at 90% 7%,#282044 0,transparent 36%),var(--bg);color:var(--text);min-height:100vh}
+a{color:#b2e8ff;text-underline-offset:3px}
+.wrap{max-width:1420px;margin:auto;padding:34px 24px 70px}
+.top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.eyebrow{color:var(--cyan);font-size:12px;font-weight:750;letter-spacing:.16em;text-transform:uppercase}
+h1{font-size:clamp(28px,4.5vw,46px);line-height:1.15;margin:8px 0 12px;letter-spacing:-.04em}
+h1 span{color:#9dc7fd}
+.sub{margin:0;color:var(--muted);max-width:720px}
+.actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.actions a,.actions button{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid #40536e;border-radius:12px;background:#142237;color:#eaf3ff;text-decoration:none;font:600 13px system-ui;cursor:pointer}
+.actions a:hover,.actions button:hover{background:#21334d}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}
+.stat{border:1px solid #29405a;background:#101e30d9;border-radius:13px;padding:10px 16px;min-width:152px}
+.stat strong{font-size:22px;font-variant-numeric:tabular-nums;display:block}
+.stat small{display:block;color:var(--muted)}
+.toolbar{display:flex;align-items:center;gap:12px;margin:24px 0 20px;flex-wrap:wrap}
+.search{flex:1;min-width:240px}
+.search input,.toolbar select{width:100%;border:1px solid #324760;border-radius:12px;background:#142034;color:var(--text);font:inherit;padding:12px 14px;outline:0}
+.search input:focus,.toolbar select:focus{border-color:#6eabe5;box-shadow:0 0 0 3px #4f96ce25}
+.toolbar select{width:auto;min-width:168px}
+#result-count{color:var(--muted);font-size:13px;margin-left:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:15px}
+.channel{--accent:#718ab7;min-width:0;border:1px solid var(--line);border-top:2px solid var(--accent);background:linear-gradient(155deg,#1b2940,#101928 75%);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:0;box-shadow:0 8px 28px #0002}
+.channel:hover{border-color:#546987;transform:translateY(-1px);transition:.16s}
+.head{display:flex;align-items:center;gap:12px;min-height:76px}
+.logo{width:80px;height:60px;flex-shrink:0;background:#f8fafc;border-radius:11px;display:grid;place-items:center;overflow:hidden;padding:7px}
+.logo img{object-fit:contain;max-height:100%;max-width:100%;width:100%;height:100%}
+.logo b{color:#293951;font-weight:850;font-size:18px}
+.channel-name{font-size:17px;line-height:1.2;font-weight:750;letter-spacing:-.02em;overflow-wrap:anywhere}
+.channel-meta{font-size:12px;color:var(--muted);margin-top:6px}
+.badge-live{margin-left:auto;align-self:flex-start;color:#f5fdff;background:#20644e;border:1px solid #379775;padding:4px 8px;font-size:10px;letter-spacing:.07em;font-weight:800;border-radius:7px;white-space:nowrap}
+.program{margin-top:20px;border-top:1px solid var(--line);padding-top:16px}
+.kicker{color:#a7d7f1;font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.program h2{font-size:18px;line-height:1.3;letter-spacing:-.015em;margin:5px 0 4px;min-height:45px}
+.time{color:var(--muted);font-size:13px}
+.track{margin:13px 0 13px;height:5px;background:#29384e;border-radius:4px;overflow:hidden}
+.track span{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#55b6ec,#76e4d8)}
+.next{border-top:1px solid #273448;padding-top:12px;color:#d2deef;font-size:13px;min-height:66px}
+.next strong{display:block;font-weight:750;overflow-wrap:anywhere;margin-top:4px}
+.unknown{color:#a2b3c8}
+.empty{padding:50px 24px;text-align:center;background:#142037;border:1px dashed #52617b;border-radius:16px;color:#b7c7dc}
+footer{margin-top:28px;color:var(--muted);font-size:12px;line-height:1.7}
+footer a{color:#acdbef}
+@media(max-width:620px){.wrap{padding:23px 14px 42px}.stat{min-width:120px;flex:1}.actions{width:100%}.toolbar select{flex:1;min-width:140px}#result-count{margin-left:0}.cards{grid-template-columns:1fr}.channel{padding:15px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<div><div class="eyebrow">Guida TV · Dirette verificate</div><h1>TV Italia <span>+ Puglia</span></h1><p class="sub">Programmi realmente presenti nelle guide TV, aggiornati automaticamente. Visualizzi solo le emittenti che hanno superato il controllo dello stream; le altre rimangono monitorate.</p></div>
+<nav class="actions" aria-label="Collegamenti"><button id="refresh" type="button">Aggiorna</button><a href="/manifest.json">Manifest addon</a><a href="/debug/notte.json">Stato sorgenti</a></nav>
+</header>
+<div class="stats"><div class="stat"><strong><!-- VISIBLE_COUNT --></strong><small>Dirette verificate</small></div><div class="stat"><strong><!-- EPG_COUNT --></strong><small>Guide TV disponibili</small></div><div class="stat"><strong><!-- MONITORED_COUNT --></strong><small>Canali monitorati</small></div></div>
+<div class="toolbar"><label class="search"><input id="search" type="search" placeholder="Cerca un canale o un programma…" autocomplete="off" aria-label="Cerca per nome o programma"></label><select id="group" aria-label="Filtra categoria"><option value="all">Tutte le categorie</option><option value="nazionali">Nazionali</option><option value="puglia">Puglia</option><option value="news">News</option><option value="sport">Sport</option><option value="radio">Radio TV</option><option value="altro">Altri</option></select><span id="result-count"></span></div>
+<main class="cards" id="cards"><!-- CHANNELS --></main>
+<div class="empty" id="empty" hidden>Nessun canale corrisponde alla ricerca.</div>
+<footer>Orari nel fuso Europe/Rome. I palinsesti sono indicativi e possono cambiare. Se la guida non è disponibile, il titolo non viene inventato. I canali senza sorgente riproducibile non sono mostrati. Ultima scansione: <!-- LAST_CHECK -->.<div>La grafica della Home di Nuvio resta invariata; le informazioni "Ora in onda" sono disponibili anche nei metadati del canale, dove supportate.</div></footer>
+</div>
+<script>
+(function(){
+ var search=document.getElementById('search'),group=document.getElementById('group'),cards=Array.from(document.querySelectorAll('.channel')),count=document.getElementById('result-count'),empty=document.getElementById('empty');
+ function update(){
+   var q=search.value.trim().toLocaleLowerCase('it'),g=group.value,n=0;
+   cards.forEach(function(c){var match=(!q||c.dataset.search.indexOf(q)!==-1)&&(g==='all'||c.dataset.group===g);c.hidden=!match;if(match)n++;});
+   count.textContent=n+' canali';empty.hidden=n!==0;
+ }
+ search.addEventListener('input',update);
+ group.addEventListener('change',update);
+ document.getElementById('refresh').addEventListener('click',function(){location.reload();});
+ update();
+})();
+</script>
+</body>
+</html>
