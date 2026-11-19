@@ -71,6 +71,23 @@ class NightlyCheckTests(unittest.TestCase):
         self.assertFalse(nightly.permitted_stream_url(
             'Rai 1 HD', 'https://tvit.leicaflorianrobert.dev/rai/rai-1/streamX.m3u8'))
 
+    def test_geographic_failures_are_unverified_candidates_only(self):
+        source = 'https://raiuno3-live.akamaized.net/live/master.m3u8'
+        rows = [
+            {'url':source, 'source':'Playlist originale','ok':False,'reason':'HTTP 403'},
+            {'url':source, 'source':'Duplicate','ok':False,'reason':'HTTP 403'},
+            {'url':'https://raiuno3-live.akamaized.net/live/fake.m3u8?token=123',
+             'source':'Untrusted','ok':False,'reason':'HTTP 403'},
+            {'url':'https://raiuno3-live.akamaized.net/live/invalid.m3u8',
+             'source':'Untrusted','ok':False,'reason':'Not an HLS/DASH manifest'},
+        ]
+        pending = nightly.regional_candidates('Rai 1 HD', rows, set())
+        self.assertEqual(len(pending), 1)
+        self.assertEqual(pending[0]['url'], source)
+        self.assertEqual(pending[0]['reason'], 'HTTP 403')
+        self.assertEqual(nightly.regional_candidates('Rai 1 HD', rows, {source}), [])
+        self.assertEqual(nightly.regional_candidates('Sky Uno', rows, set()), [])
+
     def test_playlist_matching_is_exact(self):
         with tempfile.TemporaryDirectory() as tmp:
             m3u = Path(tmp) / 'base.m3u'
