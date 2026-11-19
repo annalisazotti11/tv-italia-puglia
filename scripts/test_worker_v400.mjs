@@ -9,8 +9,9 @@ const m3u='#EXTM3U\n'+
  '#EXTINF:-1 tvg-chno="2" group-title="TV Italia",Rai 2 HD\n'+bad+'\n';
 const extra='#EXTM3U\n#EXTINF:-1 tvg-chno="28" group-title="TV Italia",TV2000\nhttps://hls-live-tv2000.akamaized.net/live/tv2000.m3u8\n';
 const clock=Date.now();
-const epg={schema:1,generated_at:now,summary:{monitored:5,with_epg:1,programme_count:2},sources:[{source:'Test XMLTV',ok:true}],
- channels:{'tvip_1_rai-1-hd':{source:'Test XMLTV',programmes:[
+const epg={schema:1,generated_at:now,summary:{monitored:5,with_epg:2,programme_count:4},sources:[{source:'Test XMLTV',ok:true}],
+ channels:{'tvip_28_tv2000':{source:'Test XMLTV',programmes:[{start:new Date(clock-600000).toISOString(),stop:new Date(clock+1800000).toISOString(),title:'Programma verificato'},{start:new Date(clock+1800000).toISOString(),stop:new Date(clock+3600000).toISOString(),title:'Programma successivo'}]},
+ 'tvip_1_rai-1-hd':{source:'Test XMLTV',programmes:[
  {start:new Date(clock-600000).toISOString(),stop:new Date(clock+1800000).toISOString(),title:'Programma verificato'},
  {start:new Date(clock+1800000).toISOString(),stop:new Date(clock+3600000).toISOString(),title:'Programma successivo'}
  ]}}};
