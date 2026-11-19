@@ -122,7 +122,7 @@ async function posterSvg(c){
           embedded='data:'+mime+';base64,'+b64(bytes);
           const pngOpaque=mime==='image/png'&&bytes.length>26&&![4,6].includes(bytes[25]);
           const webpAlpha=mime==='image/webp'&&bytes.length>20&&String.fromCharCode(...bytes.slice(12,16))==='VP8X'&&!!(bytes[20]&16);
-          const knownWhite=new Set(['TGCOM24','DMAX','Rai Storia','HGTV','Radio 105 TV','Deejay TV HD','RadioItaliaTV','Rai News 24']);
+          const knownWhite=new Set(['TGCOM24','DMAX','Rai Storia','HGTV','Radio 105 TV','Deejay TV HD','RadioItaliaTV','Rai News 24','Rai 3 TGR Puglia']);
           knockWhite=pngOpaque||mime==='image/jpeg'||(mime==='image/webp'&&!webpAlpha)||knownWhite.has(c.name);
         }
       }
