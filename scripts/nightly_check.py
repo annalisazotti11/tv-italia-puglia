@@ -386,7 +386,7 @@ def inventory():
 
 
 def trusted_channel_logo(url: str) -> bool:
-    """Public channel artwork only from known image hosts; never arbitrary IPTV endpoints."""
+    """Allow public channel artwork only from a small set of image providers."""
     if not safe_url(url):
         return False
     p = urllib.parse.urlsplit(url)
@@ -396,21 +396,25 @@ def trusted_channel_logo(url: str) -> bool:
     if host not in ('raw.githubusercontent.com', 'cdn.jsdelivr.net', 'i.imgur.com',
                     'upload.wikimedia.org', 'images.iptv-org.github.io'):
         return False
-    return bool(re.search(r'\.(?:png|jpe?g|webp)
-    if not permitted_stream_url(name, url):
-        return
+    return p.path.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')) and len(url) < 550
+
+
+def assign_candidate(channels, by_name, name, attrs, url, provider):
     label = normalize(name)
     matched = by_name.get(label, [])
     if not matched:
         return
     chno = str(attrs.get('tvg-chno', '')).strip()
-    # A claimed number must agree with the target (except extra channels without a number).
+    allowed = permitted_stream_url(name, url)
+    logo = str(attrs.get('tvg-logo', '')).strip()
     for cid in matched:
         ch = channels[cid]
         if chno and ch['number'] and chno != ch['number']:
             continue
-        if len(ch['urls']) >= MAX_CANDIDATES_PER_CHANNEL:
-            break
+        if not ch.get('logo') and trusted_channel_logo(logo):
+            ch['logo'] = logo
+        if not allowed or len(ch['urls']) >= MAX_CANDIDATES_PER_CHANNEL:
+            continue
         if not any(x['url'] == url for x in ch['urls']):
             ch['urls'].append({'url': url, 'source': provider})
 
