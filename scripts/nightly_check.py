@@ -290,7 +290,10 @@ OPENER = urllib.request.build_opener(SafeRedirect)
 def get(url: str, max_bytes: int = MAX_MANIFEST_BYTES, timeout: float = TIMEOUT) -> tuple[bytes, str, str]:
     if not safe_url(url):
         raise ValueError('Unsupported or unsafe URL')
-    req = urllib.request.Request(url, headers={**HEADERS, 'Range': f'bytes=0-{max_bytes-1}'})
+    # The published regional M3U requests HbbTV for TGR Puglia.
+    host = (urllib.parse.urlsplit(url).hostname or '').lower()
+    agent = 'HbbTV/1.6.1' if host == 'tgrpuglia-live.akamaized.net' else USER_AGENT
+    req = urllib.request.Request(url, headers={**HEADERS, 'User-Agent': agent, 'Range': f'bytes=0-{max_bytes-1}'})
     with OPENER.open(req, timeout=timeout) as r:
         final_url = r.geturl()
         if not safe_url(final_url):
@@ -575,7 +578,8 @@ def regional_candidates(channel_name: str, results: list[dict], already_verified
     for result in ordered:
         url = result.get('url', '')
         reason = str(result.get('reason') or '')
-        if result.get('ok') or reason not in GEO_UNCERTAIN or url in seen:
+        is_tgr_variant_error = (normalize(channel_name) == 'rai 3 tgr puglia' and reason == 'Unplayable HLS variant: HTTPError')
+        if result.get('ok') or (reason not in GEO_UNCERTAIN and not is_tgr_variant_error) or url in seen:
             continue
         if not permitted_stream_url(channel_name, url) or not url.startswith('https://'):
             continue
@@ -633,7 +637,8 @@ def main():
                 continue
             result = current.get(url)
             reason = str(result.get('reason') or '') if result else ''
-            uncertain = not result or reason in ('TimeoutError','URLError','ConnectionResetError') or reason in ('HTTP 403','HTTP 429')
+            uncertain = (not result or reason in ('TimeoutError','URLError','ConnectionResetError','HTTP 403','HTTP 429')
+                         or (cid == 'tvip_103_rai-3-tgr-puglia' and reason == 'Unplayable HLS variant: HTTPError'))
             if not uncertain:
                 continue
             try:
