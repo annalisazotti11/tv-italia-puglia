@@ -1,7 +1,7 @@
 {
   "channels": {
     "tvip_103_rai-3-tgr-puglia": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "ValueError": 1
       },
@@ -10,41 +10,20 @@
       "verified": [],
       "visible": false
     },
-    "tvip_10_telenorba": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Telenorba",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 4192000,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 1155,
-          "score": 181.38,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://live-telenorba.cdn.netrw.it/telenorba/hls/ccr/telenorba/master.m3u8"
-        }
-      ],
-      "visible": true
-    },
     "tvip_11_radionorba-tv": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Radionorba TV",
       "tested": 1,
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2165554,
+          "bandwidth": 2164849,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 2076,
-          "score": 177.7,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 4731,
+          "score": 167.08,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://router.xdevel.com/video0s975885-462/stream/playlist_dvr.m3u8"
@@ -53,7 +32,7 @@
       "visible": true
     },
     "tvip_13_tg-norba-24": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "TG Norba 24",
       "tested": 1,
@@ -63,9 +42,9 @@
           "bandwidth": 2134066,
           "height": 404,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 1199,
-          "score": 143.65,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 2538,
+          "score": 138.29,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://stream6.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8"
@@ -74,7 +53,7 @@
       "visible": true
     },
     "tvip_14_antenna-sud": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Antenna Sud",
       "tested": 1,
@@ -84,9 +63,9 @@
           "bandwidth": 6192000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 1334,
-          "score": 180.66,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 5583,
+          "score": 166.0,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://live-antennasud.cdn.netrw.it/antennasud/hls/ccr/antennasud/master.m3u8"
@@ -95,7 +74,7 @@
       "visible": true
     },
     "tvip_158_radio-kiss-kiss-tv": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Radio Kiss Kiss TV",
       "tested": 1,
@@ -105,9 +84,9 @@
           "bandwidth": 3128000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 920,
-          "score": 144.32,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 1459,
+          "score": 142.16,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://kk.fluid.stream/KKMulti/smil:KissKissTV.smil/playlist.m3u8"
@@ -116,19 +95,19 @@
       "visible": true
     },
     "tvip_17_telebari": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Telebari",
       "tested": 2,
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2833235,
+          "bandwidth": 2798944,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 1679,
-          "score": 179.28,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 2590,
+          "score": 175.64,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://w1.mediastreaming.it/telebari/livestream/playlist.m3u8"
@@ -138,9 +117,9 @@
           "bandwidth": 2393457,
           "height": 1080,
           "kind": "DASH",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 690,
-          "score": 163.24,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 930,
+          "score": 162.28,
           "source": "OpenIPTVItaly",
           "stale": false,
           "url": "https://w1.mediastreaming.it/telebari/livestream/manifest.mpd"
@@ -149,7 +128,7 @@
       "visible": true
     },
     "tvip_1_rai-1-hd": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -159,7 +138,7 @@
       "visible": false
     },
     "tvip_20_20-mediaset-hd": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -169,7 +148,7 @@
       "visible": false
     },
     "tvip_21_rai-4": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -179,7 +158,7 @@
       "visible": false
     },
     "tvip_22_iris": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -189,7 +168,7 @@
       "visible": false
     },
     "tvip_23_rai-5": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Rai 5",
       "tested": 0,
@@ -197,7 +176,7 @@
       "visible": false
     },
     "tvip_24_rai-movie": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -207,81 +186,15 @@
       "visible": false
     },
     "tvip_257_gambero-rosso": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Gambero Rosso",
       "tested": 0,
       "verified": [],
       "visible": false
     },
-    "tvip_258_radiofreccia": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Radiofreccia",
-      "tested": 2,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 3256000,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 385,
-          "score": 184.46,
-          "source": "Free-TV Italia",
-          "stale": false,
-          "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/0tuSetc8UFkF/playlist.m3u8"
-        },
-        {
-          "audio": true,
-          "bandwidth": 3256000,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 417,
-          "score": 184.33,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/0tuSetc8UFkF/playlist_video.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_266_radio-zeta": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Radio Zeta",
-      "tested": 2,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 3256000,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 300,
-          "score": 184.8,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/playlist_video.m3u8"
-        },
-        {
-          "audio": true,
-          "bandwidth": 3256000,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 300,
-          "score": 184.8,
-          "source": "Free-TV Italia",
-          "stale": false,
-          "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/playlist.m3u8"
-        }
-      ],
-      "visible": true
-    },
     "tvip_26_cielo": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Cielo",
       "tested": 0,
@@ -289,7 +202,7 @@
       "visible": false
     },
     "tvip_27_27-twentyseven": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -299,7 +212,7 @@
       "visible": false
     },
     "tvip_2_rai-2-hd": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -309,7 +222,7 @@
       "visible": false
     },
     "tvip_30_la5": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -319,7 +232,7 @@
       "visible": false
     },
     "tvip_31_real-time": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Real Time",
       "tested": 1,
@@ -329,9 +242,9 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 330,
-          "score": 184.68,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 594,
+          "score": 183.62,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/REALTIME/CMAF/index.m3u8"
@@ -340,7 +253,7 @@
       "visible": true
     },
     "tvip_33_food-network": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Food Network",
       "tested": 1,
@@ -350,9 +263,9 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 331,
-          "score": 184.68,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 484,
+          "score": 184.06,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/FOODNETWORK/CMAF/index.m3u8"
@@ -361,7 +274,7 @@
       "visible": true
     },
     "tvip_34_cine34": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -371,7 +284,7 @@
       "visible": false
     },
     "tvip_35_focus": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -381,7 +294,7 @@
       "visible": false
     },
     "tvip_36_rtl-102-5": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "RTL 102.5",
       "tested": 2,
@@ -391,9 +304,9 @@
           "bandwidth": 3256000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 319,
-          "score": 184.72,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 2014,
+          "score": 177.94,
           "source": "Free-TV Italia",
           "stale": false,
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist.m3u8"
@@ -403,9 +316,9 @@
           "bandwidth": 3256000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 330,
-          "score": 184.68,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 2037,
+          "score": 177.85,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_video.m3u8"
@@ -413,29 +326,8 @@
       ],
       "visible": true
     },
-    "tvip_38_giallo": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Giallo",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 6850800,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 310,
-          "score": 184.76,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/GIALLO/CMAF/index.m3u8"
-        }
-      ],
-      "visible": true
-    },
     "tvip_3_rai-3-hd": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -445,7 +337,7 @@
       "visible": false
     },
     "tvip_404_hell-s-kitchen-italy": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Hell's Kitchen Italy",
       "tested": 0,
@@ -453,7 +345,7 @@
       "visible": false
     },
     "tvip_48_rai-news-24": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Rai News 24",
       "tested": 0,
@@ -461,7 +353,7 @@
       "visible": false
     },
     "tvip_4_rete-4-hd": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -471,7 +363,7 @@
       "visible": false
     },
     "tvip_50_sky-tg24": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Sky TG24",
       "tested": 0,
@@ -479,7 +371,7 @@
       "visible": false
     },
     "tvip_51_tgcom24": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "TGCOM24",
       "tested": 0,
@@ -487,7 +379,7 @@
       "visible": false
     },
     "tvip_52_dmax": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "DMAX",
       "tested": 1,
@@ -497,9 +389,9 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 408,
-          "score": 184.37,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 553,
+          "score": 183.79,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8"
@@ -508,7 +400,7 @@
       "visible": true
     },
     "tvip_54_rai-storia": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -518,7 +410,7 @@
       "visible": false
     },
     "tvip_56_hgtv": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "HGTV",
       "tested": 1,
@@ -528,9 +420,9 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 116,
-          "score": 185.54,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 549,
+          "score": 183.8,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/HGTV/CMAF/index.m3u8"
@@ -539,7 +431,7 @@
       "visible": true
     },
     "tvip_5_canale-5-hd": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -549,7 +441,7 @@
       "visible": false
     },
     "tvip_66_radio-105-tv": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Radio 105 TV",
       "tested": 1,
@@ -559,9 +451,9 @@
           "bandwidth": 5704000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 896,
-          "score": 182.42,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 2614,
+          "score": 175.54,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/index.m3u8"
@@ -570,7 +462,7 @@
       "visible": true
     },
     "tvip_69_deejay-tv-hd": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Deejay TV HD",
       "tested": 1,
@@ -580,9 +472,9 @@
           "bandwidth": 3179586,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 325,
-          "score": 184.7,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 2005,
+          "score": 177.98,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S85984808/sMO0tz9Sr2Rk/playlist.m3u8"
@@ -591,7 +483,7 @@
       "visible": true
     },
     "tvip_6_italia-1-hd": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -601,7 +493,7 @@
       "visible": false
     },
     "tvip_70_radioitaliatv": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "RadioItaliaTV",
       "tested": 1,
@@ -611,9 +503,9 @@
           "bandwidth": 1300970,
           "height": 576,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 182,
-          "score": 157.27,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 1895,
+          "score": 150.42,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8"
@@ -622,7 +514,7 @@
       "visible": true
     },
     "tvip_7_la7-hd": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "LA7 HD",
       "tested": 0,
@@ -630,7 +522,7 @@
       "visible": false
     },
     "tvip_8_tv8": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "TV8",
       "tested": 0,
@@ -638,7 +530,7 @@
       "visible": false
     },
     "tvip_9_nove": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "NOVE",
       "tested": 1,
@@ -648,9 +540,9 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 442,
-          "score": 184.23,
+          "last_ok": "2026-11-19T16:10:04Z",
+          "latency_ms": 820,
+          "score": 182.72,
           "source": "Playlist originale",
           "stale": false,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/NOVE/CMAF/index.m3u8"
@@ -658,263 +550,8 @@
       ],
       "visible": true
     },
-    "tvip_aci-sport-tv_aci-sport-tv": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "ACI Sport TV",
-      "tested": 2,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 2960179,
-          "height": 720,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 1506,
-          "score": 159.98,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8"
-        },
-        {
-          "audio": false,
-          "bandwidth": 1024,
-          "height": 0,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 1159,
-          "score": 103.36,
-          "source": "OpenIPTVItaly",
-          "stale": false,
-          "url": "https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8_output_0.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_bergamo-tv_bergamo-tv": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Bergamo TV",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 1145089,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 220,
-          "score": 185.12,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://db142859fd5541b09de25d6507f1f2d3.msvdn.net/live/S17501676/oIxAsgEEA46M/playlist_dvr.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_bike-channel_bike-channel": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Bike Channel",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 4096394,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 749,
-          "score": 183.0,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://018e1901ad234f04ae16388eda6778e5.msvdn.net/live/S94763187/reFXDHQfBndw/playlist.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_cusano-italia-tv_cusano-italia-tv": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Cusano Italia TV",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 2836387,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 1702,
-          "score": 179.19,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://router.xdevel.com/video0s975363-69/stream/playlist.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_espansione-tv_espansione-tv": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Espansione TV",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 131000,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 805,
-          "score": 182.78,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://b53136fc0d724da78cac7754d601393d.msvdn.net/live/S13070333/lgUidxJCmpO3/playlist.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_etna-espresso-channel_etna-espresso-channel": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Etna Espresso Channel",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 3077246,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 1438,
-          "score": 180.25,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://5db313b643fd8.streamlock.net/Etnachannelponte/Etnachannelponte/playlist.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_giornale-radio-tv_giornale-radio-tv": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Giornale Radio TV",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 3415584,
-          "height": 720,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 789,
-          "score": 162.84,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://5f204aff97bee.streamlock.net/GR_tv/livestream/playlist.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_italian-fishing-tv_italian-fishing-tv": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Italian Fishing TV",
-      "tested": 2,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 4590000,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 948,
-          "score": 182.21,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://fms.premio.link/fishingtv/playlist.m3u8"
-        },
-        {
-          "audio": false,
-          "bandwidth": 0,
-          "height": 0,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 616,
-          "score": 105.54,
-          "source": "OpenIPTVItaly",
-          "stale": false,
-          "url": "https://fms.premio.link/fishingtv/tracks-v2a1/mono.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_lac-news-24_lac-news-24": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "LaC News 24",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 3538000,
-          "height": 720,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 319,
-          "score": 164.72,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://f5842579ff984c1c98d63b8d789673eb.msvdn.net/live/S27391994/HVvPMzy/playlist.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_m2o-tv_m2o-tv": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "m2o TV",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 3296438,
-          "height": 1080,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 405,
-          "score": 184.38,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S62628868/uhdWBlkC1AoO/playlist.m3u8"
-        }
-      ],
-      "visible": true
-    },
-    "tvip_radio-capital-tivu_radio-capital-tivu": {
-      "checked_at": "2026-11-19T16:03:04Z",
-      "failures": {},
-      "name": "Radio Capital TiVu",
-      "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 2658000,
-          "height": 720,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T16:03:04Z",
-          "latency_ms": 201,
-          "score": 165.2,
-          "source": "Playlist originale",
-          "stale": false,
-          "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S35394734/Z6U2wGoDYANk/playlist.m3u8"
-        }
-      ],
-      "visible": true
-    },
     "tvip_sky_history": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "History",
       "tested": 0,
@@ -922,7 +559,7 @@
       "visible": false
     },
     "tvip_sky_sky_cinema_action": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Sky Cinema Action",
       "tested": 0,
@@ -930,7 +567,7 @@
       "visible": false
     },
     "tvip_sky_sky_cinema_comedy": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Sky Cinema Comedy",
       "tested": 0,
@@ -938,7 +575,7 @@
       "visible": false
     },
     "tvip_sky_sky_cinema_drama": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Sky Cinema Drama",
       "tested": 0,
@@ -946,7 +583,7 @@
       "visible": false
     },
     "tvip_sky_sky_cinema_family": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Sky Cinema Family",
       "tested": 0,
@@ -954,7 +591,7 @@
       "visible": false
     },
     "tvip_sky_sky_cinema_romance": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Sky Cinema Romance",
       "tested": 0,
@@ -962,7 +599,7 @@
       "visible": false
     },
     "tvip_sky_sky_documentaries": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Sky Documentaries",
       "tested": 0,
@@ -970,7 +607,7 @@
       "visible": false
     },
     "tvip_sky_sky_sport_uno": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Sky Sport Uno",
       "tested": 0,
@@ -978,7 +615,7 @@
       "visible": false
     },
     "tvip_sky_sky_uno": {
-      "checked_at": "2026-11-19T16:03:04Z",
+      "checked_at": "2026-11-19T16:10:04Z",
       "failures": {},
       "name": "Sky Uno",
       "tested": 0,
@@ -986,7 +623,7 @@
       "visible": false
     }
   },
-  "generated_at": "2026-11-19T16:03:04Z",
+  "generated_at": "2026-11-19T16:10:04Z",
   "playlists": [
     {
       "entries": 363,
@@ -1016,16 +653,16 @@
   ],
   "schema": 1,
   "summary": {
-    "channels": 63,
+    "channels": 48,
     "failure_reasons": {
       "HTTP 403": 15,
       "ValueError": 1
     },
     "hidden": 34,
-    "links_tested": 51,
+    "links_tested": 32,
     "playlists_loaded": 5,
-    "sources_verified": 35,
+    "sources_verified": 16,
     "status": "ok",
-    "visible": 29
+    "visible": 14
   }
 }
