@@ -10,6 +10,10 @@ on:
     paths:
       - 'scripts/nightly_check.py'
       - 'scripts/test_nightly.py'
+      - 'scripts/update_epg.py'
+      - 'scripts/test_epg.py'
+      - 'cloudflare/worker-tv-v4.0.0.js'
+      - 'scripts/test_worker_v400.mjs'
       - 'scripts/test_worker_v389.mjs'
       - 'cloudflare/worker-tv-v3.8.9.js'
       - 'cloudflare/worker-tv-v3.9.0.js'
@@ -53,6 +57,8 @@ jobs:
           node scripts/test_worker_v391.mjs
       - name: Test playlist e stream
         run: python scripts/nightly_check.py
+      - name: Aggiorna guida programmi XMLTV
+        run: python scripts/update_epg.py
       - name: Pubblica l'elenco aggiornato
         run: |
           set -euo pipefail
@@ -60,6 +66,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           cp data/verified-streams.json /tmp/verified-streams.json
           cp data/stream-report.md /tmp/stream-report.md
+          if [ -f data/epg-guide.json ]; then cp data/epg-guide.json /tmp/epg-guide.json; fi
           for attempt in 1 2 3 4; do
             git fetch origin main
             git reset --hard origin/main
@@ -72,7 +79,9 @@ jobs:
             fi
             cp /tmp/verified-streams.json data/verified-streams.json
             cp /tmp/stream-report.md data/stream-report.md
+            if [ -f /tmp/epg-guide.json ]; then cp /tmp/epg-guide.json data/epg-guide.json; fi
             git add data/verified-streams.json data/stream-report.md
+            if [ -f /tmp/epg-guide.json ]; then git add data/epg-guide.json; fi
             if git diff --cached --quiet; then
               echo 'No changes to publish.'
               exit 0
