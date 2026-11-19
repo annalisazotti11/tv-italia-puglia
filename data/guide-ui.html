@@ -32,6 +32,7 @@ h1 span{color:#9dc7fd}
 #result-count{color:var(--muted);font-size:13px;margin-left:auto}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:15px}
 .channel{--accent:#718ab7;min-width:0;border:1px solid var(--line);border-top:2px solid var(--accent);background:linear-gradient(155deg,#1b2940,#101928 75%);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:0;box-shadow:0 8px 28px #0002}
+.channel[hidden],.empty[hidden]{display:none!important}
 .channel:hover{border-color:#546987;transform:translateY(-1px);transition:.16s}
 .head{display:flex;align-items:center;gap:12px;min-height:76px}
 .logo{width:80px;height:60px;flex-shrink:0;background:#f8fafc;border-radius:11px;display:grid;place-items:center;overflow:hidden;padding:7px}
