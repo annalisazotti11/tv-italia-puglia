@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -11,6 +12,19 @@ spec.loader.exec_module(nightly)
 
 
 class NightlyCheckTests(unittest.TestCase):
+    def test_first_scan_can_publish_zero_verified_channels(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / 'data' / 'verified-streams.json'
+            inventory = ({'test': {'id': 'test', 'name': 'Rai 2', 'number': '2',
+                                   'urls': [], 'results': []}}, {})
+            with patch.object(nightly, 'OUTPUT', output), patch.object(nightly, 'inventory', return_value=inventory), \
+                    patch.object(nightly, 'scan_playlists', return_value=[]):
+                nightly.main()
+            report = json.loads(output.read_text(encoding='utf8'))
+            self.assertEqual(report['summary']['visible'], 0)
+            self.assertEqual(report['summary']['status'], 'no_verified_streams')
+            self.assertFalse(report['channels']['test']['visible'])
+
     def test_ids_and_aliases(self):
         self.assertEqual(nightly.js_slug('Rai 1 HD'), 'rai-1-hd')
         self.assertEqual(nightly.normalize('IT: Sky Sport Uno HD'), 'sky sport uno')
