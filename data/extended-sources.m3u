@@ -124,3 +124,6 @@ https://cdn78-at.azotosolutions.com/cdnedge39/Canale4/master.m3u8
 
 #EXTINF:-1 group-title="Sorgenti in chiaro da iptv-org: verifica indipendente",Class CNBC
 https://amg14891-amg14891c5-amgplt0020.playout.now3.amagi.tv/playlist.m3u8
+
+#EXTINF:-1 group-title="Sky News in chiaro",Sky News
+https://viamotionhsi.netplus.ch/live/eds/skynews/browser-HLS8/skynews.m3u8
