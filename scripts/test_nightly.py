@@ -44,6 +44,26 @@ class NightlyCheckTests(unittest.TestCase):
         self.assertIn('tvip_61_club-tv', channels)
         self.assertIn('tvip_63_il-sole-24-ore-tv', channels)
 
+    def test_extended_sky_satellite_and_puglia_coverage(self):
+        channels, names = nightly.inventory()
+        self.assertGreaterEqual(len(channels), 217)
+        for cid in (
+            'tvip_sky_sky_atlantic', 'tvip_sky_sky_sport_f1',
+            'tvip_sky_sky_cinema_uno', 'tvip_sat_sky_news_arabia',
+            'tvip_sat_euronews_italiano', 'tvip_puglia_telenorba',
+            'tvip_puglia_teledue', 'tvip_puglia_telerama',
+        ):
+            self.assertIn(cid, channels)
+        self.assertEqual(channels['tvip_sky_sky_atlantic']['urls'], [])
+        self.assertEqual(channels['tvip_puglia_telenorba']['urls'], [])
+        self.assertNotEqual(channels['tvip_sat_euronews_italiano']['id'],
+                            channels['tvip_sat_euronews_english']['id'])
+        streams = nightly.additional_exact_urls()
+        italian_news = 'https://cdn-euronews.akamaized.net/live/eds/euronews-it/25085/index.m3u8'
+        self.assertIn(italian_news, streams['euronews italiano'])
+        self.assertTrue(nightly.permitted_stream_url('Euronews Italiano', italian_news))
+        self.assertFalse(nightly.permitted_stream_url('Euronews English', italian_news))
+
     def test_url_safety(self):
         for bad in ('file:///etc/passwd', 'http://127.0.0.1/a', 'http://192.168.1.10/live',
                     'http://localhost/live', 'https://user:pass@example.org/media.m3u8',
