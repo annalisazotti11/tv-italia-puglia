@@ -10,6 +10,8 @@ on:
     paths:
       - 'scripts/nightly_check.py'
       - 'scripts/test_nightly.py'
+      - 'scripts/test_worker_v389.mjs'
+      - 'cloudflare/worker-tv-v3.8.9.js'
       - '.github/workflows/nightly-tv-check.yml'
 
 permissions:
@@ -34,6 +36,10 @@ jobs:
           python-version: '3.12'
       - name: Test automatici offline
         run: python -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Verifica Worker Cloudflare 3.8.9 e fallback Italia
+        run: |
+          node --check cloudflare/worker-tv-v3.8.9.js
+          node scripts/test_worker_v389.mjs
       - name: Test playlist e stream
         run: python scripts/nightly_check.py
       - name: Pubblica l'elenco aggiornato
