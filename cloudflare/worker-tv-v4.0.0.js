@@ -259,6 +259,36 @@ async function regionalChecks(request,all,snap,onlyChannelId=null){
   finally{regionalMemo.pending=null;}
 }
 
+function guideCard(c,guide,snap){
+  const e=guideProgramme(guide,c.id),logo=channelLogo(c,snap),cat=groupType(c);
+  const ac=ACCENTS[cat]||ACCENTS.altro,number=c.number?(Number(c.number)===103?'3':c.number):'TV';
+  const image=logo?'<img src="'+xml(logo)+'" alt="" loading="lazy" decoding="async"/>':'<b>'+xml(String(number))+'</b>';
+  const title=e.current?e.current.title:'Guida TV non disponibile';
+  const dates=e.current?hhmm(e.current.start)+' – '+hhmm(e.current.stop):'Diretta disponibile';
+  const next=e.next?'<span class="kicker">A seguire · '+xml(hhmm(e.next.start))+'</span><strong>'+xml(e.next.title)+'</strong>':'<span class="unknown">Prossimo programma non disponibile</span>';
+  const searching=(c.name+' '+(c.group||'')+' '+title+' '+(e.next?.title||'')).toLocaleLowerCase('it');
+  return '<article class="channel" data-search="'+xml(searching)+'" data-group="'+cat+'" style="--accent:'+ac+'">'+
+    '<div class="head"><div class="logo">'+image+'</div><div><div class="channel-name">'+xml(c.name)+'</div><div class="channel-meta">'+
+    xml(number==='TV'?'TV':('Canale '+number))+' · '+xml(c.group||'TV Italia')+'</div></div><span class="badge-live">LIVE</span></div>'+
+    '<section class="program"><div class="kicker">'+(e.current?'Ora in onda':'Diretta TV')+'</div><h2>'+xml(title)+'</h2><div class="time">'+xml(dates)+'</div>'+
+    '<div class="track" role="progressbar" aria-label="Avanzamento del programma" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+e.progress+'"><span style="width:'+e.progress+'%"></span></div>'+
+    '<div class="next">'+next+'</div></section></article>';
+}
+async function htmlGuide(all,visible,guide,snap){
+  const template=await readCached('ui','/data/guide-ui.html',x=>x,3600000);
+  if(!template||!template.includes('<!-- CHANNELS -->'))
+    return new Response('<!doctype html><meta charset="utf-8"><h1>Guida TV temporaneamente non disponibile</h1><a href="/manifest.json">Apri il manifest</a>',
+      {status:503,headers:{...CORS,'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'}});
+  const nowEp=visible.reduce((n,c)=>n+Number(!!guideProgramme(guide,c.id).current),0);
+  const checked=snap?.generated_at?hhmm(snap.generated_at)+' del '+new Intl.DateTimeFormat('it-IT',{timeZone:'Europe/Rome',day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date(snap.generated_at)):'non disponibile';
+  const html=template.replace('<!-- CHANNELS -->',visible.map(c=>guideCard(c,guide,snap)).join(''))
+    .replace('<!-- VISIBLE_COUNT -->',String(visible.length))
+    .replace('<!-- EPG_COUNT -->',String(nowEp))
+    .replace('<!-- MONITORED_COUNT -->',String(all.length))
+    .replace('<!-- LAST_CHECK -->',xml(checked));
+  return new Response(html,{headers:{...CORS,'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
+}
+
 export default {
   async scheduled(){},
   async fetch(request){
@@ -267,8 +297,8 @@ export default {
     const u=new URL(request.url),path=u.pathname;
     try{
       if(path==='/manifest.json')return json(MANIFEST,200,60);
-      if(path==='/')return new Response('<!doctype html><meta charset="utf-8"><title>TV Italia + Puglia</title><h1>TV Italia + Puglia</h1><p>Catalogo con sole dirette verificate.</p><a href="/manifest.json">Manifest</a> · <a href="/debug/notte.json">Stato scansione</a>',{headers:{...CORS,'Content-Type':'text/html; charset=utf-8'}});
-      const [original,additional,snap]=await Promise.all([channels(),additionalChannels(),snapshot()]);
+      // The same source produces Nuvio metadata and the separate web guide.
+      const [original,additional,snap,guide]=await Promise.all([channels(),additionalChannels(),snapshot(),epgGuide()]);
       const existingNumbers=new Set(original.map(c=>c.number).filter(Boolean));
       const all=[...original,...additional.filter(c=>!c.number||!existingNumbers.has(c.number))];
       const included=new Set(all.map(c=>c.id));
@@ -276,24 +306,28 @@ export default {
       // unavailable premium channels. Posters still require a verified stream.
       for(const [id,item] of Object.entries(snap?.channels||{})){
         if(!included.has(id)&&id.startsWith('tvip_')){
-          all.push({id,name:item.name||id,number:item.number||'',group:item.group||'Canali TV',logo:''});
+          all.push({id,name:item.name||id,number:item.number||'',group:item.group||'Canali TV',logo:safeLogo(item.logo)?item.logo:''});
           included.add(id);
         }
       }
+      for(const c of all)if(!safeLogo(c.logo))c.logo=channelLogo(c,snap);
       const regionNeeded=path.startsWith('/catalog/tv/')||path.startsWith('/stream/tv/')||path==='/debug/italia.json';
       const streamId=path.match(/^\/stream\/tv\/([^/]+)\.json$/);
       const regional=regionNeeded?await regionalChecks(request,all,snap,streamId?decodeURIComponent(streamId[1]):null):{found:new Map(),tested:0,reason:'Non richiesto'};
       const visible=all.filter(c=>eligible(snap,c.id).length||regional.found.has(c.id));
+      if(path==='/'||path==='/guida'||path==='/guida-tv')return htmlGuide(all,visible,guide,snap);
+      if(path==='/api/guida.json')return json({version:VERSION,generatedAt:guide?.generated_at||null,summary:guide?.summary||null,
+        channels:visible.map(c=>({id:c.id,name:c.name,group:c.group||'',logo:channelLogo(c,snap),...guideProgramme(guide,c.id)}))},200,60);
       if(path==='/debug/italia.json')return json({version:VERSION,country:request.cf?.country||null,nightlyGeneratedAt:snap?.generated_at||null,regionalTested:regional.tested,recovered:[...regional.found.keys()].map(id=>all.find(c=>c.id===id)?.name||id),reason:regional.reason});
-      if(path==='/debug/notte.json'||path==='/debug/channels.json')return json({version:VERSION,active:!!snap,generatedAt:snap?.generated_at||null,summary:snap?.summary||null,monitored:all.length,visible:visible.length,hidden:all.length-visible.length,archiveStatus:{channels:cache.channels?.error||'ok',additional:cache.extra?.error||'ok',snapshot:cache.snapshot?.error||'ok'},channels:all.map(c=>({id:c.id,name:c.name,visible:eligible(snap,c.id).length>0,verified:eligible(snap,c.id).length,tested:snap?.channels[c.id]?.tested||0}))});
+      if(path==='/debug/notte.json'||path==='/debug/channels.json')return json({version:VERSION,active:!!snap,generatedAt:snap?.generated_at||null,summary:snap?.summary||null,epg:{generatedAt:guide?.generated_at||null,summary:guide?.summary||null,sourceStatus:guide?.sources||[]},monitored:all.length,visible:visible.length,hidden:all.length-visible.length,archiveStatus:{channels:cache.channels?.error||'ok',additional:cache.extra?.error||'ok',snapshot:cache.snapshot?.error||'ok'},channels:all.map(c=>({id:c.id,name:c.name,visible:eligible(snap,c.id).length>0,verified:eligible(snap,c.id).length,tested:snap?.channels[c.id]?.tested||0}))});
       const catalog=path.match(/^\/catalog\/tv\/([^/]+)(?:\/[^/]+)?\.json$/);
-      if(catalog)return json({metas:decodeURIComponent(catalog[1])===CATALOG_ID?visible.map(c=>preview(c,u.origin)):[]},200,60);
+      if(catalog)return json({metas:decodeURIComponent(catalog[1])===CATALOG_ID?visible.map(c=>preview(c,u.origin,guide,snap)):[]},200,60);
       const posterRoute=path.match(/^\/poster(?:-v\d+)?\/([^/]+)\.svg$/);
       if(posterRoute){const c=all.find(x=>x.id===decodeURIComponent(posterRoute[1]));if(!c)return json({error:'Canale non trovato'},404);return new Response(await posterSvg(c),{headers:{...CORS,'Content-Type':'image/svg+xml; charset=utf-8','Cache-Control':'public, max-age=86400'}});}
       const meta=path.match(/^\/meta\/tv\/([^/]+)\.json$/);
-      if(meta){const c=all.find(x=>x.id===decodeURIComponent(meta[1]));return c?json({meta:{...preview(c,u.origin),logo:c.logo||undefined}}):json({meta:null},404);}
+      if(meta){const c=all.find(x=>x.id===decodeURIComponent(meta[1]));return c?json({meta:preview(c,u.origin,guide,snap)}):json({meta:null},404);}
       const stream=path.match(/^\/stream\/tv\/([^/]+)\.json$/);
-      if(stream){const id=decodeURIComponent(stream[1]),choices=eligible(snap,id);if(regional.found.has(id))choices.push(regional.found.get(id));const checked=await Promise.all(choices.map(manifestAvailable));const chosen=choices.find((_,i)=>checked[i].ok);return json({streams:chosen?[{name:'Diretta',description:`${chosen.kind} · ${chosen.height||'?'}p · verificato`,url:chosen.url,behaviorHints:{notWebReady:true}}]:[],cacheMaxAge:0,checks:checked.map(x=>x.reason)});}
+      if(stream){const id=decodeURIComponent(stream[1]),choices=eligible(snap,id);if(regional.found.has(id))choices.push(regional.found.get(id));const checked=await Promise.all(choices.map(manifestAvailable));const chosen=choices.find((_,i)=>checked[i].ok);return json({streams:chosen?[{name:'Diretta',description:chosen.kind+' · '+(chosen.height||'?')+'p · Stream verificato'+(guideProgramme(guide,id).current?' · In onda: '+guideProgramme(guide,id).current.title:''),url:chosen.url,behaviorHints:{notWebReady:true}}]:[],cacheMaxAge:0,checks:checked.map(x=>x.reason)});}
       return json({error:'Percorso non trovato'},404);
     }catch{return json({error:'Servizio temporaneamente non disponibile'},503);}
   }
