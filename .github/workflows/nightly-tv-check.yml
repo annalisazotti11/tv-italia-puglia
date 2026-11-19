@@ -5,6 +5,12 @@ on:
     # 02:17 UTC = 03:17 a Roma in inverno, 04:17 in estate.
     - cron: '17 2 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/nightly_check.py'
+      - 'scripts/test_nightly.py'
+      - '.github/workflows/nightly-tv-check.yml'
 
 permissions:
   contents: write
