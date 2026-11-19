@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
 import worker from '../cloudflare/worker-tv-v4.0.0.js';
 
 const now=new Date().toISOString();
@@ -7,7 +8,8 @@ const bad='https://raidue3-live.akamaized.net/live/bad.m3u8';
 const m3u='#EXTM3U\n'+
  '#EXTINF:-1 tvg-chno="1" group-title="TV Italia",Rai 1 HD\n'+hls+'\n'+
  '#EXTINF:-1 tvg-chno="2" group-title="TV Italia",Rai 2 HD\n'+bad+'\n';
-const extra='#EXTM3U\n#EXTINF:-1 tvg-chno="28" group-title="TV Italia",TV2000\nhttps://hls-live-tv2000.akamaized.net/live/tv2000.m3u8\n';
+const logo='https://cdn.jsdelivr.net/gh/Tundrak/IPTV-Italia/logos/tv2000.png';
+const extra='#EXTM3U\n#EXTINF:-1 tvg-chno="28" tvg-logo="'+logo+'" group-title="TV Italia",TV2000\nhttps://hls-live-tv2000.akamaized.net/live/tv2000.m3u8\n';
 const clock=Date.now();
 const epg={schema:1,generated_at:now,summary:{monitored:5,with_epg:2,programme_count:4},sources:[{source:'Test XMLTV',ok:true}],
  channels:{'tvip_28_tv2000':{source:'Test XMLTV',programmes:[{start:new Date(clock-600000).toISOString(),stop:new Date(clock+1800000).toISOString(),title:'Programma verificato'},{start:new Date(clock+1800000).toISOString(),stop:new Date(clock+3600000).toISOString(),title:'Programma successivo'}]},
@@ -15,7 +17,7 @@ const epg={schema:1,generated_at:now,summary:{monitored:5,with_epg:2,programme_c
  {start:new Date(clock-600000).toISOString(),stop:new Date(clock+1800000).toISOString(),title:'Programma verificato'},
  {start:new Date(clock+1800000).toISOString(),stop:new Date(clock+3600000).toISOString(),title:'Programma successivo'}
  ]}}};
-const page='<!doctype html><html><body><header>TV Italia + Puglia</header><div><!-- VISIBLE_COUNT --></div><div><!-- EPG_COUNT --></div><div><!-- MONITORED_COUNT --></div><main><!-- CHANNELS --></main><footer><!-- LAST_CHECK --></footer></body></html>';
+const page=readFileSync(new URL('../data/guide-ui.html',import.meta.url),'utf8');
 const snapshot={schema:1,generated_at:now,channels:{
  'tvip_sky_sky_atlantic':{name:'Sky Atlantic',number:'',group:'Intrattenimento Sky',tested:0,verified:[],regional_candidates:[]},
  'tvip_45_boing-plus':{name:'Boing Plus',number:'45',group:'Digitale terrestre',tested:0,verified:[],regional_candidates:[]},
@@ -57,11 +59,22 @@ let pageText=await pageResp.text();
 assert.ok(pageText.includes('Programma verificato'),'Real now-playing programme in web UI');
 assert.ok(pageText.includes('Programma successivo'),'Next programme in web UI');
 assert.ok(pageText.includes('LIVE'));
+assert.ok(pageText.includes('id="search"'),'Search input included');
+assert.ok(pageText.includes('id="group"'),'Category selector included');
+assert.ok(pageText.includes('tv2000.png'),'Channel artwork included');
 let epgResp=await worker.fetch(request('/api/guida.json','IT'));
 assert.equal(epgResp.status,200);
 let api=await epgResp.json();
 assert.equal(api.channels.find(c=>c.name==='TV2000').current.title,'Programma verificato');
 assert.equal(api.channels.find(c=>c.name==='Sky Atlantic'),undefined);
+let meta=await worker.fetch(request('/meta/tv/tvip_28_tv2000.json','IT'));
+let m=(await meta.json()).meta;
+assert.equal(m.logo,logo);
+assert.ok(m.description.includes('ORA IN ONDA'));
+assert.ok(m.description.includes('A seguire'));
+let poster=await worker.fetch(request('/poster-v400/tvip_28_tv2000.svg','IT'));
+assert.equal(poster.status,200);
+assert.ok((await poster.text()).includes('LIVE'));
 const catalog='/catalog/tv/tv-italia-puglia.json';
 let res=await worker.fetch(request(catalog,'DE'));
 assert.equal(res.status,200);
