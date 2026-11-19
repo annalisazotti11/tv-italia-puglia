@@ -199,11 +199,13 @@ export default {
       const existingNumbers=new Set(original.map(c=>c.number).filter(Boolean));
       const all=[...original,...additional.filter(c=>!c.number||!existingNumbers.has(c.number))];
       const included=new Set(all.map(c=>c.id));
-      // Premium channels without verified sources stay hidden, but keep their IDs
-      // available for a future authorized verified stream.
+      // Keep every monitored channel in diagnostic data, including currently
+      // unavailable premium channels. Posters still require a verified stream.
       for(const [id,item] of Object.entries(snap?.channels||{})){
-        if(id.startsWith('tvip_sky_')&&!included.has(id)&&eligible(snap,id).length)
+        if(!included.has(id)&&id.startsWith('tvip_')){
           all.push({id,name:item.name||id,number:'',group:'Canali TV',logo:''});
+          included.add(id);
+        }
       }
       const regionNeeded=path.startsWith('/catalog/tv/')||path.startsWith('/stream/tv/')||path==='/debug/italia.json';
       const streamId=path.match(/^\/stream\/tv\/([^/]+)\.json$/);
