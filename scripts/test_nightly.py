@@ -31,6 +31,59 @@ class NightlyCheckTests(unittest.TestCase):
         self.assertEqual(nightly.normalize('Rai Uno'), 'rai 1')
         self.assertEqual(nightly.normalize('Sky Sport 24'), 'sky sport24')
 
+    def test_tgr_puglia_keeps_recent_real_success_on_inconclusive_hls_failure(self):
+        import datetime as dt
+        cid='tvip_103_rai-3-tgr-puglia'
+        link='https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8'
+        now=dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
+        earlier=(now-dt.timedelta(minutes=35)).isoformat().replace('+00:00','Z')
+        with tempfile.TemporaryDirectory() as tmp:
+            output=Path(tmp)/'data'/'verified-streams.json'
+            output.parent.mkdir(parents=True,exist_ok=True)
+            output.write_text(json.dumps({'channels':{cid:{'verified':[{
+                'url':link,'last_ok':earlier,'kind':'HLS','height':408,
+                'score':143.4,'source':'Playlist originale'}]}}}),encoding='utf-8')
+            inventory=({cid:{'id':cid,'name':'Rai 3 TGR Puglia','number':'103',
+                             'urls':[{'url':link,'source':'Playlist originale'}],'results':[]}}, {})
+            fail={'channel_id':cid,'url':link,'source':'Playlist originale',
+                  'ok':False,'reason':'Unplayable HLS variant: HTTPError'}
+            with patch.object(nightly,'OUTPUT',output),\
+                 patch.object(nightly,'inventory',return_value=inventory),\
+                 patch.object(nightly,'scan_playlists',return_value=[]),\
+                 patch.object(nightly,'probe_one',return_value=fail):
+                nightly.main()
+            latest=json.loads(output.read_text(encoding='utf-8'))
+            tgr=latest['channels'][cid]
+            self.assertTrue(tgr['visible'])
+            self.assertTrue(tgr['verified'][0]['stale'])
+            self.assertEqual(tgr['verified'][0]['last_ok'],earlier)
+            self.assertEqual(tgr['verified'][0]['url'],link)
+
+    def test_tgr_puglia_regional_retry_for_ambiguous_hls_failure(self):
+        link='https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8'
+        failed=[{'url':link,'source':'Playlist originale','ok':False,
+                 'reason':'Unplayable HLS variant: HTTPError'}]
+        self.assertEqual(nightly.regional_candidates('Rai 3 TGR Puglia',failed,set())[0]['url'],link)
+        self.assertEqual(nightly.regional_candidates('Rai 3 HD',failed,set()),[])
+        self.assertEqual(nightly.regional_candidates('Sky Uno',failed,set()),[])
+
+    def test_tgr_uses_broadcaster_hbbtv_user_agent(self):
+        class Reply:
+            headers={'content-type':'application/vnd.apple.mpegurl'}
+            def __enter__(self): return self
+            def __exit__(self,*args): pass
+            def geturl(self): return 'https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8'
+            def read(self,limit): return b'#EXTM3U\n'
+        observed=[]
+        class Opener:
+            def open(self,req,timeout):
+                observed.append(req.get_header('User-agent'))
+                return Reply()
+        link='https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8'
+        with patch.object(nightly,'OPENER',Opener()):
+            nightly.get(link)
+        self.assertEqual(observed,['HbbTV/1.6.1'])
+
     def test_sky_watchlist_has_real_names_without_phantom_streams(self):
         channels, by_name = nightly.inventory()
         self.assertIn('tvip_sky_sky_atlantic', channels)
