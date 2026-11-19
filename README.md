@@ -4,8 +4,8 @@ Catalogo TV italiano con monitoraggio notturno delle playlist M3U/HLS/DASH.
 
 ## Stato e copertura
 
-- **152 canali monitorati** nell'ultima scansione (il conteggio cambia quando si correggono le numerazioni o si elimina un duplicato): 39 nella playlist originale, emittenti gratuite aggiuntive, 61 nuovi nomi Sky/pay TV e 6 voci DTT in una watchlist separata. Non tutti hanno uno streaming accessibile.
-- **13 playlist pubbliche** controllate automaticamente, oltre alle sorgenti aggiuntive curate.
+- **217 canali monitorati** nell'ultima scansione: playlist originale, 39 emittenti aggiuntive, Sky/Sky Cinema/Sky Sport, news internazionali e TV locali pugliesi. Il numero può variare con gli aggiornamenti. La presenza nel database non garantisce una diretta funzionante.
+- **14 raccolte pubbliche o curate** controllate automaticamente, con 19 nuovi collegamenti ufficiali/pubblici selezionati da verificare ogni notte.
 - Le locandine in Nuvio compaiono **solo se esiste una sorgente verificata** o se una verifica aggiuntiva effettuata dal Worker conferma manifest e segmento video.
 - I canali non confermati restano nella scansione notturna, ma **non vengono eliminati definitivamente**.
 - Le dirette a pagamento non vengono aggirate né decriptate.
@@ -24,16 +24,17 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 - [Rapporto canali e sorgenti](data/stream-report.md)
 - [Lista originale](TV_Italia_Puglia_con_loghi.m3u)
 - [39 emittenti aggiuntive](data/additional-channels.m3u)
-- [Sky e altre emittenti monitorate](data/channel-watchlist.json)
+- [Sky, news internazionali e altre emittenti monitorate](data/channel-watchlist.json)
+- [19 sorgenti gratuite curate da verificare](data/extended-sources.m3u)
 - [Worker 3.9.1](cloudflare/worker-tv-v3.9.1.js)
 
 ## Pubblicazione in Cloudflare
 
 L'aggiornamento dello script GitHub **non pubblica automaticamente il Worker**.
 
-1. Accedi a Cloudflare → **Workers & Pages** → Worker `tv` (usa il nome esatto mostrato nella dashboard).
+1. Accedi a Cloudflare → **Workers & Pages** → Worker `tv-italia-puglia` (usa il nome esatto mostrato nella dashboard).
 2. Apri **Edit code**, incolla tutto il contenuto di `cloudflare/worker-tv-v3.9.1.js` e premi **Deploy**.
-3. Apri `https://tv.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `3.9.1`.
+3. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `3.9.1`.
 4. Apri `/debug/notte.json` per i canali notturni oppure `/debug/italia.json` da connessione italiana per la seconda verifica.
 
 Mantieni lo stesso Worker e lo stesso manifest già installato in Nuvio: l'ID addon non cambia.
