@@ -335,7 +335,7 @@ export default {
         }
       }
       for(const c of all)if(!safeLogo(c.logo))c.logo=channelLogo(c,snap);
-      const regionNeeded=path.startsWith('/catalog/tv/')||path.startsWith('/stream/tv/')||path==='/debug/italia.json';
+      const regionNeeded=path.startsWith('/catalog/tv/')||path.startsWith('/stream/tv/')||path==='/debug/italia.json'||path==='/'||path==='/guida'||path==='/guida-tv'||path==='/api/guida.json';
       const streamId=path.match(/^\/stream\/tv\/([^/]+)\.json$/);
       const regional=regionNeeded?await regionalChecks(request,all,snap,streamId?decodeURIComponent(streamId[1]):null):{found:new Map(),tested:0,reason:'Non richiesto'};
       const visible=all.filter(c=>eligible(snap,c.id).length||regional.found.has(c.id));
