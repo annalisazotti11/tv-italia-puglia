@@ -60,7 +60,8 @@ function safeLogo(value){
 }
 function channelLogo(c,snap){
   const original=c.logo||'',extra=snap?.channels?.[c.id]?.logo||'';
-  return safeLogo(original)?original:safeLogo(extra)?extra:'';
+  // Prefer the nightly-curated image: older M3U logos may now return HTTP 404.
+  return safeLogo(extra)?extra:safeLogo(original)?original:'';
 }
 function groupType(c){
   if(c.id==='tvip_103_rai-3-tgr-puglia'||String(c.number)==='103')return 'puglia';
@@ -112,9 +113,11 @@ async function posterSvg(c){
   // Transparent originals retain their intended white lettering.
   const isTgr=c.id==='tvip_103_rai-3-tgr-puglia'||String(c.number)==='103';
   let embedded='',knockWhite=false;
-  if(safeLogo(c.logo)){
+  // Retry the original M3U artwork if the curated image is unavailable.
+  for(const url of [c.logo,c.fallbackLogo]){
+    if(!safeLogo(url)||embedded)continue;
     try{
-      const r=await fetch(c.logo,{redirect:'manual'});
+      const r=await fetch(url,{redirect:'manual'});
       const mime=(r.headers.get('content-type')||'').split(';')[0].toLowerCase();
       if(r.ok&&['image/png','image/jpeg','image/webp'].includes(mime)){
         const bytes=new Uint8Array(await r.arrayBuffer());
@@ -334,7 +337,7 @@ export default {
           included.add(id);
         }
       }
-      for(const c of all)if(!safeLogo(c.logo))c.logo=channelLogo(c,snap);
+      for(const c of all){const original=c.logo||'';c.logo=channelLogo(c,snap);c.fallbackLogo=safeLogo(original)&&original!==c.logo?original:'';}
       const regionNeeded=path.startsWith('/catalog/tv/')||path.startsWith('/stream/tv/')||path==='/debug/italia.json'||path==='/'||path==='/guida'||path==='/guida-tv'||path==='/api/guida.json';
       const streamId=path.match(/^\/stream\/tv\/([^/]+)\.json$/);
       const regional=regionNeeded?await regionalChecks(request,all,snap,streamId?decodeURIComponent(streamId[1]):null):{found:new Map(),tested:0,reason:'Non richiesto'};
