@@ -37,8 +37,21 @@
         }
       ],
       "tested": 1,
-      "verified": [],
-      "visible": false
+      "verified": [
+        {
+          "audio": true,
+          "bandwidth": 1973346,
+          "height": 408,
+          "kind": "HLS",
+          "last_ok": "2026-11-19T19:04:02Z",
+          "latency_ms": 1309,
+          "score": 143.43,
+          "source": "Playlist originale",
+          "stale": true,
+          "url": "https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8"
+        }
+      ],
+      "visible": true
     },
     "tvip_11_radionorba-tv": {
       "checked_at": "2026-11-19T21:05:59Z",
@@ -4118,13 +4131,14 @@
       "Unplayable HLS variant: HTTPError": 2,
       "Unplayable HLS variant: ValueError": 3
     },
-    "hidden": 153,
+    "hidden": 152,
     "links_tested": 175,
     "playlists_loaded": 18,
-    "regional_recheck_channels": 31,
+    "regional_recheck_channels": 30,
     "sources_verified": 69,
     "status": "ok",
-    "visible": 64,
-    "watchlist_channels": 74
+    "visible": 65,
+    "watchlist_channels": 74,
+    "recent_tgr_puglia_success_retained": true
   }
 }
