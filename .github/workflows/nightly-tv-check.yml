@@ -9,6 +9,9 @@ on:
     branches: [main]
     paths:
       - 'scripts/nightly_check.py'
+      - 'scripts/playback_quality.py'
+      - 'scripts/test_playback_quality.py'
+      - 'data/playlist-sources.json'
       - 'scripts/test_nightly.py'
       - 'scripts/update_epg.py'
       - 'scripts/test_epg.py'
@@ -41,7 +44,7 @@ concurrency:
 jobs:
   check-streams:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -69,6 +72,13 @@ jobs:
           node scripts/test_worker_v420.mjs
       - name: Test playlist e stream
         run: python scripts/nightly_check.py
+      - name: Verifica flussi con video e audio reali
+        run: |
+          if ! command -v ffprobe >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          python scripts/playback_quality.py
       - name: Aggiorna guida programmi XMLTV
         run: python scripts/update_epg.py
       - name: Pubblica l'elenco aggiornato
