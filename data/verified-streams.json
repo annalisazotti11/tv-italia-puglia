@@ -1,7 +1,8 @@
 {
   "channels": {
     "tvip_101_rai-4k-hbbtv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -18,10 +19,12 @@
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_103_rai-3-tgr-puglia": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "Unplayable HLS variant: HTTPError": 1
       },
@@ -45,10 +48,12 @@
           "url": "https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_11_radionorba-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/11-radionorbatv.png",
@@ -59,22 +64,24 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2170628,
+          "bandwidth": 2170689,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1763,
-          "score": 187.95,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 3317,
+          "score": 184.73,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://router.xdevel.com/video0s975885-462/stream/playlist_dvr.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_13_tg-norba-24": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Tg_norba24.png/500px-Tg_norba24.png",
@@ -88,12 +95,12 @@
           "bandwidth": 4192000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1319,
-          "score": 183.72,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 4189,
+          "score": 175.24,
           "source": "Free-TV Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live-telenorba.cdn.netrw.it/telenorba/hls/ccr/tgnorba/master.m3u8"
         },
         {
@@ -101,22 +108,24 @@
           "bandwidth": 2134066,
           "height": 404,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1233,
-          "score": 152.51,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 2016,
+          "score": 152.38,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://stream6.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8"
         }
       ],
+      "verified_count": 2,
       "visible": true
     },
     "tvip_145_padre-pio-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/en/a/a4/Padre_Pio_TV.jpg",
+      "logo": "https://i.imgur.com/7ajxEPH.png",
       "name": "Padre Pio TV",
       "number": "145",
       "regional_candidates": [],
@@ -124,25 +133,27 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2210880,
+          "bandwidth": 2179296,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 901,
-          "score": 185.4,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1307,
+          "score": 186.77,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://600f07e114306.streamlock.net/PadrePioTV/livestream/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_14_antenna-sud": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/Sf0bA4P.png",
+      "logo": "https://i.imgur.com/b8y6ImZ.png",
       "name": "Antenna Sud",
       "number": "14",
       "regional_candidates": [],
@@ -153,19 +164,21 @@
           "bandwidth": 6192000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1482,
-          "score": 189.07,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 3218,
+          "score": 185.13,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live-antennasud.cdn.netrw.it/antennasud/hls/ccr/antennasud/master.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_158_radio-kiss-kiss-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://i.imgur.com/UTStxDW.png",
@@ -179,19 +192,21 @@
           "bandwidth": 3128000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 891,
-          "score": 153.44,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1424,
+          "score": 154.3,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://kk.fluid.stream/KKMulti/smil:KissKissTV.smil/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_17_telebari": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/17-telebari.png",
@@ -202,15 +217,15 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2736227,
+          "bandwidth": 2880310,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1763,
-          "score": 187.95,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 2359,
+          "score": 188.56,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://w1.mediastreaming.it/telebari/livestream/playlist.m3u8"
         },
         {
@@ -218,36 +233,38 @@
           "bandwidth": 2393457,
           "height": 1080,
           "kind": "DASH",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 671,
-          "score": 166.32,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 616,
+          "score": 169.54,
           "source": "OpenIPTVItaly",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://w1.mediastreaming.it/telebari/livestream/manifest.mpd"
         }
       ],
+      "verified_count": 2,
       "visible": true
     },
     "tvip_1_rai-1-hd": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 5,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2,
         "Not an HLS/DASH manifest": 2
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Rai_1_-_Logo_2016.svg/960px-Rai_1_-_Logo_2016.svg.png",
+      "logo": "https://i.imgur.com/CAx7yRm.png",
       "name": "Rai 1 HD",
       "number": "1",
       "regional_candidates": [
         {
           "reason": "HTTP 403",
-          "source": "OpenIPTVItaly",
+          "source": "nicolofajette/Canali",
           "url": "https://raiuno3-live.akamaized.net/hls/live/2017910/raiuno3/raiuno3/playlist.m3u8"
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/rai-1/stream.m3u8"
         }
       ],
@@ -258,19 +275,21 @@
           "bandwidth": 8192000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1148,
-          "score": 184.41,
-          "source": "iptv-org Italy",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1762,
+          "score": 184.95,
+          "source": "iptv-org Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://r.eu.cdn-redge.media/livehls/oeu/mt/live/rai_uno/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_202_rai-radio-2-visual": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/202-rairadio2.png",
@@ -279,10 +298,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_20_20-mediaset-hd": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 3,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2,
         "URLError": 1
@@ -299,22 +320,29 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TVITALIA",
+          "source": "lpaxi765 Italia",
           "url": "https://live03-col.msf.cdn.mediaset.net/live/ch-lb/lb-clr.isml/manifest.mpd"
+        },
+        {
+          "reason": "URLError",
+          "source": "FTA curate (iptv-org)",
+          "url": "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(lb)/index.m3u8"
         }
       ],
       "tested": 3,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_21_rai-4": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2,
         "Not an HLS/DASH manifest": 2
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/sEY21rg.png",
+      "logo": "https://i.imgur.com/XFkZRfv.png",
       "name": "Rai 4",
       "number": "21",
       "regional_candidates": [
@@ -325,21 +353,23 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/rai-4/stream.m3u8"
         }
       ],
       "tested": 4,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_22_iris": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 4
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/ZLnSLh4.png",
+      "logo": "https://i.imgur.com/Ixz1BY3.png",
       "name": "Iris",
       "number": "22",
       "regional_candidates": [
@@ -350,19 +380,26 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "iptv-org Italy",
+          "source": "nicolofajette/Canali",
           "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-ki/ki-clr.isml/index.m3u8"
+        },
+        {
+          "reason": "HTTP 403",
+          "source": "OpenIPTVItaly",
+          "url": "https://live03-col.msf.cdn.mediaset.net/live/ch-ki/ki-clr.isml/manifest.mpd"
         }
       ],
       "tested": 4,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_233_rtl-102-5-news": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://raw.githubusercontent.com/maginetweb-arch/TVITALIA/refs/heads/main/TVL/rtl1025tv.png",
+      "logo": "https://cdn.jsdelivr.net/gh/Tundrak/IPTV-Italia/logos/rtl1025tv.png",
       "name": "RTL 102.5 News",
       "number": "233",
       "regional_candidates": [],
@@ -373,19 +410,21 @@
           "bandwidth": 3256000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 209,
-          "score": 188.16,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1806,
+          "score": 184.78,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S38122967/2lyQRIAAGgRR/playlist_video.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_23_rai-5": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2,
         "Not an HLS/DASH manifest": 2
@@ -397,27 +436,29 @@
       "regional_candidates": [
         {
           "reason": "HTTP 403",
-          "source": "Canali Italiani",
+          "source": "nicolofajette/Canali",
           "url": "https://raicinque3-live.akamaized.net/hls/live/2018007/raicinque3/raicinque3/playlist.m3u8"
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/rai-5/stream.m3u8"
         }
       ],
       "tested": 4,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_24_rai-movie": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2,
         "Not an HLS/DASH manifest": 2
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/0FjxXU9.png",
+      "logo": "https://i.imgur.com/RKpO8CE.png",
       "name": "Rai Movie",
       "number": "24",
       "regional_candidates": [
@@ -428,16 +469,18 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/rai-movie/stream.m3u8"
         }
       ],
       "tested": 4,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_257_gambero-rosso": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://i.imgur.com/RApMW5x.png",
@@ -446,13 +489,15 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_258_radiofreccia": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/RxeRlar.png",
+      "logo": "https://i.imgur.com/J5N9F7Z.png",
       "name": "RADIOFRECCIA",
       "number": "258",
       "regional_candidates": [],
@@ -463,19 +508,21 @@
           "bandwidth": 3256000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 397,
-          "score": 187.41,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1669,
+          "score": 185.32,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/0tuSetc8UFkF/playlist_video.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_25_rai-premium": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -486,16 +533,18 @@
       "regional_candidates": [
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/rai-premium/stream.m3u8"
         }
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_262_byoblu": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "URLError": 1
       },
@@ -512,13 +561,15 @@
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_265_rds-social-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/bxGvE8C.png",
+      "logo": "https://i.imgur.com/TY6FhqI.png",
       "name": "RDS Social TV",
       "number": "265",
       "regional_candidates": [],
@@ -529,22 +580,24 @@
           "bandwidth": 9612152,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 160,
-          "score": 188.36,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 893,
+          "score": 188.43,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://stream.rdstv.radio/index.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_266_radio-zeta": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/K2xLMin.png",
+      "logo": "https://i.imgur.com/0MgCm1n.png",
       "name": "RADIO ZETA",
       "number": "266",
       "regional_candidates": [],
@@ -555,19 +608,21 @@
           "bandwidth": 3256000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 378,
-          "score": 187.49,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1714,
+          "score": 185.14,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/playlist_video.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_26_cielo": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2
       },
@@ -578,16 +633,18 @@
       "regional_candidates": [
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/sky/cielo/stream.m3u8"
         }
       ],
       "tested": 2,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_27_27-twentyseven": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2
       },
@@ -603,30 +660,46 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TVITALIA",
+          "source": "lpaxi765 Italia",
           "url": "https://live03-col.msf.cdn.mediaset.net/live/ch-ts/ts-clr.isml/manifest.mpd"
         }
       ],
       "tested": 2,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_28_tv2000": {
-      "checked_at": "2026-11-19T21:34:20Z",
-      "failures": {
-        "Unplayable HLS variant: ValueError": 1
-      },
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
+      "failures": {},
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/it/thumb/0/0d/Logo_tv2000_2015.svg/960px-Logo_tv2000_2015.svg.png",
+      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/28-tv2000.png",
       "name": "TV2000",
       "number": "28",
       "regional_candidates": [],
       "tested": 1,
-      "verified": [],
-      "visible": false
+      "verified": [
+        {
+          "audio": true,
+          "bandwidth": 3529136,
+          "height": 1080,
+          "kind": "HLS",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 886,
+          "score": 182.46,
+          "source": "Tundrak canali aggiuntivi",
+          "stale": false,
+          "success_runs": 1,
+          "url": "https://hls-live-tv2000.akamaized.net/hls/live/2028510/tv2000/master.m3u8"
+        }
+      ],
+      "verified_count": 1,
+      "visible": true
     },
     "tvip_29_la7-cinema": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -645,28 +718,30 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 3720000,
+          "bandwidth": 3780000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1072,
-          "score": 164.71,
-          "source": "TvIt public Italian TV",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1298,
+          "score": 166.81,
+          "source": "TvIt Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://tvit.leicaflorianrobert.dev/la7/la7-cinema/stream.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_2_rai-2-hd": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 5,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2,
         "Not an HLS/DASH manifest": 2
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Rai_2_-_Logo_2016.svg/960px-Rai_2_-_Logo_2016.svg.png",
+      "logo": "https://i.imgur.com/zA0PTcs.png",
       "name": "Rai 2 HD",
       "number": "2",
       "regional_candidates": [
@@ -677,7 +752,7 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/rai-2/stream.m3u8"
         }
       ],
@@ -688,19 +763,21 @@
           "bandwidth": 5192000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 831,
-          "score": 165.68,
-          "source": "FTA curate (iptv-org)",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1409,
+          "score": 166.36,
+          "source": "DuckKota globale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/rai_due/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_30_la5": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 3,
         "URLError": 1
@@ -719,17 +796,24 @@
           "reason": "HTTP 403",
           "source": "OpenIPTVItaly",
           "url": "https://live03-col.msf.cdn.mediaset.net/live/ch-ka/ka-clr.isml/manifest.mpd"
+        },
+        {
+          "reason": "URLError",
+          "source": "DuckKota Italia",
+          "url": "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(ka)/index.m3u8"
         }
       ],
       "tested": 4,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_31_real-time": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/SPlk2Gx.png",
+      "logo": "https://i.imgur.com/9dcTYg1.png",
       "name": "Real Time",
       "number": "31",
       "regional_candidates": [],
@@ -740,12 +824,12 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 284,
-          "score": 193.86,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 512,
+          "score": 195.95,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/REALTIME/CMAF/index.m3u8"
         },
         {
@@ -753,19 +837,21 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 342,
-          "score": 187.63,
-          "source": "TvIt public Italian TV",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 790,
+          "score": 188.84,
+          "source": "TvIt Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://tvit.leicaflorianrobert.dev/discovery/real-time/stream.m3u8"
         }
       ],
+      "verified_count": 2,
       "visible": true
     },
     "tvip_32_qvc": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://i.imgur.com/Ea7iUX2.png",
@@ -779,22 +865,24 @@
           "bandwidth": 2739179,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 244,
-          "score": 168.02,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 966,
+          "score": 168.14,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://qrg.akamaized.net/hls/live/2017383/lsqvc1it/master.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_33_food-network": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Food_Network_New_Logo.png/960px-Food_Network_New_Logo.png",
+      "logo": "https://i.imgur.com/i60OYr9.png",
       "name": "Food Network",
       "number": "33",
       "regional_candidates": [],
@@ -805,24 +893,26 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 113,
-          "score": 194.55,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 489,
+          "score": 196.04,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/FOODNETWORK/CMAF/index.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_34_cine34": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 4
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Cine34_logo.svg/960px-Cine34_logo.svg.png",
+      "logo": "https://i.imgur.com/YyldwhI.png",
       "name": "Cine34",
       "number": "34",
       "regional_candidates": [
@@ -833,16 +923,23 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "iptv-org Italy",
+          "source": "nicolofajette/Canali",
           "url": "https://live02-seg.msf.cdn.mediaset.net/live/ch-b6/b6-clr.isml/index.m3u8"
+        },
+        {
+          "reason": "HTTP 403",
+          "source": "OpenIPTVItaly",
+          "url": "https://live03-col.msf.cdn.mediaset.net/live/ch-b6/b6-clr.isml/manifest.mpd"
         }
       ],
       "tested": 4,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_35_focus": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 3,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 3
       },
@@ -860,14 +957,21 @@
           "reason": "HTTP 403",
           "source": "OpenIPTVItaly",
           "url": "https://live03-col.msf.cdn.mediaset.net/live/ch-fu/fu-clr.isml/manifest.mpd"
+        },
+        {
+          "reason": "HTTP 403",
+          "source": "TvIt Italia",
+          "url": "https://tvit.leicaflorianrobert.dev/mediaset/focus/stream.m3u8"
         }
       ],
       "tested": 3,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_36_rtl-102-5": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://i.imgur.com/KdissvS.png",
@@ -881,12 +985,12 @@
           "bandwidth": 3256000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 322,
-          "score": 193.71,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1943,
+          "score": 190.23,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_video.m3u8"
         },
         {
@@ -894,19 +998,21 @@
           "bandwidth": 3256000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 311,
-          "score": 187.76,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1919,
+          "score": 184.32,
           "source": "Free-TV Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist.m3u8"
         }
       ],
+      "verified_count": 2,
       "visible": true
     },
     "tvip_37_warner-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "URLError": 1
       },
@@ -928,24 +1034,26 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 598,
-          "score": 186.61,
-          "source": "TvIt public Italian TV",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1056,
+          "score": 187.78,
+          "source": "TvIt Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://tvit.leicaflorianrobert.dev/discovery/warner-tv/stream.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_38_giallo": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "URLError": 1
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Giallo_-_Logo_2014.svg/960px-Giallo_-_Logo_2014.svg.png",
+      "logo": "https://i.imgur.com/0PIRwZS.png",
       "name": "Giallo",
       "number": "38",
       "regional_candidates": [
@@ -962,19 +1070,21 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 602,
-          "score": 186.59,
-          "source": "TvIt public Italian TV",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 837,
+          "score": 188.65,
+          "source": "TvIt Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://tvit.leicaflorianrobert.dev/discovery/giallo/stream.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_39_top-crime": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 3,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2,
         "URLError": 1
@@ -991,22 +1101,29 @@
         },
         {
           "reason": "URLError",
-          "source": "DuckKota Italy health index",
+          "source": "DuckKota Italia",
           "url": "https://live3-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(lt)/index.m3u8"
+        },
+        {
+          "reason": "HTTP 403",
+          "source": "TvIt Italia",
+          "url": "https://tvit.leicaflorianrobert.dev/mediaset/top-crime/stream.m3u8"
         }
       ],
       "tested": 3,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_3_rai-3-hd": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 5,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2,
         "Not an HLS/DASH manifest": 2
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Rai_3_-_Logo_2016.svg/960px-Rai_3_-_Logo_2016.svg.png",
+      "logo": "https://i.imgur.com/9kuQCIi.png",
       "name": "Rai 3 HD",
       "number": "3",
       "regional_candidates": [
@@ -1017,7 +1134,7 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/rai-3/stream.m3u8"
         }
       ],
@@ -1028,19 +1145,21 @@
           "bandwidth": 5192000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1112,
-          "score": 164.55,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1736,
+          "score": 165.06,
           "source": "FTA curate (iptv-org)",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://r.eu.cdn-redge.media/livehls/oeu/mt/live/rai_tre/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_404_hell-s-kitchen-italy": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/404-hellskitchen.png",
@@ -1049,15 +1168,17 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_40_boing": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/rabKj9i.png",
+      "logo": "https://i.imgur.com/niSlrqT.png",
       "name": "Boing",
       "number": "40",
       "regional_candidates": [
@@ -1068,16 +1189,18 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/mediaset/boing/stream.m3u8"
         }
       ],
       "tested": 2,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_41_k2": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "URLError": 2
       },
@@ -1093,36 +1216,40 @@
         },
         {
           "reason": "URLError",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/discovery/k2/stream.m3u8"
         }
       ],
       "tested": 2,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_42_rai-gulp": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/irAhPJM.png",
+      "logo": "https://i.imgur.com/lu1DPVb.png",
       "name": "Rai Gulp",
       "number": "42",
       "regional_candidates": [
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/rai-gulp/stream.m3u8"
         }
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_43_rai-yoyo": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -1133,21 +1260,23 @@
       "regional_candidates": [
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/rai-yoyo/stream.m3u8"
         }
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_44_frisbee": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "URLError": 2
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/9y1zIAe.png",
+      "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/main/logos/frisbee.webp",
       "name": "Frisbee",
       "number": "44",
       "regional_candidates": [
@@ -1158,16 +1287,18 @@
         },
         {
           "reason": "URLError",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/discovery/frisbee/stream.m3u8"
         }
       ],
       "tested": 2,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_45_boing-plus": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Digitale terrestre",
       "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/45-boingplus.png",
@@ -1176,15 +1307,17 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_46_cartoonito": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/6vYWCD0.png",
+      "logo": "https://i.imgur.com/oK2DcDJ.png",
       "name": "Cartoonito",
       "number": "46",
       "regional_candidates": [
@@ -1195,21 +1328,23 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/mediaset/cartoonito/stream.m3u8"
         }
       ],
       "tested": 2,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_47_super": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "Unplayable HLS variant: HTTPError": 1
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Super%21_logo_2021.svg/960px-Super%21_logo_2021.svg.png",
+      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/47-super.png",
       "name": "Super!",
       "number": "47",
       "regional_candidates": [
@@ -1223,34 +1358,36 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 3225305,
+          "bandwidth": 3197914,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 328,
-          "score": 167.69,
-          "source": "iptv-org Italy",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1815,
+          "score": 164.74,
+          "source": "nicolofajette/Canali",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://495c5a85d9074f29acffeaea9e0215eb.msvdn.net/super/super_main/super_main_hbbtv/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_48_rai-news-24": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1,
         "Unplayable HLS variant: ValueError": 2
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/n2u57y3.png",
+      "logo": "https://i.imgur.com/gdzGwB6.png",
       "name": "Rai News 24",
       "number": "48",
       "regional_candidates": [
         {
           "reason": "HTTP 403",
-          "source": "iptv-org Italy",
+          "source": "iptv-org Italia",
           "url": "https://rainews1-live.akamaized.net/hls/live/598326/rainews1/rainews1/playlist.m3u8"
         }
       ],
@@ -1261,19 +1398,21 @@
           "bandwidth": 3192000,
           "height": 540,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 767,
-          "score": 155.93,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1085,
+          "score": 157.66,
           "source": "FTA curate (iptv-org)",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/rai_news_24/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_49_italia-2": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2
       },
@@ -1289,21 +1428,23 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/mediaset/italia-2/stream.m3u8"
         }
       ],
       "tested": 2,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_4_rete-4-hd": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 3
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Rete_4_-_Logo_2018.svg/500px-Rete_4_-_Logo_2018.svg.png",
+      "logo": "https://i.imgur.com/GWx2Fkl.png",
       "name": "Rete 4 HD",
       "number": "4",
       "regional_candidates": [
@@ -1316,6 +1457,11 @@
           "reason": "HTTP 403",
           "source": "OpenIPTVItaly",
           "url": "https://live03-col.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/manifest.mpd"
+        },
+        {
+          "reason": "HTTP 403",
+          "source": "TvIt Italia",
+          "url": "https://tvit.leicaflorianrobert.dev/mediaset/rete-4/stream.m3u8"
         }
       ],
       "tested": 4,
@@ -1325,19 +1471,21 @@
           "bandwidth": 5192000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 727,
-          "score": 166.09,
-          "source": "iptv-org Italy",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1124,
+          "score": 167.5,
+          "source": "iptv-org Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/rete_4/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_50_sky-tg24": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 400": 1,
         "HTTP 403": 1
@@ -1349,27 +1497,29 @@
       "regional_candidates": [],
       "tested": 2,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_51_tgcom24": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 3,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1,
         "URLError": 1
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/fPmvbGH.png",
+      "logo": "https://i.imgur.com/xautVD8.png",
       "name": "TGCOM24",
       "number": "51",
       "regional_candidates": [
         {
           "reason": "URLError",
-          "source": "Fonte HTTPS pubblicata",
+          "source": "DuckKota globale",
           "url": "https://live2-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(kf)/index.m3u8"
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/mediaset/tgcom24/stream.m3u8"
         }
       ],
@@ -1380,22 +1530,24 @@
           "bandwidth": 5192000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 747,
-          "score": 166.01,
-          "source": "FTA curate (iptv-org)",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1098,
+          "score": 167.61,
+          "source": "DuckKota globale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/tgcom24/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_52_dmax": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/uGd9fnn.png",
+      "logo": "https://i.imgur.com/dmEmRX7.png",
       "name": "DMAX",
       "number": "52",
       "regional_candidates": [],
@@ -1406,12 +1558,12 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 202,
-          "score": 194.19,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 328,
+          "score": 196.69,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8"
         },
         {
@@ -1419,19 +1571,21 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 319,
-          "score": 187.72,
-          "source": "TvIt public Italian TV",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 593,
+          "score": 189.63,
+          "source": "TvIt Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://tvit.leicaflorianrobert.dev/discovery/dmax/stream.m3u8"
         }
       ],
+      "verified_count": 2,
       "visible": true
     },
     "tvip_53_italia-53": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Digitale terrestre",
       "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/53-italia53.png",
@@ -1440,16 +1594,18 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_54_rai-storia": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2,
         "Not an HLS/DASH manifest": 2
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Rai_Storia_-_Logo_2017.svg/960px-Rai_Storia_-_Logo_2017.svg.png",
+      "logo": "https://cdn.jsdelivr.net/gh/Tundrak/IPTV-Italia/logos/raistoria.png",
       "name": "Rai Storia",
       "number": "54",
       "regional_candidates": [
@@ -1460,16 +1616,18 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/rai-storia/stream.m3u8"
         }
       ],
       "tested": 4,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_55_mediaset-extra": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 3,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2
       },
@@ -1485,7 +1643,7 @@
         },
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/mediaset/mediaset-extra/stream.m3u8"
         }
       ],
@@ -1496,19 +1654,21 @@
           "bandwidth": 3192000,
           "height": 540,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1827,
-          "score": 151.69,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1707,
+          "score": 155.17,
           "source": "FTA curate (iptv-org)",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://r.eu.cdn-redge.media/livehls/oeu/mt/live/mediaset_extra/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_56_hgtv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://i.imgur.com/ejPii8T.png",
@@ -1522,19 +1682,21 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 205,
-          "score": 194.18,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 623,
+          "score": 195.51,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/HGTV/CMAF/index.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_57_italiana": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -1545,16 +1707,18 @@
       "regional_candidates": [
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/rai/italiana/stream.m3u8"
         }
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_57_rai-scuola": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://i.imgur.com/tmtJW6s.png",
@@ -1563,22 +1727,26 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_58_rai-sport-hd": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/6PEevOM.png",
+      "logo": "https://i.imgur.com/xsGljsb.png",
       "name": "Rai Sport + HD",
       "number": "58",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_59_discovery-turbo": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/59-discoveryturbo.png",
@@ -1592,24 +1760,26 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 275,
-          "score": 187.9,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 354,
+          "score": 190.58,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/TURBO/CMAF/index.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_5_canale-5-hd": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 3
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Canale_5_-_2018_logo.svg/960px-Canale_5_-_2018_logo.svg.png",
+      "logo": "https://i.imgur.com/p6YdiR1.png",
       "name": "Canale 5 HD",
       "number": "5",
       "regional_candidates": [
@@ -1622,6 +1792,11 @@
           "reason": "HTTP 403",
           "source": "OpenIPTVItaly",
           "url": "https://live03-col.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/manifest.mpd"
+        },
+        {
+          "reason": "HTTP 403",
+          "source": "TvIt Italia",
+          "url": "https://tvit.leicaflorianrobert.dev/mediaset/canale-5/stream.m3u8"
         }
       ],
       "tested": 4,
@@ -1631,24 +1806,26 @@
           "bandwidth": 8192000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 729,
-          "score": 186.08,
-          "source": "iptv-org Italy",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1087,
+          "score": 187.65,
+          "source": "iptv-org Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/canale_5/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_60_sportitalia": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/0CJGGgd.png",
+      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/60-sportitalia.png",
       "name": "Sportitalia",
       "number": "60",
       "regional_candidates": [
@@ -1662,40 +1839,44 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2498179,
+          "bandwidth": 2455822,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1318,
-          "score": 183.73,
-          "source": "TvIt public Italian TV",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 2282,
+          "score": 182.87,
+          "source": "TvIt Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://tvit.leicaflorianrobert.dev/sportitalia/sportitalia/stream.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_61_club-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Digitale terrestre",
-      "logo": "",
+      "logo": "https://i.imgur.com/6fmQLF8.png",
       "name": "CLUB TV",
       "number": "61",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_62_donna-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1,
         "URLError": 1
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/Aa1Abme.png",
+      "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/main/logos/donnatv.webp",
       "name": "Donna TV",
       "number": "62",
       "regional_candidates": [
@@ -1706,16 +1887,18 @@
         },
         {
           "reason": "URLError",
-          "source": "TVITALIA",
+          "source": "nicolofajette/Canali",
           "url": "https://streaming.softwarecreation.it/DonnaTv/DonnaTv/playlist.m3u8"
         }
       ],
       "tested": 2,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_63_il-sole-24-ore-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "",
@@ -1729,19 +1912,21 @@
           "bandwidth": 4144800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 476,
-          "score": 187.1,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 959,
+          "score": 188.16,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://ilsole24ore-radiovisual.akamaized.net/hls/live/2035302/persidera/master.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_64_supertennis": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -1758,15 +1943,17 @@
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_65_alma-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "URLError": 1
       },
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/Y8JiDwN.png",
+      "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/main/logos/almatv.webp",
       "name": "ALMA TV",
       "number": "65",
       "regional_candidates": [
@@ -1778,10 +1965,12 @@
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_66_radio-105-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://i.imgur.com/3NiLKvj.png",
@@ -1795,19 +1984,21 @@
           "bandwidth": 5704000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1359,
-          "score": 189.56,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1940,
+          "score": 190.24,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/index.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_67_r101-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://i.imgur.com/mWeEa9T.png",
@@ -1821,19 +2012,21 @@
           "bandwidth": 4800000,
           "height": 1080,
           "kind": "DASH",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 147,
-          "score": 168.41,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1100,
+          "score": 167.6,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live03-col.msr.cdn.mediaset.net/live/ch-er/er-clr.isml/manifest.mpd"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_68_bom-channel": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://i.imgur.com/hISoOK3.png",
@@ -1844,25 +2037,27 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 1705385,
+          "bandwidth": 1827360,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1543,
-          "score": 162.83,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 2083,
+          "score": 163.67,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://5f22d76e220e1.streamlock.net/canale6/canale6/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_69_deejay-tv-hd": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/YV27Chs.png",
+      "logo": "https://i.imgur.com/rlaKH6k.png",
       "name": "Deejay TV HD",
       "number": "69",
       "regional_candidates": [],
@@ -1870,27 +2065,29 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 3179586,
+          "bandwidth": 3278626,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 300,
-          "score": 193.8,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1899,
+          "score": 190.4,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S85984808/sMO0tz9Sr2Rk/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_6_italia-1-hd": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 4,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 3
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Italia_1_logo.svg/500px-Italia_1_logo.svg.png",
+      "logo": "https://i.imgur.com/oCiOxBG.png",
       "name": "Italia 1 HD",
       "number": "6",
       "regional_candidates": [
@@ -1903,6 +2100,11 @@
           "reason": "HTTP 403",
           "source": "OpenIPTVItaly",
           "url": "https://live03-col.msf.cdn.mediaset.net/live/ch-i1/i1-clr.isml/manifest.mpd"
+        },
+        {
+          "reason": "HTTP 403",
+          "source": "TvIt Italia",
+          "url": "https://tvit.leicaflorianrobert.dev/mediaset/italia-1/stream.m3u8"
         }
       ],
       "tested": 4,
@@ -1912,19 +2114,21 @@
           "bandwidth": 5192000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 745,
-          "score": 166.02,
-          "source": "iptv-org Italy",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1093,
+          "score": 167.63,
+          "source": "iptv-org Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/italia_1/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_70_radioitaliatv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://i.imgur.com/4VCEJuJ.png",
@@ -1938,19 +2142,21 @@
           "bandwidth": 1300970,
           "height": 576,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 152,
-          "score": 166.39,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1329,
+          "score": 164.68,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_713_radio-capital-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/713-radiocapital.png",
@@ -1964,22 +2170,24 @@
           "bandwidth": 2658000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 303,
-          "score": 167.79,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1734,
+          "score": 165.06,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S35394734/Z6U2wGoDYANk/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_715_m2o-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Radio_m2o_-_Logo_2019.svg/500px-Radio_m2o_-_Logo_2019.svg.png",
+      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/715-m2o.png",
       "name": "M2O TV",
       "number": "715",
       "regional_candidates": [],
@@ -1987,22 +2195,24 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 3296438,
+          "bandwidth": 3390374,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 294,
-          "score": 187.82,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1772,
+          "score": 184.91,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S62628868/uhdWBlkC1AoO/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_772_radio-montecarlo-tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/772-rmc.png",
@@ -2016,22 +2226,24 @@
           "bandwidth": 4800000,
           "height": 1080,
           "kind": "DASH",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 438,
-          "score": 167.25,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 823,
+          "score": 168.71,
           "source": "Tundrak canali aggiuntivi",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live03-col.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/manifest.mpd"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_7_la7-hd": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/LA7_-_Logo_2011.svg/960px-LA7_-_Logo_2011.svg.png",
+      "logo": "https://i.imgur.com/F90mpSa.png",
       "name": "LA7 HD",
       "number": "7",
       "regional_candidates": [],
@@ -2042,19 +2254,21 @@
           "bandwidth": 5915800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 401,
-          "score": 187.4,
-          "source": "TvIt public Italian TV",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 967,
+          "score": 188.13,
+          "source": "TvIt Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://tvit.leicaflorianrobert.dev/la7/la7/stream.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_831_rtv-san-marino": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 404": 1
       },
@@ -2065,10 +2279,12 @@
       "regional_candidates": [],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_899_radio-tv-serie-a-con-rds": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "URLError": 1
       },
@@ -2085,33 +2301,37 @@
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_8_tv8": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 2
       },
       "group": "Canali TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/TV8_logo.svg/500px-TV8_logo.svg.png",
+      "logo": "https://i.imgur.com/xvoHVOU.png",
       "name": "TV8",
       "number": "8",
       "regional_candidates": [
         {
           "reason": "HTTP 403",
-          "source": "TvIt public Italian TV",
+          "source": "TvIt Italia",
           "url": "https://tvit.leicaflorianrobert.dev/sky/tv8/stream.m3u8"
         }
       ],
       "tested": 2,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_9_nove": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 2,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/rTjIkGO.png",
+      "logo": "https://i.imgur.com/Hp723RU.png",
       "name": "NOVE",
       "number": "9",
       "regional_candidates": [],
@@ -2122,12 +2342,12 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 303,
-          "score": 193.79,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 665,
+          "score": 195.34,
           "source": "Playlist originale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/NOVE/CMAF/index.m3u8"
         },
         {
@@ -2135,19 +2355,21 @@
           "bandwidth": 6850800,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 349,
-          "score": 187.6,
-          "source": "TvIt public Italian TV",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1032,
+          "score": 187.87,
+          "source": "TvIt Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://tvit.leicaflorianrobert.dev/discovery/nove/stream.m3u8"
         }
       ],
+      "verified_count": 2,
       "visible": true
     },
     "tvip_puglia_7_gold_puglia": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "TV locali Puglia",
       "logo": "",
@@ -2156,34 +2378,40 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_puglia_antenna_sud_extra": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "TV locali Puglia",
-      "logo": "https://i.imgur.com/kiCcHzc.png",
+      "logo": "https://i.imgur.com/6tBv8VD.png",
       "name": "Antenna Sud Extra",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_puglia_btv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "TV locali Puglia",
-      "logo": "",
+      "logo": "https://i.imgur.com/l47z7gw.png",
       "name": "BTV",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_puglia_canale_7_puglia": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "TV locali Puglia",
       "logo": "",
@@ -2192,10 +2420,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_puglia_delta_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "TV locali Puglia",
       "logo": "https://i.imgur.com/mfwVXt7.png",
@@ -2204,30 +2434,34 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_puglia_la_nuova_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "URLError": 1
       },
       "group": "TV locali Puglia",
-      "logo": "https://i.imgur.com/OHMv86A.png",
+      "logo": "https://i.imgur.com/wg8FhdN.png",
       "name": "La Nuova TV",
       "number": "",
       "regional_candidates": [
         {
           "reason": "URLError",
-          "source": "iptv-org Italy",
+          "source": "Free-TV Italia",
           "url": "https://5dcabf026b188.streamlock.net/lanuovatvbas/livestream/playlist.m3u8"
         }
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_puglia_tele_dehon": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1
       },
@@ -2244,10 +2478,12 @@
       ],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_puglia_teledue": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 404": 1
       },
@@ -2258,10 +2494,12 @@
       "regional_candidates": [],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_puglia_telenorba": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "TV locali Puglia",
       "logo": "https://upload.wikimedia.org/wikipedia/it/thumb/2/28/Telenorba_-_Logo_2014.svg/500px-Telenorba_-_Logo_2014.svg.png",
@@ -2275,45 +2513,37 @@
           "bandwidth": 4192000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1068,
-          "score": 184.73,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 2553,
+          "score": 181.79,
           "source": "Free-TV Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live-telenorba.cdn.netrw.it/telenorba/hls/ccr/telenorba/master.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_puglia_telerama": {
-      "checked_at": "2026-11-19T21:34:20Z",
-      "failures": {},
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
+      "failures": {
+        "HTTP 404": 1
+      },
       "group": "TV locali Puglia",
       "logo": "https://i.imgur.com/enfqUlI.jpg",
       "name": "Telerama",
       "number": "15",
       "regional_candidates": [],
       "tested": 1,
-      "verified": [
-        {
-          "audio": true,
-          "bandwidth": 1245186,
-          "height": 576,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 901,
-          "score": 157.4,
-          "source": "Free-TV Italia",
-          "stale": false,
-          "success_runs": 2,
-          "url": "https://58d921499d3d3.streamlock.net/TeleRama/livestream/playlist.m3u8"
-        }
-      ],
-      "visible": true
+      "verified": [],
+      "verified_count": 0,
+      "visible": false
     },
     "tvip_puglia_teleregione_color": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "TV locali Puglia",
       "logo": "https://i.imgur.com/vi5Nf3S.png",
@@ -2322,10 +2552,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_puglia_telesud": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 404": 1
       },
@@ -2336,39 +2568,31 @@
       "regional_candidates": [],
       "tested": 1,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_puglia_telesveva": {
-      "checked_at": "2026-11-19T21:34:20Z",
-      "failures": {},
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
+      "failures": {
+        "HTTP 404": 1
+      },
       "group": "TV locali Puglia",
       "logo": "https://i.imgur.com/SCDETZC.jpeg",
       "name": "Telesveva",
       "number": "18",
       "regional_candidates": [],
       "tested": 1,
-      "verified": [
-        {
-          "audio": false,
-          "bandwidth": 0,
-          "height": 0,
-          "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 610,
-          "score": 108.56,
-          "source": "OpenIPTVItaly",
-          "stale": false,
-          "success_runs": 2,
-          "url": "https://live2.telesveva.com/hls/svevahd.m3u8"
-        }
-      ],
-      "visible": true
+      "verified": [],
+      "verified_count": 0,
+      "visible": false
     },
     "tvip_sat_aci_sport_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky, sport e altri canali",
-      "logo": "https://i.imgur.com/U8cHMOt.png",
+      "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/main/logos/acisporttv.webp",
       "name": "ACI Sport TV",
       "number": "",
       "regional_candidates": [],
@@ -2379,22 +2603,24 @@
           "bandwidth": 2960179,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1176,
-          "score": 164.3,
-          "source": "iptv-org Italy",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1789,
+          "score": 164.84,
+          "source": "nicolofajette/Canali",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_al_arabiya": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
-      "logo": "",
+      "logo": "https://i.imgur.com/NXFkYFj.png",
       "name": "Al Arabiya",
       "number": "",
       "regional_candidates": [],
@@ -2402,22 +2628,24 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2519371,
+          "bandwidth": 3596369,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 508,
-          "score": 186.97,
-          "source": "FTA curate (iptv-org)",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 495,
+          "score": 190.02,
+          "source": "streamline globale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_al_jazeera_arabic": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "https://i.imgur.com/7bRVpnu.png",
@@ -2431,19 +2659,21 @@
           "bandwidth": 6324320,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 304,
-          "score": 187.78,
-          "source": "FreeCastHub public directory",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 738,
+          "score": 189.05,
+          "source": "FreeCastHub",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live-hls-web-aja.getaj.net/AJA/index.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_al_jazeera_english": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "https://i.imgur.com/7bRVpnu.png",
@@ -2457,19 +2687,21 @@
           "bandwidth": 6128079,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 439,
-          "score": 187.24,
-          "source": "FTA curate (iptv-org)",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 2164,
+          "score": 183.34,
+          "source": "iptv-org globale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_al_masriyah": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "",
@@ -2478,10 +2710,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_arirang_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "https://i.imgur.com/Asu5pE9.png",
@@ -2490,10 +2724,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_arte_investimenti": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -2502,10 +2738,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_bbc_arabic": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "https://i.imgur.com/ScyTG6P.png",
@@ -2514,10 +2752,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_bejoy_kids": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "https://i.imgur.com/zuR9Go5.png",
@@ -2531,22 +2771,24 @@
           "bandwidth": 4300000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 805,
-          "score": 185.78,
-          "source": "iptv-org Italy",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1216,
+          "score": 187.14,
+          "source": "Free-TV Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://stream.paroledivita.org/bejoy.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_bloomberg_television": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
-      "logo": "",
+      "logo": "https://i.imgur.com/OuogLHx.png",
       "name": "Bloomberg Television",
       "number": "",
       "regional_candidates": [],
@@ -2557,19 +2799,21 @@
           "bandwidth": 1200000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 156,
-          "score": 168.38,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 834,
+          "score": 168.66,
           "source": "FTA curate (iptv-org)",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://bloomberg.com/media-manifest/streams/eu.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_camera_dei_deputati": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "https://i.imgur.com/fqGn1k9.png",
@@ -2580,22 +2824,24 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 930224,
+          "bandwidth": 907964,
           "height": 360,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1798,
-          "score": 141.81,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 2499,
+          "score": 142.0,
           "source": "Free-TV Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://video-ar.radioradicale.it/diretta/camera2/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_canale_italia": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "https://i.imgur.com/QlwLRyh.png",
@@ -2604,10 +2850,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_canzoni_napoletane": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -2616,22 +2864,26 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_cgtn": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/CGTN.svg/512px-CGTN.svg.png",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/CGTN.svg/960px-CGTN.svg.png",
       "name": "CGTN",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_class_tv_moda": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky, sport e altri canali",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Class-tv-moda.png/960px-Class-tv-moda.png",
@@ -2640,13 +2892,15 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_cnbc": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
-      "logo": "",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/CNBC_2025.svg/960px-CNBC_2025.svg.png",
       "name": "CNBC",
       "number": "",
       "regional_candidates": [],
@@ -2657,19 +2911,21 @@
           "bandwidth": 5192000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1166,
-          "score": 164.34,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1659,
+          "score": 165.36,
           "source": "FTA curate (iptv-org)",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://r.eu.cdn-redge.media/livehls/oeu/mt/live/cnbc_europe/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_daystar": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -2678,10 +2934,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_dw_english": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "https://i.imgur.com/8MRNFb9.png",
@@ -2695,19 +2953,21 @@
           "bandwidth": 6221313,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 117,
-          "score": 188.53,
-          "source": "FreeCastHub public directory",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 745,
+          "score": 189.02,
+          "source": "streamline globale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/master.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_equtv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky, sport e altri canali",
       "logo": "https://i.imgur.com/x9Wdz7h.png",
@@ -2716,10 +2976,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_euronews_english": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "https://i.imgur.com/8t9mdg9.png",
@@ -2733,19 +2995,21 @@
           "bandwidth": 4006894,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 951,
-          "score": 165.2,
-          "source": "FTA curate (iptv-org)",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 959,
+          "score": 168.16,
+          "source": "dearbulut tutte",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://cdn-euronews.akamaized.net/live/eds/euronews-en/25002/index.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_euronews_italiano": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Euronews_2022.svg/640px-Euronews_2022.svg.png",
@@ -2759,19 +3023,21 @@
           "bandwidth": 4006894,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 324,
-          "score": 167.7,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1298,
+          "score": 166.81,
           "source": "FTA curate (iptv-org)",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://cdn-euronews.akamaized.net/live/eds/euronews-it/25085/index.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_ewtn_english": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -2780,10 +3046,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_france_24_english": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/France_24_logo_%282013%29.svg/512px-France_24_logo_%282013%29.svg.png",
@@ -2797,19 +3065,21 @@
           "bandwidth": 0,
           "height": 0,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 78,
-          "score": 110.69,
-          "source": "FTA curate (iptv-org)",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 284,
+          "score": 112.86,
+          "source": "streamline globale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_france_24_francais": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "",
@@ -2823,31 +3093,35 @@
           "bandwidth": 0,
           "height": 0,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 65,
-          "score": 110.74,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 953,
+          "score": 110.19,
           "source": "FTA curate (iptv-org)",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_5000.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_go_tv_channel": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
-      "logo": "https://i.imgur.com/xgjrAAn.png",
+      "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/main/logos/gotvchannel.webp",
       "name": "GO-TV Channel",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_marcopolo": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -2856,25 +3130,29 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_med_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
-      "logo": "",
+      "logo": "https://i.imgur.com/ejGeXPD.png",
       "name": "Med TV",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_nhk_world_japan": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
-      "logo": "",
+      "logo": "https://i.imgur.com/Mhw1Ihk.png",
       "name": "NHK World Japan",
       "number": "",
       "regional_candidates": [],
@@ -2885,22 +3163,24 @@
           "bandwidth": 7003216,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 42,
-          "score": 188.83,
-          "source": "FTA curate (iptv-org)",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1283,
+          "score": 186.87,
+          "source": "dearbulut tutte",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_parole_di_vita": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
-      "logo": "https://i.imgur.com/vkFlXbR.png",
+      "logo": "https://i.imgur.com/M9mIiZD.png",
       "name": "Parole di Vita",
       "number": "",
       "regional_candidates": [],
@@ -2911,19 +3191,21 @@
           "bandwidth": 4300000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 822,
-          "score": 185.71,
-          "source": "iptv-org Italy",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1104,
+          "score": 187.58,
+          "source": "Free-TV Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://stream.paroledivita.org/paroledivita.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_people_tv_rete_7": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -2932,10 +3214,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_primaset_149": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -2944,10 +3228,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_radio_italia_live": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Musica e radiovisione",
       "logo": "",
@@ -2956,10 +3242,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_record_tv_europa": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "",
@@ -2968,10 +3256,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_rtl_102_5_caliente": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Musica e radiovisione",
       "logo": "https://i.imgur.com/P0zsi6I.png",
@@ -2985,44 +3275,48 @@
           "bandwidth": 3256000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 281,
-          "score": 187.88,
-          "source": "iptv-org Italy",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1594,
+          "score": 185.62,
+          "source": "iptv-org Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S8448465/zTYa1Z5Op9ue/playlist_video.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_senato_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
-      "logo": "https://i.imgur.com/h4NyN5d.png",
+      "logo": "https://i.imgur.com/FoQoNZW.png",
       "name": "Senato TV",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_sky_news": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 3,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {
         "HTTP 403": 1,
         "HTTP 503": 1,
         "TimeoutError": 1
       },
       "group": "Sky, sport e altri canali",
-      "logo": "",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/57/Sky_News_logo.svg/960px-Sky_News_logo.svg.png",
       "name": "Sky News",
       "number": "",
       "regional_candidates": [
         {
           "reason": "HTTP 403",
-          "source": "FTA curate (iptv-org)",
+          "source": "Free-TV globale",
           "url": "https://linear021-gb-hls1-prd-ak.cdn.skycdp.com/Content/HLS_001_hd/Live/channel(skynews)/index_mob.m3u8"
         },
         {
@@ -3033,13 +3327,15 @@
       ],
       "tested": 3,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_sky_news_arabia": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky, sport e altri canali",
-      "logo": "",
+      "logo": "https://i.imgur.com/SvjU4h6.png",
       "name": "Sky News Arabia",
       "number": "",
       "regional_candidates": [],
@@ -3050,19 +3346,21 @@
           "bandwidth": 3511200,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 418,
-          "score": 187.33,
-          "source": "FTA curate (iptv-org)",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 666,
+          "score": 189.34,
+          "source": "iptv-org globale",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://live-stream.skynewsarabia.com/c-horizontal-channel/horizontal-stream/index.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_sonlife_broadcasting_network": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -3071,10 +3369,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_telecupole": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -3083,10 +3383,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_teleradiopace_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -3095,10 +3397,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_telesardegna": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -3107,22 +3411,26 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_the_word_network": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
-      "logo": "",
+      "logo": "https://i.imgur.com/ltFBrrj.png",
       "name": "The Word Network",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_tlc_telecampione": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -3131,10 +3439,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_trm_h24": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "https://i.imgur.com/d47CdYU.png",
@@ -3143,10 +3453,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_tunis_7": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "",
@@ -3155,49 +3467,57 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_tva_vicenza": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
-      "logo": "https://upload.wikimedia.org/wikipedia/it/thumb/0/0f/TVA_Vicenza_-_Logo_2018.svg/512px-TVA_Vicenza_-_Logo_2018.svg.png",
+      "logo": "https://i.imgur.com/FtFuPCC.png",
       "name": "TVA Vicenza",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_tvp_polonia": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
-      "logo": "",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/TVP_Polonia_Logo_2020.svg/960px-TVP_Polonia_Logo_2020.svg.png",
       "name": "TVP Polonia",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_tvr_international": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
-      "logo": "",
+      "logo": "https://i.imgur.com/w28wcHs.png",
       "name": "TVR International",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_uninettuno_university_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
-      "logo": "https://i.imgur.com/c9So8nf.png",
+      "logo": "https://i.imgur.com/BOGMeio.png",
       "name": "UNINETTUNO University TV",
       "number": "",
       "regional_candidates": [],
@@ -3205,22 +3525,24 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2676668,
+          "bandwidth": 2696371,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 335,
-          "score": 167.66,
-          "source": "iptv-org Italy",
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1223,
+          "score": 167.11,
+          "source": "Free-TV Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://stream6-rai-it.akamaized.net/live/uninettuno/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_vatican_media_europa": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "News e internazionali",
       "logo": "",
@@ -3234,19 +3556,21 @@
           "bandwidth": 5192000,
           "height": 720,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1057,
-          "score": 164.77,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 1690,
+          "score": 165.24,
           "source": "FTA curate (iptv-org)",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://r.eu.cdn-redge.media/livehls/oeu/mt/live/vatican_media_europa/live.livx/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sat_videolina": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -3255,22 +3579,26 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_virgin_radio_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Musica e radiovisione",
-      "logo": "https://i.imgur.com/7Im3HI1.png",
+      "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/main/logos/virginradiotv.webp",
       "name": "Virgin Radio TV",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_wedotv_big_stories": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -3279,10 +3607,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sat_wedotv_movies": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Satellite e emittenti tematiche",
       "logo": "",
@@ -3291,10 +3621,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_bike": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://i.imgur.com/4IzVSQI.png",
@@ -3303,10 +3635,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_boomerang": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Boomerang_2014_logo.svg/960px-Boomerang_2014_logo.svg.png",
@@ -3315,10 +3649,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_caccia_e_pesca": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://i.imgur.com/uZr0cXB.png",
@@ -3327,10 +3663,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_cartoon_network": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Cartoon_Network_2010_logo.svg/960px-Cartoon_Network_2010_logo.svg.png",
@@ -3339,13 +3677,15 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_class_cnbc": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Class_CNBC_2026.svg/960px-Class_CNBC_2026.svg.png",
+      "logo": "https://i.imgur.com/oAiSU8O.png",
       "name": "Class CNBC",
       "number": "",
       "regional_candidates": [],
@@ -3356,31 +3696,35 @@
           "bandwidth": 5060000,
           "height": 1080,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 158,
-          "score": 188.37,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 517,
+          "score": 189.93,
           "source": "Free-TV Italia",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://amg14891-amg14891c5-amgplt0020.playout.now3.amagi.tv/playlist.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sky_cnn_international": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
-      "logo": "",
+      "logo": "https://i.imgur.com/dfxefQw.png",
       "name": "CNN International",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_comedy_central": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Comedy_Central_2018.svg/960px-Comedy_Central_2018.svg.png",
@@ -3389,34 +3733,40 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_dazn_1": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
-      "logo": "",
+      "logo": "https://i.imgur.com/2Z2EmZF.png",
       "name": "DAZN 1",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_dazn_2": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
-      "logo": "",
+      "logo": "https://i.imgur.com/OGj3qf5.png",
       "name": "DAZN 2",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_deajunior": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "",
@@ -3425,10 +3775,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_deakids": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "",
@@ -3437,10 +3789,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_discovery_italy": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/37-discovery.png",
@@ -3449,10 +3803,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_disney_junior": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "",
@@ -3461,22 +3817,26 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_eurosport_1": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
-      "logo": "https://i.imgur.com/olQJgm7.png",
+      "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/eurosport.webp",
       "name": "Eurosport 1",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_eurosport_2": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/eurosport.webp",
@@ -3485,25 +3845,29 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_history": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
-      "logo": "",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/History_%282021%29.svg/500px-History_%282021%29.svg.png",
       "name": "History",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_horse_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 1,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
-      "logo": "https://i.imgur.com/nK4UUX4.png",
+      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/409-horsetv.png",
       "name": "Horse TV",
       "number": "",
       "regional_candidates": [],
@@ -3511,22 +3875,24 @@
       "verified": [
         {
           "audio": true,
-          "bandwidth": 2267501,
+          "bandwidth": 2229644,
           "height": 288,
           "kind": "HLS",
-          "last_ok": "2026-11-19T21:34:20Z",
-          "latency_ms": 1755,
-          "score": 137.98,
+          "last_ok": "2026-11-20T09:10:01Z",
+          "latency_ms": 2136,
+          "score": 139.46,
           "source": "FTA curate (iptv-org)",
           "stale": false,
-          "success_runs": 2,
+          "success_runs": 3,
           "url": "https://cdn78-at.azotosolutions.com/cdnedge39/Canale4/master.m3u8"
         }
       ],
+      "verified_count": 1,
       "visible": true
     },
     "tvip_sky_inter_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://i.imgur.com/FUTqh2L.png",
@@ -3535,10 +3901,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_milan_tv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://i.imgur.com/gAMQfUw.png",
@@ -3547,22 +3915,26 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_mtv": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
-      "logo": "",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/MTV_2021_%28brand_version%29.svg/960px-MTV_2021_%28brand_version%29.svg.png",
       "name": "MTV",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_nick_jr": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://i.imgur.com/6p3eFgf.png",
@@ -3571,10 +3943,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_nickelodeon": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Altri canali pay TV",
       "logo": "https://i.imgur.com/E84jnP8.png",
@@ -3583,10 +3957,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_adventure": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -3595,10 +3971,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_arte": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -3607,10 +3985,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_atlantic": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -3619,10 +3999,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_cinema_action": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/sky.webp",
@@ -3631,10 +4013,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_cinema_collection": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Cinema",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/sky.webp",
@@ -3643,10 +4027,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_cinema_comedy": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/sky.webp",
@@ -3655,10 +4041,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_cinema_drama": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "",
@@ -3667,10 +4055,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_cinema_family": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/sky.webp",
@@ -3679,10 +4069,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_cinema_romance": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "",
@@ -3691,10 +4083,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_cinema_stories": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Cinema",
       "logo": "",
@@ -3703,10 +4097,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_cinema_suspense": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Cinema",
       "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Sky_Cinema_Suspense_-_Logo_2021.svg/960px-Sky_Cinema_Suspense_-_Logo_2021.svg.png",
@@ -3715,10 +4111,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_cinema_uno": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Cinema",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/sky.webp",
@@ -3727,10 +4125,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_cinema_uno_24": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Cinema",
       "logo": "",
@@ -3739,10 +4139,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_classica": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -3751,10 +4153,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_collection": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -3763,10 +4167,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_crime": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -3775,10 +4181,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_documentaries": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "",
@@ -3787,10 +4195,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_investigation": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -3799,10 +4209,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_meteo24": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -3811,10 +4223,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_nature": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -3823,10 +4237,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_serie": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/sky.webp",
@@ -3835,10 +4251,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport24": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -3847,10 +4265,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_251": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -3859,10 +4279,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_252": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -3871,10 +4293,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_253": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -3883,10 +4307,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_254": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -3895,10 +4321,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_255": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "",
@@ -3907,10 +4335,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_256": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "",
@@ -3919,10 +4349,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_257": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "",
@@ -3931,10 +4363,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_258": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "",
@@ -3943,10 +4377,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_259": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "",
@@ -3955,10 +4391,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_4k": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "",
@@ -3967,10 +4405,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_arena": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -3979,10 +4419,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_basket": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -3991,10 +4433,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_calcio": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -4003,10 +4447,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_f1": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -4015,22 +4461,26 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_golf": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
-      "logo": "",
+      "logo": "https://i.imgur.com/nhhbHvs.png",
       "name": "Sky Sport Golf",
       "number": "",
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_info": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "",
@@ -4039,10 +4489,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_legend": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "",
@@ -4051,10 +4503,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_max": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -4063,10 +4517,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_mix": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -4075,10 +4531,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_motogp": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -4087,10 +4545,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_tennis": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Sky Sport",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -4099,10 +4559,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_sport_uno": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/skysport.webp",
@@ -4111,10 +4573,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_tg24_primo_piano": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -4123,10 +4587,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_uno": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Canali TV",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/sky.webp",
@@ -4135,10 +4601,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_uno_plus": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "https://raw.githubusercontent.com/nicolofajette/Canali/refs/heads/develop/logos/sky.webp",
@@ -4147,10 +4615,12 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     },
     "tvip_sky_sky_voices": {
-      "checked_at": "2026-11-19T21:34:20Z",
+      "candidate_count": 0,
+      "checked_at": "2026-11-20T09:10:01Z",
       "failures": {},
       "group": "Intrattenimento Sky",
       "logo": "",
@@ -4159,100 +4629,290 @@
       "regional_candidates": [],
       "tested": 0,
       "verified": [],
+      "verified_count": 0,
       "visible": false
     }
   },
-  "generated_at": "2026-11-19T21:34:20Z",
+  "generated_at": "2026-11-20T09:10:01Z",
   "playlists": [
     {
-      "entries": 363,
-      "name": "iptv-org Italy",
-      "read": true
+      "entries": 184,
+      "name": "nicolofajette/Canali",
+      "read": true,
+      "scope": "mixed",
+      "truncated": false
+    },
+    {
+      "entries": 44,
+      "name": "3DFM07/iptv-playlist",
+      "read": true,
+      "scope": "index_only",
+      "truncated": false
+    },
+    {
+      "entries": 604,
+      "name": "KOVI18/data",
+      "read": true,
+      "scope": "index_only",
+      "truncated": false
+    },
+    {
+      "entries": 3455,
+      "name": "Telipenko/playlist_IPTV",
+      "read": true,
+      "scope": "index_only",
+      "truncated": false
     },
     {
       "entries": 443,
       "name": "Free-TV Italia",
-      "read": true
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 595,
+      "name": "Mr-Flower IPTV Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
     },
     {
       "entries": 124,
       "name": "OpenIPTVItaly",
-      "read": true
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 79,
+      "name": "lpaxi765 Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
     },
     {
       "entries": 71,
-      "name": "Tundrak IPTV-Italia",
-      "read": true
-    },
-    {
-      "entries": 83,
-      "name": "TVITALIA",
-      "read": true
-    },
-    {
-      "entries": 137,
-      "name": "Doubo free directory",
-      "read": true
+      "name": "Tundrak Italia Plus",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
     },
     {
       "entries": 71,
-      "name": "Tundrak IPTV-Italia Plus",
-      "read": true
+      "name": "Tundrak Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
     },
     {
       "entries": 68,
-      "name": "IPTV-Italy",
-      "read": true
+      "name": "sfiorini IPTV Italy",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
     },
     {
-      "entries": 184,
-      "name": "Canali Italiani",
-      "read": true
-    },
-    {
-      "entries": 63,
-      "name": "IPTV Italia alternativa",
-      "read": true
-    },
-    {
-      "entries": 108,
-      "name": "FreeCastHub public directory",
-      "read": true
-    },
-    {
-      "entries": 540,
-      "name": "GioeleGregorini TV Italia",
-      "read": true
-    },
-    {
-      "entries": 48,
-      "name": "TvIt public Italian TV",
-      "read": true
-    },
-    {
-      "entries": 289,
-      "name": "dearbulut Italy health index",
-      "read": true
-    },
-    {
-      "entries": 289,
-      "name": "DuckKota Italy health index",
-      "read": true
+      "entries": 85,
+      "name": "TVITALIA",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
     },
     {
       "entries": 652,
-      "name": "peppenamir IPTV Italia",
-      "read": true
+      "name": "peppenamir Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 540,
+      "name": "GioeleGregorini Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
     },
     {
       "entries": 56,
-      "name": "mauro-midolo IPTV Italia",
-      "read": true
+      "name": "mauro-midolo Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 63,
+      "name": "giovanni69 Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 105,
+      "name": "abugliosi Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 48,
+      "name": "TvIt Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 362,
+      "name": "iptv-org Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 364,
+      "name": "iptv-org lingua italiana",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 11681,
+      "name": "iptv-org globale",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 538,
+      "name": "iptv-org sport",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 289,
+      "name": "dearbulut Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 16034,
+      "name": "dearbulut tutte",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 8588,
+      "name": "dearbulut online",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 10513,
+      "name": "dearbulut migliori",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 288,
+      "name": "DuckKota Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 16329,
+      "name": "DuckKota globale",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 137,
+      "name": "streamline Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 5064,
+      "name": "streamline globale",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 221,
+      "name": "AdeelWajid Italia",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 0,
+      "name": "nexonic globale",
+      "read": false,
+      "reason": "HTTPError",
+      "scope": "fta"
+    },
+    {
+      "entries": 0,
+      "name": "nexonic verificate",
+      "read": false,
+      "reason": "HTTPError",
+      "scope": "fta"
+    },
+    {
+      "entries": 13472,
+      "name": "IPTV By Shovo",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 108,
+      "name": "FreeCastHub",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 2203,
+      "name": "Free-TV globale",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
+    },
+    {
+      "entries": 1205,
+      "name": "vamehi IPTV-1",
+      "read": true,
+      "scope": "index_only",
+      "truncated": false
+    },
+    {
+      "entries": 1205,
+      "name": "sameeralbaba IPTV-1",
+      "read": true,
+      "scope": "index_only",
+      "truncated": false
+    },
+    {
+      "entries": 137,
+      "name": "TV Italia alternative 2",
+      "read": true,
+      "scope": "fta",
+      "truncated": false
     },
     {
       "entries": 48,
       "name": "FTA curate",
-      "read": true
+      "read": true,
+      "scope": "fta"
     }
   ],
   "schema": 1,
@@ -4263,21 +4923,23 @@
     "failure_reasons": {
       "HTTP 400": 1,
       "HTTP 403": 69,
-      "HTTP 404": 3,
+      "HTTP 404": 5,
       "HTTP 503": 1,
       "Not an HLS/DASH manifest": 14,
       "TimeoutError": 1,
       "URLError": 15,
       "Unplayable HLS variant: HTTPError": 2,
-      "Unplayable HLS variant: ValueError": 3
+      "Unplayable HLS variant: ValueError": 2
     },
-    "hidden": 152,
+    "hidden": 153,
     "links_tested": 181,
-    "playlists_loaded": 18,
+    "playlists_configured": 39,
+    "playlists_index_only": 5,
+    "playlists_loaded": 38,
     "regional_recheck_channels": 31,
-    "sources_verified": 72,
+    "sources_verified": 71,
     "status": "ok",
-    "visible": 67,
+    "visible": 66,
     "watchlist_channels": 74
   }
 }
