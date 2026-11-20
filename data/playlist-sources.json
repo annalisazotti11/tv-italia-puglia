@@ -211,6 +211,116 @@
       "name": "AdeelWajid Italian language",
       "url": "https://raw.githubusercontent.com/AdeelWajid/iptv_validated_list/main/playlists/languages/ita.m3u",
       "scope": "fta"
+    },
+    {
+      "name": "Yarr Stremio Italia",
+      "url": "https://raw.githubusercontent.com/spookyhost1/yarr-stremio/main/src/iptv/m3u-sources/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Italia TV Hub",
+      "url": "https://raw.githubusercontent.com/Mike80p/italia-tv-hub/main/output/playlist.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "MSPlay aggiornato",
+      "url": "https://raw.githubusercontent.com/hirotomasato/msplayiptv/main/static/msplay_general.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "World IP TV Italia",
+      "url": "https://raw.githubusercontent.com/Romaxa55/world_ip_tv/master/output/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Canali IPTV Italia",
+      "url": "https://raw.githubusercontent.com/domenicomarfe-crypto/CANALI-IPTV/main/IPTVSAT.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Swiss WebTV",
+      "url": "https://raw.githubusercontent.com/iptv-ch/iptv-ch.github.io/master/webtv.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Swiss Netplus",
+      "url": "https://raw.githubusercontent.com/iptv-ch/iptv-ch.github.io/master/netplus.m3u8",
+      "scope": "fta"
+    },
+    {
+      "name": "Swiss Swisscom full",
+      "url": "https://raw.githubusercontent.com/iptv-ch/iptv-ch.github.io/master/swisscom-full.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Kilirushi Italia",
+      "url": "https://raw.githubusercontent.com/kilirushi/iptv/master/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Shovo Italia",
+      "url": "https://raw.githubusercontent.com/shovo127/IPTV-By-Shovo/main/streams/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "RubioTV Italia",
+      "url": "https://raw.githubusercontent.com/RubioApps/RubioTV/main/iptv/countries/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Levi IPTV Italia",
+      "url": "https://raw.githubusercontent.com/levi-45/iptvstream/main/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "EPG Playlist Italia",
+      "url": "https://raw.githubusercontent.com/aiemas/epg-playlist-builder/main/Italy.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "TonyBlanco Italia",
+      "url": "https://raw.githubusercontent.com/TonyBlanco/iptv/master/streams/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Openstream Italia",
+      "url": "https://raw.githubusercontent.com/SajadTroy/openstream/main/streams/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "IPTV Mate Italia archivio",
+      "url": "https://raw.githubusercontent.com/iptvmate/iptvchannels/master/iptvmate.net_71.m3u8",
+      "scope": "fta"
+    },
+    {
+      "name": "IPTV Mundial Italia",
+      "url": "https://raw.githubusercontent.com/0uand/iptv-mundial/main/countries/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Swiss Init7",
+      "url": "https://raw.githubusercontent.com/iptv-ch/iptv-ch.github.io/master/init7-tv7.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Swiss Swisscom HD",
+      "url": "https://raw.githubusercontent.com/iptv-ch/iptv-ch.github.io/master/swisscom-hd.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Swiss Netplus Zappr",
+      "url": "https://raw.githubusercontent.com/iptv-ch/iptv-ch.github.io/master/netplus-zappr.m3u8",
+      "scope": "fta"
+    },
+    {
+      "name": "OpenIPTVItaly completa",
+      "url": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/main/OpenIPTVItaly.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Swiss Netplus mirror",
+      "url": "https://raw.githubusercontent.com/Quincunx33/Ip-tv/main/iptv-master/streams/ch_netplus.m3u",
+      "scope": "fta"
     }
   ]
 }
