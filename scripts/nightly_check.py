@@ -75,12 +75,14 @@ USER_AGENT = 'TVItalia-Puglia-Health/1.0 (+https://github.com/annalisazotti11/tv
 HEADERS = {'User-Agent': USER_AGENT, 'Accept': '*/*'}
 MAX_PLAYLIST_BYTES = 6_000_000
 MAX_MANIFEST_BYTES = 90_000
-MAX_CANDIDATES_PER_CHANNEL = 28
+MAX_CANDIDATES_PER_CHANNEL = 16
 MAX_VERIFIED_PER_CHANNEL = 8
-WORKERS = 18
+WORKERS = 24
 TIMEOUT = 5.5
 ALIASES = {
     'rai uno': 'rai 1', 'rai due': 'rai 2', 'rai tre': 'rai 3',
+    'tele bari': 'telebari', 'radio norba tv': 'radionorba tv',
+    'sky sport nba': 'sky sport basket', 'sky sport 24': 'sky sport24',
     'rete4': 'rete 4', 'retequattro': 'rete 4', 'la 7': 'la7',
     'twentyseven': '27 twentyseven', 'twenty seven': '27 twentyseven',
     'la5': 'la 5', 'rai news24': 'rai news 24',
@@ -278,6 +280,26 @@ def permitted_stream_url(name: str, url: str) -> bool:
             and (not prefixes or u.path.startswith(prefixes)))
 
 
+
+def public_candidate_stream_url(name: str, url: str) -> bool:
+    """Allow testing published HTTPS video sources without channel-host allowlists.
+
+    Candidate status is NOT a claim of playback, legal authorization, or DRM-free content.
+    """
+    if not safe_url(url):
+        return False
+    u = urllib.parse.urlsplit(url)
+    if u.scheme != 'https' or u.fragment or u.username or u.password:
+        return False
+    # Don't ingest credential-bearing query URLs. Public FTA broadcaster-signed
+    # feeds are a known exception already scoped to the correct channel.
+    if u.query and not public_sky_fta_url(normalize(name), u):
+        return False
+    p = u.path.lower()
+    return (p.endswith(('.m3u8', '.mpd', '.m3u')) or
+            bool(re.search(r'/(?:channel|stream)/[a-z0-9/_-]+$', p)))
+
+
 class SafeRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         if not safe_url(newurl):
@@ -409,7 +431,7 @@ def assign_candidate(channels, by_name, name, attrs, url, provider):
     if not matched:
         return
     chno = str(attrs.get('tvg-chno', '')).strip()
-    allowed = permitted_stream_url(name, url)
+    allowed = permitted_stream_url(name, url) or public_candidate_stream_url(name, url)
     logo = str(attrs.get('tvg-logo', '')).strip()
     for cid in matched:
         ch = channels[cid]
@@ -457,7 +479,7 @@ def fetch_playlist_source(source):
                 (data.startswith('#EXTINF:') and data.count('#EXTINF:') >= 2)):
             raise ValueError('Missing EXTM3U/EXTINF')
         count = data.count('#EXTINF:')
-        entries = [] if scope == 'index_only' else list(parse_m3u(data))
+        entries = list(parse_m3u(data))
         return {'name': name, 'scope': scope, 'read': True,
                 'entries': count, 'candidates': entries,
                 'truncated': len(raw) >= MAX_PLAYLIST_BYTES}
@@ -474,7 +496,7 @@ def scan_playlists(channels, by_name):
     with concurrent.futures.ThreadPoolExecutor(max_workers=7) as ex:
         for result in ex.map(fetch_playlist_source, sources):
             candidates = result.pop('candidates', [])
-            if result['read'] and result['scope'] != 'index_only':
+            if result['read']:
                 for item in candidates:
                     assign_candidate(channels, by_name, item['name'], item['attrs'],
                                      item['url'], result['name'])
@@ -721,10 +743,36 @@ def main():
             fresh_urls.add(url)
         # Keep inconclusive geographic failures separate; never label them as verified.
         pending = regional_candidates(ch['name'], ch['results'], fresh_urls)
+        # Country restrictions and inconclusive checks must not hide a
+        # channel from the viewer: include candidates for direct playback.
+        # Never label them as verified, and discard hard failures or DRM.
+        hard_fail = {'HTTP 400','HTTP 401','HTTP 404','HTTP 410',
+                     'HTML instead of manifest', 'Not an HLS/DASH manifest',
+                     'Encrypted HLS', 'HLS protected session', 'Protected DASH',
+                     'Missing DASH tracks', 'Missing segment URL',
+                     'No media segment bytes'}
+        by_url = {r.get('url'): r for r in ch['results']}
+        tentative = []
+        for candidate in ch['urls']:
+            url = candidate['url']
+            if url in fresh_urls or not public_candidate_stream_url(ch['name'], url):
+                continue
+            failed = by_url.get(url, {})
+            why = str(failed.get('reason') or '')
+            if why in hard_fail or why.startswith('Unplayable HLS variant: ValueError'):
+                continue
+            tentative.append({'url': url, 'source': candidate['source'],
+                              'kind': 'DASH' if '.mpd' in urllib.parse.urlsplit(url).path.lower() else 'HLS',
+                              'score': 0, 'height': 0,
+                              'last_tested': stamped,
+                              'reason': why or 'Non ancora testata'})
+            if len(tentative) >= 8:
+                break
         snapshot['channels'][cid] = {
             'name': ch['name'], 'number': ch.get('number',''), 'group': ch.get('group','Canali TV'), 'logo': ch.get('logo',''),
             'verified': entries, 'regional_candidates': pending,
-            'tested': len(ch['results']), 'visible': bool(entries),
+            'candidates': tentative,
+            'tested': len(ch['results']), 'visible': bool(entries or tentative),
             'candidate_count': len(ch['urls']), 'verified_count': len(entries),
             'checked_at': stamped,
             'failures': dict(Counter(x.get('reason') or 'Unknown' for x in ch['results'] if not x['ok'])),
@@ -733,6 +781,7 @@ def main():
         'channels': len(channels), 'visible': sum(bool(x['visible']) for x in snapshot['channels'].values()),
         'hidden': sum(not x['visible'] for x in snapshot['channels'].values()),
         'sources_verified': verified_count, 'links_tested': len(jobs),
+        'channels_with_candidate': sum(bool(x.get('candidates')) for x in snapshot['channels'].values()),
         'regional_recheck_channels': sum(bool(x['regional_candidates']) and not x['visible'] for x in snapshot['channels'].values()),
         'playlists_loaded': sum(p['read'] for p in playlist_status),
         'playlists_configured': len(registered_playlists()),
