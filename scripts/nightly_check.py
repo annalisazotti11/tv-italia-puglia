@@ -28,6 +28,7 @@ MAIN_M3U = ROOT / 'TV_Italia_Puglia_con_loghi.m3u'
 EXTRA_M3U = ROOT / 'data' / 'additional-channels.m3u'
 EXTENDED_M3U = ROOT / 'data' / 'extended-sources.m3u'
 WATCHLIST = ROOT / 'data' / 'channel-watchlist.json'
+SOURCE_REGISTRY = ROOT / 'data' / 'playlist-sources.json'
 OUTPUT = ROOT / 'data' / 'verified-streams.json'
 
 # Explicitly selected public playlists. Do not accept arbitrary user-supplied URLs.
@@ -72,11 +73,11 @@ EXTRA_CHANNELS = [
 
 USER_AGENT = 'TVItalia-Puglia-Health/1.0 (+https://github.com/annalisazotti11/tv-italia-puglia)'
 HEADERS = {'User-Agent': USER_AGENT, 'Accept': '*/*'}
-MAX_PLAYLIST_BYTES = 2_000_000
+MAX_PLAYLIST_BYTES = 6_000_000
 MAX_MANIFEST_BYTES = 90_000
-MAX_CANDIDATES_PER_CHANNEL = 16
-MAX_VERIFIED_PER_CHANNEL = 5
-WORKERS = 14
+MAX_CANDIDATES_PER_CHANNEL = 28
+MAX_VERIFIED_PER_CHANNEL = 8
+WORKERS = 18
 TIMEOUT = 5.5
 ALIASES = {
     'rai uno': 'rai 1', 'rai due': 'rai 2', 'rai tre': 'rai 3',
@@ -422,29 +423,69 @@ def assign_candidate(channels, by_name, name, attrs, url, provider):
             ch['urls'].append({'url': url, 'source': provider})
 
 
+def registered_playlists():
+    """Every configured playlist is consulted nightly; duplicate URLs are read once.
+
+    'index_only' means an index can be checked for channels, but its listed
+    pay-TV endpoints are NOT automatically treated as authorized sources.
+    """
+    if not SOURCE_REGISTRY.exists():
+        return [{'name': name, 'url': url, 'scope': 'fta'} for name, url in PUBLIC_PLAYLISTS]
+    registry = json.loads(SOURCE_REGISTRY.read_text(encoding='utf-8'))
+    if registry.get('schema') != 1:
+        raise ValueError('Unsupported playlist registry')
+    sources = []
+    seen_urls = set()
+    for item in registry.get('sources', []):
+        url = str(item.get('url', ''))
+        name = str(item.get('name', '')).strip()[:100]
+        scope = str(item.get('scope', 'fta'))
+        if (scope not in ('fta', 'mixed', 'index_only') or not name or
+                not url.startswith('https://') or not safe_url(url) or url in seen_urls):
+            continue
+        seen_urls.add(url)
+        sources.append({'name': name, 'url': url, 'scope': scope})
+    return sources
+
+
+def fetch_playlist_source(source):
+    name, url, scope = source['name'], source['url'], source['scope']
+    try:
+        raw, _ct, _final = get(url, MAX_PLAYLIST_BYTES, timeout=11)
+        data = raw.decode('utf-8-sig', errors='replace').lstrip()
+        if not (data.startswith('#EXTM3U') or
+                (data.startswith('#EXTINF:') and data.count('#EXTINF:') >= 2)):
+            raise ValueError('Missing EXTM3U/EXTINF')
+        count = data.count('#EXTINF:')
+        entries = [] if scope == 'index_only' else list(parse_m3u(data))
+        return {'name': name, 'scope': scope, 'read': True,
+                'entries': count, 'candidates': entries,
+                'truncated': len(raw) >= MAX_PLAYLIST_BYTES}
+    except Exception as exc:
+        return {'name': name, 'scope': scope, 'read': False,
+                'entries': 0, 'candidates': [], 'reason': type(exc).__name__}
+
+
 def scan_playlists(channels, by_name):
+    # Parallel metadata downloads avoid multiplying 11-second HTTP timeouts by
+    # all 38+ indexes. Candidate matching and deduplication stay deterministic.
+    sources = registered_playlists()
     status = []
-    for name, url in PUBLIC_PLAYLISTS:
-        try:
-            raw, _ct, _url = get(url, MAX_PLAYLIST_BYTES, timeout=12)
-            text = raw.decode('utf-8-sig', errors='replace')
-            # Some public lists omit the global #EXTM3U header but still contain
-            # valid #EXTINF entries. Accept these without weakening URL validation.
-            if not (text.startswith('#EXTM3U') or (text.startswith('#EXTINF:') and text.count('#EXTINF:') >= 2)):
-                raise ValueError('Missing EXTM3U/EXTINF')
-            n = 0
-            for item in parse_m3u(text):
-                assign_candidate(channels, by_name, item['name'], item['attrs'], item['url'], name)
-                n += 1
-            status.append({'name': name, 'read': True, 'entries': n})
-        except Exception as exc:
-            status.append({'name': name, 'read': False, 'reason': type(exc).__name__})
+    with concurrent.futures.ThreadPoolExecutor(max_workers=7) as ex:
+        for result in ex.map(fetch_playlist_source, sources):
+            candidates = result.pop('candidates', [])
+            if result['read'] and result['scope'] != 'index_only':
+                for item in candidates:
+                    assign_candidate(channels, by_name, item['name'], item['attrs'],
+                                     item['url'], result['name'])
+            status.append(result)
     if EXTENDED_M3U.exists():
         curated = list(parse_m3u(EXTENDED_M3U.read_text(encoding='utf-8-sig')))
         for item in curated:
             assign_candidate(channels, by_name, item['name'], item['attrs'], item['url'],
                              'FTA curate (iptv-org)')
-        status.append({'name': 'FTA curate', 'read': True, 'entries': len(curated)})
+        status.append({'name': 'FTA curate', 'scope': 'fta',
+                       'read': True, 'entries': len(curated)})
     for name, url in EXPLICIT_PUBLIC_ALTERNATIVES:
         assign_candidate(channels, by_name, name, {}, url, 'Fonte HTTPS pubblicata')
     return status
@@ -589,7 +630,7 @@ def regional_candidates(channel_name: str, results: list[dict], already_verified
             continue
         seen.add(url)
         candidates.append({'url': url, 'source': result['source'], 'reason': reason})
-        if len(candidates) >= 2:
+        if len(candidates) >= 3:
             break
     return candidates
 
@@ -635,9 +676,21 @@ def main():
             result['score'] = round(result['score'] + reliability_bonus + official_bonus, 2)
         verified = sorted((x for x in ch['results'] if x['ok']), key=lambda x: x['score'], reverse=True)
         verified_count += len(verified)
+        # Preserve independent CDN hosts rather than eight nearly identical
+        # variants from one provider. Up to two tested links per hostname.
+        diversified = []
+        per_host = Counter()
+        for item in verified:
+            host = urllib.parse.urlsplit(item['url']).hostname or ''
+            if per_host[host] >= 2:
+                continue
+            per_host[host] += 1
+            diversified.append(item)
+            if len(diversified) >= MAX_VERIFIED_PER_CHANNEL:
+                break
         entries = [{k: x[k] for k in ('url','source','kind','height','bandwidth','audio','latency_ms','score','success_runs')}
                    | {'last_ok': stamped, 'stale': False}
-                   for x in verified[:MAX_VERIFIED_PER_CHANNEL]]
+                   for x in diversified]
         # Geography-specific 403 / timeout in the GitHub runner is NOT proof of a dead stream.
         # Retain an earlier success for a maximum of 36 hours; a hard HTTP 404/HTML does not get grace.
         prior = previous.get(cid, {}).get('verified', [])
@@ -669,6 +722,7 @@ def main():
             'name': ch['name'], 'number': ch.get('number',''), 'group': ch.get('group','Canali TV'), 'logo': ch.get('logo',''),
             'verified': entries, 'regional_candidates': pending,
             'tested': len(ch['results']), 'visible': bool(entries),
+            'candidate_count': len(ch['urls']), 'verified_count': len(entries),
             'checked_at': stamped,
             'failures': dict(Counter(x.get('reason') or 'Unknown' for x in ch['results'] if not x['ok'])),
         }
@@ -678,6 +732,8 @@ def main():
         'sources_verified': verified_count, 'links_tested': len(jobs),
         'regional_recheck_channels': sum(bool(x['regional_candidates']) and not x['visible'] for x in snapshot['channels'].values()),
         'playlists_loaded': sum(p['read'] for p in playlist_status),
+        'playlists_configured': len(registered_playlists()),
+        'playlists_index_only': sum(p.get('scope') == 'index_only' for p in playlist_status),
         'additional_channels': len(additional_exact_urls()),
         'extended_curated_sources': sum(1 for p in playlist_status if p['name']=='FTA curate' for _ in range(p['entries'])),
         'watchlist_channels': sum(cid.startswith('tvip_sky_') or c.get('group')=='Digitale terrestre' for cid,c in channels.items()),
