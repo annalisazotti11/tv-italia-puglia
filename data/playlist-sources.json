@@ -196,6 +196,21 @@
       "name": "TV Italia alternative 2",
       "url": "https://raw.githubusercontent.com/streamline-iptv/iptv-playlists/dist/countries/it.m3u",
       "scope": "fta"
+    },
+    {
+      "name": "iptv-org original Italy stream catalogue",
+      "url": "https://raw.githubusercontent.com/iptv-org/iptv/master/streams/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Open TV Atlas Italia",
+      "url": "https://raw.githubusercontent.com/IMAN-Py/open-tv-atlas/main/playlists/ita/all.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "AdeelWajid Italian language",
+      "url": "https://raw.githubusercontent.com/AdeelWajid/iptv_validated_list/main/playlists/languages/ita.m3u",
+      "scope": "fta"
     }
   ]
 }
