@@ -624,9 +624,12 @@ def regional_candidates(channel_name: str, results: list[dict], already_verified
             continue
         if not permitted_stream_url(channel_name, url) or not url.startswith('https://'):
             continue
-        # Do not expose URLs with access tokens/queries in the public snapshot.
+        # Only one exception for query-bearing sources: the broadcaster's
+        # already-public signed FTA feeds TV8/Cielo/Sky TG24, whose path and
+        # expiration are independently checked in public_sky_fta_url().
         parts = urllib.parse.urlsplit(url)
-        if parts.query or parts.fragment:
+        if (parts.query or parts.fragment) and not public_sky_fta_url(
+                normalize(channel_name), parts):
             continue
         seen.add(url)
         candidates.append({'url': url, 'source': result['source'], 'reason': reason})
