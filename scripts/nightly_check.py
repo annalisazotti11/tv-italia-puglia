@@ -75,7 +75,8 @@ USER_AGENT = 'TVItalia-Puglia-Health/1.0 (+https://github.com/annalisazotti11/tv
 HEADERS = {'User-Agent': USER_AGENT, 'Accept': '*/*'}
 MAX_PLAYLIST_BYTES = 6_000_000
 MAX_MANIFEST_BYTES = 90_000
-MAX_CANDIDATES_PER_CHANNEL = 16
+MAX_CANDIDATES_PER_CHANNEL = 100
+MAX_PROBES_PER_CHANNEL = 24
 MAX_VERIFIED_PER_CHANNEL = 8
 WORKERS = 24
 TIMEOUT = 5.5
@@ -468,6 +469,47 @@ def assign_candidate(channels, by_name, name, attrs, url, provider):
             ch['urls'].append({'url': url, 'source': provider})
 
 
+
+def diverse_channel_sources(items, limit=MAX_PROBES_PER_CHANNEL):
+    """Choose distinct sources across hosts, not the first N lines of M3Us.
+
+    Source discovery is allowed to collect up to 100 per channel. Before
+    probing, preserve original broadcaster addresses and use a round-robin
+    over CDN hostnames. A copied playlist URL is probed only once.
+    """
+    from collections import defaultdict, deque
+    unique = {}
+    for item in items:
+        if item.get('url') and item['url'] not in unique:
+            unique[item['url']] = item
+    buckets = defaultdict(deque)
+    ordered = sorted(unique.values(), key=lambda x: (
+        x.get('source') != 'Playlist originale',
+        'iptv-org' not in x.get('source','').lower(),
+        x.get('source','').lower()
+    ))
+    for item in ordered:
+        host = urllib.parse.urlsplit(item['url']).hostname or ''
+        buckets[host].append(item)
+    selected = []
+    hosts = sorted(buckets, key=lambda h: (
+        not any(x.get('source') == 'Playlist originale' for x in buckets[h]),
+        h
+    ))
+    while len(selected) < limit and hosts:
+        remaining = []
+        for host in hosts:
+            bucket = buckets[host]
+            if bucket:
+                selected.append(bucket.popleft())
+            if bucket:
+                remaining.append(host)
+            if len(selected) >= limit:
+                break
+        hosts = remaining
+    return selected[:limit]
+
+
 def registered_playlists():
     """Every configured playlist is consulted nightly; duplicate URLs are read once.
 
@@ -687,6 +729,9 @@ def regional_candidates(channel_name: str, results: list[dict], already_verified
 def main():
     channels, names = inventory()
     playlist_status = scan_playlists(channels, names)
+    total_discovered_links = sum(len(c['urls']) for c in channels.values())
+    for channel in channels.values():
+        channel['urls'] = diverse_channel_sources(channel['urls'])
     jobs = [(cid, candidate) for cid, c in channels.items() for candidate in c['urls']]
     print(f'Candidates: {len(jobs)} across {len(channels)} configured channels', flush=True)
     for p in playlist_status:
@@ -805,6 +850,8 @@ def main():
         'hidden': sum(not x['visible'] for x in snapshot['channels'].values()),
         'sources_verified': verified_count, 'links_tested': len(jobs),
         'channels_with_candidate': sum(bool(x.get('candidates')) for x in snapshot['channels'].values()),
+        'discovered_channel_links': total_discovered_links,
+        'max_channel_tested': MAX_PROBES_PER_CHANNEL,
         'regional_recheck_channels': sum(bool(x['regional_candidates']) and not x['visible'] for x in snapshot['channels'].values()),
         'playlists_loaded': sum(p['read'] for p in playlist_status),
         'playlists_configured': len(registered_playlists()),
