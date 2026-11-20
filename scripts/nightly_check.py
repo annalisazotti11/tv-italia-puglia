@@ -365,7 +365,7 @@ def inventory():
         cid = 'tvip_' + (n or js_slug(name)) + '_' + js_slug(name)
         if cid not in ids:
             ids[cid] = {'id': cid, 'name': name, 'number': str(n), 'urls': [], 'results': []}
-        if permitted_stream_url(name, item['url']):
+        if channel_identity_ok(name, item['url'], item['attrs']) and permitted_stream_url(name, item['url']):
             ids[cid]['urls'].append({'url': item['url'], 'source': 'Playlist originale'})
         by_name.setdefault(normalize(name), []).append(cid)
     # Add the extra public channels after the original ones. The original
@@ -425,13 +425,36 @@ def trusted_channel_logo(url: str) -> bool:
     return p.path.lower().endswith(('.png', '.jpg', '.jpeg', '.webp')) and len(url) < 550
 
 
+# "TV8" can mean unrelated channels in Italy, Mongolia and other countries.
+# Do not confuse a playable foreign stream with the Italian Sky TV8.
+TV8_ITALY_HOSTS = {'hlslive-web-gcdn-skycdn-it.akamaized.net',
+                   'tvit.leicaflorianrobert.dev'}
+
+def channel_identity_ok(name: str, url: str, attrs: dict) -> bool:
+    canonical = normalize(name)
+    if canonical != 'tv8':
+        return True
+    tvg_id = str(attrs.get('tvg-id', '')).strip().lower()
+    country = str(attrs.get('tvg-country', '') or attrs.get('country', '')).strip().lower()
+    if country and country not in ('it', 'ita', 'italy', 'italia'):
+        return False
+    if tvg_id and re.search(r'\.(?:mn|tr|sk|us|uk|in|ru|fr|de|br|pt|es|al|gr)(?:@|$)', tvg_id):
+        return False
+    parts = urllib.parse.urlsplit(url)
+    if parts.hostname not in TV8_ITALY_HOSTS:
+        return False
+    if parts.hostname == 'hlslive-web-gcdn-skycdn-it.akamaized.net':
+        return parts.path == '/TACT/11223/tv8web/master.m3u8'
+    return parts.path == '/sky/tv8/stream.m3u8'
+
+
 def assign_candidate(channels, by_name, name, attrs, url, provider):
     label = normalize(name)
     matched = by_name.get(label, [])
     if not matched:
         return
     chno = str(attrs.get('tvg-chno', '')).strip()
-    allowed = permitted_stream_url(name, url) or public_candidate_stream_url(name, url)
+    allowed = channel_identity_ok(name, url, attrs) and (permitted_stream_url(name, url) or public_candidate_stream_url(name, url))
     logo = str(attrs.get('tvg-logo', '')).strip()
     for cid in matched:
         ch = channels[cid]
