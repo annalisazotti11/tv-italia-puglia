@@ -11,6 +11,7 @@ on:
       - 'scripts/nightly_check.py'
       - 'scripts/playback_quality.py'
       - 'scripts/test_playback_quality.py'
+      - 'scripts/test_source_diversity.py'
       - 'data/playlist-sources.json'
       - 'scripts/test_nightly.py'
       - 'scripts/update_epg.py'
