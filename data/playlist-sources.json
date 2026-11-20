@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "description": "Playlist registrate: ogni notte GitHub Actions scarica gli indici, deduplica per URL e sottopone a verifica soltanto flussi pubblici FTA autorizzati dalle regole del progetto. La sola presenza in un indice non rende legale o funzionante una diretta.",
+  "sources": [
+    {
+      "name": "nicolofajette/Canali",
+      "url": "https://raw.githubusercontent.com/nicolofajette/Canali/main/Italia.m3u",
+      "scope": "mixed"
+    },
+    {
+      "name": "3DFM07/iptv-playlist",
+      "url": "https://raw.githubusercontent.com/3DFM07/iptv-playlist/main/italy_playlist.m3u",
+      "scope": "index_only"
+    },
+    {
+      "name": "KOVI18/data",
+      "url": "https://raw.githubusercontent.com/KOVI18/data/main/m3u/kovi.m3u",
+      "scope": "index_only"
+    },
+    {
+      "name": "Telipenko/playlist_IPTV",
+      "url": "https://raw.githubusercontent.com/Telipenko/playlist_IPTV/main/playlist.m3u8",
+      "scope": "index_only"
+    },
+    {
+      "name": "Free-TV Italia",
+      "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlists/playlist_italy.m3u8",
+      "scope": "fta"
+    },
+    {
+      "name": "Mr-Flower IPTV Italia",
+      "url": "https://raw.githubusercontent.com/Mr-Flower/iptv-italia/main/italia.m3u8",
+      "scope": "fta"
+    },
+    {
+      "name": "OpenIPTVItaly",
+      "url": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/main/OpenIPTVItaly_No_EPG.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "lpaxi765 Italia",
+      "url": "https://raw.githubusercontent.com/lpaxi765/IPTV-Italia/main/IPTV_Free_Italy_Channel.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Tundrak Italia Plus",
+      "url": "https://raw.githubusercontent.com/Tundrak/IPTV-Italia/main/iptvitaplus.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Tundrak Italia",
+      "url": "https://raw.githubusercontent.com/Tundrak/IPTV-Italia/main/iptvita.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "sfiorini IPTV Italy",
+      "url": "https://raw.githubusercontent.com/sfiorini/IPTV-Italy/main/iptvitaly.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "TVITALIA",
+      "url": "https://raw.githubusercontent.com/maginetweb-arch/TVITALIA/main/iptvit.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "peppenamir Italia",
+      "url": "https://raw.githubusercontent.com/peppenamir/iptv_italia/main/lista.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "GioeleGregorini Italia",
+      "url": "https://raw.githubusercontent.com/GioeleGregorini/IPTV_ITALIA/main/playlist.m3u8",
+      "scope": "fta"
+    },
+    {
+      "name": "mauro-midolo Italia",
+      "url": "https://raw.githubusercontent.com/mauro-midolo/IPTV-Italia/main/iptvitalia.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "giovanni69 Italia",
+      "url": "https://raw.githubusercontent.com/giovanni69/iptvita/main/iptvitalia.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "abugliosi Italia",
+      "url": "https://raw.githubusercontent.com/abugliosi/iptvita/main/iptvita.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "TvIt Italia",
+      "url": "https://tvit.leicaflorianrobert.dev/iptv/list.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "iptv-org Italia",
+      "url": "https://iptv-org.github.io/iptv/countries/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "iptv-org lingua italiana",
+      "url": "https://iptv-org.github.io/iptv/languages/ita.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "iptv-org globale",
+      "url": "https://iptv-org.github.io/iptv/index.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "iptv-org sport",
+      "url": "https://iptv-org.github.io/iptv/categories/sports.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "dearbulut Italia",
+      "url": "https://dearbulut.github.io/iptv/playlists/country/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "dearbulut tutte",
+      "url": "https://dearbulut.github.io/iptv/playlists/index.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "dearbulut online",
+      "url": "https://dearbulut.github.io/iptv/playlists/online.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "dearbulut migliori",
+      "url": "https://dearbulut.github.io/iptv/playlists/best.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "DuckKota Italia",
+      "url": "https://DuckKota.github.io/iptv/playlists/country/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "DuckKota globale",
+      "url": "https://DuckKota.github.io/iptv/playlists/index.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "streamline Italia",
+      "url": "https://cdn.jsdelivr.net/gh/streamline-iptv/iptv-playlists@dist/countries/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "streamline globale",
+      "url": "https://cdn.jsdelivr.net/gh/streamline-iptv/iptv-playlists@dist/index.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "AdeelWajid Italia",
+      "url": "https://raw.githubusercontent.com/AdeelWajid/iptv_validated_list/main/playlists/countries/it.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "nexonic globale",
+      "url": "https://shahrukhalid.github.io/nexonic-iptv/playlists/all.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "nexonic verificate",
+      "url": "https://shahrukhalid.github.io/nexonic-iptv/playlists/verified.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "IPTV By Shovo",
+      "url": "https://shovo127.github.io/IPTV-By-Shovo/index.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "FreeCastHub",
+      "url": "https://raw.githubusercontent.com/FreeCastHub/public-iptv/main/playlist.m3u",
+      "scope": "fta"
+    },
+    {
+      "name": "Free-TV globale",
+      "url": "https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8",
+      "scope": "fta"
+    },
+    {
+      "name": "vamehi IPTV-1",
+      "url": "https://raw.githubusercontent.com/vamehi/IPTV-1/master/playlist.m3u8",
+      "scope": "index_only"
+    },
+    {
+      "name": "sameeralbaba IPTV-1",
+      "url": "https://raw.githubusercontent.com/sameeralbaba/IPTV-1/master/playlist.m3u8",
+      "scope": "index_only"
+    },
+    {
+      "name": "TV Italia alternative 2",
+      "url": "https://raw.githubusercontent.com/streamline-iptv/iptv-playlists/dist/countries/it.m3u",
+      "scope": "fta"
+    }
+  ]
+}
