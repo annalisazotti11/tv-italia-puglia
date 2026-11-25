@@ -61,3 +61,16 @@ Per le dirette a pagamento e non autorizzate, utilizzare soltanto i servizi e le
 - La nuova voce torna nel catalogo, ora 94 canali visibili; la guida mostra badge INFINITY e link esplicito. Rai 3 TGR Puglia resta presente.
 - Se una diretta Mediaset ammessa supera le verifiche A/V e manifest, il Worker mantiene la priorità alla riproduzione nativa e restituisce soltanto quella. Il fallback ufficiale apre la pagina nel browser nei client che supportano externalUrl; compatibilità effettiva su Fire TV da verificare. Nessun flusso nativo di Canale 5 risulta al momento tecnicamente confermato.
 - Fonte ufficiale protocollo: https://nuvio.tv/docs/addon-protocol . Test offline di quarantena, fallback, redirect, catalogo e legacy superati.
+
+## Pilota riconoscimento visivo — 25 novembre 2026, ore 22:35 CET
+
+Il [workflow pilota](../.github/workflows/content-identity-pilot.yml) è attivo ogni ora, indipendente dal catalogo. [Secondo run completato](https://github.com/annalisazotti11/tv-italia-puglia/actions/runs/45705559957). Cinque fonti iniziali hanno dato esito incerto, quindi sono stati aggiunti due controlli tecnicamente disponibili.
+
+| Canale/caso | Risultato |
+|---|---|
+| Canale 5 (4 rotte Mediaset ammesse) | 2 HTTP 403, 2 manifest non disponibili; zero fotogrammi, identità incerta |
+| Rai 3 TGR Puglia | Manifest accessibile, decodifica non riuscita; incerto |
+| Radio Italia TV | 5 fotogrammi campionati; nessun allarme ad alta confidenza del modello locale; identità resta incerta senza riferimento indipendente |
+| Il Sole 24 Ore TV | 5 fotogrammi campionati; nessun allarme ad alta confidenza; identità resta incerta senza riferimento indipendente |
+
+Il motore ha superato 7 test offline, inclusi corrispondenze di scene diverse, schermate statiche, confronto con controllo non corrispondente, segnale esplicito simulato e divieto di pubblicazione. Non è stato osservato direttamente alcun fotogramma di Canale 5: non è possibile affermare che quei flussi siano sbagliati o sicuri. Riconoscimento watermark predisposto, ma manca un campione di riferimento reale approvato. Il runner GitHub risiede negli Stati Uniti; per una verifica italiana serve un ambiente autorizzato che possa riprodurre la diretta normalmente. Quattro gruppi storici restano in coda metadata-only, senza essere riattivati. Nessun frame o segmento archiviato e nessuna modifica al Worker live 4.9.3 / 3.7.8.
