@@ -7,6 +7,14 @@
     {
       "channel": "tvip_103_rai-3-tgr-puglia",
       "url": "https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8"
+    },
+    {
+      "channel": "tvip_70_radioitaliatv",
+      "url": "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8"
+    },
+    {
+      "channel": "tvip_63_il-sole-24-ore-tv",
+      "url": "https://ilsole24ore-radiovisual.akamaized.net/hls/live/2035302/persidera/master.m3u8"
     }
   ],
   "watermark_templates": {},

@@ -100,6 +100,14 @@ def capture_frames(url):
         return [], 'ffmpeg_unavailable'
     count = min(MAX_FRAMES, len(run.stdout) // FRAME_MS)
     if count == 0:
+        # Classify failures without publishing stderr (which can contain media URLs).
+        err = getattr(run, 'stderr', b'').decode('utf-8', errors='replace').lower()
+        if '403 forbidden' in err or 'server returned 403' in err:
+            return [], 'decode_http_403'
+        if 'not on whitelist' in err or 'protocol not found' in err:
+            return [], 'nested_protocol_not_allowed'
+        if 'stream map' in err or 'does not contain any stream' in err:
+            return [], 'no_decodable_video'
         return [], 'decode_failed'
     frames = [Image.frombytes('RGB', (WIDTH, HEIGHT), run.stdout[i*FRAME_MS:(i+1)*FRAME_MS])
               for i in range(count)]
