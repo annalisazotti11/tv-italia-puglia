@@ -2,20 +2,22 @@
 
 Generato: 2026-11-25T11:20:15Z UTC
 
-Playlist lette: 63 · Link testati: 619 · Canali verificati: 161/219
+Playlist lette: 63 · Link testati: 619 · Canali con almeno una sorgente tecnicamente verificata (dopo quarantena): 102/219
+
+**Aggiornamento sicurezza 25 novembre 2026:** 42 voci in 26 canali rimosse dalla pubblicazione perché sospette, incongruenti o non identificabili. La scansione conserva 219 canali monitorati. Canale 5 è sospeso fino a verifica positiva delle sole sorgenti Mediaset. I test audio/video non identificano il contenuto.
 
 **Attenzione:** un errore HTTP 403 o un timeout dal server GitHub non dimostra che la diretta non funzioni dalla TV in Italia.
 
 | Canale | Stato | Sorgente migliore | Risoluzione | Latenza test | Riserve |
 |---|---|---|---:|---:|---|
-| Rai 1 HD | Verificato | Free-TV Italia | 1080p | 1064 ms | iptv-org Italia, DuckKota globale |
-| Rai 2 HD | Verificato | Free-TV Italia | 1080p | 1076 ms | DuckKota globale |
-| Rai 3 HD | Verificato | Free-TV Italia | 1080p | 1061 ms | iptv-org original Italy stream catalogue, Open TV Atlas Italia, Open TV Atlas Italia, Open TV Atlas Italia, Open TV Atlas Italia, DuckKota globale |
+| Rai 1 HD | Verificato tecnicamente | DuckKota globale | ?p | 1099 ms | Free-TV Italia, iptv-org Italia |
+| Rai 2 HD | Verificato tecnicamente | Free-TV Italia | 1080p | 1076 ms | DuckKota globale |
+| Rai 3 HD | Verificato tecnicamente | Free-TV Italia | 1080p | 1061 ms | iptv-org original Italy stream catalogue, DuckKota globale |
 | Rai 3 TGR Puglia | Verificato | Playlist originale | 408p | 2177 ms | — |
-| Rete 4 HD | Verificato | iptv-org Italia | 720p | 1341 ms | — |
-| Canale 5 HD | Verificato | iptv-org Italia | 1080p | 1331 ms | — |
-| Italia 1 HD | Verificato | iptv-org Italia | 720p | 1333 ms | — |
-| LA7 HD | Verificato | TvIt Italia | 1080p | 512 ms | iptv-org Italia, DuckKota globale, Free-TV Italia, nicolofajette/Canali |
+| Rete 4 HD | Verificato tecnicamente | iptv-org Italia | 720p | 1341 ms | — |
+| Canale 5 HD | In quarantena / da verificare | — | — | — | — |
+| Italia 1 HD | Verificato tecnicamente | iptv-org Italia | 720p | 1333 ms | — |
+| LA7 HD | Verificato tecnicamente | Free-TV Italia | 720p | 1701 ms | TvIt Italia, iptv-org Italia, DuckKota globale, nicolofajette/Canali |
 | TV8 | Da verificare in Italia | — | — | — | — |
 | NOVE | Verificato | Playlist originale | 1080p | 460 ms | TvIt Italia |
 | Radionorba TV | Verificato | Playlist originale | 1080p | 3762 ms | iptv-org Italia |
@@ -26,36 +28,36 @@ Playlist lette: 63 · Link testati: 619 · Canali verificati: 161/219
 | Rai 4 | Da verificare in Italia | — | — | — | — |
 | Iris | Da verificare in Italia | — | — | — | — |
 | Rai 5 | Da verificare in Italia | — | — | — | — |
-| Rai Movie | Da verificare in Italia | — | — | — | — |
-| Cielo | Verificato | iptv-org globale | 1080p | 1377 ms | — |
+| Rai Movie | In quarantena / da verificare | — | — | — | — |
+| Cielo | Verificato tecnicamente | iptv-org globale | 1080p | 1377 ms | — |
 | 27 Twentyseven | Da verificare in Italia | — | — | — | — |
 | La5 | Da verificare in Italia | — | — | — | — |
-| Real Time | Verificato | Playlist originale | 1080p | 720 ms | TvIt Italia |
+| Real Time | Verificato tecnicamente | TvIt Italia | 1080p | 587 ms | Playlist originale |
 | Food Network | Verificato | Playlist originale | 1080p | 990 ms | — |
 | Cine34 | Da verificare in Italia | — | — | — | — |
-| Focus | Da verificare in Italia | — | — | — | — |
+| Focus | In quarantena / da verificare | — | — | — | — |
 | RTL 102.5 | Verificato | Playlist originale | 1080p | 2222 ms | Free-TV Italia |
 | Rai News 24 | Verificato | Free-TV Italia | 1080p | 1057 ms | nicolofajette/Canali, Open TV Atlas Italia, OpenIPTVItaly |
 | Sky TG24 | Da verificare in Italia | — | — | — | — |
 | TGCOM24 | Verificato | Free-TV Italia | 1080p | 1057 ms | DuckKota globale, Swiss WebTV |
-| DMAX | Verificato | Playlist originale | 1080p | 676 ms | TvIt Italia |
+| DMAX | Verificato tecnicamente | TvIt Italia | 1080p | 730 ms | Playlist originale |
 | Rai Storia | Verificato | Free-TV Italia | 1080p | 1053 ms | — |
 | HGTV | Verificato | Playlist originale | 1080p | 750 ms | DuckKota globale, IPTV By Shovo, Swiss WebTV |
 | Radio 105 TV | Verificato | Playlist originale | 1080p | 2530 ms | TvIt Italia, OpenIPTVItaly |
 | Deejay TV HD | Verificato | Playlist originale | 1080p | 2045 ms | Swiss WebTV |
 | RadioItaliaTV | Verificato | Playlist originale | 576p | 980 ms | Swiss WebTV |
 | Radio Kiss Kiss TV | Verificato | Playlist originale | 720p | 1432 ms | vamehi IPTV-1 |
-| Gambero Rosso | Verificato | OpenIPTVItaly | 1080p | 1932 ms | — |
-| Hell's Kitchen Italy | Verificato | DuckKota globale | 1080p | 617 ms | iptv-org globale, IPTV By Shovo, DuckKota globale, OpenIPTVItaly |
+| Gambero Rosso | Verificato tecnicamente | OpenIPTVItaly | 1080p | 1932 ms | — |
+| Hell's Kitchen Italy | Verificato tecnicamente | DuckKota globale | 1080p | 617 ms | OpenIPTVItaly, IPTV By Shovo, DuckKota globale |
 | Rai Premium | Da verificare in Italia | — | — | — | — |
 | TV2000 | Verificato | Tundrak canali aggiuntivi | 1080p | 547 ms | nicolofajette/Canali |
 | LA7 Cinema | Verificato | TvIt Italia | 720p | 1480 ms | TVITALIA |
-| QVC | Verificato | DuckKota globale | 1080p | 284 ms | DuckKota globale, Tundrak canali aggiuntivi, DuckKota globale, DuckKota globale |
+| QVC | Verificato tecnicamente | Tundrak canali aggiuntivi | 720p | 1532 ms | — |
 | Warner TV | Verificato | TvIt Italia | 1080p | 1276 ms | — |
-| Giallo | Verificato | TvIt Italia | 1080p | 937 ms | nicolofajette/Canali |
-| Top Crime | Da verificare in Italia | — | — | — | — |
+| Giallo | Verificato tecnicamente | nicolofajette/Canali | 1080p | 948 ms | TvIt Italia |
+| Top Crime | In quarantena / da verificare | — | — | — | — |
 | Boing | Verificato | iptv-org Italia | 720p | 874 ms | — |
-| K2 | Verificato | DuckKota globale | 720p | 2812 ms | — |
+| K2 | In quarantena / da verificare | — | — | — | — |
 | Rai Gulp | Da verificare in Italia | — | — | — | — |
 | Rai Yoyo | Verificato | Swiss WebTV | 540p | 1942 ms | — |
 | Frisbee | Da verificare in Italia | — | — | — | — |
@@ -65,7 +67,7 @@ Playlist lette: 63 · Link testati: 619 · Canali verificati: 161/219
 | Mediaset Extra | Verificato | Open TV Atlas Italia | 540p | 1933 ms | — |
 | Rai Scuola | Verificato | Free-TV Italia | 1080p | 1033 ms | — |
 | Rai Sport + HD | Non verificato | — | — | — | — |
-| Discovery Turbo | Verificato | DuckKota globale | 1080p | 239 ms | Tundrak canali aggiuntivi |
+| Discovery Turbo | Verificato tecnicamente | Tundrak canali aggiuntivi | 1080p | 573 ms | — |
 | Sportitalia | Verificato | giovanni69 Italia | 1080p | 326 ms | OpenIPTVItaly, nicolofajette/Canali, TvIt Italia, Swiss WebTV |
 | Donna TV | Verificato | Free-TV Italia | 576p | 2822 ms | — |
 | Supertennis | Da verificare in Italia | — | — | — | — |
@@ -86,7 +88,7 @@ Playlist lette: 63 · Link testati: 619 · Canali verificati: 161/219
 | RTV San Marino | Nessuna sorgente verificata | — | — | — | — |
 | Radio TV Serie A con RDS | Da verificare in Italia | — | — | — | — |
 | Il Sole 24 ORE TV | Verificato | Tundrak canali aggiuntivi | 1080p | 804 ms | — |
-| Sky Uno + | Non verificato | — | — | — | — |
+| Sky Uno + | In quarantena / da verificare | — | — | — | — |
 | Sky Atlantic | Nessuna sorgente verificata | — | — | — | — |
 | Sky Serie | Non verificato | — | — | — | — |
 | Sky Investigation | Nessuna sorgente verificata | — | — | — | — |
@@ -134,8 +136,8 @@ Playlist lette: 63 · Link testati: 619 · Canali verificati: 161/219
 | Disney Junior | Non verificato | — | — | — | — |
 | DeaKids | Nessuna sorgente verificata | — | — | — | — |
 | DeaJunior | Nessuna sorgente verificata | — | — | — | — |
-| Cartoon Network | Verificato | dearbulut tutte | ?p | 1807 ms | — |
-| Boomerang | Verificato | dearbulut tutte | ?p | 297 ms | — |
+| Cartoon Network | In quarantena / da verificare | — | — | — | — |
+| Boomerang | In quarantena / da verificare | — | — | — | — |
 | Eurosport 1 | Verificato | iptv-org globale | 1080p | 1811 ms | dearbulut tutte, iptv-org Italia |
 | Eurosport 2 | Verificato | iptv-org globale | 1080p | 1816 ms | dearbulut tutte, Open TV Atlas Italia |
 | Class CNBC | Verificato | Free-TV Italia | 1080p | 800 ms | — |
@@ -149,9 +151,9 @@ Playlist lette: 63 · Link testati: 619 · Canali verificati: 161/219
 | Discovery Italy | Verificato | OpenIPTVItaly | 1080p | 790 ms | — |
 | Boing Plus | Non verificato | — | — | — | — |
 | Italia 53 | Nessuna sorgente verificata | — | — | — | — |
-| CLUB TV | Verificato | iptv-org globale | 720p | 1389 ms | — |
-| Italiana | Verificato | DuckKota Italia | 1080p | 1072 ms | — |
-| Sky News | Verificato | Free-TV globale | 1080p | 814 ms | iptv-org globale |
+| CLUB TV | In quarantena / da verificare | — | — | — | — |
+| Italiana | In quarantena / da verificare | — | — | — | — |
+| Sky News | Verificato tecnicamente | iptv-org globale | ?p | 1107 ms | — |
 | Sky News Arabia | Verificato | streamline globale | 1080p | 699 ms | dearbulut tutte, iptv-org globale |
 | EQUtv | Non verificato | — | — | — | — |
 | ACI Sport TV | Verificato | nicolofajette/Canali | 720p | 2245 ms | OpenIPTVItaly |
@@ -219,7 +221,7 @@ Playlist lette: 63 · Link testati: 619 · Canali verificati: 161/219
 | Telesveva | Verificato | OpenIPTVItaly | ?p | 966 ms | — |
 | Tele Sud Puglia | Non verificato | — | — | — | — |
 | Sky Cinema Romance | Nessuna sorgente verificata | — | — | — | — |
-| Sky Uno | Non verificato | — | — | — | — |
+| Sky Uno | In quarantena / da verificare | — | — | — | — |
 | History | Non verificato | — | — | — | — |
 | Sky Cinema Family | Non verificato | — | — | — | — |
 | Sky Cinema Drama | Nessuna sorgente verificata | — | — | — | — |

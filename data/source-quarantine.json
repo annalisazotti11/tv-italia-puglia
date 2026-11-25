@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "blocked_hosts": [
+    "ch.iptvmate.net"
+  ],
+  "approved_only": {
+    "tvip_5_canale-5-hd": [
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(c5)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(C5)/index.m3u8"
+    ]
+  },
+  "blocked_by_channel": {
+    "tvip_32_qvc": [
+      "https://653db23c.wurl.com/v1/qvc_samsung/vizio_us/latest/main/hls/playlist.m3u8",
+      "https://a-cdn.klowdtv.com/live2/qvclive_720p/playlist.m3u8",
+      "https://d1flvb4iqlercm.cloudfront.net/live/live_1080p_2nd.m3u8",
+      "https://d1txbbj1u9asam.cloudfront.net/live/qvcuk_main_clean/bitrate1.isml/3/prog_index.m3u8",
+      "https://qvc-amd-live.akamaized.net/hls/live/2034113/lsqvc1us/master.m3u8",
+      "https://uvotv-aniview.global.ssl.fastly.net/10010/live/hls/qvchd/playlist.m3u8"
+    ],
+    "tvip_3_rai-3-hd": [
+      "https://tgrbolzano-live.akamaized.net/hls/live/2025560/tgrbolzano/tgrbolzano/playlist.m3u8",
+      "https://tgrfriuli-live.akamaized.net/hls/live/2025564/tgrfriuli/tgrfriuli/playlist.m3u8",
+      "https://tgrfriulibis-live.akamaized.net/hls/live/2025579/tgrfriulibis/tgrfriulibis/playlist.m3u8",
+      "https://tgrtrento-live.akamaized.net/hls/live/2025575/tgrtrento/tgrtrento/playlist.m3u8"
+    ],
+    "tvip_404_hell-s-kitchen-italy": [
+      "https://amg00654-itv-amg00654c1-samsung-au-1072.playouts.now.amagi.tv/itv-hellskitchen-samsung/playlist.m3u8"
+    ],
+    "tvip_41_k2": [
+      "https://cdn15.live-tv.cloud/ua_infinitas_tv/k2-abr/playlist.m3u8"
+    ],
+    "tvip_57_italiana": [
+      "https://d3k8wzt41aflvx.cloudfront.net/RAIScuola/Live.m3u8",
+      "https://raiscuola1-dash-live.akamaized.net/dash/live/663975/raiscuola1/manifest.mpd",
+      "https://viamotionhsi.netplus.ch/live/eds/raiscuola/browser-HLS8/raiscuola.m3u8"
+    ],
+    "tvip_59_discovery-turbo": [
+      "https://amg00136-wbd-amg00136c57-vizio-us-8927.playouts.now.amagi.tv/playlist.m3u8"
+    ],
+    "tvip_61_club-tv": [
+      "https://tv.arkeo.cl:1936/clubtv/clubtv/playlist.m3u8"
+    ],
+    "tvip_sat_sky_news": [
+      "https://stream.skynewsarabia.com/hls/sna.m3u8"
+    ],
+    "tvip_sky_boomerang": [
+      "https://live-us1.thaimomo.com/live-as/chboomerang-2/chunklist_w135479847.m3u8"
+    ],
+    "tvip_sky_cartoon_network": [
+      "https://vodzong.mjunoon.tv:8087/streamtest/cartoon-network-87/live/87H/chunks.m3u8"
+    ],
+    "tvip_sky_sky_uno": [
+      "https://vps-bc4b65e2.vps.ovh.net:8080/channel/ustv/881"
+    ],
+    "tvip_sky_sky_uno_plus": [
+      "https://vps-bc4b65e2.vps.ovh.net:8080/channel/ustv/881"
+    ]
+  }
+}

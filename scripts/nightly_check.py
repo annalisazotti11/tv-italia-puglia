@@ -449,6 +449,29 @@ def channel_identity_ok(name: str, url: str, attrs: dict) -> bool:
     return parts.path == '/sky/tv8/stream.m3u8'
 
 
+# Incident response: channel identity must be checked independently of A/V playback.
+# The quarantine is maintained in the repository and applies to every channel.
+@lru_cache(maxsize=1)
+def source_quarantine():
+    policy = json.loads((ROOT / 'data' / 'source-quarantine.json').read_text(encoding='utf8'))
+    if policy.get('schema') != 1:
+        raise ValueError('Invalid source quarantine')
+    return policy
+
+
+def source_identity_allowed(cid: str, url: str) -> bool:
+    if not safe_url(url):
+        return False
+    policy = source_quarantine()
+    host = (urllib.parse.urlsplit(url).hostname or '').lower().rstrip('.')
+    if host in policy.get('blocked_hosts', []):
+        return False
+    approved = policy.get('approved_only', {}).get(cid)
+    if approved is not None and url not in approved:
+        return False
+    return url not in policy.get('blocked_by_channel', {}).get(cid, [])
+
+
 def assign_candidate(channels, by_name, name, attrs, url, provider):
     label = normalize(name)
     matched = by_name.get(label, [])
@@ -463,7 +486,7 @@ def assign_candidate(channels, by_name, name, attrs, url, provider):
             continue
         if not ch.get('logo') and trusted_channel_logo(logo):
             ch['logo'] = logo
-        if not allowed or len(ch['urls']) >= MAX_CANDIDATES_PER_CHANNEL:
+        if not allowed or not source_identity_allowed(cid, url) or len(ch['urls']) >= MAX_CANDIDATES_PER_CHANNEL:
             continue
         if not any(x['url'] == url for x in ch['urls']):
             ch['urls'].append({'url': url, 'source': provider})
@@ -623,7 +646,7 @@ def probe_one(cid: str, item: dict):
     out = {'channel_id': cid, 'source': item['source'], 'url': source, 'ok': False, 'reason': None}
     try:
         raw, ctype, actual = get(source)
-        if wrong_channel_redirect(cid,actual):
+        if wrong_channel_redirect(cid,actual) or not source_identity_allowed(cid, actual):
             raise ValueError('Redirect to different channel')
         body = raw.decode('utf-8-sig', errors='replace').lstrip()
         if body.lower().startswith(('<html', '<!doctype html')):
@@ -731,7 +754,7 @@ def main():
     playlist_status = scan_playlists(channels, names)
     total_discovered_links = sum(len(c['urls']) for c in channels.values())
     for channel in channels.values():
-        channel['urls'] = diverse_channel_sources(channel['urls'])
+        channel['urls'] = diverse_channel_sources([x for x in channel['urls'] if source_identity_allowed(channel['id'], x['url'])])
     jobs = [(cid, candidate) for cid, c in channels.items() for candidate in c['urls']]
     print(f'Candidates: {len(jobs)} across {len(channels)} configured channels', flush=True)
     for p in playlist_status:
@@ -793,7 +816,7 @@ def main():
             if len(entries) >= MAX_VERIFIED_PER_CHANNEL:
                 break
             url = old.get('url')
-            if not url or url in fresh_urls or not permitted_stream_url(ch['name'], url):
+            if not url or url in fresh_urls or not source_identity_allowed(cid, url) or not permitted_stream_url(ch['name'], url):
                 continue
             result = current.get(url)
             reason = str(result.get('reason') or '') if result else ''
@@ -810,7 +833,7 @@ def main():
             entries.append({**old, 'stale': True})
             fresh_urls.add(url)
         # Keep inconclusive geographic failures separate; never label them as verified.
-        pending = regional_candidates(ch['name'], ch['results'], fresh_urls)
+        pending = [x for x in regional_candidates(ch['name'], ch['results'], fresh_urls) if source_identity_allowed(cid, x['url'])]
         # Country restrictions and inconclusive checks must not hide a
         # channel from the viewer: include candidates for direct playback.
         # Never label them as verified, and discard hard failures or DRM.
@@ -823,7 +846,7 @@ def main():
         tentative = []
         for candidate in ch['urls']:
             url = candidate['url']
-            if url in fresh_urls or not public_candidate_stream_url(ch['name'], url):
+            if url in fresh_urls or not source_identity_allowed(cid, url) or not public_candidate_stream_url(ch['name'], url):
                 continue
             failed = by_url.get(url, {})
             why = str(failed.get('reason') or '')
@@ -840,7 +863,7 @@ def main():
             'name': ch['name'], 'number': ch.get('number',''), 'group': ch.get('group','Canali TV'), 'logo': ch.get('logo',''),
             'verified': entries, 'regional_candidates': pending,
             'candidates': tentative,
-            'tested': len(ch['results']), 'visible': bool(entries or tentative),
+            'tested': len(ch['results']), 'visible': bool(entries or (tentative and cid != 'tvip_5_canale-5-hd')),
             'candidate_count': len(ch['urls']), 'verified_count': len(entries),
             'checked_at': stamped,
             'failures': dict(Counter(x.get('reason') or 'Unknown' for x in ch['results'] if not x['ok'])),

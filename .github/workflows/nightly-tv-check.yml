@@ -9,6 +9,10 @@ on:
     branches: [main]
     paths:
       - 'scripts/nightly_check.py'
+      - 'data/source-quarantine.json'
+      - 'scripts/test_source_identity.py'
+      - 'cloudflare/worker-tv-v4.3.0.js'
+      - 'scripts/test_worker_v430.mjs'
       - 'scripts/playback_quality.py'
       - 'scripts/test_playback_quality.py'
       - 'scripts/test_source_diversity.py'
@@ -71,6 +75,8 @@ jobs:
           node scripts/test_worker_v410.mjs
           node --check cloudflare/worker-tv-v4.2.0.js
           node scripts/test_worker_v420.mjs
+          node --check cloudflare/worker-tv-v4.3.0.js
+          node scripts/test_worker_v430.mjs
       - name: Test playlist e stream
         run: python scripts/nightly_check.py
       - name: Verifica flussi con video e audio reali

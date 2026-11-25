@@ -40,6 +40,10 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 - [Template responsive della guida TV](data/guide-ui.html)
 - [Worker 4.1.0](cloudflare/worker-tv-v4.1.0.js)
 
+## Quarantena sicurezza — 4.3.0
+
+La versione [4.3.0](cloudflare/worker-tv-v4.3.0.js) aggiunge il filtro di identità e blocca le fonti sospette. Consulta il [rapporto di revisione del 25 novembre](data/source-identity-audit.md). Aggiornare il Worker effettivamente installato in Nuvio (manifest già in uso) con il codice 4.3.0. La versione live deve essere verificata dopo il Deploy.
+
 ## Pubblicazione in Cloudflare
 
 L'aggiornamento dello script GitHub **non pubblica automaticamente il Worker**.

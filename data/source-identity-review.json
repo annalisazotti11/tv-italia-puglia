@@ -1,0 +1,338 @@
+{
+  "schema": 1,
+  "description": "Exact broadcaster/CDN routes reviewed for channel identity; not a playback guarantee. New URLs require explicit review.",
+  "channels": {
+    "tvip_101_rai-4k-hbbtv": [
+      "https://raievent10-elem-live.akamaized.net/hls/live/619189/raievent10/raievent10/playlist.m3u8"
+    ],
+    "tvip_103_rai-3-tgr-puglia": [
+      "https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8"
+    ],
+    "tvip_11_radionorba-tv": [
+      "https://router.xdevel.com/video0s975885-462/stream/playlist_dvr.m3u8"
+    ],
+    "tvip_13_tg-norba-24": [
+      "https://live-telenorba.cdn.netrw.it/telenorba/hls/ccr/tgnorba/master.m3u8",
+      "https://stream6.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8"
+    ],
+    "tvip_145_padre-pio-tv": [
+      "https://600f07e114306.streamlock.net/PadrePioTV/livestream/playlist.m3u8"
+    ],
+    "tvip_14_antenna-sud": [
+      "https://live-antennasud.cdn.netrw.it/antennasud/hls/ccr/antennasud/master.m3u8"
+    ],
+    "tvip_158_radio-kiss-kiss-tv": [
+      "https://kk.fluid.stream/KKMulti/smil:KissKissTV.smil/playlist.m3u8"
+    ],
+    "tvip_17_telebari": [
+      "https://w1.mediastreaming.it/telebari/livestream/manifest.mpd",
+      "https://w1.mediastreaming.it/telebari/livestream/playlist.m3u8"
+    ],
+    "tvip_1_rai-1-hd": [
+      "https://raiuno3-live.akamaized.net/hls/live/2017910/raiuno3/raiuno3/playlist.m3u8"
+    ],
+    "tvip_20_20-mediaset-hd": [
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-lb/lb-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-lb/lb-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(lb)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(lb)/index.m3u8"
+    ],
+    "tvip_21_rai-4": [
+      "https://raiquattro3-live.akamaized.net/hls/live/2018003/raiquattro3/raiquattro3/playlist.m3u8"
+    ],
+    "tvip_22_iris": [
+      "https://live02-col.msf.cdn.mediaset.net/live/ch-ki/ki-clr.isml/index.m3u8",
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-ki/ki-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-ki/ki-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(ki)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(ki)/index.m3u8"
+    ],
+    "tvip_233_rtl-102-5-news": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S38122967/2lyQRIAAGgRR/playlist_video.m3u8"
+    ],
+    "tvip_23_rai-5": [
+      "https://raicinque3-live.akamaized.net/hls/live/2018007/raicinque3/raicinque3/playlist.m3u8"
+    ],
+    "tvip_24_rai-movie": [
+      "https://raimovie3-live.akamaized.net/hls/live/2018010/raimovie3/raimovie3/playlist.m3u8"
+    ],
+    "tvip_258_radiofreccia": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/0tuSetc8UFkF/playlist_video.m3u8"
+    ],
+    "tvip_262_byoblu": [
+      "https://09bd1346f7a44cc9ac230cc1cb22ca4f.msvdn.net/live/S39249178/EnTK3KeeN1Eg/playlist.m3u8"
+    ],
+    "tvip_265_rds-social-tv": [
+      "https://stream.rdstv.radio/index.m3u8"
+    ],
+    "tvip_266_radio-zeta": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/playlist_video.m3u8"
+    ],
+    "tvip_27_27-twentyseven": [
+      "https://live02-col.msf.cdn.mediaset.net/live/ch-ts/ts-clr.isml/index.m3u8",
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-ts/ts-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-ts/ts-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(ts)/index.m3u8"
+    ],
+    "tvip_28_tv2000": [
+      "https://hls-live-tv2000.akamaized.net/hls/live/2028510/tv2000/master.m3u8"
+    ],
+    "tvip_29_la7-cinema": [
+      "https://d15umi5iaezxgx.cloudfront.net/HBBTV/LA7D/DASH/Live.mpd",
+      "https://d15umi5iaezxgx.cloudfront.net/LA7D/CLN/HLS/Live.m3u8"
+    ],
+    "tvip_2_rai-2-hd": [
+      "https://raidue3-live.akamaized.net/hls/live/2017983/raidue3/raidue3/playlist.m3u8"
+    ],
+    "tvip_30_la5": [
+      "https://live02-col.msf.cdn.mediaset.net/live/ch-ka/ka-clr.isml/index.m3u8",
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-ka/ka-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-ka/ka-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(ka)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(ka)/index.m3u8"
+    ],
+    "tvip_31_real-time": [
+      "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/REALTIME/CMAF/index.m3u8"
+    ],
+    "tvip_32_qvc": [
+      "https://qrg.akamaized.net/hls/live/2017383/lsqvc1it/master.m3u8"
+    ],
+    "tvip_33_food-network": [
+      "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/FOODNETWORK/CMAF/index.m3u8"
+    ],
+    "tvip_34_cine34": [
+      "https://live02-col.msf.cdn.mediaset.net/live/ch-b6/b6-clr.isml/index.m3u8",
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-b6/b6-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-b6/b6-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(b6)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(b6)/index.m3u8"
+    ],
+    "tvip_35_focus": [
+      "https://live02-col.msf.cdn.mediaset.net/live/ch-fu/fu-clr.isml/index.m3u8",
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-fu/fu-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-fu/fu-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(fu)/index.m3u8"
+    ],
+    "tvip_36_rtl-102-5": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist.m3u8",
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_video.m3u8"
+    ],
+    "tvip_37_warner-tv": [
+      "https://amg16146-wbdi-amg16146c4-samsung-it-1837.playouts.now.amagi.tv/playlist/amg16146-warnerbrosdiscoveryitalia-warnertv-samsungit/playlist.m3u8"
+    ],
+    "tvip_38_giallo": [
+      "https://amg16146-wbdi-amg16146c5-samsung-it-1838.playouts.now.amagi.tv/playlist/amg16146-warnerbrosdiscoveryitalia-giallo-samsungit/playlist.m3u8",
+      "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/GIALLO/CMAF/index.m3u8"
+    ],
+    "tvip_39_top-crime": [
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-lt/lt-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-lt/lt-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(lt)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(lt)/index.m3u8"
+    ],
+    "tvip_3_rai-3-hd": [
+      "https://raitre3-live.akamaized.net/hls/live/2018002/raitre3/raitre3/playlist.m3u8"
+    ],
+    "tvip_40_boing": [
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-kb/kb-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-kb/kb-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(kb)/index.m3u8"
+    ],
+    "tvip_41_k2": [
+      "https://amg16146-wbdi-amg16146c6-samsung-it-1839.playouts.now.amagi.tv/playlist/amg16146-warnerbrosdiscoveryitalia-k2-samsungit/playlist.m3u8"
+    ],
+    "tvip_44_frisbee": [
+      "https://amg16146-wbdi-amg16146c7-samsung-it-1840.playouts.now.amagi.tv/playlist/amg16146-warnerbrosdiscoveryitalia-frisbee-samsungit/playlist.m3u8"
+    ],
+    "tvip_46_cartoonito": [
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-la/la-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-la/la-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(la)/index.m3u8"
+    ],
+    "tvip_47_super": [
+      "https://495c5a85d9074f29acffeaea9e0215eb.msvdn.net/super/super_main/super_main_hbbtv/playlist.m3u8",
+      "https://vimnitaly.akamaized.net/hls/live/2094034/super/master.m3u8"
+    ],
+    "tvip_48_rai-news-24": [
+      "https://rainews1-dash-live.akamaized.net/dash/live/663981/rainews1/manifest.mpd",
+      "https://rainews1-live.akamaized.net/hls/live/598326/rainews1/rainews1/playlist.m3u8"
+    ],
+    "tvip_49_italia-2": [
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-i2/i2-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-i2/i2-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(i2)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(i2)/index.m3u8"
+    ],
+    "tvip_4_rete-4-hd": [
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(r4)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(r4)/index.m3u8"
+    ],
+    "tvip_51_tgcom24": [
+      "https://live2-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(kf)/index.m3u8",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(kf)/index.m3u8"
+    ],
+    "tvip_52_dmax": [
+      "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8"
+    ],
+    "tvip_54_rai-storia": [
+      "https://raistoria3-live.akamaized.net/hls/live/2018017/raistoria3/raistoria3/playlist.m3u8"
+    ],
+    "tvip_55_mediaset-extra": [
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-kq/kq-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-kq/kq-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(kq)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(kq)/index.m3u8"
+    ],
+    "tvip_56_hgtv": [
+      "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/HGTV/CMAF/index.m3u8"
+    ],
+    "tvip_59_discovery-turbo": [
+      "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/TURBO/CMAF/index.m3u8"
+    ],
+    "tvip_5_canale-5-hd": [
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(c5)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(C5)/index.m3u8"
+    ],
+    "tvip_60_sportitalia": [
+      "https://distribution.sportitalialive.it/sportitalia/sihd_abr2/playlist.m3u8",
+      "https://sportitaliaamd.akamaized.net/live/Sportitalia/hls/F59D8EB0332E783633CDDE8E265844975635D24F/index.m3u8"
+    ],
+    "tvip_62_donna-tv": [
+      "https://sportitaliaamd.akamaized.net/live/Donna_TV/hls/42EB42E58EA44362045EFEA804E3FCF0DB33C481/index.m3u8",
+      "https://streaming.softwarecreation.it/DonnaTv/DonnaTv/playlist.m3u8"
+    ],
+    "tvip_63_il-sole-24-ore-tv": [
+      "https://ilsole24ore-radiovisual.akamaized.net/hls/live/2035302/persidera/master.m3u8"
+    ],
+    "tvip_64_supertennis": [
+      "https://live-embed.supertennix.hiway.media/restreamer/supertennix_client/gpu-a-c0-16/restreamer/rtmp/hls/h24_supertennix/manifest.m3u8"
+    ],
+    "tvip_65_alma-tv": [
+      "https://streaming.softwarecreation.it/AlmaTv/AlmaTv/playlist.m3u8"
+    ],
+    "tvip_66_radio-105-tv": [
+      "https://live02-seg.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/index.m3u8",
+      "https://live03-col.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/manifest.mpd"
+    ],
+    "tvip_67_r101-tv": [
+      "https://live02-seg.msr.cdn.mediaset.net/live/ch-er/er-clr.isml/index.m3u8",
+      "https://live03-col.msr.cdn.mediaset.net/live/ch-er/er-clr.isml/manifest.mpd"
+    ],
+    "tvip_69_deejay-tv-hd": [
+      "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S85984808/sMO0tz9Sr2Rk/playlist.m3u8"
+    ],
+    "tvip_6_italia-1-hd": [
+      "https://live02-seg.msf.cdn.mediaset.net/live/ch-i1/i1-clr.isml/index.m3u8",
+      "https://live03-col.msf.cdn.mediaset.net/live/ch-i1/i1-clr.isml/manifest.mpd",
+      "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(i1)/index.m3u8",
+      "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(i1)/index.m3u8"
+    ],
+    "tvip_70_radioitaliatv": [
+      "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8",
+      "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/stream03/streamPlaylist.m3u8"
+    ],
+    "tvip_713_radio-capital-tv": [
+      "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S35394734/Z6U2wGoDYANk/playlist.m3u8"
+    ],
+    "tvip_715_m2o-tv": [
+      "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S62628868/uhdWBlkC1AoO/playlist.m3u8"
+    ],
+    "tvip_772_radio-montecarlo-tv": [
+      "https://live02-seg.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/index.m3u8",
+      "https://live03-col.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/manifest.mpd",
+      "https://live03-seg.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/manifest_hr.mpd"
+    ],
+    "tvip_7_la7-hd": [
+      "https://d15umi5iaezxgx.cloudfront.net/HBBTV/LA7/DASH/Live.mpd"
+    ],
+    "tvip_831_rtv-san-marino": [
+      "https://d2hrvno5bw6tg2.cloudfront.net/smrtv-ch01/_definst_/smil:ch-01.smil/chunklist_b2192000_slita.m3u8"
+    ],
+    "tvip_899_radio-tv-serie-a-con-rds": [
+      "https://stream.radioseriea.com/50773f0d0070476a8612d9984c6059d8/index.m3u8"
+    ],
+    "tvip_9_nove": [
+      "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/NOVE/CMAF/index.m3u8"
+    ],
+    "tvip_puglia_antenna_sud_extra": [
+      "https://live-antennasud.cdn.netrw.it/antennasud/hls/ccr/extra/master.m3u8"
+    ],
+    "tvip_puglia_la_nuova_tv": [
+      "https://5dcabf026b188.streamlock.net/lanuovatvbas/livestream/playlist.m3u8"
+    ],
+    "tvip_puglia_tele_dehon": [
+      "https://5f22d76e220e1.streamlock.net/Teledehon/smil:Teledehon.smil/playlist.m3u8"
+    ],
+    "tvip_puglia_telenorba": [
+      "https://live-telenorba.cdn.netrw.it/telenorba/hls/ccr/telenorba/master.m3u8"
+    ],
+    "tvip_puglia_telerama": [
+      "https://58d921499d3d3.streamlock.net/TeleRama/livestream/playlist.m3u8"
+    ],
+    "tvip_puglia_telesud": [
+      "https://64b16f23efbee.streamlock.net/telesud/telesud/playlist.m3u8"
+    ],
+    "tvip_puglia_telesveva": [
+      "https://live2.telesveva.com/hls/svevahd.m3u8"
+    ],
+    "tvip_sat_aci_sport_tv": [
+      "https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8"
+    ],
+    "tvip_sat_al_arabiya": [
+      "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8"
+    ],
+    "tvip_sat_al_jazeera_arabic": [
+      "https://live-hls-web-aja.getaj.net/AJA/index.m3u8"
+    ],
+    "tvip_sat_al_jazeera_english": [
+      "https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8"
+    ],
+    "tvip_sat_bejoy_kids": [
+      "https://stream.paroledivita.org/bejoy.m3u8"
+    ],
+    "tvip_sat_bloomberg_television": [
+      "https://bloomberg.com/media-manifest/streams/eu.m3u8"
+    ],
+    "tvip_sat_camera_dei_deputati": [
+      "https://video-ar.radioradicale.it/diretta/camera2/playlist.m3u8"
+    ],
+    "tvip_sat_dw_english": [
+      "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/master.m3u8"
+    ],
+    "tvip_sat_euronews_english": [
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-en/25002/index.m3u8"
+    ],
+    "tvip_sat_euronews_italiano": [
+      "https://cdn-euronews.akamaized.net/live/eds/euronews-it/25085/index.m3u8"
+    ],
+    "tvip_sat_france_24_english": [
+      "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8"
+    ],
+    "tvip_sat_france_24_francais": [
+      "https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_5000.m3u8"
+    ],
+    "tvip_sat_nhk_world_japan": [
+      "https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8"
+    ],
+    "tvip_sat_parole_di_vita": [
+      "https://stream.paroledivita.org/paroledivita.m3u8"
+    ],
+    "tvip_sat_rtl_102_5_caliente": [
+      "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S8448465/zTYa1Z5Op9ue/playlist_video.m3u8"
+    ],
+    "tvip_sat_sky_news": [
+      "https://linear021-gb-hls1-prd-ak.cdn.skycdp.com/Content/HLS_001_hd/Live/channel(skynews)/index_mob.m3u8",
+      "https://linear417-gb-hls1-prd-ak.cdn.skycdp.com/100e/Content/HLS_001_1080_30/Live/channel(skynews)/index_1080-30.m3u8"
+    ],
+    "tvip_sat_sky_news_arabia": [
+      "https://live-stream.skynewsarabia.com/c-horizontal-channel/horizontal-stream/index.m3u8"
+    ],
+    "tvip_sat_uninettuno_university_tv": [
+      "https://stream6-rai-it.akamaized.net/live/uninettuno/playlist.m3u8"
+    ]
+  }
+}
