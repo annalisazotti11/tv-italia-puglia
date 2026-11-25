@@ -15,6 +15,8 @@ on:
       - 'scripts/test_worker_v430.mjs'
       - 'cloudflare/worker-tv-v4.9.2.js'
       - 'scripts/test_worker_v492.mjs'
+      - 'cloudflare/worker-tv-v4.9.3.js'
+      - 'scripts/test_worker_v493.mjs'
       - 'scripts/playback_quality.py'
       - 'scripts/test_playback_quality.py'
       - 'scripts/test_source_diversity.py'
@@ -81,6 +83,8 @@ jobs:
           node scripts/test_worker_v430.mjs
           node --check cloudflare/worker-tv-v4.9.2.js
           node scripts/test_worker_v492.mjs
+          node --check cloudflare/worker-tv-v4.9.3.js
+          node scripts/test_worker_v493.mjs
       - name: Test playlist e stream
         run: python scripts/nightly_check.py
       - name: Verifica flussi con video e audio reali
