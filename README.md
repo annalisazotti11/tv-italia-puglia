@@ -58,3 +58,11 @@ Mantieni lo stesso Worker e lo stesso manifest già installato in Nuvio: l'ID ad
 ### Limiti
 
 «Tutti i canali» significa tutti quelli **monitorati** nel database, non che tutte le emittenti abbiano una diretta riproducibile. I 403 possono dipendere dalla geolocalizzazione. I collegamenti senza prova positiva non fanno comparire nuove locandine. I canali premium richiedono sorgenti autorizzate e, se necessario, l'abbonamento del titolare.
+
+## Pilota analisi del contenuto (Canale 5)
+
+Il [workflow pilota](.github/workflows/content-identity-pilot.yml) è separato dai flussi di produzione e si esegue ogni ora o manualmente. Campiona alcuni fotogrammi in RAM dalle quattro rotte Mediaset ammesse e da una fonte Rai 3 TGR Puglia usata come controllo. I risultati confrontano scene distinte (impronte percettive), eseguono uno screening locale per contenuti espliciti e, quando è disponibile una sagoma del marchio in onda validata, il riconoscimento del watermark. Un logo generico non viene considerato prova sufficiente.
+
+L'output è un piccolo report JSON negli artifact di GitHub Actions: nessuna immagine, audio, video o URL non autorizzato viene salvato; un mancato accesso geografico resta incerto. I gruppi di sorgenti precedentemente esclusi restano in una coda di revisione di sola metadatazione. Le fonti fuori allowlist non vengono aperte senza prova della loro autorizzazione. Nessun esito del pilota cambia il catalogo o riabilita sorgenti automaticamente. Per un controllo al momento del Play serve un validatore accessibile sulla rete del titolare, non il solo Worker. 
+
+Avvio manuale: `PYTHONPATH=scripts python -m unittest discover -s pilot_tests -v`; analisi: `python scripts/content_identity.py --output artifacts/content-identity-pilot-report.json` (FFmpeg, Pillow e NudeNet installati). Il modello di sicurezza ha possibili falsi negativi/positivi: un'assenza di allarme non garantisce la sicurezza del contenuto.

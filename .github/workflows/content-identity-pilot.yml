@@ -1,0 +1,66 @@
+name: TV Italia + Puglia - pilota identità contenuto
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '37 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/content_identity.py'
+      - 'pilot_tests/test_content_identity.py'
+      - 'data/content-identity-pilot-config.json'
+      - 'data/source-quarantine.json'
+      - 'data/source-identity-review.json'
+      - '.github/workflows/content-identity-pilot.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tv-content-identity-pilot
+  cancel-in-progress: true
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Dipendenze locali di analisi
+        run: |
+          python -m pip install --disable-pip-version-check 'Pillow==11.3.0' 'nudenet==3.4.2'
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+      - name: Verifica offline
+        run: PYTHONPATH=scripts python -m unittest discover -s pilot_tests -p 'test_content_identity.py' -v
+      - name: Campionamento delle sole sorgenti ammesse
+        run: python scripts/content_identity.py --output artifacts/content-identity-pilot-report.json
+      - name: Risultato sintetico
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          data=json.loads(Path('artifacts/content-identity-pilot-report.json').read_text())
+          lines=['## Pilota identità Canale 5 — nessuna modifica alla produzione', '',
+                 f"Fonti analizzate: {data['summary']['checked']}; campioni ottenuti: {data['summary']['sampled']}",
+                 '', '| Canale | Host | Fotogrammi | Esito | Motivo |','|---|---|---:|---|---|']
+          for s in data['sources']:
+              lines.append(f"| {s['channel']} | {s['host']} | {s['sampled_frames']} | {s['status']} | {s['reason']} |")
+          lines.extend(['',f"Gruppi di sorgenti storiche conservati per revisione: {len(data['review_queue'])}",
+                        'Nessun URL di streaming, fotogramma o contenuto viene pubblicato.'])
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as f:
+              f.write('\n'.join(lines)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: content-identity-pilot-report
+          path: artifacts/content-identity-pilot-report.json
+          retention-days: 3

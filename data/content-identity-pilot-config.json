@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "pilot_channels": [
+    "tvip_5_canale-5-hd"
+  ],
+  "controls": [
+    {
+      "channel": "tvip_103_rai-3-tgr-puglia",
+      "url": "https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8"
+    }
+  ],
+  "watermark_templates": {},
+  "review_queue": [
+    {
+      "source": "iptv-org Italia",
+      "host": "n-5-1.eu.cdn-redge.media",
+      "reason": "provenance_not_confirmed",
+      "status": "pending_review_metadata_only",
+      "historical_snapshot": "d4640dab1e5a7d110e3c084117669e2b554302fa"
+    },
+    {
+      "source": "IPTV Mate Italia archivio",
+      "host": "ch.iptvmate.net",
+      "reason": "opaque_host_quarantined_after_incident",
+      "status": "pending_review_metadata_only",
+      "historical_snapshot": "d4640dab1e5a7d110e3c084117669e2b554302fa"
+    },
+    {
+      "source": "TvIt Italia",
+      "host": "tvit.leicaflorianrobert.dev",
+      "reason": "provenance_not_confirmed",
+      "status": "pending_review_metadata_only",
+      "historical_snapshot": "d4640dab1e5a7d110e3c084117669e2b554302fa"
+    },
+    {
+      "source": "Yarr Stremio Italia",
+      "host": "viamotionhsi.netplus.ch",
+      "reason": "provenance_not_confirmed",
+      "status": "pending_review_metadata_only",
+      "historical_snapshot": "d4640dab1e5a7d110e3c084117669e2b554302fa"
+    }
+  ]
+}
