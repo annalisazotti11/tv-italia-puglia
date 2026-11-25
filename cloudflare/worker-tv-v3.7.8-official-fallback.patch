@@ -1,0 +1,54 @@
+--- worker-tv-v3.7.7.js
++++ worker-tv-v3.7.8.js
+@@ -1,5 +1,5 @@
+ /**
+- * TV Italia + Puglia 3.7.7 - Quarantena sorgenti; compatibilità legacy
++ * TV Italia + Puglia 3.7.8 - Quarantena e fallback ufficiale Canale 5
+  * Sky Uno primo. 48 canali previsti dalla playlist corrente.
+  * Canale 5: preferenza DASH, originale HLS come riserva.
+  * Rete 4, Italia 1, 20, Iris, 27, La5, Cine34 e Focus:
+@@ -7,7 +7,7 @@
+  * Ricerca dinamica sorgenti in chiaro; nuova selezione e programmazione EPG estesa.
+  * Tutti gli ID restano invariati.
+  */
+-const VERSION = '3.7.7';
++const VERSION = '3.7.8';
+ const M3U_URL = 'https://raw.githubusercontent.com/annalisazotti11/tv-italia-puglia/refs/heads/main/TV_Italia_Puglia_con_loghi.m3u';
+ const EPG_URL = 'https://epgshare01.online/epgshare01/epg_ripper_IT1.xml.gz';
+ const ADDON_ID = 'community.tv-italia-puglia';
+@@ -609,6 +609,7 @@
+ // community-provided stream merely because its manifest is valid.
+ const QUARANTINE_URL = 'https://raw.githubusercontent.com/annalisazotti11/tv-italia-puglia/refs/heads/main/data/source-quarantine.json';
+ const SAFE_C5_ENDPOINT = 'https://tv-italia-puglia.annalisazotti11.workers.dev/stream/tv/tvip_5_canale-5-hd.json';
++const C5_OFFICIAL_PAGE = 'https://mediasetinfinity.mediaset.it/diretta/canale5_cC5';
+ let quarantineMemo = {until:0,value:null,pending:null};
+ let c5Memo = {until:0,value:null,pending:null};
+ async function legacyQuarantine(){
+@@ -653,6 +654,8 @@
+         }
+       }
+     }catch{}
++    // No native source: only the official Mediaset webpage, never an unverified URL.
++    if(!found)found={externalUrl:C5_OFFICIAL_PAGE,label:'Apri Canale 5 sul sito ufficiale'};
+     c5Memo.value=found;c5Memo.until=Date.now()+30000;
+     return found;
+   })();
+@@ -661,7 +664,7 @@
+ async function pickSource(c){
+   if(c.id==='tvip_5_canale-5-hd'||Number(c.number)===5){
+     const selected=await confirmedLegacyC5();
+-    return {selected,tests:[],fallbackManuale:false,qualita:selected?'Sorgente Mediaset confermata':'Canale 5 in quarantena'};
++    return {selected,tests:[],fallbackManuale:false,qualita:selected?.url?'Sorgente Mediaset confermata':'Collegamento ufficiale Mediaset Infinity'};
+   }
+   const policy=await legacyQuarantine();
+   const list=(await liveSourcesFor(c)).filter(s=>s.url&&http(s.url)&&legacyIdentityAllowed(policy,c.id,s.url));
+@@ -732,6 +735,9 @@
+   return {selected:null,tests:checks,fallbackManuale:false,qualita:'nessuna fonte selezionabile'};
+ }
+ function streamResult(c,s,i){
++  if(Number(c.number)===5 && s.externalUrl===C5_OFFICIAL_PAGE){
++    return {name:'Mediaset Infinity · ufficiale',title:'Apri Canale 5 sul sito ufficiale',description:'Diretta ufficiale nel browser · accesso Mediaset se richiesto',externalUrl:C5_OFFICIAL_PAGE};
++  }
+   const item={name:i===0?'Diretta':`Alternativa ${i}`,description:s.label||c.name,url:s.url};
+   const headers={};if(s.userAgent)headers['User-Agent']=s.userAgent;
+   if(s.referrer)headers.Referer=s.referrer;

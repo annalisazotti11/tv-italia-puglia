@@ -54,3 +54,10 @@ Per le dirette a pagamento e non autorizzate, utilizzare soltanto i servizi e le
 - Verifica live: entrambi i manifest riportano la nuova versione; entrambi gli endpoint Canale 5 restituiscono zero sorgenti. Il catalogo principale ha 219 canali monitorati e 93 mostrati, con Rai 3 TGR Puglia presente e un solo indirizzo restituito.
 - Canale 5 resta nascosto fino a un controllo positivo audio/video di una fonte Mediaset ammessa; il Worker non segue redirect. Il test non certifica fotogrammi o contenuto di tutte le trasmissioni; TVVoo rimane un addon distinto.
 - Test locali della 4.9.2 e della modifica legacy passati.
+
+## Ripristino con sorgente ufficiale — 25 novembre 2026
+
+- Worker principale 4.9.3; storico 3.7.8, deployment `8b52dc08`. Entrambi gli endpoint live Canale 5 restituiscono esattamente una voce `externalUrl` alla pagina ufficiale Mediaset Infinity: https://mediasetinfinity.mediaset.it/diretta/canale5_cC5 . Nessun URL IPTV non confermato e nessun aggiramento di login, DRM o restrizioni geografiche.
+- La nuova voce torna nel catalogo, ora 94 canali visibili; la guida mostra badge INFINITY e link esplicito. Rai 3 TGR Puglia resta presente.
+- Se una diretta Mediaset ammessa supera le verifiche A/V e manifest, il Worker mantiene la priorità alla riproduzione nativa e restituisce soltanto quella. Il fallback ufficiale apre la pagina nel browser nei client che supportano externalUrl; compatibilità effettiva su Fire TV da verificare. Nessun flusso nativo di Canale 5 risulta al momento tecnicamente confermato.
+- Fonte ufficiale protocollo: https://nuvio.tv/docs/addon-protocol . Test offline di quarantena, fallback, redirect, catalogo e legacy superati.
