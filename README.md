@@ -40,17 +40,17 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 - [Template responsive della guida TV](data/guide-ui.html)
 - [Worker 4.1.0](cloudflare/worker-tv-v4.1.0.js)
 
-## Quarantena sicurezza — 4.3.0
+## Quarantena sicurezza — 4.9.2
 
-La versione [4.3.0](cloudflare/worker-tv-v4.3.0.js) aggiunge il filtro di identità e blocca le fonti sospette. Consulta il [rapporto di revisione del 25 novembre](data/source-identity-audit.md). Aggiornare il Worker effettivamente installato in Nuvio (manifest già in uso) con il codice 4.3.0. La versione live deve essere verificata dopo il Deploy.
+La versione [4.9.2](cloudflare/worker-tv-v4.9.2.js) preserva il ranking e la singola sorgente della 4.9.1, applicando la quarantena anche nel Worker, escludendo URL duplicati tra canali e richiedendo per Canale 5 una sorgente Mediaset con audio/video confermati e nessun reindirizzamento. Consulta il [rapporto di revisione del 25 novembre](data/source-identity-audit.md). Aggiornare il Worker effettivamente installato in Nuvio (manifest già in uso) con il codice 4.9.2. La versione live deve essere verificata dopo il Deploy.
 
 ## Pubblicazione in Cloudflare
 
 L'aggiornamento dello script GitHub **non pubblica automaticamente il Worker**.
 
 1. Accedi a Cloudflare → **Workers & Pages** → Worker `tv-italia-puglia` (usa il nome esatto mostrato nella dashboard).
-2. Apri **Edit code**, incolla tutto il contenuto di `cloudflare/worker-tv-v4.1.0.js` e premi **Deploy**.
-3. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `4.1.0`.
+2. Apri **Edit code**, incolla tutto il contenuto di `cloudflare/worker-tv-v4.9.2.js` e premi **Deploy**.
+3. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `4.9.2`.
 4. Apri `/guida` per la nuova guida visiva, `/api/guida.json` per i programmi in corso, `/debug/notte.json` per gli esiti della scansione oppure `/debug/italia.json` da una connessione italiana per la seconda verifica.
 
 Mantieni lo stesso Worker e lo stesso manifest già installato in Nuvio: l'ID addon non cambia.
