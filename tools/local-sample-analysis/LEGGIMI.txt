@@ -1,0 +1,24 @@
+ANALISI DI CAMPIONI CANALE 5 — SOLO FILE LOCALI
+
+Questo programma non apre indirizzi IPTV, manifest, siti o stream online.
+Non modifica Chrome, Nuvio o Cloudflare.
+
+1. Prepara 3–5 immagini o un breve video locale della diretta autentica
+   di Canale 5, acquisiti senza aggirare restrizioni (es. dalla TV via antenna).
+2. Se disponi già di un campione candidato riprodotto legittimamente,
+   preparalo nello stesso intervallo temporale. Altrimenti lascia vuoto.
+3. Estrai lo ZIP ed esegui Avvia-analisi.cmd in Windows. Python 3.12 è la
+   versione consigliata (https://www.python.org/downloads/windows/).
+4. Al primo avvio, se vuoi, autorizza le dipendenze locali da PyPI.
+5. Inserisci i percorsi dei campioni: singolo file o cartella di JPG/PNG.
+   Per un video locale serve anche FFmpeg: https://ffmpeg.org/download.html.
+6. Inviami il JSON che il programma salva in reports.
+
+Alternativa più facile: inviami direttamente in chat 3–5 fotogrammi della
+diretta autentica, idealmente con il logo sempre visibile. Non inviare
+contenuti espliciti o materiale che non hai diritto di acquisire.
+
+Confrontare fotogrammi diversi convenzionalmente richiede campioni presi
+quasi nello stesso momento; una mancata corrispondenza non significa
+che il canale sia sbagliato. Il filtro locale non è infallibile.
+Nessuna sorgente è riattivata automaticamente.

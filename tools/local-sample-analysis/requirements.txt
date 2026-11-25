@@ -1,0 +1,2 @@
+Pillow==11.3.0
+nudenet==3.4.2
