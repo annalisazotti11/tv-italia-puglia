@@ -46,3 +46,11 @@ La versione attiva accertata del Worker `tv` è **3.7.6**. Il suo endpoint Canal
 Il file `data/source-identity-review.json` contiene 91 canali con 150 indirizzi selezionati mediante controllo statico di host e percorso o lista curata. Non è una certificazione di origine né un nuovo test di riproduzione. Attivare un'allowlist esclusiva può ridurre sensibilmente il catalogo: richiede verifica del titolare e nuove prove positive prima del deployment.
 
 Per le dirette a pagamento e non autorizzate, utilizzare soltanto i servizi e le applicazioni ufficiali. Non aggirare DRM o restrizioni di accesso.
+
+## Deploy effettivo — 25 novembre 2026
+
+- Worker principale `tv-italia-puglia`: **4.9.2** (dal 4.9.1, selezione singola, filtro quarantena ed esclusione URL ambigui tra ID), deployment Cloudflare `f620a2e0`.
+- Worker storico `tv`: **3.7.7** (dal 3.7.6, stessa quarantena; Canale 5 delegato al solo risultato confermato del principale), deployment `6296a316`. KV e Cron lasciati invariati. [Patch legacy](../cloudflare/worker-tv-v3.7.7-quarantine.patch).
+- Verifica live: entrambi i manifest riportano la nuova versione; entrambi gli endpoint Canale 5 restituiscono zero sorgenti. Il catalogo principale ha 219 canali monitorati e 93 mostrati, con Rai 3 TGR Puglia presente e un solo indirizzo restituito.
+- Canale 5 resta nascosto fino a un controllo positivo audio/video di una fonte Mediaset ammessa; il Worker non segue redirect. Il test non certifica fotogrammi o contenuto di tutte le trasmissioni; TVVoo rimane un addon distinto.
+- Test locali della 4.9.2 e della modifica legacy passati.

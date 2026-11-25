@@ -42,7 +42,7 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 
 ## Quarantena sicurezza — 4.9.2
 
-La versione [4.9.2](cloudflare/worker-tv-v4.9.2.js) preserva il ranking e la singola sorgente della 4.9.1, applicando la quarantena anche nel Worker, escludendo URL duplicati tra canali e richiedendo per Canale 5 una sorgente Mediaset con audio/video confermati e nessun reindirizzamento. Consulta il [rapporto di revisione del 25 novembre](data/source-identity-audit.md). Aggiornare il Worker effettivamente installato in Nuvio (manifest già in uso) con il codice 4.9.2. La versione live deve essere verificata dopo il Deploy.
+La versione [4.9.2](cloudflare/worker-tv-v4.9.2.js) preserva il ranking e la singola sorgente della 4.9.1, applicando la quarantena anche nel Worker, escludendo URL duplicati tra canali e richiedendo per Canale 5 una sorgente Mediaset con audio/video confermati e nessun reindirizzamento. Consulta il [rapporto di revisione del 25 novembre](data/source-identity-audit.md). Aggiornare il Worker effettivamente installato in Nuvio (manifest già in uso) con il codice 4.9.2. Pubblicata e verificata il 25 novembre 2026 sul Worker `tv-italia-puglia`. Il Worker storico `tv` è aggiornato alla 3.7.7 con [patch compatibile](cloudflare/worker-tv-v3.7.7-quarantine.patch), senza modificare configurazione KV o Cron.
 
 ## Pubblicazione in Cloudflare
 

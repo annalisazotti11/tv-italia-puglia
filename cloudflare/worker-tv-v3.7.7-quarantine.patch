@@ -1,0 +1,105 @@
+--- worker-tv-v3.7.6.js
++++ worker-tv-v3.7.7.js
+@@ -1,5 +1,5 @@
+ /**
+- * TV Italia + Puglia 3.7.6 - Ricerca playlist pubbliche e selezione per qualità PRIMA della diretta
++ * TV Italia + Puglia 3.7.7 - Quarantena sorgenti; compatibilità legacy
+  * Sky Uno primo. 48 canali previsti dalla playlist corrente.
+  * Canale 5: preferenza DASH, originale HLS come riserva.
+  * Rete 4, Italia 1, 20, Iris, 27, La5, Cine34 e Focus:
+@@ -7,7 +7,7 @@
+  * Ricerca dinamica sorgenti in chiaro; nuova selezione e programmazione EPG estesa.
+  * Tutti gli ID restano invariati.
+  */
+-const VERSION = '3.7.6';
++const VERSION = '3.7.7';
+ const M3U_URL = 'https://raw.githubusercontent.com/annalisazotti11/tv-italia-puglia/refs/heads/main/TV_Italia_Puglia_con_loghi.m3u';
+ const EPG_URL = 'https://epgshare01.online/epgshare01/epg_ripper_IT1.xml.gz';
+ const ADDON_ID = 'community.tv-italia-puglia';
+@@ -605,8 +605,66 @@
+   return (c.name==='Sky Uno'&&source.url===SKY_UNO_PREFERRED_SOURCE)||
+     (Number(c.number)===2&&source.url===RAI2_DIRECT_FALLBACK);
+ }
++// Same source-identity policy as the main Worker; do not trust a cached or
++// community-provided stream merely because its manifest is valid.
++const QUARANTINE_URL = 'https://raw.githubusercontent.com/annalisazotti11/tv-italia-puglia/refs/heads/main/data/source-quarantine.json';
++const SAFE_C5_ENDPOINT = 'https://tv-italia-puglia.annalisazotti11.workers.dev/stream/tv/tvip_5_canale-5-hd.json';
++let quarantineMemo = {until:0,value:null,pending:null};
++let c5Memo = {until:0,value:null,pending:null};
++async function legacyQuarantine(){
++  if(quarantineMemo.until>Date.now())return quarantineMemo.value;
++  if(quarantineMemo.pending)return quarantineMemo.pending;
++  quarantineMemo.pending=(async()=>{
++    try{
++      const r=await fetch(QUARANTINE_URL,{redirect:'manual',signal:AbortSignal.timeout(3500)});
++      if(!r.ok)throw Error('Policy unavailable');
++      const p=await r.json();
++      if(p.schema!==1||!Array.isArray(p.blocked_hosts)||!p.approved_only||!p.blocked_by_channel||
++        !Array.isArray(p.approved_only['tvip_5_canale-5-hd']))throw Error('Invalid policy');
++      quarantineMemo.value=p;
++    }catch{quarantineMemo.value=null;}
++    quarantineMemo.until=Date.now()+60000;
++    return quarantineMemo.value;
++  })();
++  try{return await quarantineMemo.pending;}finally{quarantineMemo.pending=null;}
++}
++function legacyIdentityAllowed(p,id,url){
++  if(!p||typeof url!=='string')return false;
++  try{
++    const u=new URL(url),host=u.hostname.toLowerCase().replace(/\.$/,'');
++    if(u.protocol!=='https:'||u.username||u.password||u.hash||p.blocked_hosts.includes(host))return false;
++    if(Object.hasOwn(p.approved_only,id)&&!p.approved_only[id].includes(url))return false;
++    return !(p.blocked_by_channel[id]||[]).includes(url);
++  }catch{return false;}
++}
++async function confirmedLegacyC5(){
++  if(c5Memo.until>Date.now())return c5Memo.value;
++  if(c5Memo.pending)return c5Memo.pending;
++  c5Memo.pending=(async()=>{
++    let found=null;
++    try{
++      const p=await legacyQuarantine();
++      if(p){
++        const r=await fetch(SAFE_C5_ENDPOINT,{redirect:'manual',signal:AbortSignal.timeout(6500)});
++        if(r.ok){
++          const data=await r.json();
++          const s=(data.streams||[]).find(x=>legacyIdentityAllowed(p,'tvip_5_canale-5-hd',x.url));
++          if(s)found={url:s.url,label:'Canale 5 · sorgente Mediaset confermata'};
++        }
++      }
++    }catch{}
++    c5Memo.value=found;c5Memo.until=Date.now()+30000;
++    return found;
++  })();
++  try{return await c5Memo.pending;}finally{c5Memo.pending=null;}
++}
+ async function pickSource(c){
+-  const list=(await liveSourcesFor(c)).filter(s=>s.url&&http(s.url));
++  if(c.id==='tvip_5_canale-5-hd'||Number(c.number)===5){
++    const selected=await confirmedLegacyC5();
++    return {selected,tests:[],fallbackManuale:false,qualita:selected?'Sorgente Mediaset confermata':'Canale 5 in quarantena'};
++  }
++  const policy=await legacyQuarantine();
++  const list=(await liveSourcesFor(c)).filter(s=>s.url&&http(s.url)&&legacyIdentityAllowed(policy,c.id,s.url));
+   if(!list.length)return {selected:null,tests:[],fallbackManuale:false,qualita:'nessuna fonte'};
+   // Controlla ANCHE le sorgenti uniche: un URL presente non equivale a video funzionante.
+   const checks=new Array(list.length);
+@@ -617,7 +675,7 @@
+       const source=list[index];
+       checks[index]={index,source,...await probe(source,c.name==='Sky Uno'
+         ?SKY_UNO_CHECK_TIMEOUT_MS:CHECK_TIMEOUT_MS)};
+-      if(checks[index].ok&&sourceHasWrongIdentity(Number(c.number),checks[index].finalUrl||source.url,true)){
++      if(checks[index].ok&&(sourceHasWrongIdentity(Number(c.number),checks[index].finalUrl||source.url,true)||!legacyIdentityAllowed(policy,c.id,checks[index].finalUrl||source.url))){
+         checks[index].ok=false;
+         checks[index].reason='Il link rimanda a un canale differente';
+       }
+@@ -872,7 +930,8 @@
+   }
+   const catalog=path.match(/^\/catalog\/tv\/([^/]+)(?:\/(.+))?\.json$/);
+   if(catalog){if(decodeURIComponent(catalog[1])!==CATALOG_ID)return json({metas:[]});
+-   return json({metas:(await channels()).map(c=>preview(c,u.origin))},200,120);
++   const canale5=await confirmedLegacyC5();
++    return json({metas:(await channels()).filter(c=>Number(c.number)!==5||canale5).map(c=>preview(c,u.origin))},200,120);
+   }
+   const meta=path.match(/^\/meta\/tv\/([^/]+)\.json$/);
+   if(meta){const c=(await channels()).find(x=>x.id===decodeURIComponent(meta[1]));
