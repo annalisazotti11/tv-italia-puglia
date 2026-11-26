@@ -391,6 +391,11 @@
       "name": "91 Live Overseas index",
       "url": "https://91zhibo.net/iptv/overseas.m3u",
       "scope": "index_only"
+    },
+    {
+      "name": "IPTV-CH Redge Media index",
+      "url": "https://raw.githubusercontent.com/iptv-ch/iptv-ch.github.io/master/redgemedia.m3u",
+      "scope": "index_only"
     }
   ]
 }
