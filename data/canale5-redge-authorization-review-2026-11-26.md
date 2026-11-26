@@ -46,3 +46,8 @@ Il Worker 4.9.6 introduce un override manuale esclusivamente per `tvip_5_canale-
 - Non viene effettuato proxy dello stream, non si seguono redirect e non si aggirano DRM o geo-restrizioni.
 
 **Stato diritti invariato:** l'endpoint è una sorgente community tecnicamente raggiungibile e riprodotta in VLC dall'utente; non è dimostrato che sia un endpoint ufficiale né che sia autorizzato alla redistribuzione. Il codice non lo etichetta come ufficiale o autorizzato. Il file 4.9.6 è nel repository; il deployment Cloudflare resta separato e non è stato eseguito da questa modifica.
+
+
+## Ritiro della build 4.9.6
+
+La build 4.9.6 che restituiva direttamente la M3U8 Redge a Nuvio è stata ritirata prima del deployment e il file `cloudflare/worker-tv-v4.9.6.js` è stato eliminato dal ramo `main`. La prova VLC e la verifica tecnica del manifest restano documentate, ma non dimostrano autorizzazione alla redistribuzione. Non usare copie locali della build ritirata. La ricerca di nuove sorgenti può essere mantenuta come scoperta e revisione, senza pubblicare automaticamente stream di provenienza o diritti non accertati.
