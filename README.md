@@ -56,7 +56,11 @@ Per ciascun percorso il controllo verifica manifest, pacchetti audio/video, riso
 
 La graduatoria considera risoluzione fino a 2160p, storico dei successi, tempi di verifica e codec. Il [Worker 5.0.0](cloudflare/worker-tv-v5.0.0.js) legge il nuovo indice separato `data/audited-streams.json`, scarta esiti più vecchi di 36 ore e restituisce la sola sorgente meglio classificata. Restano invariati ID addon, ID canali, EPG e priorità TGR Puglia. Le riserve sono nell'indice, non vengono esposte tutte al player. Canale 5 mantiene il collegamento ufficiale se non esiste uno stream diretto verificato.
 
-**Stato:** codice e workflow nel repository; primo run, esito dei test e riproduzione Nuvio da verificare. Non distribuire il Worker 5.0.0 prima che sia disponibile uno snapshot valido e siano stati controllati copertura e test. Il deployment Cloudflare rimane separato e non è stato eseguito.
+**Primo run (27 novembre 2026, ore 00:53 italiane):** 150 sorgenti testate, 31 passate, 30 canali con controllo completo. La scansione precedente rilevava audio e video su 72 canali; 44 di questi non sono presenti nel nuovo indice. Tra gli esiti negativi figurano 48 HTTP 403, 35 manifest non disponibili, 14 redirect HTTP 301/302 e 10 timeout FFprobe. Non sono tutti errori geografici accertati.
+
+**Aggiornamento:** un secondo tentativo è previsto solo per gli errori temporanei; nessun retry su HTTP 403 o allarme esplicito. La diagnostica per canale distingue le fonti fallite dai canali privi di sorgenti revisionate; non pubblica URL falliti. Il Worker ricontrolla anche il registro di revisione corrente prima di servire le sorgenti. Il codice supporta il riscontro dei watermark autentici quando si forniscono i relativi template; al momento il registro dei template è vuoto. Il nuovo run e i nuovi test non sono ancora confermati.
+
+**Deployment sospeso:** il primo risultato non offre una copertura comparabile a quella precedente. Nessun deployment Cloudflare è stato eseguito.
 
 ## Pubblicazione in Cloudflare
 
