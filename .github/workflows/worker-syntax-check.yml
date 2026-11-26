@@ -1,9 +1,9 @@
-name: Worker 4.9.6 syntax check
+name: Worker 4.9.4 baseline syntax check
 on:
   push:
     branches: [main]
     paths:
-      - 'cloudflare/worker-tv-v4.9.6.js'
+      - 'cloudflare/worker-tv-v4.9.4.js'
       - '.github/workflows/worker-syntax-check.yml'
   workflow_dispatch:
 permissions:
@@ -19,31 +19,23 @@ jobs:
         with:
           node-version: '22'
       - name: Check JavaScript syntax
-        run: node --check cloudflare/worker-tv-v4.9.6.js
-      - name: Check direct Canale 5 stream is returned to Nuvio
+        run: node --check cloudflare/worker-tv-v4.9.4.js
+      - name: Check Canale 5 uses the official fallback
         run: |
           node --input-type=module - <<'JS'
           import fs from 'node:fs';
-          const s = fs.readFileSync('cloudflare/worker-tv-v4.9.6.js', 'utf8');
+          const s = fs.readFileSync('cloudflare/worker-tv-v4.9.4.js', 'utf8');
           const required = [
-            "const VERSION = '4.9.6';",
-            "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/canale_5/live.livx/playlist.m3u8",
-            "if (id === C5_ID) return streams(null, id);",
-            "snapshot().catch(() => null)",
-            "url: C5_DIRECT_SOURCE.url",
-            "sourceCount: 1"
+            "const VERSION = '4.9.4';",
+            "https://mediasetinfinity.mediaset.it/diretta/canale5_cC5",
+            "name: 'Mediaset Infinity · ufficiale'",
+            "externalUrl: C5_OFFICIAL_PAGE"
           ];
           for (const item of required) {
             if (!s.includes(item)) throw new Error('Missing required code: ' + item);
           }
-          const start = s.indexOf('if (id === C5_ID) {', s.indexOf('async function streams'));
-          const end = s.indexOf('const candidates', start);
-          const branch = s.slice(start, end);
-          if (branch.includes('externalUrl') || branch.includes('notWebReady')) {
-            throw new Error('Canale 5 must expose one native HLS stream without external fallbacks or notWebReady.');
+          if (s.includes('n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/canale_5/')) {
+            throw new Error('Unverified Redge Canale 5 override must not be deployed.');
           }
-          if (s.includes('fetch(C5_DIRECT_SOURCE.url')) {
-            throw new Error('The Worker must return the upstream URL directly, not proxy media.');
-          }
-          console.log('Worker 4.9.6 syntax and Nuvio direct-stream wiring OK.');
+          console.log('Worker 4.9.4 syntax and official Canale 5 fallback OK.');
           JS
