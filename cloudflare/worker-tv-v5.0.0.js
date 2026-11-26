@@ -347,6 +347,12 @@ async function snapshot() {
       ])
     )}
   ]));
+  for (const [id, c] of Object.entries(channels)) {
+    const rules = review.identity_required?.[id] || {};
+    c.verified = c.verified.filter(s => !Object.hasOwn(rules, s.url) ||
+      (s.identity_required === true &&
+       ['watermark_observed','reference_scenes_match'].includes(s.identity_status)));
+  }
   return {...raw, channels, identityPolicy: policy};
 }
 
