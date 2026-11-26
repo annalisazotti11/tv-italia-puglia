@@ -308,22 +308,31 @@ function identityAllowed(policy, id, url) {
 }
 
 async function snapshot() {
-  const [raw, policy] = await Promise.all([
+  const [raw, policy, review] = await Promise.all([
     load('snapshot', '/data/audited-streams.json', text => {
       const v = JSON.parse(text);
       if (v.schema !== 1 || v.mode !== 'reviewed_visual_gate_v1' || !v.channels ||
           !Number.isFinite(Date.parse(v.generated_at))) throw Error('Indice non valido');
       return v;
     }, 60000, 5000000),
-    quarantinePolicy()
+    quarantinePolicy(),
+    load('review', '/data/source-identity-review.json', text => {
+      const r = JSON.parse(text);
+      if (r.schema !== 1 || !r.channels || typeof r.channels !== 'object' ||
+          !Object.values(r.channels).every(v => Array.isArray(v) && v.every(u => typeof u === 'string')))
+        throw Error('Revisione sorgenti non valida');
+      return r;
+    }, 60000, 500000)
   ]);
-  if (!raw || !policy) return null;
+  if (!raw || !policy || !review) return null;
+  const reviewed = (id, url) =>
+    Object.hasOwn(review.channels, id) && review.channels[id].includes(url);
   const owners = new Map();
   const ambiguous = new Set();
   for (const [id, channel] of Object.entries(raw.channels)) {
     for (const key of ['verified', 'candidates', 'regional_candidates']) {
       for (const entry of channel[key] || []) {
-        if (!identityAllowed(policy, id, entry.url)) continue;
+        if (!identityAllowed(policy, id, entry.url) || !reviewed(id, entry.url)) continue;
         if (owners.has(entry.url) && owners.get(entry.url) !== id) ambiguous.add(entry.url);
         else owners.set(entry.url, id);
       }
@@ -332,7 +341,7 @@ async function snapshot() {
   const channels = Object.fromEntries(Object.entries(raw.channels).map(([id, c]) => [
     id, {...c, ...Object.fromEntries(
       ['verified', 'candidates', 'regional_candidates'].map(key => [
-        key, (c[key] || []).filter(e => identityAllowed(policy, id, e.url) && !ambiguous.has(e.url))
+        key, (c[key] || []).filter(e => identityAllowed(policy, id, e.url) && reviewed(id, e.url) && !ambiguous.has(e.url))
       ])
     )}
   ]));
@@ -989,8 +998,7 @@ export default {
     }
 
     try {
-      // Usa lo snapshot e la quarantena. Solo Canale 5 richiede
-      // conferma del manifest senza reindirizzamenti.
+      // Usa esclusivamente lo snapshot visivo, la revisione corrente e la quarantena.
 
       const live = path.match(
         /^\/stream\/tv\/([^/]+)\.json$/
