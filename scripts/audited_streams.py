@@ -130,6 +130,15 @@ def main():
     if ci.load_detector() is None:
         raise SystemExit('Visual detector unavailable')
     result = build(review, policy, previous)
+    # Preserve existing catalog metadata, never copy playback URLs from the
+    # legacy snapshot. The old scanner and this gate remain independent.
+    legacy = ROOT / 'data' / 'verified-streams.json'
+    if legacy.exists():
+        for cid, entry in read(legacy).get('channels', {}).items():
+            if cid in result['channels']:
+                for field in ('name', 'number', 'group', 'logo'):
+                    if isinstance(entry.get(field), str):
+                        result['channels'][cid][field] = entry[field]
     tmp = OUTPUT.with_suffix('.tmp')
     tmp.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     tmp.replace(OUTPUT)
