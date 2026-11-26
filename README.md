@@ -48,6 +48,16 @@ Il flusso Redge individuato in una playlist community è stato riprodotto tecnic
 
 La ricerca automatica può continuare a individuare nuove voci nelle playlist pubbliche, ma la presenza in una lista, un manifest HLS valido o un test VLC non costituiscono prova di autorizzazione. Le candidate non approvate restano in revisione e non vengono pubblicate come dirette in Nuvio.
 
+## Worker 5.0.0 — controllo visivo generale (da collaudare)
+
+La nuova pipeline [audited-tv.yml](.github/workflows/audited-tv.yml) gira ogni notte alle **02:47 UTC** (03:47 in Italia in inverno, 04:47 in estate). La ricerca nelle playlist registrate rimane nel workflow notturno precedente. Una nuova voce community non viene promossa automaticamente: il nuovo controllo apre esclusivamente i percorsi emittente/CDN già revisionati, rispettando la quarantena e senza aggirare DRM o limitazioni geografiche. La revisione tecnica non costituisce una licenza generale di redistribuzione.
+
+Per ciascun percorso il controllo verifica manifest, pacchetti audio/video, risoluzione rilevata e almeno tre fotogrammi in RAM, analizzati con il rilevatore locale NudeNet. Se il modello non è disponibile, il campione è insufficiente o viene rilevato contenuto esplicito, la sorgente non viene inserita nell'indice. Nessun fotogramma viene pubblicato. Il campionamento non garantisce l'identità del canale o l'assenza futura di contenuti espliciti: il riconoscimento di watermark necessita di riferimenti autentici, attualmente mancanti.
+
+La graduatoria considera risoluzione fino a 2160p, storico dei successi, tempi di verifica e codec. Il [Worker 5.0.0](cloudflare/worker-tv-v5.0.0.js) legge il nuovo indice separato `data/audited-streams.json`, scarta esiti più vecchi di 36 ore e restituisce la sola sorgente meglio classificata. Restano invariati ID addon, ID canali, EPG e priorità TGR Puglia. Le riserve sono nell'indice, non vengono esposte tutte al player. Canale 5 mantiene il collegamento ufficiale se non esiste uno stream diretto verificato.
+
+**Stato:** codice e workflow nel repository; primo run, esito dei test e riproduzione Nuvio da verificare. Non distribuire il Worker 5.0.0 prima che sia disponibile uno snapshot valido e siano stati controllati copertura e test. Il deployment Cloudflare rimane separato e non è stato eseguito.
+
 ## Pubblicazione in Cloudflare
 
 L'aggiornamento di GitHub non pubblica automaticamente il Worker. **Non distribuire la build 4.9.6 ritirata.** Prima di un nuovo deployment serve una versione generale verificata su tutti i canali, con controlli di identità, provenienza, autorizzazione e contenuto. Mantieni invariato il Worker attualmente attivo finché non è pronta una release sostitutiva.
