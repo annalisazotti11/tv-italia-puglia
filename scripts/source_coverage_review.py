@@ -15,6 +15,7 @@ NEW_NAMES = {
     'Reefquiet Italia', 'CANALI-IPTV Italia', 'Mario Muto Italia',
     'MrWolfJunior Italia', 'Vise950 Italia', 'Giuseppe Italia',
     'CodingMayhem Italia', 'CodingMayhem Italia 2',
+    'SuperFranky84 Italia TV', 'Wpisa24 Italia Plus',
 }
 
 def identity(url):
