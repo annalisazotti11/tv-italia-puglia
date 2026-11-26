@@ -376,6 +376,16 @@
       "name": "CodingMayhem Italia 2",
       "url": "https://raw.githubusercontent.com/codingmayhem/italian-iptv/main/channels2.m3u",
       "scope": "index_only"
+    },
+    {
+      "name": "SuperFranky84 Italia TV",
+      "url": "https://raw.githubusercontent.com/SuperFranky84/IPTV-Italia/main/TV",
+      "scope": "index_only"
+    },
+    {
+      "name": "Wpisa24 Italia Plus",
+      "url": "https://raw.githubusercontent.com/wpisa24/IPTV-Italia/main/iptvitaplus.m3u",
+      "scope": "index_only"
     }
   ]
 }
