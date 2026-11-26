@@ -65,3 +65,29 @@ La pagina ufficiale di GO Malta elenca Canale 5 HD al canale 125 nella propria o
 - Fire TV/Nuvio: non ancora verificati.
 - Autorizzazione alla redistribuzione nell'addon pubblico: non dimostrata.
 - Il candidato resta fuori dalla playlist di produzione e dal Worker pubblico finché non è chiarito il diritto di utilizzo/ridistribuzione.
+
+## Conferma VLC e verifica dei diritti (26 novembre 2026)
+
+L'utente ha confermato che l'endpoint Redge si riproduce in VLC dalla propria connessione italiana. Questo prova la raggiungibilità e la riproduzione in VLC nel momento del test; non prova che il titolare del flusso ne autorizzi l'inserimento in un addon pubblico.
+
+### Distinzione sul provider
+La presenza di Canale 5 HD nel catalogo ufficiale GO Malta (canale 125) non dimostra, da sola, che l'endpoint Redge trovato in iptv-org sia un endpoint GO né che sia autorizzato alla redistribuzione. Le playlist pubbliche che riportano lo stesso URL sono indici di terze parti, non licenze.
+
+### GO TV: percorso ufficiale alternativo
+La documentazione GO indica il supporto dell'app ufficiale su Fire TV e l'accesso browser su `https://gotv.go.com.mt/`. GO elenca Canale 5 HD al canale 125. Le condizioni GO TV standalone OTT aggiornate a marzo 2026:
+- limitano il servizio all'uso personale e non commerciale;
+- consentono l'uso fuori Malta negli altri Paesi UE solo su base temporanea;
+- vietano copia, registrazione, ritrasmissione e redistribuzione dei contenuti;
+- prevedono requisiti di idoneità/residenza a Malta per la sottoscrizione.
+
+Fonti ufficiali:
+- https://www.go.com.mt/go-tv-app-device/
+- https://www.go.com.mt/tv-channel-list/
+- https://www.go.com.mt/support/will-i-be-able-to-use-the-go-tv-app-when-travelling/
+- https://prodcms.go.com.mt/wp-content/uploads/2026/03/TV_Standalone_OTT_0_TC.pdf
+
+### Decisione tecnica
+- Non aggiungere l'URL Redge alla playlist di produzione, alla allowlist di pubblicazione o al Worker pubblico senza conferma scritta del titolare dei diritti.
+- La versione sorgente Worker 4.9.4 aggiunge, come alternativa esterna e non come stream, il player ufficiale GO TV (`https://gotv.go.com.mt/`) accanto a Mediaset Infinity. Il link GO TV richiede un abbonamento e credenziali GO idonei.
+- L'app GO TV ufficiale è compatibile con Fire TV; ciò non significa che l'app sia integrata dentro Nuvio.
+- La 4.9.4 è stata aggiornata nel repository ma non è ancora deployata su Cloudflare. La 4.9.3 resta la versione precedentemente pubblicata.
