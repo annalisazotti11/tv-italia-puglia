@@ -6,7 +6,7 @@ Catalogo TV italiano con monitoraggio notturno delle playlist M3U/HLS/DASH.
 
 - **217 canali monitorati** nell'ultima scansione: playlist originale, 39 emittenti aggiuntive, Sky/Sky Cinema/Sky Sport, news internazionali e TV locali pugliesi. Il numero può variare con gli aggiornamenti. La presenza nel database non garantisce una diretta funzionante.
 - **18 raccolte pubbliche o curate** controllate automaticamente, comprese quattro nuove playlist italiane. Sono presenti **42 sorgenti aggiuntive curate**. Il numero di canali riproducibili può variare a ogni scansione: consulta [il rapporto](data/stream-report.md).
-- Le locandine in Nuvio compaiono **solo se esiste una sorgente verificata** o se una verifica aggiuntiva effettuata dal Worker conferma manifest e segmento video.
+- Per i canali gestiti dalla scansione, le locandine compaiono solo con una sorgente verificata o con una verifica aggiuntiva del Worker. **Canale 5 ha un override manuale dedicato**, descritto sotto.
 - I canali non confermati restano nella scansione notturna, ma **non vengono eliminati definitivamente**.
 - Le dirette a pagamento non vengono aggirate né decriptate.
 
@@ -23,7 +23,7 @@ Catalogo TV italiano con monitoraggio notturno delle playlist M3U/HLS/DASH.
 - **Rai 3 TGR Puglia** è prioritario: ID stabile `tvip_103_rai-3-tgr-puglia`, numero visualizzato come **3 Puglia**, prima posizione nella lista, loghi dedicati e nuova verifica HbbTV. Se la scansione rileva soltanto un errore HLS ambiguo può mantenere per massimo 36 ore l'ultima sorgente davvero verificata, indicandola come non più fresca; la riproduzione viene ricontrollata all'apertura.
 - Le schede Nuvio riportano **programma in onda, orari e programma successivo** soltanto se esiste un palinsesto XMLTV affidabile; altrimenti indicano che la programmazione non è disponibile.
 - La pagina `/guida` permette ricerca, filtri per categoria, stato LIVE e avanzamento del programma. I programmi possono cambiare senza preavviso.
-- Gli stream non verificati rimangono nascosti e i canali Sky premium non vengono aggirati.
+- Gli stream non verificati degli altri canali rimangono nascosti; l'override manuale riguarda esclusivamente Canale 5. I canali Sky premium non vengono aggirati.
 - La guida e la disponibilità dipendono dalle sorgenti esterne. Nuvio può conservare i metadati nella sua cache; aggiornare la Home o riaprire la scheda per vedere le ultime informazioni.
 
 La localizzazione del visitatore **non garantisce** che il server Cloudflare effettui richieste con un IP italiano. Per questo un 403 rimane un esito incerto e non viene trasformato in `verified`.
@@ -40,24 +40,29 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 - [Template responsive della guida TV](data/guide-ui.html)
 - [Worker 4.1.0](cloudflare/worker-tv-v4.1.0.js)
 
-## Canale 5 M3U8 diretto — 4.9.5 (sorgente da distribuire)
+## Canale 5 M3U8 diretto — 4.9.6
 
-La versione [4.9.5](cloudflare/worker-tv-v4.9.5.js) inserisce direttamente nel codice dell'addon la M3U8 Redge di Canale 5 HD 1080p, verificata dall'utente in VLC sulla connessione italiana il 26 novembre 2026. Nuvio riceve il campo `url` HLS diretto; non è un `externalUrl` e non passa da un browser. Restano disponibili come alternative i collegamenti ufficiali Mediaset Infinity e GO TV Malta. La sorgente Redge proviene da indici community e non è presentata come ufficiale; l'autorizzazione alla redistribuzione non è stata accertata e la disponibilità può cambiare. Non vengono aggirati DRM o geo-restrizioni e il Worker non fa da proxy del contenuto. La quarantena automatica degli altri canali, il ranking e il limite di una sorgente diretta per canale restano invariati. La 4.9.5 è aggiornata nel repository ma non ancora distribuita su Cloudflare. Consulta la [revisione tecnica e dei diritti](data/canale5-redge-authorization-review-2026-11-26.md) e il [rapporto di revisione del 25 novembre](data/source-identity-audit.md). Il Worker storico `tv` resta alla 3.7.8.
+La versione [4.9.6](cloudflare/worker-tv-v4.9.6.js) restituisce a Nuvio un solo stream HLS diretto per Canale 5 HD 1080p:
+`https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/canale_5/live.livx/playlist.m3u8`
+
+L'override è manuale e limitato all'ID `tvip_5_canale-5-hd`: il percorso `/stream` restituisce direttamente la sorgente senza attendere il caricamento di `verified-streams.json` o della quarantena. Anche il catalogo può continuare a mostrare Canale 5 se lo snapshot generale non è disponibile. Nella risposta Nuvio non vengono aggiunti fallback `externalUrl` e non viene impostato `notWebReady`, così il player nativo può gestire direttamente HLS.
+
+La sorgente proviene da indici community e non è certificata come ufficiale; l'autorizzazione alla redistribuzione non è stata accertata. La modifica non aggira DRM o geo-restrizioni e il Worker non fa da proxy del contenuto. Per tutti gli altri canali restano invariati quarantena, controllo d'identità, verifica audio/video e ranking. Il Worker 4.9.6 è nel repository ma **non è ancora distribuito su Cloudflare**. Consulta la [revisione tecnica e dei diritti](data/canale5-redge-authorization-review-2026-11-26.md) e il [rapporto di revisione del 25 novembre](data/source-identity-audit.md). Il Worker storico `tv` resta alla 3.7.8.
 
 ## Pubblicazione in Cloudflare
 
 L'aggiornamento dello script GitHub **non pubblica automaticamente il Worker**.
 
 1. Accedi a Cloudflare → **Workers & Pages** → Worker `tv-italia-puglia` (usa il nome esatto mostrato nella dashboard).
-2. Apri **Edit code**, incolla tutto il contenuto di `cloudflare/worker-tv-v4.9.5.js` e premi **Deploy**.
-3. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `4.9.5`.
+2. Apri **Edit code**, incolla tutto il contenuto di `cloudflare/worker-tv-v4.9.6.js` e premi **Deploy**.
+3. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `4.9.6`.
 4. Apri `/guida` per la nuova guida visiva, `/api/guida.json` per i programmi in corso, `/debug/notte.json` per gli esiti della scansione oppure `/debug/italia.json` da una connessione italiana per la seconda verifica.
 
 Mantieni lo stesso Worker e lo stesso manifest già installato in Nuvio: l'ID addon non cambia.
 
 ### Limiti
 
-«Tutti i canali» significa tutti quelli **monitorati** nel database, non che tutte le emittenti abbiano una diretta riproducibile. I 403 possono dipendere dalla geolocalizzazione. I collegamenti senza prova positiva non fanno comparire nuove locandine. I canali premium richiedono sorgenti autorizzate e, se necessario, l'abbonamento del titolare.
+«Tutti i canali» significa tutti quelli **monitorati** nel database, non che tutte le emittenti abbiano una diretta riproducibile. I 403 possono dipendere dalla geolocalizzazione. I collegamenti senza prova positiva non fanno comparire nuove locandine, salvo l'override manuale specifico di Canale 5. I canali premium richiedono sorgenti autorizzate e, se necessario, l'abbonamento del titolare.
 
 ## Pilota analisi del contenuto (Canale 5)
 
