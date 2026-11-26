@@ -1,0 +1,84 @@
+name: TV Italia + Puglia - ricerca fonti ufficiali
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '13 5 * * 1'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/official-live-source-review.yml'
+permissions:
+  contents: read
+jobs:
+  official-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - name: Ricerca manifest dichiarati nelle pagine ufficiali
+        shell: bash
+        run: |
+          python - <<'PY'
+          import concurrent.futures, html, json, os, re
+          from urllib.parse import urlsplit
+          from urllib.request import Request, build_opener, HTTPRedirectHandler
+          from datetime import datetime, timezone
+          PAGES = {
+              'Antenna Sud': 'https://www.antennasud.com/streaming/',
+              'Antenna Sud Extra': 'https://www.antennasud.com/streaming-92/',
+              'Telenorba': 'https://play.telenorba.it/diretta/telenorba',
+              'TG Norba 24': 'https://play.telenorba.it/diretta/TgNorba24',
+              'Tele Dehon': 'https://www.teledehon.it/diretta.html',
+              'TeleFoggia': 'https://www.telefoggia.tv/streaming/',
+              'TRM h24': 'https://www.trmtv.it/',
+              'RTL 102.5': 'https://play.rtl.it/live/1/radiovisione/',
+              'R101 TV': 'https://www.r101.it/r101-tv/',
+              'Radiofreccia': 'https://play.rtl.it/live/17/radiofreccia-radiovisione/',
+          }
+          class NoRedirect(HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          def extract(body):
+              body = html.unescape(body).replace(r'\/', '/')
+              result = set()
+              for candidate in re.findall(r'https://[^\s<>"\x27]+', body):
+                  try:
+                      u = urlsplit(candidate)
+                      if (u.hostname and u.port in (None, 443) and not u.query and
+                          not u.fragment and not u.username and not u.password and
+                          u.path.lower().endswith(('.m3u8','.mpd','.m3u'))):
+                          result.add(candidate)
+                  except ValueError:
+                      pass
+              return sorted(result)
+          assert extract('https://example.org/live.m3u8 https://example.org/live.m3u8?token=x') == ['https://example.org/live.m3u8']
+          def inspect(pair):
+              name, page = pair
+              result = {'channel': name, 'official_page': page, 'publish_allowed': False}
+              try:
+                  with build_opener(NoRedirect()).open(Request(page, headers={
+                      'User-Agent':'TVItaliaOfficialReview/1.0', 'Accept':'text/html'}), timeout=10) as response:
+                      data = response.read(2_000_000).decode('utf-8', errors='replace')
+                      result['http'] = response.status
+                  urls = extract(data)
+                  result.update(status='page_read', candidates=urls[:30], candidate_count=len(urls))
+              except Exception as exc:
+                  result.update(status='page_unavailable', error_type=type(exc).__name__, candidates=[], candidate_count=0)
+              return result
+          with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+              rows = list(pool.map(inspect, PAGES.items()))
+          report = {'generated_at': datetime.now(timezone.utc).isoformat(), 'mode':'official_html_only',
+              'pages':rows, 'note':'Static publicly declared manifest references only. No media requests, scripts, authentication, redirects, token reuse or publication. References may be unrelated to the live channel; review required.'}
+          with open('official-live-source-review.json','w',encoding='utf-8') as f:
+              json.dump(report,f,indent=2,ensure_ascii=False)
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
+              f.write('## Pagine ufficiali: manifest pubblicamente dichiarati\n\n')
+              for row in rows:
+                  f.write(f"- {row['channel']}: {row['status']}, {row['candidate_count']} riferimenti da revisionare\n")
+              f.write('\nNessun flusso aperto o pubblicato.\n')
+          print(json.dumps({'pages_read':sum(r['status']=='page_read' for r in rows),'candidate_references':sum(r['candidate_count'] for r in rows)}))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: official-live-source-review
+          path: official-live-source-review.json
+          retention-days: 7
