@@ -56,7 +56,9 @@ L'aggiornamento dello script GitHub **non pubblica automaticamente il Worker**.
 1. Accedi a Cloudflare → **Workers & Pages** → Worker `tv-italia-puglia` (usa il nome esatto mostrato nella dashboard).
 2. Apri **Edit code**, incolla tutto il contenuto di `cloudflare/worker-tv-v4.9.6.js` e premi **Deploy**.
 3. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `4.9.6`.
-4. Apri `/guida` per la nuova guida visiva, `/api/guida.json` per i programmi in corso, `/debug/notte.json` per gli esiti della scansione oppure `/debug/italia.json` da una connessione italiana per la seconda verifica.
+4. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/stream/tv/tvip_5_canale-5-hd.json`: la risposta deve contenere `sourceCount: 1` e una sola voce `streams` con l'URL Redge.
+5. In Nuvio aggiorna il catalogo e ricarica l'addon già installato; l'ID e l'URL del manifest non cambiano.
+6. Per gli altri controlli usa `/guida`, `/api/guida.json`, `/debug/notte.json` e `/debug/italia.json`.
 
 Mantieni lo stesso Worker e lo stesso manifest già installato in Nuvio: l'ID addon non cambia.
 
