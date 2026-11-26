@@ -1,0 +1,56 @@
+name: Canale 5 - verifica manifest candidati
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/canale5-manifest-review.yml'
+permissions:
+  contents: read
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Verifica solo manifest (nessun segmento)
+        shell: bash
+        run: |
+          python - <<'PY'
+          import urllib.request, urllib.error, json, os
+          from datetime import datetime, timezone
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          opener = urllib.request.build_opener(NoRedirect)
+          candidates = {
+              'live02-col': 'https://live02-col.msf.cdn.mediaset.net/live/ch-c5/c5-clr.isml/index.m3u8',
+              'cdn-live2': 'https://live2.msf.cdn.mediaset.net/content/hls_h0_clr_vos/live/channel(c5)/index.m3u8',
+          }
+          results = []
+          for name, url in candidates.items():
+              result = {'candidate': name, 'publish_allowed': False}
+              try:
+                  with opener.open(urllib.request.Request(url, method='GET'), timeout=12) as response:
+                      result['http'] = response.status
+                      body = response.read(65536).decode('utf-8', errors='replace').lstrip('\ufeff\r\n ')
+                      result['status'] = 'hls_metadata_only' if body.startswith('#EXTM3U') else 'not_hls'
+                      result['encrypted_or_key_declared'] = '#EXT-X-KEY:' in body or '#EXT-X-SESSION-KEY:' in body
+              except urllib.error.HTTPError as e:
+                  result.update(http=e.code, status='redirect_refused' if 300 <= e.code < 400 else 'http_error')
+              except Exception as e:
+                  result.update(status='unavailable', error_type=type(e).__name__)
+              results.append(result)
+          report = {'generated_at': datetime.now(timezone.utc).isoformat(), 'mode': 'metadata_only', 'results': results, 'note': 'No segments fetched. No proof of authorization, identity, playback or safety. No publication.'}
+          with open('canale5-manifest-review.json', 'w') as f:
+              json.dump(report, f, indent=2)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as f:
+              f.write('### Canale 5 — verifica tecnica non abilitante\n\n')
+              for r in results:
+                  f.write(f"- {r['candidate']}: {r.get('http', 'n/a')} — {r['status']}\n")
+          print(json.dumps(report, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: canale5-manifest-review
+          path: canale5-manifest-review.json
+          retention-days: 3
