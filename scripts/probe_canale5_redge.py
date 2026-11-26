@@ -51,8 +51,12 @@ def get(url, limit=200_000, byte_range=None):
         if not safe_url(final):
             raise ValueError("redirect_outside_redge_or_signed_url")
         data = response.read(limit + 1)
-        if len(data) > limit:
+        # A media server may ignore Range and return HTTP 200. Read only the
+        # first 4 KiB needed for the probe; never download the full segment.
+        if len(data) > limit and not byte_range:
             raise ValueError("response_too_large")
+        if byte_range:
+            data = data[:limit]
         return response.status, response.headers.get("Content-Type", ""), final, data
 
 def parse_hls(text, base):
