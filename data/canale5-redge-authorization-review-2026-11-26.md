@@ -15,12 +15,13 @@
 ## Cosa NON è dimostrato
 Il fatto che GO distribuisca Canale 5 HD e che l'URL candidato utilizzi il dominio Redge non dimostra che quello specifico endpoint sia fornito da GO, né che sia autorizzato a essere pubblicato in un addon di terzi. La presenza in iptv-org, 91 Live o altre playlist comunitarie è un indizio di reperibilità, non una licenza.
 
-## Decisione per TV Italia + Puglia
-- Non pubblicare l'URL Redge in M3U, snapshot verificato, allowlist o Worker pubblico senza conferma scritta del titolare dei diritti.
-- Mantenere il fallback Mediaset Infinity ufficiale.
-- Preparare Worker 4.9.4 con un secondo collegamento `externalUrl` al player ufficiale GO TV (`https://gotv.go.com.mt/`), esplicitamente indicato come servizio con credenziali e abbonamento GO. È un collegamento al player ufficiale, non un relay dello stream.
-- La GO TV app ufficiale è compatibile con Fire TV; la compatibilità è separata da Nuvio e non inserisce il canale nel catalogo Nuvio come flusso diretto.
-- La 4.9.4 è solo nel repository fino a deployment esplicito su Cloudflare.
+## Decisione per TV Italia + Puglia — aggiornata con Worker 4.9.6
+- Non inserire l'URL Redge nella M3U originale, in `verified-streams.json` o nell'allowlist automatica e non etichettarlo come ufficiale/autorizzato.
+- Per richiesta dell'utente, il Worker 4.9.6 applica un override manuale limitato a Canale 5 e restituisce la M3U8 direttamente a Nuvio. L'override non costituisce una verifica dei diritti di redistribuzione.
+- Non vengono aggiunti fallback `externalUrl` nella risposta stream di Nuvio. Il link informativo Mediaset Infinity resta nella pagina guida, fuori dalla lista di riproduzione.
+- Allowlist, quarantena, verifica d'identità, test audio/video e ranking restano attivi per tutti gli altri canali.
+- Nessun proxy, redirect automatico, aggiramento DRM o geo-restrizioni.
+- Il file 4.9.6 è nel repository; la distribuzione effettiva richiede un deploy manuale su Cloudflare.
 
 ## Prossimo controllo pratico
 Se l'utente possiede già un account GO TV valido registrato a Malta, provare l'app ufficiale su Fire TV durante il soggiorno in Italia. In assenza di un account idoneo, usare il fallback ufficiale Mediaset Infinity; non utilizzare account condivisi o endpoint terzi non autorizzati.
