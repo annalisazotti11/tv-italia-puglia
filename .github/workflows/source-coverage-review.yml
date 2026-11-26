@@ -1,0 +1,52 @@
+name: TV Italia + Puglia - copertura nuove playlist
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '47 4 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/source_coverage_review.py'
+      - 'data/playlist-sources.json'
+      - '.github/workflows/source-coverage-review.yml'
+permissions:
+  contents: read
+concurrency:
+  group: tv-source-coverage-review
+  cancel-in-progress: true
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test offline
+        run: python scripts/source_coverage_review.py --self-test
+      - name: Analisi delle playlist senza aprire i flussi
+        run: python scripts/source_coverage_review.py
+      - name: Risultati
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          d = json.loads(Path('artifacts/source-coverage-review.json').read_text())
+          lines = ['## Copertura delle nuove playlist', '', *[f'- {k}: {v}' for k,v in d['summary'].items()], '',
+                   '| Canale | A/V confermati | Nuovi URL da valutare | Nuovi host |', '|---|---:|---:|---:|']
+          for r in d['channels']:
+              if r['audio_video_ready'] < 3 and r['new_distinct_candidates'] > 0:
+                  name = r['name'].replace('|','/').replace('\n',' ')
+                  lines.append(f"| {name} | {r['audio_video_ready']} | {r['new_distinct_candidates']} | {r['new_hosts']} |")
+          lines.extend(['', 'Nessun nuovo flusso viene pubblicato. Un URL nuovo non è una prova di riproduzione o autorizzazione.'])
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as f:
+              f.write('\n'.join(lines)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-coverage-review
+          path: artifacts/source-coverage-review.json
+          retention-days: 7
