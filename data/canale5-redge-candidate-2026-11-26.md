@@ -30,3 +30,24 @@ Questa è una conferma più forte rispetto alle vecchie copie della sorgente Med
 
 ## Stato
 Candidato HLS concreto, separato dagli endpoint Mediaset già falliti. Non ancora testato dalla rete italiana né attivato in Nuvio. La prossima verifica deve distinguere risposta HTTP, manifest HLS, segmenti audio/video, geografia e autorizzazione; un semplice HTTP 200 non basta.
+
+## Esito del test tecnico automatico (26 novembre 2026, 16:46 UTC)
+
+GitHub Actions run #45861841423:
+https://github.com/annalisazotti11/tv-italia-puglia/actions/runs/45861841423
+
+- Manifest principale: HTTP 200, `application/x-mpegURL`.
+- Tipo: master HLS.
+- Risoluzione dichiarata dalla variante migliore: 1080p.
+- Playlist variante: HTTP 200.
+- Segmento media: HTTP 200, campione di 4.096 byte, MIME `video/MP2T`.
+- Host manifest, variante e segmento: `n-5-1.eu.cdn-redge.media`.
+- Il flusso ha quindi superato il controllo tecnico di raggiungibilità dal runner GitHub.
+
+Limiti non superati:
+- Il runner non si trova sulla rete domestica italiana dell'utente: la riproduzione in Italia resta da verificare.
+- Il controllo non verifica diritti di ritrasmissione o autorizzazione all'inserimento in una playlist di terzi.
+- Nessun contenuto è stato salvato; il parametro firmato presente nella variante HLS è usato solo in memoria e non viene registrato.
+- Nessuna modifica alla playlist pubblica, al Worker o alla configurazione di produzione Nuvio.
+
+**Stato aggiornato:** HLS 1080p tecnicamente raggiungibile e con segmento video leggibile da GitHub Actions; test di riproduzione dalla rete italiana e autorizzazione ancora pendenti.
