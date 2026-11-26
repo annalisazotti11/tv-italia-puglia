@@ -24,3 +24,10 @@ Il fatto che GO distribuisca Canale 5 HD e che l'URL candidato utilizzi il domin
 
 ## Prossimo controllo pratico
 Se l'utente possiede già un account GO TV valido registrato a Malta, provare l'app ufficiale su Fire TV durante il soggiorno in Italia. In assenza di un account idoneo, usare il fallback ufficiale Mediaset Infinity; non utilizzare account condivisi o endpoint terzi non autorizzati.
+
+## Modifica codice addon 4.9.5
+
+Su richiesta dell'utente, la M3U8 Redge è stata inserita direttamente nel codice del Worker 4.9.5 come stream HLS:
+`https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/canale_5/live.livx/playlist.m3u8`
+
+Nuvio riceve il campo `url` diretto, non `externalUrl`. La riproduzione VLC sulla connessione italiana è stata confermata dall'utente il 26/11/2026. I fallback Mediaset Infinity e GO TV Malta restano come scelte esterne ufficiali. La sorgente community non viene descritta come ufficiale e l'autorizzazione alla redistribuzione resta non accertata. Il Worker 4.9.5 è nel repository, ma non è stato distribuito su Cloudflare.

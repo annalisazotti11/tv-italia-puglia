@@ -40,17 +40,17 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 - [Template responsive della guida TV](data/guide-ui.html)
 - [Worker 4.1.0](cloudflare/worker-tv-v4.1.0.js)
 
-## Quarantena sicurezza — 4.9.4 (sorgente da distribuire)
+## Canale 5 M3U8 diretto — 4.9.5 (sorgente da distribuire)
 
-La versione [4.9.4](cloudflare/worker-tv-v4.9.4.js) preserva il ranking e la singola sorgente della 4.9.1, applica la quarantena nel Worker ed esclude URL duplicati tra canali. Per Canale 5 richiede una sorgente con audio/video confermati e nessun reindirizzamento. Se non esiste un flusso diretto verificato, mostra due soli collegamenti esterni ufficiali: Mediaset Infinity e GO TV Malta (Canale 5 HD, canale 125), quest'ultimo con credenziali e abbonamento GO idoneo. Il collegamento GO TV apre il player ufficiale e non espone né ritrasmette l'endpoint Redge. L'URL Redge resta escluso dalla playlist pubblica, dalla allowlist e dal Worker: la presenza in playlist comunitarie e la riproduzione VLC non dimostrano i diritti di redistribuzione. Consulta la [revisione tecnica e dei diritti](data/canale5-redge-authorization-review-2026-11-26.md) e il [rapporto di revisione del 25 novembre](data/source-identity-audit.md). La versione 4.9.3 è stata pubblicata e verificata il 25 novembre 2026; la 4.9.4 è preparata nel repository ma non ancora distribuita sul Worker. Il Worker storico `tv` resta alla 3.7.8 con [patch quarantena](cloudflare/worker-tv-v3.7.7-quarantine.patch) e [fallback ufficiale](cloudflare/worker-tv-v3.7.8-official-fallback.patch), senza modificare configurazione KV o Cron.
+La versione [4.9.5](cloudflare/worker-tv-v4.9.5.js) inserisce direttamente nel codice dell'addon la M3U8 Redge di Canale 5 HD 1080p, verificata dall'utente in VLC sulla connessione italiana il 26 novembre 2026. Nuvio riceve il campo `url` HLS diretto; non è un `externalUrl` e non passa da un browser. Restano disponibili come alternative i collegamenti ufficiali Mediaset Infinity e GO TV Malta. La sorgente Redge proviene da indici community e non è presentata come ufficiale; l'autorizzazione alla redistribuzione non è stata accertata e la disponibilità può cambiare. Non vengono aggirati DRM o geo-restrizioni e il Worker non fa da proxy del contenuto. La quarantena automatica degli altri canali, il ranking e il limite di una sorgente diretta per canale restano invariati. La 4.9.5 è aggiornata nel repository ma non ancora distribuita su Cloudflare. Consulta la [revisione tecnica e dei diritti](data/canale5-redge-authorization-review-2026-11-26.md) e il [rapporto di revisione del 25 novembre](data/source-identity-audit.md). Il Worker storico `tv` resta alla 3.7.8.
 
 ## Pubblicazione in Cloudflare
 
 L'aggiornamento dello script GitHub **non pubblica automaticamente il Worker**.
 
 1. Accedi a Cloudflare → **Workers & Pages** → Worker `tv-italia-puglia` (usa il nome esatto mostrato nella dashboard).
-2. Apri **Edit code**, incolla tutto il contenuto di `cloudflare/worker-tv-v4.9.4.js` e premi **Deploy**.
-3. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `4.9.4`.
+2. Apri **Edit code**, incolla tutto il contenuto di `cloudflare/worker-tv-v4.9.5.js` e premi **Deploy**.
+3. Apri `https://tv-italia-puglia.annalisazotti11.workers.dev/manifest.json` e verifica che la versione sia `4.9.5`.
 4. Apri `/guida` per la nuova guida visiva, `/api/guida.json` per i programmi in corso, `/debug/notte.json` per gli esiti della scansione oppure `/debug/italia.json` da una connessione italiana per la seconda verifica.
 
 Mantieni lo stesso Worker e lo stesso manifest già installato in Nuvio: l'ID addon non cambia.

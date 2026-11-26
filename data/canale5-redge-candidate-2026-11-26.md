@@ -91,3 +91,15 @@ Fonti ufficiali:
 - La versione sorgente Worker 4.9.4 aggiunge, come alternativa esterna e non come stream, il player ufficiale GO TV (`https://gotv.go.com.mt/`) accanto a Mediaset Infinity. Il link GO TV richiede un abbonamento e credenziali GO idonei.
 - L'app GO TV ufficiale è compatibile con Fire TV; ciò non significa che l'app sia integrata dentro Nuvio.
 - La 4.9.4 è stata aggiornata nel repository ma non è ancora deployata su Cloudflare. La 4.9.3 resta la versione precedentemente pubblicata.
+
+## Integrazione diretta nel codice addon (4.9.5)
+
+Su richiesta dell'utente, la M3U8 è stata inserita come sorgente diretta hardcoded nel Worker 4.9.5:
+`https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/canale_5/live.livx/playlist.m3u8`
+
+- Nuvio riceve il campo `url` HLS diretto; non è un collegamento browser `externalUrl`.
+- La riproduzione VLC sulla connessione italiana è stata confermata dall'utente il 26/11/2026.
+- Restano disponibili i fallback esterni ufficiali Mediaset Infinity e GO TV Malta.
+- La sorgente è community/non ufficiale; la licenza di redistribuzione non è stata accertata.
+- La sorgente non è aggiunta alla allowlist di identità e non viene marcata come ufficialmente autorizzata.
+- Worker 4.9.5 nel repository; deployment Cloudflare non eseguito.
