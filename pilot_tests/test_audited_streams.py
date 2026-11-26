@@ -27,5 +27,25 @@ class AuditTests(unittest.TestCase):
                      'content_status':'explicit_suspected','playback_ready':True})
         self.assertEqual(snap['channels']['a']['verified'],[])
         self.assertEqual(snap['summary']['excluded']['explicit_suspected'],1)
+    def test_retry_transient_but_not_forbidden_or_explicit(self):
+        for reason, status, expected in (
+                ('ffprobe_timeout','uncertain',2),
+                ('http_403','uncertain',1),
+                ('decode_timeout','explicit_suspected',1)):
+            calls = []
+            def inspect(target):
+                calls.append(target)
+                return {'reason':reason,'content_status':status}
+            row = a.inspect_retry(('a','https://example.org/a.m3u8'),inspect,lambda _:None)
+            self.assertEqual(len(calls),expected)
+            self.assertEqual(row['attempts'],expected)
+    def test_failure_diagnostics_do_not_expose_url(self):
+        url='https://example.org/a.m3u8'
+        r={'schema':1,'channels':{'a':[url]}}
+        p={'schema':1,'blocked_hosts':[],'blocked_by_channel':{},'approved_only':{}}
+        snap=a.build(r,p,inspect_fn=lambda t:{'channel':t[0],'url':t[1],
+                     'content_status':'uncertain','reason':'http_403'})
+        self.assertEqual(snap['channels']['a']['audit'],{'tested':1,'failed':{'http_403':1}})
+        self.assertNotIn(url,str(snap))
 if __name__ == '__main__':
     unittest.main()
