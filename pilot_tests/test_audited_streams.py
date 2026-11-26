@@ -47,5 +47,15 @@ class AuditTests(unittest.TestCase):
                      'content_status':'uncertain','reason':'http_403'})
         self.assertEqual(snap['channels']['a']['audit'],{'tested':1,'failed':{'http_403':1}})
         self.assertNotIn(url,str(snap))
+    def test_third_party_requires_positive_identity(self):
+        row = {'playback_ready':True,'has_video':True,'has_audio':True,
+               'content_status':'no_high_confidence_flag','sampled_frames':5,
+               'playback_height':720,'identity_required':True,
+               'identity_status':'unconfirmed'}
+        self.assertFalse(a.eligible(row))
+        self.assertEqual(a.failure_reason(row),'channel_identity_unconfirmed')
+        self.assertTrue(a.eligible(row | {'identity_status':'reference_scenes_match'}))
+        self.assertFalse(a.eligible(row | {'identity_status':'reference_scenes_match',
+                                           'content_status':'explicit_suspected'}))
 if __name__ == '__main__':
     unittest.main()
