@@ -169,7 +169,8 @@
       "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(r4)/index.m3u8",
       "https://live3-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(r4)/index.m3u8",
       "https://live02-col.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/index.m3u8",
-      "https://live2.msf.cdn.mediaset.net/content/hls_h0_clr_vos/live/channel(r4)/index.m3u8"
+      "https://live2.msf.cdn.mediaset.net/content/hls_h0_clr_vos/live/channel(r4)/index.m3u8",
+      "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/rete_4/live.livx/playlist.m3u8"
     ],
     "tvip_51_tgcom24": [
       "https://live2-mediaset-it.akamaized.net/Content/hls_h0_clr_vos/live/channel(kf)/index.m3u8",
@@ -336,5 +337,17 @@
     "tvip_sat_uninettuno_university_tv": [
       "https://stream6-rai-it.akamaized.net/live/uninettuno/playlist.m3u8"
     ]
+  },
+  "identity_required": {
+    "tvip_4_rete-4-hd": {
+      "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/rete_4/live.livx/playlist.m3u8": {
+        "provenance": "Public IPTV directory; distribution rights not established",
+        "references": [
+          "https://live02-seg.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/index.m3u8",
+          "https://live03-col.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/manifest.mpd",
+          "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(r4)/index.m3u8"
+        ]
+      }
+    }
   }
 }
