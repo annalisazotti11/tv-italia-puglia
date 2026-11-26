@@ -7,6 +7,7 @@ token, proxy, DRM handling or geo-restriction bypass. This is not an authorizati
 check and GitHub's egress location is not Italy.
 """
 import json
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -105,6 +106,9 @@ def main():
         report.update(manifest_http=status, manifest_content_type=ctype, final_host=urlsplit(final).hostname,
                       manifest_type=kind, declared_height=height or None)
         if kind == "master":
+            variant_parts = urlsplit(next_url)
+            report.update(variant_host=variant_parts.hostname, variant_scheme=variant_parts.scheme,
+                          variant_has_query=bool(variant_parts.query), variant_port=variant_parts.port)
             status2, ctype2, final2, data2 = get(next_url)
             text2 = data2.decode("utf-8-sig", errors="replace").lstrip()
             if status2 != 200 or not text2.startswith("#EXTM3U"):
@@ -130,6 +134,24 @@ def main():
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False))
+    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary_path:
+        lines = [
+            "## Canale 5 Redge — verifica tecnica",
+            "",
+            f"- Esito: **{report.get('status')}**",
+            f"- Manifest HTTP: {report.get('manifest_http', 'n/d')}",
+            f"- Risoluzione dichiarata: {report.get('declared_height', 'n/d')}",
+            f"- Host manifest: {report.get('final_host', 'n/d')}",
+            f"- Host variante: {report.get('variant_host', 'n/d')}",
+            f"- Segmento campionato: {report.get('segment_bytes_sampled', 0)} byte",
+            f"- Errore tecnico: {report.get('error', 'nessuno')}",
+            "",
+            "Runner GitHub (non rete residenziale italiana). Nessun media salvato.",
+            "Autorizzazione e pubblicazione non verificate.",
+        ]
+        with Path(summary_path).open("a", encoding="utf-8") as summary:
+            summary.write("\\n".join(lines) + "\\n")
     return 0
 
 if __name__ == "__main__":
