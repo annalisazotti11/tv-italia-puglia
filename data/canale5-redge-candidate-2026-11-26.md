@@ -51,3 +51,17 @@ Limiti non superati:
 - Nessuna modifica alla playlist pubblica, al Worker o alla configurazione di produzione Nuvio.
 
 **Stato aggiornato:** HLS 1080p tecnicamente raggiungibile e con segmento video leggibile da GitHub Actions; test di riproduzione dalla rete italiana e autorizzazione ancora pendenti.
+
+## Conferma VLC dalla connessione italiana (26 novembre 2026)
+
+L'utente ha confermato che il flusso si riproduce in VLC dalla propria connessione italiana. La raggiungibilità e la riproduzione su PC sono quindi confermate per questo test, oltre alla verifica tecnica automatica del manifest HLS e di un segmento video.
+
+La pagina ufficiale di GO Malta elenca Canale 5 HD al canale 125 nella propria offerta TV: https://www.go.com.mt/tv-channel-list/ . Redge si descrive come piattaforma OTT/CDN per operatori e titolari dei contenuti: https://r.dcs.redcdn.pl/file/o2/redge/brochure/Redge%20Media%20SECURITY.pdf . Questi elementi indicano un contesto distributivo professionale, ma non provano che questo specifico URL sia autorizzato alla ridistribuzione in una playlist indipendente o in un addon pubblico.
+
+## Stato aggiornato
+
+- HLS 1080p e segmento MPEG-TS: test tecnico automatico superato.
+- Riproduzione VLC sulla connessione italiana dell'utente: confermata dall'utente.
+- Fire TV/Nuvio: non ancora verificati.
+- Autorizzazione alla redistribuzione nell'addon pubblico: non dimostrata.
+- Il candidato resta fuori dalla playlist di produzione e dal Worker pubblico finché non è chiarito il diritto di utilizzo/ridistribuzione.
