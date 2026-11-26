@@ -17,6 +17,7 @@ NEW_NAMES = {
     'CodingMayhem Italia', 'CodingMayhem Italia 2',
     'SuperFranky84 Italia TV', 'Wpisa24 Italia Plus',
     '91 Live Overseas index',
+    'IPTV-CH Redge Media index',
 }
 
 def identity(url):
