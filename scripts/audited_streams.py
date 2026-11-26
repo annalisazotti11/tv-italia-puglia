@@ -12,6 +12,7 @@ from pathlib import Path
 import hashlib
 import json
 import threading
+import time
 from urllib.parse import urlsplit
 
 import content_identity as ci
@@ -73,6 +74,31 @@ def inspect(target):
         row['reason'] = why
     return row
 
+# A transient failure gets one additional ordinary request. Never retry
+# forbidden, protected, mismatched or explicit-content results.
+TRANSIENT = {'http_503', 'http_502', 'http_504', 'manifest_unavailable',
+             'ffprobe_timeout', 'decode_timeout', 'decode_failed'}
+
+def inspect_retry(target, inspect_fn=inspect, pause=time.sleep):
+    row = inspect_fn(target)
+    row['attempts'] = 1
+    if (not eligible(row) and row.get('reason') in TRANSIENT and
+            row.get('content_status') in ('uncertain', 'not_sampled')):
+        pause(1)
+        row = inspect_fn(target)
+        row['attempts'] = 2
+    return row
+
+def failure_reason(row):
+    status = row.get('content_status', 'uncertain')
+    if status == 'explicit_suspected':
+        return status
+    if status not in ('uncertain', 'no_high_confidence_flag', 'not_sampled'):
+        return status
+    if status == 'no_high_confidence_flag' and row.get('sampled_frames', 0) < 3:
+        return 'insufficient_frames'
+    return row.get('reason') or status
+
 def eligible(row):
     return (row.get('playback_ready') is True and row.get('has_video') is True
             and row.get('has_audio') is True
@@ -90,21 +116,24 @@ def rank(row):
             + 20 * (row.get('video_codec') == 'h264')
             + 20 * (row.get('audio_codec') == 'aac'))
 
-def build(review, policy, previous=None, inspect_fn=inspect):
+def build(review, policy, previous=None, inspect_fn=inspect_retry):
     previous = previous or {}
     prior = { (cid, s['url']): s.get('success_runs', 0)
               for cid, c in previous.get('channels', {}).items()
               for s in c.get('verified', []) }
     jobs = targets(review, policy)
-    channels = {cid: {'verified': []} for cid in review['channels']}
+    channels = {cid: {'verified': [], 'audit': {'tested': 0, 'failed': {}}} for cid in review['channels']}
     reasons = Counter()
     with ThreadPoolExecutor(max_workers=WORKERS) as ex:
         for row in ex.map(inspect_fn, jobs):
-            if not eligible(row):
-                reasons[row.get('content_status') if row.get('content_status') != 'uncertain'
-                        else row.get('reason', 'unknown')] += 1
-                continue
             cid = row['channel']
+            audit = channels[cid]['audit']
+            audit['tested'] += 1
+            if not eligible(row):
+                reason = failure_reason(row)
+                reasons[reason] += 1
+                audit['failed'][reason] = audit['failed'].get(reason, 0) + 1
+                continue
             row['success_runs'] = min(prior.get((cid, row['url']), 0) + 1, 30)
             row['rank_score'] = rank(row)
             row['source'] = 'Percorso emittente/CDN già revisionato'
@@ -139,6 +168,20 @@ def main():
                 for field in ('name', 'number', 'group', 'logo'):
                     if isinstance(entry.get(field), str):
                         result['channels'][cid][field] = entry[field]
+    # Include every monitored channel in the coverage report, without copying
+    # any unreviewed playback address from the legacy index.
+    if legacy.exists():
+        for cid, entry in read(legacy).get('channels', {}).items():
+            if cid not in result['channels']:
+                result['channels'][cid] = {
+                    **{k: entry[k] for k in ('name','number','group','logo')
+                       if isinstance(entry.get(k), str)},
+                    'verified': [], 'verified_count': 0,
+                    'audit': {'tested': 0, 'failed': {}, 'status': 'awaiting_source_review'}}
+    result['summary']['monitored_channels'] = len(result['channels'])
+    result['summary']['awaiting_source_review'] = sum(
+        c.get('audit', {}).get('status') == 'awaiting_source_review'
+        for c in result['channels'].values())
     tmp = OUTPUT.with_suffix('.tmp')
     tmp.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     tmp.replace(OUTPUT)
