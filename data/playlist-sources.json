@@ -310,7 +310,7 @@
     {
       "name": "Swiss Netplus Zappr",
       "url": "https://raw.githubusercontent.com/iptv-ch/iptv-ch.github.io/master/netplus-zappr.m3u8",
-      "scope": "fta"
+      "scope": "index_only"
     },
     {
       "name": "OpenIPTVItaly completa",
