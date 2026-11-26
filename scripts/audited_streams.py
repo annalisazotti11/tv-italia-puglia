@@ -9,7 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
-import hashlib
+from functools import lru_cache
 import json
 import threading
 import time
@@ -54,6 +54,18 @@ def detector():
         LOCAL.model = ci.load_detector()
     return LOCAL.model
 
+@lru_cache(maxsize=1)
+def watermark_references():
+    cfg = read(ci.CONFIG)
+    refs = {}
+    for cid, name in cfg.get('watermark_templates', {}).items():
+        if not isinstance(name, str):
+            continue
+        path = (ROOT / name).resolve()
+        if path.is_relative_to(ROOT.resolve()) and path.is_file():
+            refs[cid] = path
+    return refs
+
 def inspect(target):
     cid, url = target
     now = datetime.now(timezone.utc).isoformat()
@@ -70,6 +82,10 @@ def inspect(target):
     row['sampled_frames'] = len(frames)
     safety = ci.safety_check(frames, detector())
     row['content_status'] = safety
+    # An authentic on-air watermark is supporting evidence, not proof of
+    # licensing or identity. Do not substitute a catalog logo or save frames.
+    if safety == 'no_high_confidence_flag' and len(frames) >= 3:
+        row['watermark'] = ci.logo_check(frames, watermark_references().get(cid))
     if len(frames) < 3:
         row['reason'] = why
     return row
