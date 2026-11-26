@@ -584,7 +584,16 @@ def scan_playlists(channels, by_name):
     with concurrent.futures.ThreadPoolExecutor(max_workers=7) as ex:
         for result in ex.map(fetch_playlist_source, sources):
             candidates = result.pop('candidates', [])
-            if result['read']:
+            if result['read'] and result.get('scope') == 'index_only':
+                # Community indexes are discovery only. Never probe their unknown
+                # endpoints or change the playback catalog because of an index hit.
+                matched = set()
+                for item in candidates:
+                    for cid in by_name.get(normalize(item['name']), []):
+                        if cid in channels:
+                            matched.add(cid)
+                result['matched_channel_count'] = len(matched)
+            elif result['read']:
                 for item in candidates:
                     assign_candidate(channels, by_name, item['name'], item['attrs'],
                                      item['url'], result['name'])
