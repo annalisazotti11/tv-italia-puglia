@@ -1,0 +1,55 @@
+name: Canale 5 Redge candidate - read-only probe
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/probe_canale5_redge.py'
+      - '.github/workflows/canale5-redge-probe.yml'
+  schedule:
+    - cron: '17 6 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: canale5-redge-readonly-probe
+  cancel-in-progress: true
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax check
+        run: python -m py_compile scripts/probe_canale5_redge.py
+      - name: Check manifest and a tiny media sample only
+        run: python scripts/probe_canale5_redge.py
+      - name: Publish diagnostic summary
+        if: always()
+        run: |
+          if [ -f artifacts/canale5-redge-probe.json ]; then
+            python - <<'PY'
+            import json, os
+            from pathlib import Path
+            r=json.loads(Path('artifacts/canale5-redge-probe.json').read_text())
+            lines=['## Canale 5 Redge — verifica tecnica', '', f"- Esito: **{r.get('status')}**",
+                   f"- Manifest HTTP: {r.get('manifest_http', 'n/d')}",
+                   f"- Campione segmento: {r.get('segment_bytes_sampled', 0)} byte",
+                   f"- Host: {r.get('final_host', 'n/d')}",
+                   '', 'Il test usa un runner GitHub, non una connessione residenziale italiana.',
+                   'Nessun media salvato; autorizzazione e pubblicazione non verificate.']
+            with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
+                f.write('\n'.join(lines)+'\n')
+            PY
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: canale5-redge-readonly-probe
+          path: artifacts/canale5-redge-probe.json
+          if-no-files-found: ignore
+          retention-days: 7
