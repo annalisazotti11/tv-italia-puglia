@@ -1,0 +1,41 @@
+name: Worker 4.9.5 syntax check
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cloudflare/worker-tv-v4.9.5.js'
+      - '.github/workflows/worker-syntax-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: node --check cloudflare/worker-tv-v4.9.5.js
+      - name: Check direct Canale 5 stream is in the Nuvio response
+        run: |
+          node --input-type=module - <<'JS'
+          import fs from 'node:fs';
+          const s = fs.readFileSync('cloudflare/worker-tv-v4.9.5.js', 'utf8');
+          const required = [
+            "const VERSION = '4.9.5';",
+            "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/canale_5/live.livx/playlist.m3u8",
+            "url: C5_DIRECT_SOURCE.url",
+            "name: 'Canale 5 HD · Redge 1080p'"
+          ];
+          for (const item of required) {
+            if (!s.includes(item)) throw new Error('Missing required code: ' + item);
+          }
+          if (s.includes('fetch(C5_DIRECT_SOURCE.url')) {
+            throw new Error('The Worker must return the upstream URL directly, not proxy media.');
+          }
+          console.log('Worker 4.9.5 syntax and direct M3U wiring OK.');
+          JS
