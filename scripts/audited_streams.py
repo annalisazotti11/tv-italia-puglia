@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Nightly playback gate for existing reviewed broadcaster routes.
+"""Nightly playback and content gate for explicitly registered public routes.
 
-Never opens a newly discovered community URL. Existing reviewed routes are a
-technical identity baseline, not a blanket license. No media is persisted.
+Third-party candidates are labelled separately and require positive identity
+corroboration. Technical tests do not establish distribution rights. No media
+is persisted. No DRM or access-control workarounds.
 """
 from __future__ import annotations
 from concurrent.futures import ThreadPoolExecutor
@@ -66,11 +67,39 @@ def watermark_references():
             refs[cid] = path
     return refs
 
+@lru_cache(maxsize=1)
+def identity_rules():
+    return read(REVIEW).get('identity_required', {})
+
+def corroborate_identity(cid, url, frames, logo, capture=ci.capture_frames):
+    rule = identity_rules().get(cid, {}).get(url)
+    if rule is None:
+        return 'not_required'
+    if logo.get('status') == 'logo_observed':
+        return 'watermark_observed'
+    # Only reference routes already in the channel's technical registry.
+    review, policy = read(REVIEW), read(POLICY)
+    valid = set(targets(review, policy))
+    refs = [ref for ref in rule.get('references', [])
+            if (cid, ref) in valid and ref != url
+            and urlsplit(ref).hostname != urlsplit(url).hostname
+            and ref not in identity_rules().get(cid, {})][:3]
+    if not refs:
+        return 'unconfirmed'
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        for ref_frames, _ in pool.map(capture, refs):
+            if len(ref_frames) >= 3 and ci.compare_sequences(frames, ref_frames)['corroborated']:
+                return 'reference_scenes_match'
+    return 'unconfirmed'
+
 def inspect(target):
     cid, url = target
     now = datetime.now(timezone.utc).isoformat()
+    rule = identity_rules().get(cid, {}).get(url)
     row = {'channel': cid, 'url': url, 'checked_at': now,
-           'content_status': 'uncertain', 'sampled_frames': 0}
+           'content_status': 'uncertain', 'sampled_frames': 0,
+           'identity_required': rule is not None,
+           'identity_status': 'unconfirmed' if rule is not None else 'not_required'}
     why = ci.manifest_check(url)
     if why != 'ok':
         return row | {'reason': why}
@@ -86,6 +115,7 @@ def inspect(target):
     # licensing or identity. Do not substitute a catalog logo or save frames.
     if safety == 'no_high_confidence_flag' and len(frames) >= 3:
         row['watermark'] = ci.logo_check(frames, watermark_references().get(cid))
+        row['identity_status'] = corroborate_identity(cid, url, frames, row['watermark'])
     if len(frames) < 3:
         row['reason'] = why
     return row
@@ -113,6 +143,8 @@ def failure_reason(row):
         return status
     if status == 'no_high_confidence_flag' and row.get('sampled_frames', 0) < 3:
         return 'insufficient_frames'
+    if row.get('identity_required') and row.get('identity_status') == 'unconfirmed' and row.get('playback_ready') and status == 'no_high_confidence_flag':
+        return 'channel_identity_unconfirmed'
     return row.get('reason') or status
 
 def eligible(row):
@@ -120,7 +152,9 @@ def eligible(row):
             and row.get('has_audio') is True
             and row.get('content_status') == 'no_high_confidence_flag'
             and row.get('sampled_frames', 0) >= 3
-            and row.get('playback_height', 0) > 0)
+            and row.get('playback_height', 0) > 0
+            and (not row.get('identity_required') or row.get('identity_status') in
+                 ('watermark_observed', 'reference_scenes_match')))
 
 def rank(row):
     # Prefer actual resolution after a full A/V and content pass. Stability and
@@ -152,7 +186,8 @@ def build(review, policy, previous=None, inspect_fn=inspect_retry):
                 continue
             row['success_runs'] = min(prior.get((cid, row['url']), 0) + 1, 30)
             row['rank_score'] = rank(row)
-            row['source'] = 'Percorso emittente/CDN già revisionato'
+            row['source'] = ('CDN terza: identità visiva corroborata, diritti non verificati'
+                             if row.get('identity_required') else 'Percorso emittente/CDN già revisionato')
             row['kind'] = 'DASH' if '.mpd' in urlsplit(row['url']).path.lower() else 'HLS'
             row['playback_checked_at'] = row['checked_at']
             row['last_ok'] = row['checked_at']
