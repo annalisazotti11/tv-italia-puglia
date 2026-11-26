@@ -148,3 +148,10 @@ https://5f22d76e220e1.streamlock.net/Teledehon/smil:Teledehon.smil/playlist.m3u8
 #EXTINF:-1 tvg-chno="155" tvg-logo="https://i.imgur.com/fqTLtvs.png" group-title="Puglia",Tele Sud Puglia
 https://64b16f23efbee.streamlock.net/telesud/telesud/playlist.m3u8
 
+# Rete 4: rotte CDN Mediaset pubblicate in directory, da verificare
+#EXTINF:-1 tvg-chno="4" group-title="Sorgenti da verificare",Rete 4 HD
+https://live02-col.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/index.m3u8
+
+#EXTINF:-1 tvg-chno="4" group-title="Sorgenti da verificare",Rete 4 HD
+https://live2.msf.cdn.mediaset.net/content/hls_h0_clr_vos/live/channel(r4)/index.m3u8
+
