@@ -4,6 +4,8 @@
 
 const VERSION = '5.0.0';
 const C5_ID = 'tvip_5_canale-5-hd';
+const R4_ID = 'tvip_4_rete-4-hd';
+const R4_OFFICIAL_PAGE = 'https://mediasetinfinity.mediaset.it/diretta/rete4_cR4';
 const C5_OFFICIAL_PAGE = 'https://mediasetinfinity.mediaset.it/diretta/canale5_cC5';
 const GO_TV_OFFICIAL_PAGE = 'https://gotv.go.com.mt/';
 const REPO = 'https://raw.githubusercontent.com/annalisazotti11/tv-italia-puglia/refs/heads/main';
@@ -467,6 +469,11 @@ async function streams(snap, id) {
     url: s.url,
     behaviorHints: {notWebReady: true}
   }] : [];
+  if (!s && id === R4_ID) result.push({
+    name: 'Rete 4 · Mediaset Infinity',
+    description: 'Diretta nel player ufficiale',
+    externalUrl: R4_OFFICIAL_PAGE
+  });
   if (!s && id === C5_ID) result.push({
     name: 'Mediaset Infinity · ufficiale',
     description: 'Diretta nel player ufficiale',
@@ -656,6 +663,9 @@ function preview(c, origin, guide, snap) {
     parts.unshift('Diretta TV');
   }
 
+  if (c.id === R4_ID && !sourceList(snap, c.id).length) {
+    parts.push('Diretta ufficiale: apri Mediaset Infinity');
+  }
   if (c.id === C5_ID && !sourceList(snap, c.id).length) {
     parts.push('Diretta ufficiale: apri Mediaset Infinity');
   }
@@ -779,7 +789,7 @@ function guideCard(c, guide, snap) {
   const p = program(guide, c.id);
   const l = logo(c, snap);
   const g = category(c);
-  const externalOnly = c.id === C5_ID && !sourceList(snap, c.id).length;
+  const externalOnly = (c.id === C5_ID || c.id === R4_ID) && !sourceList(snap, c.id).length;
 
   const colors = {
     puglia: '#3ad3ba',
@@ -852,6 +862,7 @@ function guideCard(c, guide, snap) {
     '<span style="width:' + p.progress + '%"></span>' +
     '</div>' +
     '<div class="next">' + follow + '</div>' +
+    (c.id === R4_ID ? '<p><a href="' + escapeXml(R4_OFFICIAL_PAGE) + '" target="_blank" rel="noopener noreferrer">Apri Rete 4 su Mediaset Infinity</a></p>' : '') +
     (c.id === C5_ID ? '<p><a href="' + escapeXml(C5_OFFICIAL_PAGE) + '" target="_blank" rel="noopener noreferrer">Apri la diretta ufficiale Mediaset Infinity</a></p>' : '') +
     '</section></article>'
   );
@@ -1041,7 +1052,7 @@ export default {
 
       const visible = all
         .filter(c =>
-          (c.id === C5_ID || sourceList(snap, c.id).length)
+          (c.id === C5_ID || c.id === R4_ID || sourceList(snap, c.id).length)
         )
         .sort(
           (a, b) =>
@@ -1096,7 +1107,7 @@ export default {
               snap?.channels?.[c.id]?.av_ready_count || 0,
             sources:
               sourceList(snap, c.id).length,
-            officialExternal: c.id === C5_ID
+            officialExternal: c.id === C5_ID || c.id === R4_ID
           }))
         });
       }
