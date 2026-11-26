@@ -2,9 +2,10 @@
 """Read-only probe of one public Canale 5 HLS candidate.
 
 Fetches only the manifest, one media playlist and at most 4 KiB of one segment.
-Never saves media, follows redirects only inside cdn-redge.media, uses no account,
-token, proxy, DRM handling or geo-restriction bypass. This is not an authorization
-check and GitHub's egress location is not Italy.
+Never saves media, uses no account, proxy, DRM handling or geo-restriction bypass.
+A signed query supplied by the same-host HLS manifest may be used transiently in
+memory only; it is never printed or stored. This is not an authorization check
+and GitHub's egress location is not Italy.
 """
 import json
 import os
@@ -17,31 +18,36 @@ from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 TARGET = "https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/canale_5/live.livx/playlist.m3u8"
 SUFFIX = ".cdn-redge.media"
+SIGNED_HOST = "n-5-1.eu.cdn-redge.media"
+SIGNED_PATH_PREFIX = "/livehls/oeu/mt/live/canale_5/"
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; TVItalia-ReadOnly-Stream-Check/1.0)",
     "Accept": "application/vnd.apple.mpegurl, application/x-mpegURL, */*",
 }
 
-def safe_url(url):
+def safe_url(url, allow_manifest_signature=False):
     try:
         u = urlsplit(url)
         host = (u.hostname or "").lower().rstrip(".")
+        signed_child = (allow_manifest_signature and host == SIGNED_HOST
+                        and u.path.startswith(SIGNED_PATH_PREFIX) and bool(u.query))
         return (u.scheme == "https" and host.endswith(SUFFIX)
                 and u.username is None and u.password is None
-                and u.port in (None, 443) and not u.fragment and not u.query)
+                and u.port in (None, 443) and not u.fragment
+                and (not u.query or signed_child))
     except ValueError:
         return False
 
 class SafeRedirect(HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
-        if not safe_url(newurl):
+        if not safe_url(newurl, allow_manifest_signature=True):
             raise ValueError("redirect_outside_redge_or_signed_url")
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 OPENER = build_opener(SafeRedirect)
 
-def get(url, limit=200_000, byte_range=None):
-    if not safe_url(url):
+def get(url, limit=200_000, byte_range=None, allow_manifest_signature=False):
+    if not safe_url(url, allow_manifest_signature=allow_manifest_signature):
         raise ValueError("url_outside_redge_or_signed_url")
     headers = dict(HEADERS)
     if byte_range:
@@ -49,7 +55,7 @@ def get(url, limit=200_000, byte_range=None):
     req = Request(url, headers=headers)
     with OPENER.open(req, timeout=12) as response:
         final = response.geturl()
-        if not safe_url(final):
+        if not safe_url(final, allow_manifest_signature=allow_manifest_signature):
             raise ValueError("redirect_outside_redge_or_signed_url")
         data = response.read(limit + 1)
         # A media server may ignore Range and return HTTP 200. Read only the
@@ -109,7 +115,7 @@ def main():
             variant_parts = urlsplit(next_url)
             report.update(variant_host=variant_parts.hostname, variant_scheme=variant_parts.scheme,
                           variant_has_query=bool(variant_parts.query), variant_port=variant_parts.port)
-            status2, ctype2, final2, data2 = get(next_url)
+            status2, ctype2, final2, data2 = get(next_url, allow_manifest_signature=True)
             text2 = data2.decode("utf-8-sig", errors="replace").lstrip()
             if status2 != 200 or not text2.startswith("#EXTM3U"):
                 raise ValueError("variant_not_hls")
@@ -120,7 +126,7 @@ def main():
             report["variant_host"] = urlsplit(final2).hostname
         else:
             segment_url = next_url
-        seg_status, seg_type, seg_final, sample = get(segment_url, limit=4096, byte_range="bytes=0-4095")
+        seg_status, seg_type, seg_final, sample = get(segment_url, limit=4096, byte_range="bytes=0-4095", allow_manifest_signature=True)
         if seg_status not in (200, 206) or len(sample) < 64:
             raise ValueError("media_segment_not_readable")
         if "text/html" in seg_type.lower() or sample.lstrip().lower().startswith((b"<html", b"<!doctype", b'{"error"')):
