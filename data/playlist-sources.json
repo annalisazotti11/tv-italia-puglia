@@ -386,6 +386,11 @@
       "name": "Wpisa24 Italia Plus",
       "url": "https://raw.githubusercontent.com/wpisa24/IPTV-Italia/main/iptvitaplus.m3u",
       "scope": "index_only"
+    },
+    {
+      "name": "91 Live Overseas index",
+      "url": "https://91zhibo.net/iptv/overseas.m3u",
+      "scope": "index_only"
     }
   ]
 }
