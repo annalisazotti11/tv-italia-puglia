@@ -31,3 +31,17 @@ Su richiesta dell'utente, la M3U8 Redge è stata inserita direttamente nel codic
 `https://n-5-1.eu.cdn-redge.media/livehls/oeu/mt/live/canale_5/live.livx/playlist.m3u8`
 
 Nuvio riceve il campo `url` diretto, non `externalUrl`. La riproduzione VLC sulla connessione italiana è stata confermata dall'utente il 26/11/2026. I fallback Mediaset Infinity e GO TV Malta restano come scelte esterne ufficiali. La sorgente community non viene descritta come ufficiale e l'autorizzazione alla redistribuzione resta non accertata. Il Worker 4.9.5 è nel repository, ma non è stato distribuito su Cloudflare.
+
+
+## Aggiornamento compatibilità Nuvio — Worker 4.9.6
+
+Il Worker 4.9.6 introduce un override manuale esclusivamente per `tvip_5_canale-5-hd`:
+
+- La route `/stream/tv/tvip_5_canale-5-hd.json` restituisce direttamente un solo oggetto `url` HLS con la M3U8 Redge.
+- La route Canale 5 non attende il caricamento dello snapshot né della quarantena: un errore nei dati generali non blocca più questa sorgente fissata manualmente.
+- La risposta non include fallback `externalUrl` e non imposta `notWebReady`.
+- Il catalogo può mantenere visibile Canale 5 anche se lo snapshot generale non è disponibile; gli altri canali senza fonti valide restano nascosti.
+- Per tutti gli altri canali restano attivi allowlist, quarantena, controllo d'identità, controlli audio/video e ranking.
+- Non viene effettuato proxy dello stream, non si seguono redirect e non si aggirano DRM o geo-restrizioni.
+
+**Stato diritti invariato:** l'endpoint è una sorgente community tecnicamente raggiungibile e riprodotta in VLC dall'utente; non è dimostrato che sia un endpoint ufficiale né che sia autorizzato alla redistribuzione. Il codice non lo etichetta come ufficiale o autorizzato. Il file 4.9.6 è nel repository; il deployment Cloudflare resta separato e non è stato eseguito da questa modifica.
