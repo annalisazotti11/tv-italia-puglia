@@ -1,0 +1,179 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-27T22:28:42.066413+00:00",
+  "mode": "metadata_only",
+  "queries": 3,
+  "errors": [],
+  "repositories": [
+    {
+      "repository": "EdenwareApps/Megacubo",
+      "updated_at": "2026-11-27T22:04:19Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "xN1ckuz/OpenIPTVItaly",
+      "updated_at": "2026-11-27T17:12:36Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "antoscool73/dovelofanno",
+      "updated_at": "2026-11-27T13:09:02Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "nexonic-technologies/nexonic-iptv",
+      "updated_at": "2026-11-26T19:40:25Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "bilipp/Lume",
+      "updated_at": "2026-11-26T05:56:30Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "pickywawa/cyberstream",
+      "updated_at": "2026-11-25T17:27:50Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "thommy87/LinDVB",
+      "updated_at": "2026-11-23T23:52:10Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "NightKnight24/nightknight-cinema",
+      "updated_at": "2026-11-23T00:16:32Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "6days9weeks/lume",
+      "updated_at": "2026-11-21T18:58:27Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "gerontec/iptv",
+      "updated_at": "2026-11-19T11:53:42Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "Cinemuse/cinemuse-app",
+      "updated_at": "2026-11-16T22:51:00Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "fast4x/OpenTV",
+      "updated_at": "2026-11-15T21:15:30Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "oaatiq/tv-playlist",
+      "updated_at": "2026-11-12T15:37:45Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "aieditsram-svg/kodi10",
+      "updated_at": "2026-11-12T15:35:01Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "Nanobuo/iptv-italia",
+      "updated_at": "2026-11-12T12:05:38Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "valeriocomo/iptv-it",
+      "updated_at": "2026-11-12T08:15:53Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "ffk-futsall/Megacubo",
+      "updated_at": "2026-11-11T15:12:11Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "tkafkas82/greektv",
+      "updated_at": "2026-11-11T14:16:40Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "ecannemeijer/enigmacast",
+      "updated_at": "2026-11-11T09:15:02Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "leicaflorian/tvit",
+      "updated_at": "2026-11-10T21:47:23Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "big-comm/ashytv",
+      "updated_at": "2026-11-10T16:22:19Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "psummo/drive-tube",
+      "updated_at": "2026-11-09T07:16:50Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "LaPingvino/iptv",
+      "updated_at": "2026-11-08T04:11:08Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "leekiernan/lume",
+      "updated_at": "2026-11-04T12:58:16Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "Appdeveloper365/TvPlay",
+      "updated_at": "2026-10-24T12:41:30Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "mich-de/italyitvpro",
+      "updated_at": "2026-10-20T14:47:24Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "mich-de/mich-de",
+      "updated_at": "2026-10-20T14:44:30Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "2gchqkkt25-blip/Apex",
+      "updated_at": "2026-10-05T15:43:37Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "mauro-midolo/IPTV-Italia",
+      "updated_at": "2026-09-21T05:57:03Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "THEROCKSSS/sorted-iptv",
+      "updated_at": "2026-09-21T00:00:26Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "ixxc2648/iptv-italian-sports",
+      "updated_at": "2026-09-07T05:15:22Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "freepopulariptvlaylist/Open-IPTV-Index-Free-Public-M3U-Playlist-Directory",
+      "updated_at": "2026-08-19T19:14:41Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "BESTS-IPTV/Best-IPTV-for-FIFA-World-Cup-2026",
+      "updated_at": "2026-07-01T02:48:25Z",
+      "state": "review_required"
+    },
+    {
+      "repository": "BEROSAT/JamboMixt",
+      "updated_at": "2024-12-13T17:21:56Z",
+      "state": "review_required"
+    }
+  ]
+}
