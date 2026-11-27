@@ -2190,7 +2190,25 @@
     "DeA Jr",
     "Cartoon Network",
     "Boomerang",
-    null
+    "Eurosport 1",
+    "Eurosport 2",
+    "Discovery Channel",
+    "Animal Planet",
+    "TLC",
+    "Investigation Discovery",
+    "Discovery Science",
+    "National Geographic",
+    "Nat Geo Wild",
+    "Crime + Investigation",
+    "Cartoonito",
+    "BabyTV",
+    "DAZN 1",
+    "DAZN 2",
+    "Milan TV",
+    "Inter TV",
+    "Lazio Style Channel",
+    "Roma TV",
+    "Sky Sport 4K"
   ],
   "subscription_providers": [
     {
@@ -2296,7 +2314,7 @@
         "name": "Sky Voices",
         "category": "intrattenimento",
         "operator": "Sky Italia",
-        "lcn": 118,
+        "lcn": null,
         "access": "abbonamento Sky; disponibilità dipendente dal pacchetto",
         "official_access": "https://assistenza.sky.it/sky-go/faq-programmazione",
         "stream_url": null,
@@ -2329,7 +2347,7 @@
         "name": "Sky Adventure",
         "category": "documentari",
         "operator": "Sky Italia",
-        "lcn": 122,
+        "lcn": null,
         "access": "abbonamento Sky; disponibilità dipendente dal pacchetto",
         "official_access": "https://assistenza.sky.it/sky-go/faq-programmazione",
         "stream_url": null,
@@ -2907,6 +2925,17 @@
         "stream_url": null,
         "playback": "not_tested",
         "authorization": "solo accesso ufficiale; nessun flusso M3U raccolto"
+      },
+      {
+        "name": "Sky Sport 4K",
+        "category": "sport",
+        "operator": "Sky Italia",
+        "lcn": 213,
+        "access": "abbonamento Sky Sport/Calcio secondo offerta",
+        "official_access": "https://assistenza.sky.it/programmazione/guida-canali-sky-sport",
+        "stream_url": null,
+        "playback": "not_tested",
+        "authorization": "accesso ufficiale tramite abbonamento; nessun flusso M3U raccolto"
       }
     ],
     "generic_event_feeds": {
