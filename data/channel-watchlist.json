@@ -1180,7 +1180,9 @@
       "premium": false,
       "puglia_lcn": "95",
       "discovery_only": true,
-      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari",
+      "official_page": "https://www.azzurratvitalia.com/",
+      "official_page_status": "official_site_confirms_puglia_basilicata_lcn95_manifest_not_confirmed"
     },
     {
       "id": "tvip_puglia_startv",
@@ -1222,6 +1224,39 @@
       "puglia_lcn": "94",
       "discovery_only": true,
       "metadata_source": "https://leucaonline.it/tv-a-leuca/"
+    },
+    {
+      "id": "tvip_fta_si_solocalcio",
+      "name": "SI SoloCalcio HD",
+      "number": "",
+      "group": "Sport in chiaro",
+      "premium": false,
+      "discovery_only": true,
+      "metadata_source": "https://play.google.com/store/apps/details?hl=it&id=it.kineton.sportitalia",
+      "official_page": "https://www.sportitalia.com/",
+      "official_page_status": "official_app_lists_channel_no_direct_manifest_confirmed"
+    },
+    {
+      "id": "tvip_fta_si_motori",
+      "name": "SI Motori HD",
+      "number": "",
+      "group": "Sport in chiaro",
+      "premium": false,
+      "discovery_only": true,
+      "metadata_source": "https://play.google.com/store/apps/details?hl=it&id=it.kineton.sportitalia",
+      "official_page": "https://www.sportitalia.com/",
+      "official_page_status": "official_app_lists_channel_no_direct_manifest_confirmed"
+    },
+    {
+      "id": "tvip_fta_si_live24",
+      "name": "SI Live24 HD",
+      "number": "",
+      "group": "Sport in chiaro",
+      "premium": false,
+      "discovery_only": true,
+      "metadata_source": "https://play.google.com/store/apps/details?hl=it&id=it.kineton.sportitalia",
+      "official_page": "https://www.sportitalia.com/",
+      "official_page_status": "official_app_lists_channel_no_direct_manifest_confirmed"
     }
   ]
 }
