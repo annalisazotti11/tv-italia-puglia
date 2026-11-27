@@ -256,6 +256,36 @@ def main():
                        if isinstance(entry.get(k), str)},
                     'verified': [], 'verified_count': 0,
                     'audit': {'tested': 0, 'failed': {}, 'status': 'awaiting_source_review'}}
+    # A watchlist update may arrive before the legacy scan finishes. Report the
+    # new entries immediately without inheriting any playback address.
+    watchlist = ROOT / 'data' / 'channel-watchlist.json'
+    if watchlist.exists():
+        for entry in read(watchlist).get('channels', []):
+            cid = entry.get('id')
+            if not isinstance(cid, str) or not cid.startswith('tvip_'):
+                continue
+            channel = result['channels'].setdefault(cid, {
+                'verified': [], 'verified_count': 0,
+                'audit': {'tested': 0, 'failed': {}, 'status': 'awaiting_source_review'}})
+            for field in ('name', 'number', 'group', 'logo'):
+                if field not in channel and isinstance(entry.get(field), str):
+                    channel[field] = entry[field]
+    # Expose geographic/access uncertainty separately from missing reviews.
+    # An HTTP 403 is not proof of a dead stream and never becomes a pass.
+    for channel in result['channels'].values():
+        audit = channel.setdefault('audit', {})
+        failed = audit.get('failed', {})
+        tested = audit.get('tested', 0)
+        if channel.get('verified'):
+            audit['availability'] = 'verified'
+        elif not tested:
+            audit['availability'] = 'awaiting_source_review'
+        elif failed.get('http_403', 0) == tested:
+            audit['availability'] = 'access_denied_unconfirmed'
+        else:
+            audit['availability'] = 'audit_failed'
+    result['summary']['availability_counts'] = dict(Counter(
+        c['audit']['availability'] for c in result['channels'].values()))
     result['summary']['monitored_channels'] = len(result['channels'])
     result['summary']['awaiting_source_review'] = sum(
         c.get('audit', {}).get('status') == 'awaiting_source_review'
