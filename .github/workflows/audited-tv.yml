@@ -66,7 +66,8 @@ jobs:
           exit 1
 
       - name: Verifica credenziali Cloudflare
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        id: cloudflare_credentials
+        if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' }}
         shell: bash
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -83,7 +84,8 @@ jobs:
           fi
 
       - name: Deploy Worker 5.1.0 in produzione
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        id: cloudflare_deploy
+        if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' }}
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -91,7 +93,8 @@ jobs:
           command: deploy
 
       - name: Verifica manifest e catalogo in produzione
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        id: production_verify
+        if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' }}
         shell: bash
         env:
           WORKER_URL: https://tv-italia-puglia.annalisazotti11.workers.dev
@@ -103,11 +106,14 @@ jobs:
           node --input-type=module -e "import fs from 'node:fs'; const d=JSON.parse(fs.readFileSync('debug.json','utf8')); const expected=['Sky Cinema Due','Zona DAZN','DAZN Darts','Sky Sport Uno Ultra Live','Sky Sport Calcio Ultra Live','DAZN Serie A','DAZN Serie B']; if(d.version!=='5.1.0') throw new Error('Debug Worker non aggiornato'); for(const n of expected) if(!d.channels.some(c=>c.name===n&&c.discoveryOnly)) throw new Error('Canale monitorato mancante: '+n); console.log('Produzione verificata: Worker '+d.version+', '+d.visible+' canali visibili, '+d.watchlistCount+' monitorati, '+d.discoveryOnlyCount+' candidati discovery-only.');"
 
       - name: Registra esito audit e deployment
-        if: ${{ always() && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ always() && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' }}
         shell: bash
         env:
           RUN_RESULT: ${{ job.status }}
           SOURCE_SHA: ${{ github.sha }}
+          CREDENTIALS_RESULT: ${{ steps.cloudflare_credentials.outcome }}
+          DEPLOY_RESULT: ${{ steps.cloudflare_deploy.outcome }}
+          VERIFY_RESULT: ${{ steps.production_verify.outcome }}
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
@@ -116,10 +122,20 @@ jobs:
           git reset --hard origin/main
           node --input-type=module <<'NODE'
           import fs from 'node:fs';
+          const steps = {
+            credentials: process.env.CREDENTIALS_RESULT || 'unknown',
+            deployment: process.env.DEPLOY_RESULT || 'unknown',
+            production_verification: process.env.VERIFY_RESULT || 'unknown'
+          };
+          const stage = steps.credentials === 'failure' ? 'cloudflare_credentials'
+            : steps.deployment === 'failure' ? 'cloudflare_deployment'
+            : steps.production_verification === 'failure' ? 'production_verification'
+            : 'visual_audit_and_cloudflare_deployment';
           const data = {
             version: '5.1.0',
             status: process.env.RUN_RESULT || 'unknown',
-            stage: 'visual_audit_and_cloudflare_deployment',
+            stage,
+            steps,
             source_commit: process.env.SOURCE_SHA || null,
             worker_url: 'https://tv-italia-puglia.annalisazotti11.workers.dev',
             updated_at: new Date().toISOString()
