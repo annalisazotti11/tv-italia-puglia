@@ -1,6 +1,7 @@
 
 // TV Italia + Puglia 5.1.0 — watchlist monitorata e selezione da indice visivo separato
 // Una sola sorgente per canale: la migliore secondo i test notturni.
+// Il deployment di produzione avviene solo dopo test e audit visivo riusciti.
 
 const VERSION = '5.1.0';
 const C5_ID = 'tvip_5_canale-5-hd';
