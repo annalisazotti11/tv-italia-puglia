@@ -124,7 +124,7 @@ jobs:
             worker_url: 'https://tv-italia-puglia.annalisazotti11.workers.dev',
             updated_at: new Date().toISOString()
           };
-          fs.writeFileSync('data/deployment-status.json', JSON.stringify(data, null, 2) + '\\n');
+          fs.writeFileSync('data/deployment-status.json', JSON.stringify(data, null, 2) + '\n');
           NODE
           git add data/deployment-status.json
           if git diff --cached --quiet; then exit 0; fi
