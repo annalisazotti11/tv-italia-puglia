@@ -44,6 +44,7 @@ jobs:
       - name: Offline tests
         run: |
           PYTHONPATH=scripts python -m unittest discover -s pilot_tests -p 'test_audited_streams.py' -v
+          python -m unittest discover -s scripts -p 'test_playback_quality.py' -v
           node --check cloudflare/worker-tv-v5.0.0.js
           node --check cloudflare/worker-tv-v5.1.2.js
           node scripts/test_worker_v512.mjs

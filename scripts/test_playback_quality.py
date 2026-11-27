@@ -9,6 +9,18 @@ spec.loader.exec_module(p)
 
 
 class PlaybackQualityTests(unittest.TestCase):
+    def test_multiple_tracks_select_actual_packets(self):
+        data = {'streams': [
+            {'index':0,'codec_type':'video','height':2160},
+            {'index':1,'codec_type':'audio','codec_name':'aac'},
+            {'index':2,'codec_type':'video','height':720},
+            {'index':3,'codec_type':'audio','codec_name':'aac'},
+            {'index':4,'codec_type':'video','height':1080}],
+            'packets':[{'stream_index':2},{'stream_index':3},{'stream_index':4}]}
+        video, audio = p.packet_tracks(data)
+        self.assertEqual(video['index'],4)
+        self.assertEqual(audio['index'],3)
+        self.assertEqual(p.packet_tracks({'streams':data['streams'],'packets':[]}), (None,None))
     def test_real_av_beats_fast_manifest_only_hd(self):
         slow1080 = dict(last_ok="2026-11-20T08:00:00Z", audio=True,
                         height=1080, latency_ms=300, bandwidth=9000000,

@@ -25,6 +25,17 @@ FFPROBE_TIMEOUT = 10.5
 PROBE_MAX_AGE_HOURS = 24
 
 
+def packet_tracks(data):
+    """Select only tracks that actually emitted packets; do not assume track 0."""
+    packet_indices = {p.get('stream_index') for p in data.get('packets', [])}
+    streams = [s for s in data.get('streams', []) if s.get('index') in packet_indices]
+    videos = [s for s in streams if s.get('codec_type') == 'video' and int(s.get('height') or 0) > 0]
+    audios = [s for s in streams if s.get('codec_type') == 'audio']
+    video = max(videos, key=lambda s: int(s.get('height') or 0), default=None)
+    audio = next((s for s in audios if s.get('codec_name') == 'aac'), None) or next(iter(audios), None)
+    return video, audio
+
+
 def probe_stream(url: str, *, extended: bool = False) -> dict:
     """Inspect actual *packets*, not only manifest metadata.
 
@@ -62,18 +73,9 @@ def probe_stream(url: str, *, extended: bool = False) -> dict:
             result['reason'] = 'ffprobe_error'
             return result
         data = json.loads(run.stdout)
-        streams = data.get('streams', [])
-        packet_indices = {
-            p.get('stream_index') for p in data.get('packets', [])
-        }
-        video = next(
-            (s for s in streams if s.get('codec_type') == 'video'), None
-        )
-        audio = next(
-            (s for s in streams if s.get('codec_type') == 'audio'), None
-        )
-        result['has_video'] = bool(video and video.get('index') in packet_indices)
-        result['has_audio'] = bool(audio and audio.get('index') in packet_indices)
+        video, audio = packet_tracks(data)
+        result['has_video'] = video is not None
+        result['has_audio'] = audio is not None
         result['video_codec'] = video.get('codec_name') if video else None
         result['audio_codec'] = audio.get('codec_name') if audio else None
         result['playback_height'] = int((video or {}).get('height') or 0)
