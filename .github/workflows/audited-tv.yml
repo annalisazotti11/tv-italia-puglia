@@ -64,3 +64,69 @@ jobs:
             sleep 2
           done
           exit 1
+
+      - name: Verifica credenziali Cloudflare
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
+            echo "::error::Manca il secret CLOUDFLARE_API_TOKEN nelle impostazioni GitHub del repository."
+            exit 1
+          fi
+          if [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+            echo "::error::Manca CLOUDFLARE_ACCOUNT_ID: aggiungilo come repository secret o variable."
+            exit 1
+          fi
+
+      - name: Deploy Worker 5.1.0 in produzione
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || vars.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+
+      - name: Verifica manifest e catalogo in produzione
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        shell: bash
+        env:
+          WORKER_URL: https://tv-italia-puglia.annalisazotti11.workers.dev
+        run: |
+          set -euo pipefail
+          curl -fsS --retry 12 --retry-delay 5 --retry-connrefused "$WORKER_URL/manifest.json" -o manifest.json
+          node --input-type=module -e "import fs from 'node:fs'; const m=JSON.parse(fs.readFileSync('manifest.json','utf8')); if(m.version!=='5.1.0'||m.id!=='community.tv-italia-puglia') throw new Error('Manifest produzione inatteso: '+JSON.stringify(m));"
+          curl -fsS --retry 12 --retry-delay 5 --retry-connrefused "$WORKER_URL/debug/channels.json" -o debug.json
+          node --input-type=module -e "import fs from 'node:fs'; const d=JSON.parse(fs.readFileSync('debug.json','utf8')); const expected=['Sky Cinema Due','Zona DAZN','DAZN Darts','Sky Sport Uno Ultra Live','Sky Sport Calcio Ultra Live','DAZN Serie A','DAZN Serie B']; if(d.version!=='5.1.0') throw new Error('Debug Worker non aggiornato'); for(const n of expected) if(!d.channels.some(c=>c.name===n&&c.discoveryOnly)) throw new Error('Canale monitorato mancante: '+n); console.log('Produzione verificata: Worker '+d.version+', '+d.visible+' canali visibili, '+d.watchlistCount+' monitorati, '+d.discoveryOnlyCount+' candidati discovery-only.');"
+
+      - name: Registra esito audit e deployment
+        if: ${{ always() && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        shell: bash
+        env:
+          RUN_RESULT: ${{ job.status }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          git reset --hard origin/main
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const data = {
+            version: '5.1.0',
+            status: process.env.RUN_RESULT || 'unknown',
+            stage: 'visual_audit_and_cloudflare_deployment',
+            source_commit: process.env.SOURCE_SHA || null,
+            worker_url: 'https://tv-italia-puglia.annalisazotti11.workers.dev',
+            updated_at: new Date().toISOString()
+          };
+          fs.writeFileSync('data/deployment-status.json', JSON.stringify(data, null, 2) + '\\n');
+          NODE
+          git add data/deployment-status.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'chore(tv): registra esito release Worker 5.1.0'
+          git push origin HEAD:main
