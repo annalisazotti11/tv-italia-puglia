@@ -2,17 +2,19 @@ name: TV Italia + Puglia - ricerca fonti ufficiali
 on:
   workflow_dispatch:
   schedule:
-    - cron: '13 5 * * 1'
+    # 10:00 UTC = 11:00 in Italia durante l'ora solare; 12:00 durante l'ora legale.
+    - cron: '0 10 * * *'
   push:
     branches: [main]
     paths:
       - '.github/workflows/official-live-source-review.yml'
+      - 'data/official-platform-catalog.json'
 permissions:
   contents: read
 jobs:
   official-pages:
     runs-on: ubuntu-latest
-    timeout-minutes: 4
+    timeout-minutes: 8
     steps:
       - name: Ricerca manifest dichiarati nelle pagine ufficiali
         shell: bash
@@ -23,6 +25,36 @@ jobs:
           from urllib.request import Request, build_opener, HTTPRedirectHandler
           from datetime import datetime, timezone
           PAGES = {
+              # Emittenti nazionali: directory ufficiali di diretta
+              'Rai 1': 'https://www.raiplay.it/dirette/rai1',
+              'Rai 2': 'https://www.raiplay.it/dirette/rai2',
+              'Rai 3': 'https://www.raiplay.it/dirette/rai3',
+              'Rai News 24': 'https://www.raiplay.it/dirette/rainews24',
+              'Rai Sport': 'https://www.raiplay.it/dirette/raisport',
+              'Rai 4': 'https://www.raiplay.it/dirette/rai4',
+              'Rai 5': 'https://www.raiplay.it/dirette/rai5',
+              'Rai Movie': 'https://www.raiplay.it/dirette/raimovie',
+              'Rai Premium': 'https://www.raiplay.it/dirette/raipremium',
+              'Rai Storia': 'https://www.raiplay.it/dirette/raistoria',
+              'Rai Yoyo': 'https://www.raiplay.it/dirette/raiyoyo',
+              'Rai Gulp': 'https://www.raiplay.it/dirette/raigulp',
+              'Mediaset Infinity - Dirette TV': 'https://mediasetinfinity.mediaset.it/',
+              'Canale 5': 'https://mediasetinfinity.mediaset.it/diretta/canale5_cC5v',
+              'Italia 1': 'https://mediasetinfinity.mediaset.it/diretta/italia1_cI1rai',
+              'TGCOM24': 'https://mediasetinfinity.mediaset.it/diretta/_cKF',
+              'LA7 / LA7 Cinema': 'https://tg.la7.it/dirette-tv',
+              'Sky TG24': 'https://tg24.sky.it/diretta',
+              'TV8': 'https://www.tv8.it/streaming',
+              'Cielo': 'https://www.cielotv.it/streaming',
+              # Cataloghi ufficiali pay: solo metadati, non flussi importabili
+              'Sky Go - catalogo canali': 'https://assistenza.sky.it/sky-go/faq-programmazione',
+              'Sky - catalogo canali': 'https://www.sky.it/tv/canali',
+              'NOW - catalogo servizio': 'https://www.nowtv.it/',
+              # FAST ufficiali basati su app/dispositivo, non playlist M3U
+              'Samsung TV Plus - catalogo': 'https://www.samsung.com/it/tvs/smart-tv/samsung-tv-plus/tv-channels/',
+              'LG Channels - guida ufficiale': 'https://www.lg.com/it/supporto/supporto-prodotto/risoluzione-anomalie/help-library/cs-CT52001071-20154873437973/',
+              'Rakuten TV - canali TV': 'https://support.rakuten.tv/hc/it-it/articles/360016822920-Canali-TV',
+              # Emittenti locali e radio-TV già monitorate
               'Antenna Sud': 'https://www.antennasud.com/streaming/',
               'Antenna Sud Extra': 'https://www.antennasud.com/streaming-92/',
               'Telenorba': 'https://play.telenorba.it/diretta/telenorba',
@@ -67,7 +99,7 @@ jobs:
           with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
               rows = list(pool.map(inspect, PAGES.items()))
           report = {'generated_at': datetime.now(timezone.utc).isoformat(), 'mode':'official_html_only',
-              'pages':rows, 'note':'Static publicly declared manifest references only. No media requests, scripts, authentication, redirects, token reuse or publication. References may be unrelated to the live channel; review required.'}
+              'pages':rows, 'note':'Static HTML references from official broadcaster pages and official app/channel catalogues only. No media requests, JavaScript execution, authentication, redirects, token reuse, DRM handling or publication. Sky Go/NOW and FAST app catalogues are metadata references, not importable M3U streams. Any manifest candidate still requires channel-identity, provenance and authorization review.'}
           with open('official-live-source-review.json','w',encoding='utf-8') as f:
               json.dump(report,f,indent=2,ensure_ascii=False)
           with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
