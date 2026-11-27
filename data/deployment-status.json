@@ -7,7 +7,7 @@
     "deployment": "success",
     "production_verification": "success"
   },
-  "source_commit": "06e968409edf314f6a7c801c3699c8d488a1a574",
+  "source_commit": "7ed63eb17e508770d2c7f2dad6dafc798b2385af",
   "worker_url": "https://tv-italia-puglia.annalisazotti11.workers.dev",
-  "updated_at": "2026-11-27T17:53:31.094Z"
+  "updated_at": "2026-11-27T21:53:33.501Z"
 }
