@@ -1,0 +1,7 @@
+{
+  "version": "5.1.0",
+  "status": "pending",
+  "stage": "awaiting_visual_audit_and_cloudflare_deployment",
+  "worker_url": "https://tv-italia-puglia.annalisazotti11.workers.dev",
+  "note": "Il deployment automatico parte solo dopo il successo del workflow audited-tv.yml e richiede CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID."
+}
