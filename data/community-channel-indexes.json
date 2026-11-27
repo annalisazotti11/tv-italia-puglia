@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "mode": "metadata_only",
+  "description": "Indici e strumenti community usati solo per riconoscere nomi e identificativi dei canali. Non contengono stream URL e non vengono scaricati dal workflow M3U.",
+  "indexes": [
+    {
+      "name": "englishcd/ai — b0.txt",
+      "url": "https://raw.githubusercontent.com/englishcd/ai/522b28da6d4fca0408771fe13edcf62297959c40/b0.txt",
+      "type": "channel_identifier_index",
+      "country_marker": "🇮🇹",
+      "italian_marked_rows": 377,
+      "examples": [
+        "Sky Uno",
+        "Sky Atlantic",
+        "Sky Cinema",
+        "Sky Sport",
+        "DAZN Serie A",
+        "DAZN Serie B",
+        "Discovery",
+        "History",
+        "Food Network",
+        "Gambero Rosso",
+        "DeA Junior"
+      ],
+      "handling": "Metadata only; not an M3U playlist and contains no direct stream URLs."
+    },
+    {
+      "name": "Mike80p/italia-tv-hub",
+      "url": "https://github.com/Mike80p/italia-tv-hub",
+      "type": "aggregation_and_validation_tool_reference",
+      "handling": "Software project reference for playlist aggregation, deduplication, playback health and EPG; not a playlist source."
+    }
+  ],
+  "notes": [
+    "A name found in a community index is not proof that the channel is currently active, that an endpoint works, or that redistribution is authorized.",
+    "Premium channel labels are retained for catalog completeness, but direct subscription streams, DRM-protected manifests, credentials and session tokens are not imported."
+  ]
+}
