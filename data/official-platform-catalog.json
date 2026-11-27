@@ -1,0 +1,325 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-27",
+  "mode": "official_platform_directory",
+  "purpose": "Mappa le piattaforme ufficiali e i canali premium presenti nella watchlist. Non contiene URL di flussi, playlist M3U, token o credenziali.",
+  "policy": {
+    "keep_premium_channels_in_catalogue": true,
+    "import_direct_streams_from_subscription_apps": false,
+    "extract_authenticated_or_protected_streams": false,
+    "publish_only_streams_with_verified_identity_provenance_and_authorization": true,
+    "note": "La presenza di un canale nel catalogo non implica che esista una diretta web gratuita o un flusso M3U autonomo."
+  },
+  "platforms": [
+    {
+      "id": "raiplay",
+      "name": "RaiPlay",
+      "url": "https://www.raiplay.it/dirette/",
+      "access": "free_official_live",
+      "account": "may_be_required_for_some_content",
+      "coverage": [
+        "Rai 1",
+        "Rai 2",
+        "Rai 3",
+        "Rai News 24",
+        "Rai Sport",
+        "Rai 4",
+        "Rai 5",
+        "Rai Movie",
+        "Rai Premium",
+        "Rai Storia",
+        "Rai Yoyo",
+        "Rai Gulp"
+      ],
+      "direct_m3u_import": false,
+      "discovery": "official_live_directory"
+    },
+    {
+      "id": "mediaset_infinity",
+      "name": "Mediaset Infinity",
+      "url": "https://mediasetinfinity.mediaset.it/",
+      "live_directory": "https://mediasetinfinity.mediaset.it/",
+      "access": "free_official_live",
+      "account": "account_may_be_required",
+      "coverage": [
+        "Canale 5",
+        "Italia 1",
+        "Rete 4",
+        "20 Mediaset",
+        "Focus",
+        "La5",
+        "Cine34",
+        "Italia 2",
+        "Mediaset Extra",
+        "Top Crime",
+        "Iris",
+        "27 Twentyseven",
+        "TGCOM24",
+        "Boing",
+        "Cartoonito"
+      ],
+      "examples": {
+        "Canale 5": "https://mediasetinfinity.mediaset.it/diretta/canale5_cC5v",
+        "Italia 1": "https://mediasetinfinity.mediaset.it/diretta/italia1_cI1rai",
+        "TGCOM24": "https://mediasetinfinity.mediaset.it/diretta/_cKF"
+      },
+      "direct_m3u_import": false,
+      "discovery": "official_live_directory"
+    },
+    {
+      "id": "la7",
+      "name": "LA7",
+      "url": "https://tg.la7.it/dirette-tv",
+      "access": "free_official_live",
+      "coverage": [
+        "LA7",
+        "LA7 Cinema"
+      ],
+      "direct_m3u_import": false,
+      "discovery": "official_live_page"
+    },
+    {
+      "id": "sky_go",
+      "name": "Sky Go",
+      "url": "https://www.sky.it/tv/sky-go",
+      "channel_list": "https://assistenza.sky.it/sky-go/faq-programmazione",
+      "access": "subscription_required",
+      "account": "Sky_ID_and_active_subscription",
+      "coverage": "channels_in_the_customer_subscription",
+      "quality_note": "La FAQ ufficiale indica HD fino a 720p sui principali canali Sky Go; la disponibilità dipende dal pacchetto.",
+      "direct_m3u_import": false,
+      "discovery": "official_app_and_channel_catalogue"
+    },
+    {
+      "id": "sky_channels",
+      "name": "Catalogo canali Sky",
+      "url": "https://www.sky.it/tv/canali",
+      "access": "channel_metadata",
+      "coverage": "Sky entertainment, series, cinema, sport, news and kids channels",
+      "direct_m3u_import": false,
+      "discovery": "official_channel_catalogue"
+    },
+    {
+      "id": "now",
+      "name": "NOW",
+      "url": "https://www.nowtv.it/",
+      "access": "subscription_required",
+      "coverage": [
+        "Sky Cinema",
+        "Sky Sport",
+        "Sky Entertainment"
+      ],
+      "direct_m3u_import": false,
+      "discovery": "official_app_and_package_catalogue"
+    },
+    {
+      "id": "samsung_tv_plus",
+      "name": "Samsung TV Plus",
+      "url": "https://www.samsung.com/it/tvs/smart-tv/samsung-tv-plus/",
+      "channel_directory": "https://www.samsung.com/it/tvs/smart-tv/samsung-tv-plus/tv-channels/",
+      "access": "free_ad_supported",
+      "device_scope": "Samsung TVs and supported Galaxy devices",
+      "direct_m3u_import": false,
+      "discovery": "official_fast_catalogue"
+    },
+    {
+      "id": "lg_channels",
+      "name": "LG Channels",
+      "url": "https://www.lg.com/it/supporto/supporto-prodotto/risoluzione-anomalie/help-library/cs-CT52001071-20154873437973/",
+      "access": "free_ad_supported",
+      "device_scope": "compatible LG Smart TVs",
+      "direct_m3u_import": false,
+      "discovery": "official_device_app"
+    },
+    {
+      "id": "rakuten_tv",
+      "name": "Rakuten TV - Canali TV",
+      "url": "https://www.rakuten.tv/it",
+      "support": "https://support.rakuten.tv/hc/it-it/articles/360016822920-Canali-TV",
+      "access": "free_ad_supported_channels",
+      "device_scope": "supported Smart TVs and apps",
+      "direct_m3u_import": false,
+      "discovery": "official_fast_catalogue"
+    }
+  ],
+  "sky_go_confirmed_channels": [
+    {
+      "name": "Sky Uno +",
+      "official_label": "Sky Uno",
+      "channel_number": "108"
+    },
+    {
+      "name": "Sky Atlantic",
+      "channel_number": "111"
+    },
+    {
+      "name": "Sky Serie",
+      "channel_number": "112"
+    },
+    {
+      "name": "Sky Investigation",
+      "channel_number": "113"
+    },
+    {
+      "name": "Sky Collection",
+      "channel_number": "114"
+    },
+    {
+      "name": "Sky Crime",
+      "channel_number": "115"
+    },
+    {
+      "name": "Sky Voices",
+      "channel_number": "118"
+    },
+    {
+      "name": "Sky Nature",
+      "channel_number": "119"
+    },
+    {
+      "name": "Sky Arte",
+      "channel_number": "120"
+    },
+    {
+      "name": "Sky Adventure",
+      "channel_number": "122"
+    },
+    {
+      "name": "Comedy Central",
+      "channel_number": "129"
+    },
+    {
+      "name": "MTV",
+      "channel_number": "131"
+    },
+    {
+      "name": "Sky Sport24",
+      "channel_number": "200"
+    },
+    {
+      "name": "Sky Sport Calcio",
+      "channel_number": "202"
+    },
+    {
+      "name": "Sky Sport Tennis",
+      "channel_number": "203"
+    },
+    {
+      "name": "Sky Sport Arena",
+      "channel_number": "204"
+    },
+    {
+      "name": "Sky Sport Basket",
+      "official_label": "Sky Sport Baket (typo in FAQ)",
+      "channel_number": "205"
+    },
+    {
+      "name": "Sky Sport Max",
+      "channel_number": "206"
+    },
+    {
+      "name": "Sky Sport F1",
+      "channel_number": "207"
+    },
+    {
+      "name": "Sky Sport MotoGP",
+      "channel_number": "208"
+    },
+    {
+      "name": "Sky Sport Golf",
+      "channel_number": "209"
+    },
+    {
+      "name": "Sky Sport Legend",
+      "channel_number": "210"
+    },
+    {
+      "name": "Sky Sport Mix",
+      "channel_number": "211"
+    },
+    {
+      "name": "Sky Sport 251-259",
+      "channel_number": "251-259"
+    },
+    {
+      "name": "Sky Cinema Uno",
+      "channel_number": "301"
+    },
+    {
+      "name": "Sky Cinema Stories",
+      "channel_number": "302"
+    },
+    {
+      "name": "Sky Cinema Collection",
+      "channel_number": "303"
+    },
+    {
+      "name": "Sky Cinema Suspense",
+      "channel_number": "306"
+    },
+    {
+      "name": "CNN International",
+      "official_label": "CNN",
+      "channel_number": "526"
+    },
+    {
+      "name": "DeaKids",
+      "official_label": "Dea Kids",
+      "channel_number": "601"
+    },
+    {
+      "name": "Nick Jr.",
+      "official_label": "Nickjr",
+      "channel_number": "602"
+    },
+    {
+      "name": "Nickelodeon",
+      "channel_number": "603"
+    },
+    {
+      "name": "Disney Junior",
+      "official_label": "Disney Jr.",
+      "channel_number": "604"
+    },
+    {
+      "name": "DeaJunior",
+      "official_label": "Dea Jr",
+      "channel_number": "605"
+    },
+    {
+      "name": "Cartoon Network",
+      "channel_number": "606"
+    },
+    {
+      "name": "Boomerang",
+      "channel_number": "607"
+    }
+  ],
+  "premium_channels_needing_individual_package_confirmation": [
+    "Sky Classica",
+    "Sky Meteo24",
+    "Sky TG24 Primo Piano",
+    "Sky Sport 4K",
+    "Sky Sport Info",
+    "Sky Cinema Uno +24",
+    "Eurosport 1",
+    "Eurosport 2",
+    "Class CNBC",
+    "Milan TV",
+    "Inter TV",
+    "DAZN 1",
+    "DAZN 2",
+    "Bike",
+    "Horse TV",
+    "Caccia e Pesca",
+    "Discovery Italy",
+    "Sky News",
+    "Sky News Arabia"
+  ],
+  "notes": [
+    "Sky Go channel numbers above are transcribed from Sky's official channel FAQ; the offer depends on the active subscription and can change.",
+    "A channel absent from the consulted Sky Go FAQ is marked for individual confirmation, not as definitively unavailable.",
+    "Samsung TV Plus, LG Channels and Rakuten TV are app-based FAST services; their public catalogues are not equivalent to downloadable M3U playlists.",
+    "The premium watchlist remains intact even where no standalone authorized stream URL exists."
+  ]
+}
