@@ -268,7 +268,9 @@
       "https://5dcabf026b188.streamlock.net/lanuovatvbas/livestream/playlist.m3u8"
     ],
     "tvip_puglia_tele_dehon": [
-      "https://5f22d76e220e1.streamlock.net/Teledehon/smil:Teledehon.smil/playlist.m3u8"
+      "https://5f22d76e220e1.streamlock.net/Teledehon/smil:Teledehon.smil/playlist.m3u8",
+      "https://5f22d76e220e1.streamlock.net/rtmpteledehon/smil:rtmpteledehon.smil/playlist.m3u8",
+      "https://64b16f23efbee.streamlock.net/teledehonapp/ngrp:teledehonapp_all/playlist.m3u8"
     ],
     "tvip_puglia_telenorba": [
       "https://live-telenorba.cdn.netrw.it/telenorba/hls/ccr/telenorba/master.m3u8"
@@ -336,6 +338,9 @@
     ],
     "tvip_sat_uninettuno_university_tv": [
       "https://stream6-rai-it.akamaized.net/live/uninettuno/playlist.m3u8"
+    ],
+    "tvip_sat_trm_h24": [
+      "https://w1.viastreaming.net/trmh24/live/playlist.m3u8"
     ]
   },
   "identity_required": {
@@ -348,6 +353,29 @@
           "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(r4)/index.m3u8"
         ]
       }
+    }
+  },
+  "official_page_evidence": {
+    "https://5f22d76e220e1.streamlock.net/rtmpteledehon/smil:rtmpteledehon.smil/playlist.m3u8": {
+      "channel": "tvip_puglia_tele_dehon",
+      "page": "https://www.teledehon.it/diretta.html",
+      "source_record": "data/official-manifest-candidates-2026-11-27.json",
+      "status": "public_broadcaster_declared_route_for_technical_audit",
+      "note": "Not a redistribution license; ordinary public playback only, no DRM or access control bypass."
+    },
+    "https://64b16f23efbee.streamlock.net/teledehonapp/ngrp:teledehonapp_all/playlist.m3u8": {
+      "channel": "tvip_puglia_tele_dehon",
+      "page": "https://www.teledehon.it/diretta.html",
+      "source_record": "data/official-manifest-candidates-2026-11-27.json",
+      "status": "public_broadcaster_declared_route_for_technical_audit",
+      "note": "Not a redistribution license; ordinary public playback only, no DRM or access control bypass."
+    },
+    "https://w1.viastreaming.net/trmh24/live/playlist.m3u8": {
+      "channel": "tvip_sat_trm_h24",
+      "page": "https://www.trmtv.it/",
+      "source_record": "data/official-manifest-candidates-2026-11-27.json",
+      "status": "public_broadcaster_declared_route_for_technical_audit",
+      "note": "Not a redistribution license; ordinary public playback only, no DRM or access control bypass."
     }
   }
 }
