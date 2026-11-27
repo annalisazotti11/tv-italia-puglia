@@ -105,8 +105,9 @@ def manifest_check(url, *, timeout=5, reviewed_redirects=False):
     try:
         req = urllib.request.Request(url, headers={
             'User-Agent': 'TVIdentityPilot/1.0',
-            'Accept': 'application/vnd.apple.mpegurl,application/dash+xml,*/*',
-            'Range': f'bytes=0-{MAX_MANIFEST - 1}'})
+            'Accept': 'application/vnd.apple.mpegurl,application/dash+xml,*/*'})
+        # A manifest is a small document, not a media segment. Request it normally
+        # and bound the bytes consumed locally; Range is not required by HLS/DASH.
         with opener.open(req, timeout=timeout) as response:
             data = response.read(MAX_MANIFEST).decode('utf-8-sig', errors='replace').lstrip()
         if data.startswith('#EXTM3U') and '#EXT-X-' in data:
