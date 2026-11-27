@@ -909,7 +909,8 @@
       "number": "10",
       "group": "TV locali Puglia",
       "premium": false,
-      "puglia_lcn": "10"
+      "puglia_lcn": "10",
+      "official_page": "https://telenorba.it/"
     },
     {
       "id": "tvip_puglia_teledue",
@@ -946,9 +947,10 @@
     {
       "id": "tvip_puglia_delta_tv",
       "name": "Delta TV",
-      "number": "",
+      "number": "83",
       "group": "TV locali Puglia",
-      "premium": false
+      "premium": false,
+      "puglia_lcn": "83"
     },
     {
       "id": "tvip_puglia_teleregione_color",
@@ -961,16 +963,18 @@
     {
       "id": "tvip_puglia_antenna_sud_extra",
       "name": "Antenna Sud Extra",
-      "number": "",
+      "number": "92",
       "group": "TV locali Puglia",
-      "premium": false
+      "premium": false,
+      "puglia_lcn": "92"
     },
     {
       "id": "tvip_puglia_7_gold_puglia",
       "name": "7 Gold Puglia",
-      "number": "",
+      "number": "84",
       "group": "TV locali Puglia",
-      "premium": false
+      "premium": false,
+      "puglia_lcn": "84"
     },
     {
       "id": "tvip_puglia_btv",
@@ -1098,7 +1102,8 @@
       "premium": false,
       "puglia_lcn": "79",
       "discovery_only": true,
-      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari",
+      "official_page": "https://linktr.ee/telemajg"
     },
     {
       "id": "tvip_puglia_teletrullo",
@@ -1189,7 +1194,27 @@
       "puglia_lcn": "98",
       "discovery_only": true,
       "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari",
-      "official_page": "https://www.studio100.it/"
+      "official_page": "https://www.studio100.it/stream/"
+    },
+    {
+      "id": "tvip_puglia_tele_foggia",
+      "name": "Tele Foggia",
+      "number": "88",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "88",
+      "discovery_only": true,
+      "metadata_source": "https://www.litaliaindigitale.it/news-regionali/puglia-news/260802-mux-locale-1-puglia-basilicata-reinserita-la-nuova-tv/"
+    },
+    {
+      "id": "tvip_puglia_cittadella_tv",
+      "name": "Cittadella TV",
+      "number": "94",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "94",
+      "discovery_only": true,
+      "metadata_source": "https://leucaonline.it/tv-a-leuca/"
     }
   ]
 }
