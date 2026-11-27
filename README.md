@@ -40,6 +40,7 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 - [Guida EPG con programmi e orari](data/epg-guide.json)
 - [Template responsive della guida TV](data/guide-ui.html)
 - [Piattaforme ufficiali e canali premium, con canali Sky Go confermati](data/official-platform-catalog.json)
+- [Manifest candidati trovati su pagine ufficiali (da verificare, non pubblicati)](data/official-manifest-candidates-2026-11-27.json)
 - [Worker 4.1.0](cloudflare/worker-tv-v4.1.0.js)
 
 ## Canale 5 — stato della sorgente Redge
