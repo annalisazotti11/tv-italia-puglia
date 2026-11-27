@@ -1,8 +1,13 @@
 {
   "version": "5.1.0",
   "status": "failure",
-  "stage": "visual_audit_and_cloudflare_deployment",
-  "source_commit": "45e8a959a1fe651c514b4f0f141e9f08674a8035",
+  "stage": "cloudflare_credentials",
+  "steps": {
+    "credentials": "failure",
+    "deployment": "skipped",
+    "production_verification": "skipped"
+  },
+  "source_commit": "c27714f4fd2cc48a982c1308d82b5a60590d5c96",
   "worker_url": "https://tv-italia-puglia.annalisazotti11.workers.dev",
-  "updated_at": "2026-11-27T15:33:45.030Z"
+  "updated_at": "2026-11-27T15:36:14.271Z"
 }
