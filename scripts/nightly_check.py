@@ -556,12 +556,14 @@ def registered_playlists():
                 not url.startswith('https://') or not safe_url(url) or url in seen_urls):
             continue
         seen_urls.add(url)
-        sources.append({'name': name, 'url': url, 'scope': scope})
+        sources.append({'name': name, 'url': url, 'scope': scope,
+                        'group_contains': str(item.get('group_contains', '')).strip().lower()})
     return sources
 
 
 def fetch_playlist_source(source):
     name, url, scope = source['name'], source['url'], source['scope']
+    group_contains = str(source.get('group_contains', '')).strip().lower()
     try:
         raw, _ct, _final = get(url, MAX_PLAYLIST_BYTES, timeout=11)
         data = raw.decode('utf-8-sig', errors='replace').lstrip()
@@ -570,11 +572,11 @@ def fetch_playlist_source(source):
             raise ValueError('Missing EXTM3U/EXTINF')
         count = data.count('#EXTINF:')
         entries = list(parse_m3u(data))
-        return {'name': name, 'scope': scope, 'read': True,
+        return {'name': name, 'scope': scope, 'group_contains': group_contains, 'read': True,
                 'entries': count, 'candidates': entries,
                 'truncated': len(raw) >= MAX_PLAYLIST_BYTES}
     except Exception as exc:
-        return {'name': name, 'scope': scope, 'read': False,
+        return {'name': name, 'scope': scope, 'group_contains': group_contains, 'read': False,
                 'entries': 0, 'candidates': [], 'reason': type(exc).__name__}
 
 
@@ -590,7 +592,11 @@ def scan_playlists(channels, by_name):
                 # Community indexes are discovery only. Never probe their unknown
                 # endpoints or change the playback catalog because of an index hit.
                 matched = set()
+                group_contains = str(result.get('group_contains', '')).lower()
                 for item in candidates:
+                    group_title = str(item.get('attrs', {}).get('group-title', '')).lower()
+                    if group_contains and group_contains not in group_title:
+                        continue
                     for cid in by_name.get(normalize(item['name']), []):
                         if cid in channels:
                             matched.add(cid)
