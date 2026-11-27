@@ -86,4 +86,4 @@ Il [programma locale](tools/local-sample-analysis/LEGGIMI.txt) accetta esclusiva
 
 ### Nuove fonti community — sola identificazione
 
-`nicolofajette/Canali` è registrata come `index_only`: il workflow legge i nomi dei canali ma non prova gli endpoint della playlist. È stata aggiunta anche `untiiis/liste` con la stessa modalità. Le etichette community non confermate (per esempio Sky Cinema Due e alcune voci DAZN) restano nella watchlist come metadati e non vengono mostrate in Nuvio senza una sorgente verificata e autorizzata. Gli indici non-M3U sono documentati in `data/community-channel-indexes.json`.
+`nicolofajette/Canali` è registrata come `index_only`: il workflow legge i nomi dei canali ma non prova gli endpoint della playlist. È stata aggiunta anche `untiiis/liste` con la stessa modalità e filtro sul `group-title` Italia (51 voci italiane, anziché usare le 1.473 voci globali). Le etichette community non confermate (per esempio Sky Cinema Due e alcune voci DAZN) restano nella watchlist come metadati e non vengono mostrate in Nuvio senza una sorgente verificata e autorizzata. Gli indici non-M3U sono documentati in `data/community-channel-indexes.json`.
