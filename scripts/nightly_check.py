@@ -83,7 +83,7 @@ TIMEOUT = 5.5
 ALIASES = {
     'rai uno': 'rai 1', 'rai due': 'rai 2', 'rai tre': 'rai 3',
     'tele bari': 'telebari', 'radio norba tv': 'radionorba tv',
-    'sky sport nba': 'sky sport basket', 'sky sport 24': 'sky sport24',
+    'sky sport nba': 'sky sport basket', 'sky sports nba': 'sky sport basket', 'sky sports tennis': 'sky sport tennis', 'sky sports f1': 'sky sport f1', 'sky sports arena': 'sky sport arena', 'sky sports golf': 'sky sport golf', 'sky sports motogp': 'sky sport motogp', 'sky sports calcio': 'sky sport calcio', 'sky sports max': 'sky sport max', 'sky sports 24': 'sky sport24', 'discovery hgtv': 'hgtv', 'discovery dmax': 'dmax', 'discovery realtime': 'real time', 'mototrend': 'motor trend', 'dea junior': 'deajunior', 'sky sport 24': 'sky sport24',
     'rete4': 'rete 4', 'retequattro': 'rete 4', 'la 7': 'la7',
     'twentyseven': '27 twentyseven', 'twenty seven': '27 twentyseven',
     'la5': 'la 5', 'rai news24': 'rai news 24',
@@ -211,6 +211,8 @@ def wrong_channel_redirect(channel_id: str, final_url: str) -> bool:
 def normalize(s: str) -> str:
     s = unicodedata.normalize('NFD', str(s or ''))
     s = ''.join(x for x in s if unicodedata.category(x) != 'Mn').lower()
+    # Normalize community playlist quality suffixes written with superscript letters.
+    s = s.replace('ᶠʰᵈ', ' ').replace('ᵘʰᵈ', ' ').replace('ˢᵈ', ' ')
     s = re.sub(r'^[\s\[\(]*(?:it|ita|italy|italia)\s*[:|\]\)\-]+\s*', '', s)
     s = re.sub(r'[^a-z0-9]+', ' ', s).strip()
     # Only remove generic trailing quality labels; don't alter channel identity.
