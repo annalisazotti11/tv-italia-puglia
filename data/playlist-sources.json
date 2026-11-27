@@ -400,7 +400,8 @@
     {
       "name": "untiiis/liste Italia (community, sola identificazione)",
       "url": "https://raw.githubusercontent.com/untiiis/liste/4da85cc3c00e8d5b942e07e0dc6676aee63a0fe4/pp.txt",
-      "scope": "index_only"
+      "scope": "index_only",
+      "group_contains": "italy"
     }
   ]
 }
