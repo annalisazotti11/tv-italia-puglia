@@ -230,6 +230,31 @@ def build(review, policy, previous=None, inspect_fn=inspect_retry):
                         'retained_recent': sum(bool(s.get('retained')) for c in channels.values() for s in c['verified']),
                         'excluded': dict(reasons)}}
 
+def annotate_review_queue(result, legacy):
+    """Count technically promising routes without exposing their URLs or promoting them."""
+    priority = []
+    for cid, channel in result['channels'].items():
+        old = legacy.get('channels', {}).get(cid, {})
+        audit = channel.setdefault('audit', {})
+        av = sum(row.get('playback_ready') is True and row.get('has_audio') is True
+                 and row.get('has_video') is True for row in old.get('verified', []))
+        audit['preliminary_av_count'] = av
+        if not channel.get('verified') and av:
+            name = channel.get('name') or old.get('name') or cid
+            group = channel.get('group') or old.get('group') or ''
+            priority.append({'id': cid, 'name': name, 'group': group,
+                             'preliminary_av_count': av,
+                             'availability': audit.get('availability', 'unknown')})
+    def order(item):
+        n = item['name'].casefold()
+        g = item['group'].casefold()
+        primary = n.startswith(('rai', 'canale 5', 'rete 4', 'italia 1', 'la7', 'tv8', 'nove'))
+        local = 'puglia' in g or 'puglia' in item['id'] or 'tgr puglia' in n
+        return (not primary, not local, -item['preliminary_av_count'], n)
+    result['review_queue'] = sorted(priority, key=order)
+    result['summary']['preliminary_av_without_final_pass'] = len(priority)
+    return result
+
 def main():
     review, policy = read(REVIEW), read(POLICY)
     previous = read(OUTPUT) if OUTPUT.exists() else {}
@@ -290,6 +315,7 @@ def main():
     result['summary']['awaiting_source_review'] = sum(
         c.get('audit', {}).get('status') == 'awaiting_source_review'
         for c in result['channels'].values())
+    annotate_review_queue(result, read(legacy) if legacy.exists() else {})
     tmp = OUTPUT.with_suffix('.tmp')
     tmp.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     tmp.replace(OUTPUT)
