@@ -341,6 +341,9 @@
     ],
     "tvip_sat_trm_h24": [
       "https://w1.viastreaming.net/trmh24/live/playlist.m3u8"
+    ],
+    "tvip_puglia_studio_100": [
+      "https://cdn16.streamshow.it/cloud-studio100/studio100/playlist.m3u8"
     ]
   },
   "identity_required": {
@@ -352,6 +355,12 @@
           "https://live03-col.msf.cdn.mediaset.net/live/ch-r4/r4-clr.isml/manifest.mpd",
           "https://live2-mediaset-it.akamaized.net/content/hls_h0_clr_vos/live/channel(r4)/index.m3u8"
         ]
+      }
+    },
+    "tvip_puglia_studio_100": {
+      "https://cdn16.streamshow.it/cloud-studio100/studio100/playlist.m3u8": {
+        "references": [],
+        "reason": "Exact route not declared in accessible official HTML; require authentic on-air identity corroboration."
       }
     }
   },
@@ -376,6 +385,13 @@
       "source_record": "data/official-manifest-candidates-2026-11-27.json",
       "status": "public_broadcaster_declared_route_for_technical_audit",
       "note": "Not a redistribution license; ordinary public playback only, no DRM or access control bypass."
+    },
+    "https://cdn16.streamshow.it/cloud-studio100/studio100/playlist.m3u8": {
+      "channel": "tvip_puglia_studio_100",
+      "page": "https://www.studio100.it/stream/",
+      "embedded_player": "https://cdn20.streamshow.it/hosted/html/studio100.html",
+      "status": "same_broadcaster_player_provider_channel_named_candidate",
+      "note": "Official embedded player confirms StreamShow as provider; exact candidate URL not independently extracted from player. Requires full audit; technical validation is not a redistribution license."
     }
   }
 }
