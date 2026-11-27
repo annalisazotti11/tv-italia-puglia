@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "mode": "reviewed_visual_gate_v1",
-  "generated_at": "2026-11-27T23:17:13.606876+00:00",
+  "generated_at": "2026-11-27T23:25:46.377949+00:00",
   "channels": {
     "tvip_101_rai-4k-hbbtv": {
       "verified": [],
@@ -10,7 +10,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "access_denied_unconfirmed"
+        "availability": "access_denied_unconfirmed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Rai 4K (HbbTV)",
@@ -25,7 +26,8 @@
         "failed": {
           "ffprobe_error": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Rai 3 TGR Puglia",
@@ -40,7 +42,8 @@
         "failed": {
           "http_302": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 2
       },
       "verified_count": 0,
       "name": "Radionorba TV",
@@ -53,7 +56,7 @@
         {
           "channel": "tvip_13_tg-norba-24",
           "url": "https://stream6.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8",
-          "checked_at": "2026-11-27T23:13:06.811135+00:00",
+          "checked_at": "2026-11-27T23:21:12.074065+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -61,8 +64,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3701,
-          "probe_ms": 3701,
+          "startup_ms": 4361,
+          "probe_ms": 4361,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 404,
@@ -72,12 +75,12 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 4117.99,
+          "success_runs": 16,
+          "rank_score": 4116.389999999999,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:06.811135+00:00",
-          "last_ok": "2026-11-27T23:13:06.811135+00:00"
+          "playback_checked_at": "2026-11-27T23:21:12.074065+00:00",
+          "last_ok": "2026-11-27T23:21:12.074065+00:00"
         }
       ],
       "audit": {
@@ -85,7 +88,8 @@
         "failed": {
           "no_packets": 1
         },
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "TG Norba 24",
@@ -98,7 +102,7 @@
         {
           "channel": "tvip_145_padre-pio-tv",
           "url": "https://600f07e114306.streamlock.net/PadrePioTV/livestream/playlist.m3u8",
-          "checked_at": "2026-11-27T23:13:06.814818+00:00",
+          "checked_at": "2026-11-27T23:21:12.079924+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -106,8 +110,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3528,
-          "probe_ms": 3528,
+          "startup_ms": 4151,
+          "probe_ms": 4151,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -117,18 +121,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10879.72,
+          "success_runs": 16,
+          "rank_score": 10878.49,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:06.814818+00:00",
-          "last_ok": "2026-11-27T23:13:06.814818+00:00"
+          "playback_checked_at": "2026-11-27T23:21:12.079924+00:00",
+          "last_ok": "2026-11-27T23:21:12.079924+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Padre Pio TV",
@@ -175,7 +180,8 @@
         "failed": {
           "ffprobe_timeout": 1
         },
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 0
       },
       "verified_count": 1,
       "name": "Antenna Sud",
@@ -188,7 +194,7 @@
         {
           "channel": "tvip_158_radio-kiss-kiss-tv",
           "url": "https://kk.fluid.stream/KKMulti/smil:KissKissTV.smil/playlist.m3u8",
-          "checked_at": "2026-11-27T23:13:08.111195+00:00",
+          "checked_at": "2026-11-27T23:21:12.704869+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -196,8 +202,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 5463,
-          "probe_ms": 5463,
+          "startup_ms": 5528,
+          "probe_ms": 5528,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -207,18 +213,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 7260.37,
+          "success_runs": 16,
+          "rank_score": 7264.72,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:08.111195+00:00",
-          "last_ok": "2026-11-27T23:13:08.111195+00:00"
+          "playback_checked_at": "2026-11-27T23:21:12.704869+00:00",
+          "last_ok": "2026-11-27T23:21:12.704869+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Radio Kiss Kiss TV",
@@ -255,15 +262,19 @@
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
           "playback_checked_at": "2026-11-27T23:13:28.553899+00:00",
-          "last_ok": "2026-11-27T23:13:28.553899+00:00"
+          "last_ok": "2026-11-27T23:13:28.553899+00:00",
+          "retained": true,
+          "retained_reason": "manifest_unavailable"
         }
       ],
       "audit": {
         "tested": 2,
         "failed": {
-          "ffprobe_error": 1
+          "video_only": 1,
+          "manifest_unavailable": 1
         },
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Telebari",
@@ -278,7 +289,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "access_denied_unconfirmed"
+        "availability": "access_denied_unconfirmed",
+        "preliminary_av_count": 3
       },
       "verified_count": 0,
       "name": "Rai 1 HD",
@@ -294,7 +306,8 @@
           "http_403": 2,
           "manifest_unavailable": 2
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "20 Mediaset HD",
@@ -309,7 +322,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "access_denied_unconfirmed"
+        "availability": "access_denied_unconfirmed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Rai 4",
@@ -325,7 +339,8 @@
           "http_403": 3,
           "manifest_unavailable": 2
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Iris",
@@ -338,7 +353,7 @@
         {
           "channel": "tvip_233_rtl-102-5-news",
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S38122967/2lyQRIAAGgRR/playlist_video.m3u8",
-          "checked_at": "2026-11-27T23:13:34.048604+00:00",
+          "checked_at": "2026-11-27T23:21:40.331955+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -346,8 +361,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 12188,
-          "probe_ms": 12188,
+          "startup_ms": 13514,
+          "probe_ms": 13514,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -357,18 +372,19 @@
             "matches": 0
           },
           "attempts": 2,
-          "success_runs": 4,
-          "rank_score": 10738.12,
+          "success_runs": 5,
+          "rank_score": 10729.86,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:34.048604+00:00",
-          "last_ok": "2026-11-27T23:13:34.048604+00:00"
+          "playback_checked_at": "2026-11-27T23:21:40.331955+00:00",
+          "last_ok": "2026-11-27T23:21:40.331955+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "RTL 102.5 News",
@@ -383,7 +399,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "access_denied_unconfirmed"
+        "availability": "access_denied_unconfirmed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Rai 5",
@@ -398,7 +415,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "access_denied_unconfirmed"
+        "availability": "access_denied_unconfirmed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Rai Movie",
@@ -411,7 +429,7 @@
         {
           "channel": "tvip_258_radiofreccia",
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/0tuSetc8UFkF/playlist_video.m3u8",
-          "checked_at": "2026-11-27T23:13:34.671016+00:00",
+          "checked_at": "2026-11-27T23:21:40.934221+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -419,8 +437,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 14849,
-          "probe_ms": 14849,
+          "startup_ms": 16775,
+          "probe_ms": 16775,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -430,18 +448,19 @@
             "matches": 0
           },
           "attempts": 2,
-          "success_runs": 4,
-          "rank_score": 10711.51,
+          "success_runs": 5,
+          "rank_score": 10715.0,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:34.671016+00:00",
-          "last_ok": "2026-11-27T23:13:34.671016+00:00"
+          "playback_checked_at": "2026-11-27T23:21:40.934221+00:00",
+          "last_ok": "2026-11-27T23:21:40.934221+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 3
       },
       "verified_count": 1,
       "name": "RADIOFRECCIA",
@@ -456,7 +475,8 @@
         "failed": {
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Byoblu",
@@ -469,7 +489,7 @@
         {
           "channel": "tvip_265_rds-social-tv",
           "url": "https://stream.rdstv.radio/index.m3u8",
-          "checked_at": "2026-11-27T23:13:23.776382+00:00",
+          "checked_at": "2026-11-27T23:21:29.749021+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -477,8 +497,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4085,
-          "probe_ms": 4085,
+          "startup_ms": 4099,
+          "probe_ms": 4099,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -488,18 +508,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 9,
-          "rank_score": 10844.15,
+          "success_runs": 10,
+          "rank_score": 10849.01,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:23.776382+00:00",
-          "last_ok": "2026-11-27T23:13:23.776382+00:00"
+          "playback_checked_at": "2026-11-27T23:21:29.749021+00:00",
+          "last_ok": "2026-11-27T23:21:29.749021+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "RDS Social TV",
@@ -512,7 +533,7 @@
         {
           "channel": "tvip_266_radio-zeta",
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/playlist_video.m3u8",
-          "checked_at": "2026-11-27T23:13:43.553126+00:00",
+          "checked_at": "2026-11-27T23:21:50.983305+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -520,8 +541,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 13279,
-          "probe_ms": 13279,
+          "startup_ms": 15576,
+          "probe_ms": 15576,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -531,18 +552,19 @@
             "matches": 0
           },
           "attempts": 2,
-          "success_runs": 4,
-          "rank_score": 10727.21,
+          "success_runs": 5,
+          "rank_score": 10715.0,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:43.553126+00:00",
-          "last_ok": "2026-11-27T23:13:43.553126+00:00"
+          "playback_checked_at": "2026-11-27T23:21:50.983305+00:00",
+          "last_ok": "2026-11-27T23:21:50.983305+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 3
       },
       "verified_count": 1,
       "name": "RADIO ZETA",
@@ -558,7 +580,8 @@
           "http_403": 3,
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "27 Twentyseven",
@@ -573,7 +596,8 @@
         "failed": {
           "http_302": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
       },
       "verified_count": 0,
       "name": "TV2000",
@@ -586,7 +610,7 @@
         {
           "channel": "tvip_29_la7-cinema",
           "url": "https://d15umi5iaezxgx.cloudfront.net/HBBTV/LA7D/DASH/Live.mpd",
-          "checked_at": "2026-11-27T23:13:37.881447+00:00",
+          "checked_at": "2026-11-27T23:21:48.353014+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -594,8 +618,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3260,
-          "probe_ms": 3260,
+          "startup_ms": 3091,
+          "probe_ms": 3091,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -604,13 +628,13 @@
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 2,
-          "success_runs": 7,
-          "rank_score": 7242.4,
+          "attempts": 1,
+          "success_runs": 8,
+          "rank_score": 7249.09,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "DASH",
-          "playback_checked_at": "2026-11-27T23:13:37.881447+00:00",
-          "last_ok": "2026-11-27T23:13:37.881447+00:00"
+          "playback_checked_at": "2026-11-27T23:21:48.353014+00:00",
+          "last_ok": "2026-11-27T23:21:48.353014+00:00"
         }
       ],
       "audit": {
@@ -618,7 +642,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "LA7 Cinema",
@@ -633,7 +658,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "access_denied_unconfirmed"
+        "availability": "access_denied_unconfirmed",
+        "preliminary_av_count": 2
       },
       "verified_count": 0,
       "name": "Rai 2 HD",
@@ -649,7 +675,8 @@
           "http_403": 3,
           "manifest_unavailable": 2
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "La5",
@@ -662,7 +689,7 @@
         {
           "channel": "tvip_31_real-time",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/REALTIME/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:13:46.999057+00:00",
+          "checked_at": "2026-11-27T23:21:55.375614+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -670,8 +697,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 5411,
-          "probe_ms": 5411,
+          "startup_ms": 5305,
+          "probe_ms": 5305,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -681,18 +708,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10860.89,
+          "success_runs": 16,
+          "rank_score": 10866.95,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:46.999057+00:00",
-          "last_ok": "2026-11-27T23:13:46.999057+00:00"
+          "playback_checked_at": "2026-11-27T23:21:55.375614+00:00",
+          "last_ok": "2026-11-27T23:21:55.375614+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "Real Time",
@@ -705,7 +733,7 @@
         {
           "channel": "tvip_32_qvc",
           "url": "https://qrg.akamaized.net/hls/live/2017383/lsqvc1it/master.m3u8",
-          "checked_at": "2026-11-27T23:13:47.097353+00:00",
+          "checked_at": "2026-11-27T23:21:57.105050+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -713,29 +741,30 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 5241,
-          "probe_ms": 5241,
+          "startup_ms": 9044,
+          "probe_ms": 9044,
           "video_codec": "h264",
           "audio_codec": "aac",
-          "playback_height": 540,
+          "playback_height": 720,
           "reason": "audio_video_packets",
           "watermark": {
             "status": "reference_missing",
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 5462.59,
+          "success_runs": 16,
+          "rank_score": 7229.56,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:47.097353+00:00",
-          "last_ok": "2026-11-27T23:13:47.097353+00:00"
+          "playback_checked_at": "2026-11-27T23:21:57.105050+00:00",
+          "last_ok": "2026-11-27T23:21:57.105050+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "QVC",
@@ -748,7 +777,7 @@
         {
           "channel": "tvip_33_food-network",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/FOODNETWORK/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:13:52.948769+00:00",
+          "checked_at": "2026-11-27T23:21:58.184994+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -756,8 +785,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4104,
-          "probe_ms": 4104,
+          "startup_ms": 5009,
+          "probe_ms": 5009,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -767,18 +796,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10873.96,
+          "success_runs": 16,
+          "rank_score": 10869.91,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:52.948769+00:00",
-          "last_ok": "2026-11-27T23:13:52.948769+00:00"
+          "playback_checked_at": "2026-11-27T23:21:58.184994+00:00",
+          "last_ok": "2026-11-27T23:21:58.184994+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Food Network",
@@ -794,7 +824,8 @@
           "http_403": 3,
           "manifest_unavailable": 2
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Cine34",
@@ -810,7 +841,8 @@
           "http_403": 3,
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Focus",
@@ -823,7 +855,7 @@
         {
           "channel": "tvip_36_rtl-102-5",
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_video.m3u8",
-          "checked_at": "2026-11-27T23:14:00.593968+00:00",
+          "checked_at": "2026-11-27T23:22:22.596542+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -831,37 +863,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 10419,
-          "probe_ms": 10419,
-          "video_codec": "h264",
-          "audio_codec": "aac",
-          "playback_height": 1080,
-          "reason": "audio_video_packets",
-          "watermark": {
-            "status": "reference_missing",
-            "matches": 0
-          },
-          "attempts": 1,
-          "success_runs": 4,
-          "rank_score": 10755.81,
-          "source": "Percorso emittente/CDN già revisionato",
-          "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:00.593968+00:00",
-          "last_ok": "2026-11-27T23:14:00.593968+00:00"
-        },
-        {
-          "channel": "tvip_36_rtl-102-5",
-          "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist.m3u8",
-          "checked_at": "2026-11-27T23:14:12.881740+00:00",
-          "content_status": "no_high_confidence_flag",
-          "sampled_frames": 5,
-          "identity_required": false,
-          "identity_status": "not_required",
-          "playback_ready": true,
-          "has_video": true,
-          "has_audio": true,
-          "startup_ms": 17057,
-          "probe_ms": 17057,
+          "startup_ms": 13601,
+          "probe_ms": 13601,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -871,18 +874,48 @@
             "matches": 0
           },
           "attempts": 2,
-          "success_runs": 4,
-          "rank_score": 10710.0,
+          "success_runs": 5,
+          "rank_score": 10728.99,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:12.881740+00:00",
-          "last_ok": "2026-11-27T23:14:12.881740+00:00"
+          "playback_checked_at": "2026-11-27T23:22:22.596542+00:00",
+          "last_ok": "2026-11-27T23:22:22.596542+00:00"
+        },
+        {
+          "channel": "tvip_36_rtl-102-5",
+          "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist.m3u8",
+          "checked_at": "2026-11-27T23:22:21.608768+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 18580,
+          "probe_ms": 18580,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 1080,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 2,
+          "success_runs": 5,
+          "rank_score": 10715.0,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:22:21.608768+00:00",
+          "last_ok": "2026-11-27T23:22:21.608768+00:00"
         }
       ],
       "audit": {
         "tested": 2,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 2,
       "name": "RTL 102.5",
@@ -897,7 +930,8 @@
         "failed": {
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
       },
       "verified_count": 0,
       "name": "Warner TV",
@@ -910,7 +944,7 @@
         {
           "channel": "tvip_38_giallo",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/GIALLO/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:14:02.923942+00:00",
+          "checked_at": "2026-11-27T23:22:14.281573+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -918,8 +952,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3307,
-          "probe_ms": 3307,
+          "startup_ms": 4863,
+          "probe_ms": 4863,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -929,12 +963,12 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10881.93,
+          "success_runs": 16,
+          "rank_score": 10871.37,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:02.923942+00:00",
-          "last_ok": "2026-11-27T23:14:02.923942+00:00"
+          "playback_checked_at": "2026-11-27T23:22:14.281573+00:00",
+          "last_ok": "2026-11-27T23:22:14.281573+00:00"
         }
       ],
       "audit": {
@@ -942,7 +976,8 @@
         "failed": {
           "manifest_unavailable": 1
         },
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "Giallo",
@@ -958,7 +993,8 @@
           "http_403": 2,
           "manifest_unavailable": 2
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Top Crime",
@@ -973,7 +1009,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "access_denied_unconfirmed"
+        "availability": "access_denied_unconfirmed",
+        "preliminary_av_count": 3
       },
       "verified_count": 0,
       "name": "Rai 3 HD",
@@ -989,7 +1026,8 @@
           "http_403": 2,
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
       },
       "verified_count": 0,
       "name": "Boing",
@@ -1004,7 +1042,8 @@
         "failed": {
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "K2",
@@ -1019,7 +1058,8 @@
         "failed": {
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Frisbee",
@@ -1035,7 +1075,8 @@
           "http_403": 2,
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
       },
       "verified_count": 0,
       "name": "Cartoonito",
@@ -1048,9 +1089,55 @@
         {
           "channel": "tvip_47_super",
           "url": "https://495c5a85d9074f29acffeaea9e0215eb.msvdn.net/super/super_main/super_main_hbbtv/playlist.m3u8",
-          "checked_at": "2026-11-27T23:14:08.135808+00:00",
+          "checked_at": "2026-11-27T23:22:19.808549+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 4974,
+          "probe_ms": 4974,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 720,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 1,
+          "success_runs": 5,
+          "rank_score": 7215.26,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:22:19.808549+00:00",
+          "last_ok": "2026-11-27T23:22:19.808549+00:00"
+        }
+      ],
+      "audit": {
+        "tested": 2,
+        "failed": {
+          "no_packets": 1
+        },
+        "availability": "verified",
+        "preliminary_av_count": 2
+      },
+      "verified_count": 1,
+      "name": "Super!",
+      "number": "47",
+      "group": "Canali TV",
+      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/47-super.png"
+    },
+    "tvip_48_rai-news-24": {
+      "verified": [
+        {
+          "channel": "tvip_48_rai-news-24",
+          "url": "https://rainews1-dash-live.akamaized.net/dash/live/663981/rainews1/manifest.mpd",
+          "checked_at": "2026-11-27T23:22:23.437604+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 4,
           "identity_required": false,
           "identity_status": "not_required",
           "playback_ready": true,
@@ -1067,57 +1154,12 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 4,
-          "rank_score": 7222.55,
-          "source": "Percorso emittente/CDN già revisionato",
-          "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:08.135808+00:00",
-          "last_ok": "2026-11-27T23:14:08.135808+00:00"
-        }
-      ],
-      "audit": {
-        "tested": 2,
-        "failed": {
-          "no_packets": 1
-        },
-        "availability": "verified"
-      },
-      "verified_count": 1,
-      "name": "Super!",
-      "number": "47",
-      "group": "Canali TV",
-      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/47-super.png"
-    },
-    "tvip_48_rai-news-24": {
-      "verified": [
-        {
-          "channel": "tvip_48_rai-news-24",
-          "url": "https://rainews1-dash-live.akamaized.net/dash/live/663981/rainews1/manifest.mpd",
-          "checked_at": "2026-11-27T23:14:10.943395+00:00",
-          "content_status": "no_high_confidence_flag",
-          "sampled_frames": 4,
-          "identity_required": false,
-          "identity_status": "not_required",
-          "playback_ready": true,
-          "has_video": true,
-          "has_audio": true,
-          "startup_ms": 3057,
-          "probe_ms": 3057,
-          "video_codec": "h264",
-          "audio_codec": "aac",
-          "playback_height": 720,
-          "reason": "audio_video_packets",
-          "watermark": {
-            "status": "reference_missing",
-            "matches": 0
-          },
-          "attempts": 1,
-          "success_runs": 4,
-          "rank_score": 7229.43,
+          "success_runs": 5,
+          "rank_score": 7227.55,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "DASH",
-          "playback_checked_at": "2026-11-27T23:14:10.943395+00:00",
-          "last_ok": "2026-11-27T23:14:10.943395+00:00"
+          "playback_checked_at": "2026-11-27T23:22:23.437604+00:00",
+          "last_ok": "2026-11-27T23:22:23.437604+00:00"
         }
       ],
       "audit": {
@@ -1125,7 +1167,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 3
       },
       "verified_count": 1,
       "name": "Rai News 24",
@@ -1141,7 +1184,8 @@
           "http_403": 2,
           "manifest_unavailable": 2
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
       },
       "verified_count": 0,
       "name": "Italia 2",
@@ -1158,7 +1202,8 @@
           "manifest_unavailable": 3,
           "channel_identity_unconfirmed": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
       },
       "verified_count": 0,
       "name": "Rete 4 HD",
@@ -1173,7 +1218,8 @@
         "failed": {
           "manifest_unavailable": 2
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 3
       },
       "verified_count": 0,
       "name": "TGCOM24",
@@ -1186,7 +1232,7 @@
         {
           "channel": "tvip_52_dmax",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:14:18.244549+00:00",
+          "checked_at": "2026-11-27T23:22:31.049807+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1194,8 +1240,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4653,
-          "probe_ms": 4653,
+          "startup_ms": 5189,
+          "probe_ms": 5189,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1205,18 +1251,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10868.47,
+          "success_runs": 16,
+          "rank_score": 10868.11,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:18.244549+00:00",
-          "last_ok": "2026-11-27T23:14:18.244549+00:00"
+          "playback_checked_at": "2026-11-27T23:22:31.049807+00:00",
+          "last_ok": "2026-11-27T23:22:31.049807+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "DMAX",
@@ -1231,7 +1278,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "access_denied_unconfirmed"
+        "availability": "access_denied_unconfirmed",
+        "preliminary_av_count": 1
       },
       "verified_count": 0,
       "name": "Rai Storia",
@@ -1247,7 +1295,8 @@
           "http_403": 2,
           "manifest_unavailable": 2
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
       },
       "verified_count": 0,
       "name": "Mediaset Extra",
@@ -1260,7 +1309,7 @@
         {
           "channel": "tvip_56_hgtv",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/HGTV/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:14:21.448631+00:00",
+          "checked_at": "2026-11-27T23:22:38.760991+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1268,8 +1317,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4237,
-          "probe_ms": 4237,
+          "startup_ms": 3646,
+          "probe_ms": 3646,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1279,18 +1328,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10872.63,
+          "success_runs": 16,
+          "rank_score": 10883.54,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:21.448631+00:00",
-          "last_ok": "2026-11-27T23:14:21.448631+00:00"
+          "playback_checked_at": "2026-11-27T23:22:38.760991+00:00",
+          "last_ok": "2026-11-27T23:22:38.760991+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 4
       },
       "verified_count": 1,
       "name": "HGTV",
@@ -1303,7 +1353,7 @@
         {
           "channel": "tvip_59_discovery-turbo",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/TURBO/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:14:26.562120+00:00",
+          "checked_at": "2026-11-27T23:22:39.826680+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1311,8 +1361,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3317,
-          "probe_ms": 3317,
+          "startup_ms": 3716,
+          "probe_ms": 3716,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1322,18 +1372,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10881.83,
+          "success_runs": 16,
+          "rank_score": 10882.84,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:26.562120+00:00",
-          "last_ok": "2026-11-27T23:14:26.562120+00:00"
+          "playback_checked_at": "2026-11-27T23:22:39.826680+00:00",
+          "last_ok": "2026-11-27T23:22:39.826680+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Discovery Turbo",
@@ -1349,7 +1400,8 @@
           "http_403": 2,
           "manifest_unavailable": 2
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Canale 5 HD",
@@ -1365,7 +1417,8 @@
           "http_302": 1,
           "http_403": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 3
       },
       "verified_count": 0,
       "name": "Sportitalia",
@@ -1381,7 +1434,8 @@
           "http_403": 1,
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Donna TV",
@@ -1394,7 +1448,7 @@
         {
           "channel": "tvip_63_il-sole-24-ore-tv",
           "url": "https://ilsole24ore-radiovisual.akamaized.net/hls/live/2035302/persidera/master.m3u8",
-          "checked_at": "2026-11-27T23:14:29.888810+00:00",
+          "checked_at": "2026-11-27T23:22:49.598388+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1402,8 +1456,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 2134,
-          "probe_ms": 2134,
+          "startup_ms": 1991,
+          "probe_ms": 1991,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1413,18 +1467,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10893.66,
+          "success_runs": 16,
+          "rank_score": 10900.09,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:29.888810+00:00",
-          "last_ok": "2026-11-27T23:14:29.888810+00:00"
+          "playback_checked_at": "2026-11-27T23:22:49.598388+00:00",
+          "last_ok": "2026-11-27T23:22:49.598388+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Il Sole 24 ORE TV",
@@ -1439,7 +1494,8 @@
         "failed": {
           "http_403": 1
         },
-        "availability": "access_denied_unconfirmed"
+        "availability": "access_denied_unconfirmed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Supertennis",
@@ -1454,7 +1510,8 @@
         "failed": {
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "ALMA TV",
@@ -1467,7 +1524,277 @@
         {
           "channel": "tvip_66_radio-105-tv",
           "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/index.m3u8",
-          "checked_at": "2026-11-27T23:14:51.944825+00:00",
+          "checked_at": "2026-11-27T23:23:06.714214+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 20122,
+          "probe_ms": 20122,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 1080,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 2,
+          "success_runs": 8,
+          "rank_score": 10730.0,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:23:06.714214+00:00",
+          "last_ok": "2026-11-27T23:23:06.714214+00:00"
+        }
+      ],
+      "audit": {
+        "tested": 2,
+        "failed": {
+          "ffprobe_timeout": 1
+        },
+        "availability": "verified",
+        "preliminary_av_count": 2
+      },
+      "verified_count": 1,
+      "name": "Radio 105 TV",
+      "number": "66",
+      "group": "Canali TV",
+      "logo": "https://i.imgur.com/3NiLKvj.png"
+    },
+    "tvip_67_r101-tv": {
+      "verified": [
+        {
+          "channel": "tvip_67_r101-tv",
+          "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-er/er-clr.isml/index.m3u8",
+          "checked_at": "2026-11-27T23:23:13.221258+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 18425,
+          "probe_ms": 18425,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 1080,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 2,
+          "success_runs": 9,
+          "rank_score": 10735.0,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:23:13.221258+00:00",
+          "last_ok": "2026-11-27T23:23:13.221258+00:00"
+        }
+      ],
+      "audit": {
+        "tested": 2,
+        "failed": {
+          "ffprobe_timeout": 1
+        },
+        "availability": "verified",
+        "preliminary_av_count": 1
+      },
+      "verified_count": 1,
+      "name": "R101 TV",
+      "number": "67",
+      "group": "Canali TV",
+      "logo": "https://i.imgur.com/mWeEa9T.png"
+    },
+    "tvip_69_deejay-tv-hd": {
+      "verified": [
+        {
+          "channel": "tvip_69_deejay-tv-hd",
+          "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S85984808/sMO0tz9Sr2Rk/playlist.m3u8",
+          "checked_at": "2026-11-27T23:23:21.405853+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 14977,
+          "probe_ms": 14977,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 1080,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 2,
+          "success_runs": 5,
+          "rank_score": 10715.23,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:23:21.405853+00:00",
+          "last_ok": "2026-11-27T23:23:21.405853+00:00"
+        }
+      ],
+      "audit": {
+        "tested": 1,
+        "failed": {},
+        "availability": "verified",
+        "preliminary_av_count": 2
+      },
+      "verified_count": 1,
+      "name": "Deejay TV HD",
+      "number": "69",
+      "group": "Canali TV",
+      "logo": "https://i.imgur.com/rlaKH6k.png"
+    },
+    "tvip_6_italia-1-hd": {
+      "verified": [],
+      "audit": {
+        "tested": 4,
+        "failed": {
+          "http_403": 2,
+          "manifest_unavailable": 2
+        },
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
+      },
+      "verified_count": 0,
+      "name": "Italia 1 HD",
+      "number": "6",
+      "group": "Canali TV",
+      "logo": "https://i.imgur.com/oCiOxBG.png"
+    },
+    "tvip_70_radioitaliatv": {
+      "verified": [
+        {
+          "channel": "tvip_70_radioitaliatv",
+          "url": "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/stream03/streamPlaylist.m3u8",
+          "checked_at": "2026-11-27T23:23:32.477042+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 667,
+          "probe_ms": 667,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 576,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 1,
+          "success_runs": 16,
+          "rank_score": 5873.33,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:23:32.477042+00:00",
+          "last_ok": "2026-11-27T23:23:32.477042+00:00"
+        },
+        {
+          "channel": "tvip_70_radioitaliatv",
+          "url": "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8",
+          "checked_at": "2026-11-27T23:23:25.423510+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 9060,
+          "probe_ms": 9060,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 576,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 2,
+          "success_runs": 16,
+          "rank_score": 5789.4,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:23:25.423510+00:00",
+          "last_ok": "2026-11-27T23:23:25.423510+00:00"
+        }
+      ],
+      "audit": {
+        "tested": 2,
+        "failed": {},
+        "availability": "verified",
+        "preliminary_av_count": 2
+      },
+      "verified_count": 2,
+      "name": "RadioItaliaTV",
+      "number": "70",
+      "group": "Canali TV",
+      "logo": "https://i.imgur.com/4VCEJuJ.png"
+    },
+    "tvip_713_radio-capital-tv": {
+      "verified": [
+        {
+          "channel": "tvip_713_radio-capital-tv",
+          "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S35394734/Z6U2wGoDYANk/playlist.m3u8",
+          "checked_at": "2026-11-27T23:23:48.094755+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 15154,
+          "probe_ms": 15154,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 720,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 2,
+          "success_runs": 5,
+          "rank_score": 7115.0,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:23:48.094755+00:00",
+          "last_ok": "2026-11-27T23:23:48.094755+00:00"
+        }
+      ],
+      "audit": {
+        "tested": 1,
+        "failed": {},
+        "availability": "verified",
+        "preliminary_av_count": 1
+      },
+      "verified_count": 1,
+      "name": "Radio Capital TV",
+      "number": "713",
+      "group": "Canali TV",
+      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/713-radiocapital.png"
+    },
+    "tvip_715_m2o-tv": {
+      "verified": [
+        {
+          "channel": "tvip_715_m2o-tv",
+          "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S62628868/uhdWBlkC1AoO/playlist.m3u8",
+          "checked_at": "2026-11-27T23:23:51.850734+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1486,33 +1813,32 @@
             "matches": 0
           },
           "attempts": 2,
-          "success_runs": 7,
-          "rank_score": 10725.0,
+          "success_runs": 5,
+          "rank_score": 10715.0,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:51.944825+00:00",
-          "last_ok": "2026-11-27T23:14:51.944825+00:00"
+          "playback_checked_at": "2026-11-27T23:23:51.850734+00:00",
+          "last_ok": "2026-11-27T23:23:51.850734+00:00"
         }
       ],
       "audit": {
-        "tested": 2,
-        "failed": {
-          "ffprobe_timeout": 1
-        },
-        "availability": "verified"
+        "tested": 1,
+        "failed": {},
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
-      "name": "Radio 105 TV",
-      "number": "66",
+      "name": "M2O TV",
+      "number": "715",
       "group": "Canali TV",
-      "logo": "https://i.imgur.com/3NiLKvj.png"
+      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/715-m2o.png"
     },
-    "tvip_67_r101-tv": {
+    "tvip_772_radio-montecarlo-tv": {
       "verified": [
         {
-          "channel": "tvip_67_r101-tv",
-          "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-er/er-clr.isml/index.m3u8",
-          "checked_at": "2026-11-27T23:14:54.111159+00:00",
+          "channel": "tvip_772_radio-montecarlo-tv",
+          "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/index.m3u8",
+          "checked_at": "2026-11-27T23:23:53.780410+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1520,8 +1846,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 16445,
-          "probe_ms": 16445,
+          "startup_ms": 21010,
+          "probe_ms": 21010,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1535,278 +1861,18 @@
           "rank_score": 10730.0,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:54.111159+00:00",
-          "last_ok": "2026-11-27T23:14:54.111159+00:00"
-        }
-      ],
-      "audit": {
-        "tested": 2,
-        "failed": {
-          "ffprobe_timeout": 1
-        },
-        "availability": "verified"
-      },
-      "verified_count": 1,
-      "name": "R101 TV",
-      "number": "67",
-      "group": "Canali TV",
-      "logo": "https://i.imgur.com/mWeEa9T.png"
-    },
-    "tvip_69_deejay-tv-hd": {
-      "verified": [
-        {
-          "channel": "tvip_69_deejay-tv-hd",
-          "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S85984808/sMO0tz9Sr2Rk/playlist.m3u8",
-          "checked_at": "2026-11-27T23:14:49.672061+00:00",
-          "content_status": "no_high_confidence_flag",
-          "sampled_frames": 5,
-          "identity_required": false,
-          "identity_status": "not_required",
-          "playback_ready": true,
-          "has_video": true,
-          "has_audio": true,
-          "startup_ms": 10233,
-          "probe_ms": 10233,
-          "video_codec": "h264",
-          "audio_codec": "aac",
-          "playback_height": 1080,
-          "reason": "audio_video_packets",
-          "watermark": {
-            "status": "reference_missing",
-            "matches": 0
-          },
-          "attempts": 1,
-          "success_runs": 4,
-          "rank_score": 10757.67,
-          "source": "Percorso emittente/CDN già revisionato",
-          "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:49.672061+00:00",
-          "last_ok": "2026-11-27T23:14:49.672061+00:00"
-        }
-      ],
-      "audit": {
-        "tested": 1,
-        "failed": {},
-        "availability": "verified"
-      },
-      "verified_count": 1,
-      "name": "Deejay TV HD",
-      "number": "69",
-      "group": "Canali TV",
-      "logo": "https://i.imgur.com/rlaKH6k.png"
-    },
-    "tvip_6_italia-1-hd": {
-      "verified": [],
-      "audit": {
-        "tested": 4,
-        "failed": {
-          "http_403": 2,
-          "manifest_unavailable": 2
-        },
-        "availability": "audit_failed"
-      },
-      "verified_count": 0,
-      "name": "Italia 1 HD",
-      "number": "6",
-      "group": "Canali TV",
-      "logo": "https://i.imgur.com/oCiOxBG.png"
-    },
-    "tvip_70_radioitaliatv": {
-      "verified": [
-        {
-          "channel": "tvip_70_radioitaliatv",
-          "url": "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/stream03/streamPlaylist.m3u8",
-          "checked_at": "2026-11-27T23:15:10.476380+00:00",
-          "content_status": "no_high_confidence_flag",
-          "sampled_frames": 5,
-          "identity_required": false,
-          "identity_status": "not_required",
-          "playback_ready": true,
-          "has_video": true,
-          "has_audio": true,
-          "startup_ms": 747,
-          "probe_ms": 747,
-          "video_codec": "h264",
-          "audio_codec": "aac",
-          "playback_height": 576,
-          "reason": "audio_video_packets",
-          "watermark": {
-            "status": "reference_missing",
-            "matches": 0
-          },
-          "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 5867.53,
-          "source": "Percorso emittente/CDN già revisionato",
-          "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:15:10.476380+00:00",
-          "last_ok": "2026-11-27T23:15:10.476380+00:00"
-        },
-        {
-          "channel": "tvip_70_radioitaliatv",
-          "url": "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8",
-          "checked_at": "2026-11-27T23:14:53.620406+00:00",
-          "content_status": "no_high_confidence_flag",
-          "sampled_frames": 5,
-          "identity_required": false,
-          "identity_status": "not_required",
-          "playback_ready": true,
-          "has_video": true,
-          "has_audio": true,
-          "startup_ms": 10282,
-          "probe_ms": 10282,
-          "video_codec": "h264",
-          "audio_codec": "aac",
-          "playback_height": 576,
-          "reason": "audio_video_packets",
-          "watermark": {
-            "status": "reference_missing",
-            "matches": 0
-          },
-          "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 5772.18,
-          "source": "Percorso emittente/CDN già revisionato",
-          "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:14:53.620406+00:00",
-          "last_ok": "2026-11-27T23:14:53.620406+00:00"
-        }
-      ],
-      "audit": {
-        "tested": 2,
-        "failed": {},
-        "availability": "verified"
-      },
-      "verified_count": 2,
-      "name": "RadioItaliaTV",
-      "number": "70",
-      "group": "Canali TV",
-      "logo": "https://i.imgur.com/4VCEJuJ.png"
-    },
-    "tvip_713_radio-capital-tv": {
-      "verified": [
-        {
-          "channel": "tvip_713_radio-capital-tv",
-          "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S35394734/Z6U2wGoDYANk/playlist.m3u8",
-          "checked_at": "2026-11-27T23:15:25.194044+00:00",
-          "content_status": "no_high_confidence_flag",
-          "sampled_frames": 5,
-          "identity_required": false,
-          "identity_status": "not_required",
-          "playback_ready": true,
-          "has_video": true,
-          "has_audio": true,
-          "startup_ms": 13659,
-          "probe_ms": 13659,
-          "video_codec": "h264",
-          "audio_codec": "aac",
-          "playback_height": 720,
-          "reason": "audio_video_packets",
-          "watermark": {
-            "status": "reference_missing",
-            "matches": 0
-          },
-          "attempts": 2,
-          "success_runs": 4,
-          "rank_score": 7123.41,
-          "source": "Percorso emittente/CDN già revisionato",
-          "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:15:25.194044+00:00",
-          "last_ok": "2026-11-27T23:15:25.194044+00:00"
-        }
-      ],
-      "audit": {
-        "tested": 1,
-        "failed": {},
-        "availability": "verified"
-      },
-      "verified_count": 1,
-      "name": "Radio Capital TV",
-      "number": "713",
-      "group": "Canali TV",
-      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/713-radiocapital.png"
-    },
-    "tvip_715_m2o-tv": {
-      "verified": [
-        {
-          "channel": "tvip_715_m2o-tv",
-          "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S62628868/uhdWBlkC1AoO/playlist.m3u8",
-          "checked_at": "2026-11-27T23:15:27.448579+00:00",
-          "content_status": "no_high_confidence_flag",
-          "sampled_frames": 5,
-          "identity_required": false,
-          "identity_status": "not_required",
-          "playback_ready": true,
-          "has_video": true,
-          "has_audio": true,
-          "startup_ms": 15040,
-          "probe_ms": 15040,
-          "video_codec": "h264",
-          "audio_codec": "aac",
-          "playback_height": 1080,
-          "reason": "audio_video_packets",
-          "watermark": {
-            "status": "reference_missing",
-            "matches": 0
-          },
-          "attempts": 2,
-          "success_runs": 4,
-          "rank_score": 10710.0,
-          "source": "Percorso emittente/CDN già revisionato",
-          "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:15:27.448579+00:00",
-          "last_ok": "2026-11-27T23:15:27.448579+00:00"
-        }
-      ],
-      "audit": {
-        "tested": 1,
-        "failed": {},
-        "availability": "verified"
-      },
-      "verified_count": 1,
-      "name": "M2O TV",
-      "number": "715",
-      "group": "Canali TV",
-      "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/715-m2o.png"
-    },
-    "tvip_772_radio-montecarlo-tv": {
-      "verified": [
-        {
-          "channel": "tvip_772_radio-montecarlo-tv",
-          "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/index.m3u8",
-          "checked_at": "2026-11-27T23:15:17.292007+00:00",
-          "content_status": "no_high_confidence_flag",
-          "sampled_frames": 5,
-          "identity_required": false,
-          "identity_status": "not_required",
-          "playback_ready": true,
-          "has_video": true,
-          "has_audio": true,
-          "startup_ms": 10245,
-          "probe_ms": 10245,
-          "video_codec": "h264",
-          "audio_codec": "aac",
-          "playback_height": 1080,
-          "reason": "audio_video_packets",
-          "watermark": {
-            "status": "reference_missing",
-            "matches": 0
-          },
-          "attempts": 1,
-          "success_runs": 7,
-          "rank_score": 10772.55,
-          "source": "Percorso emittente/CDN già revisionato",
-          "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:15:17.292007+00:00",
-          "last_ok": "2026-11-27T23:15:17.292007+00:00"
+          "playback_checked_at": "2026-11-27T23:23:53.780410+00:00",
+          "last_ok": "2026-11-27T23:23:53.780410+00:00"
         }
       ],
       "audit": {
         "tested": 3,
         "failed": {
-          "ffprobe_timeout": 2
+          "ffprobe_timeout": 1,
+          "ffprobe_error": 1
         },
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Radio Montecarlo TV",
@@ -1819,7 +1885,7 @@
         {
           "channel": "tvip_7_la7-hd",
           "url": "https://d15umi5iaezxgx.cloudfront.net/HBBTV/LA7/DASH/Live.mpd",
-          "checked_at": "2026-11-27T23:15:29.004136+00:00",
+          "checked_at": "2026-11-27T23:23:52.594538+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1827,8 +1893,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3725,
-          "probe_ms": 3725,
+          "startup_ms": 3009,
+          "probe_ms": 3009,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -1837,19 +1903,20 @@
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 2,
-          "success_runs": 7,
-          "rank_score": 7237.75,
+          "attempts": 1,
+          "success_runs": 8,
+          "rank_score": 7249.91,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "DASH",
-          "playback_checked_at": "2026-11-27T23:15:29.004136+00:00",
-          "last_ok": "2026-11-27T23:15:29.004136+00:00"
+          "playback_checked_at": "2026-11-27T23:23:52.594538+00:00",
+          "last_ok": "2026-11-27T23:23:52.594538+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 4
       },
       "verified_count": 1,
       "name": "LA7 HD",
@@ -1864,7 +1931,8 @@
         "failed": {
           "http_404": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "RTV San Marino",
@@ -1879,7 +1947,8 @@
         "failed": {
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Radio TV Serie A con RDS",
@@ -1892,7 +1961,7 @@
         {
           "channel": "tvip_9_nove",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/NOVE/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:15:36.980653+00:00",
+          "checked_at": "2026-11-27T23:24:00.356888+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1900,8 +1969,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 5078,
-          "probe_ms": 5078,
+          "startup_ms": 5113,
+          "probe_ms": 5113,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1911,18 +1980,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10864.22,
+          "success_runs": 16,
+          "rank_score": 10868.87,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:15:36.980653+00:00",
-          "last_ok": "2026-11-27T23:15:36.980653+00:00"
+          "playback_checked_at": "2026-11-27T23:24:00.356888+00:00",
+          "last_ok": "2026-11-27T23:24:00.356888+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "NOVE",
@@ -1935,9 +2005,10 @@
       "audit": {
         "tested": 1,
         "failed": {
-          "decode_failed": 1
+          "ffprobe_timeout": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Antenna Sud Extra",
@@ -1952,7 +2023,8 @@
         "failed": {
           "manifest_unavailable": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "La Nuova TV",
@@ -1961,15 +2033,47 @@
       "logo": "https://i.imgur.com/wg8FhdN.png"
     },
     "tvip_puglia_tele_dehon": {
-      "verified": [],
+      "verified": [
+        {
+          "channel": "tvip_puglia_tele_dehon",
+          "url": "https://64b16f23efbee.streamlock.net/teledehonapp/ngrp:teledehonapp_all/playlist.m3u8",
+          "checked_at": "2026-11-27T23:24:18.568252+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 4273,
+          "probe_ms": 4273,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 1080,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 1,
+          "success_runs": 1,
+          "rank_score": 10802.27,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:24:18.568252+00:00",
+          "last_ok": "2026-11-27T23:24:18.568252+00:00"
+        }
+      ],
       "audit": {
-        "tested": 1,
+        "tested": 3,
         "failed": {
-          "http_403": 1
+          "http_403": 1,
+          "ffprobe_error": 1
         },
-        "availability": "access_denied_unconfirmed"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
-      "verified_count": 0,
+      "verified_count": 1,
       "name": "Tele Dehon",
       "number": "19",
       "group": "TV locali Puglia",
@@ -1982,7 +2086,8 @@
         "failed": {
           "no_packets": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Telenorba",
@@ -1995,7 +2100,7 @@
         {
           "channel": "tvip_puglia_telerama",
           "url": "https://58d921499d3d3.streamlock.net/TeleRama/livestream/playlist.m3u8",
-          "checked_at": "2026-11-27T23:15:48.480763+00:00",
+          "checked_at": "2026-11-27T23:24:20.399583+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2003,8 +2108,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3292,
-          "probe_ms": 3292,
+          "startup_ms": 3940,
+          "probe_ms": 3940,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 576,
@@ -2014,18 +2119,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 5842.08,
+          "success_runs": 16,
+          "rank_score": 5840.6,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:15:48.480763+00:00",
-          "last_ok": "2026-11-27T23:15:48.480763+00:00"
+          "playback_checked_at": "2026-11-27T23:24:20.399583+00:00",
+          "last_ok": "2026-11-27T23:24:20.399583+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "Telerama",
@@ -2040,7 +2146,8 @@
         "failed": {
           "http_404": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
       },
       "verified_count": 0,
       "name": "Tele Sud Puglia",
@@ -2053,7 +2160,7 @@
         {
           "channel": "tvip_puglia_telesveva",
           "url": "https://live2.telesveva.com/hls/svevahd.m3u8",
-          "checked_at": "2026-11-27T23:15:51.220903+00:00",
+          "checked_at": "2026-11-27T23:24:27.850074+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2061,8 +2168,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 2596,
-          "probe_ms": 2596,
+          "startup_ms": 3043,
+          "probe_ms": 3043,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2072,18 +2179,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10889.04,
+          "success_runs": 16,
+          "rank_score": 10889.57,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:15:51.220903+00:00",
-          "last_ok": "2026-11-27T23:15:51.220903+00:00"
+          "playback_checked_at": "2026-11-27T23:24:27.850074+00:00",
+          "last_ok": "2026-11-27T23:24:27.850074+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Telesveva",
@@ -2096,7 +2204,7 @@
         {
           "channel": "tvip_sat_aci_sport_tv",
           "url": "https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8",
-          "checked_at": "2026-11-27T23:15:53.504043+00:00",
+          "checked_at": "2026-11-27T23:24:30.508322+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2104,8 +2212,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4926,
-          "probe_ms": 4926,
+          "startup_ms": 4196,
+          "probe_ms": 4196,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -2115,18 +2223,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 7265.74,
+          "success_runs": 16,
+          "rank_score": 7278.04,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:15:53.504043+00:00",
-          "last_ok": "2026-11-27T23:15:53.504043+00:00"
+          "playback_checked_at": "2026-11-27T23:24:30.508322+00:00",
+          "last_ok": "2026-11-27T23:24:30.508322+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "ACI Sport TV",
@@ -2139,7 +2248,7 @@
         {
           "channel": "tvip_sat_al_arabiya",
           "url": "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8",
-          "checked_at": "2026-11-27T23:15:56.741765+00:00",
+          "checked_at": "2026-11-27T23:24:31.448889+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2147,8 +2256,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 1310,
-          "probe_ms": 1310,
+          "startup_ms": 1367,
+          "probe_ms": 1367,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2158,18 +2267,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10901.9,
+          "success_runs": 16,
+          "rank_score": 10906.33,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:15:56.741765+00:00",
-          "last_ok": "2026-11-27T23:15:56.741765+00:00"
+          "playback_checked_at": "2026-11-27T23:24:31.448889+00:00",
+          "last_ok": "2026-11-27T23:24:31.448889+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Al Arabiya",
@@ -2182,7 +2292,7 @@
         {
           "channel": "tvip_sat_al_jazeera_arabic",
           "url": "https://live-hls-web-aja.getaj.net/AJA/index.m3u8",
-          "checked_at": "2026-11-27T23:15:57.711990+00:00",
+          "checked_at": "2026-11-27T23:24:34.687705+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2190,8 +2300,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 5346,
-          "probe_ms": 5346,
+          "startup_ms": 5235,
+          "probe_ms": 5235,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2201,18 +2311,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10861.54,
+          "success_runs": 16,
+          "rank_score": 10867.65,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:15:57.711990+00:00",
-          "last_ok": "2026-11-27T23:15:57.711990+00:00"
+          "playback_checked_at": "2026-11-27T23:24:34.687705+00:00",
+          "last_ok": "2026-11-27T23:24:34.687705+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Al Jazeera Arabic",
@@ -2225,7 +2336,7 @@
         {
           "channel": "tvip_sat_al_jazeera_english",
           "url": "https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8",
-          "checked_at": "2026-11-27T23:16:06.714134+00:00",
+          "checked_at": "2026-11-27T23:24:44.045237+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2233,29 +2344,30 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3697,
-          "probe_ms": 3697,
+          "startup_ms": 3131,
+          "probe_ms": 3131,
           "video_codec": "h264",
           "audio_codec": "aac",
-          "playback_height": 480,
+          "playback_height": 1080,
           "reason": "audio_video_packets",
           "watermark": {
             "status": "reference_missing",
             "matches": 0
           },
           "attempts": 2,
-          "success_runs": 7,
-          "rank_score": 4838.03,
+          "success_runs": 8,
+          "rank_score": 10848.69,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:06.714134+00:00",
-          "last_ok": "2026-11-27T23:16:06.714134+00:00"
+          "playback_checked_at": "2026-11-27T23:24:44.045237+00:00",
+          "last_ok": "2026-11-27T23:24:44.045237+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 0
       },
       "verified_count": 1,
       "name": "Al Jazeera English",
@@ -2268,7 +2380,7 @@
         {
           "channel": "tvip_sat_bejoy_kids",
           "url": "https://stream.paroledivita.org/bejoy.m3u8",
-          "checked_at": "2026-11-27T23:16:03.202690+00:00",
+          "checked_at": "2026-11-27T23:24:37.492751+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2276,8 +2388,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 10433,
-          "probe_ms": 10433,
+          "startup_ms": 9664,
+          "probe_ms": 9664,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2287,18 +2399,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10810.67,
+          "success_runs": 16,
+          "rank_score": 10823.36,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:03.202690+00:00",
-          "last_ok": "2026-11-27T23:16:03.202690+00:00"
+          "playback_checked_at": "2026-11-27T23:24:37.492751+00:00",
+          "last_ok": "2026-11-27T23:24:37.492751+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "BeJoy Kids",
@@ -2311,7 +2424,7 @@
         {
           "channel": "tvip_sat_bloomberg_television",
           "url": "https://bloomberg.com/media-manifest/streams/eu.m3u8",
-          "checked_at": "2026-11-27T23:16:04.516793+00:00",
+          "checked_at": "2026-11-27T23:24:38.098212+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2319,8 +2432,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4988,
-          "probe_ms": 4988,
+          "startup_ms": 3099,
+          "probe_ms": 3099,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -2330,18 +2443,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 4,
-          "rank_score": 7210.12,
+          "success_runs": 5,
+          "rank_score": 7234.01,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:04.516793+00:00",
-          "last_ok": "2026-11-27T23:16:04.516793+00:00"
+          "playback_checked_at": "2026-11-27T23:24:38.098212+00:00",
+          "last_ok": "2026-11-27T23:24:38.098212+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "Bloomberg Television",
@@ -2354,7 +2468,7 @@
         {
           "channel": "tvip_sat_camera_dei_deputati",
           "url": "https://video-ar.radioradicale.it/diretta/camera2/playlist.m3u8",
-          "checked_at": "2026-11-27T23:16:09.295441+00:00",
+          "checked_at": "2026-11-27T23:24:39.163235+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2362,8 +2476,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 5487,
-          "probe_ms": 5487,
+          "startup_ms": 5612,
+          "probe_ms": 5612,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 360,
@@ -2373,18 +2487,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 3660.13,
+          "success_runs": 16,
+          "rank_score": 3663.88,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:09.295441+00:00",
-          "last_ok": "2026-11-27T23:16:09.295441+00:00"
+          "playback_checked_at": "2026-11-27T23:24:39.163235+00:00",
+          "last_ok": "2026-11-27T23:24:39.163235+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Camera dei Deputati",
@@ -2397,7 +2512,7 @@
         {
           "channel": "tvip_sat_dw_english",
           "url": "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/master.m3u8",
-          "checked_at": "2026-11-27T23:16:10.093735+00:00",
+          "checked_at": "2026-11-27T23:24:56.024935+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2405,29 +2520,30 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 9986,
-          "probe_ms": 9986,
+          "startup_ms": 20281,
+          "probe_ms": 20281,
           "video_codec": "h264",
           "audio_codec": "aac",
-          "playback_height": 540,
+          "playback_height": 1080,
           "reason": "audio_video_packets",
           "watermark": {
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 1,
-          "success_runs": 4,
-          "rank_score": 5360.14,
+          "attempts": 2,
+          "success_runs": 5,
+          "rank_score": 10715.0,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:10.093735+00:00",
-          "last_ok": "2026-11-27T23:16:10.093735+00:00"
+          "playback_checked_at": "2026-11-27T23:24:56.024935+00:00",
+          "last_ok": "2026-11-27T23:24:56.024935+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "DW English",
@@ -2440,7 +2556,7 @@
         {
           "channel": "tvip_sat_euronews_english",
           "url": "https://cdn-euronews.akamaized.net/live/eds/euronews-en/25002/index.m3u8",
-          "checked_at": "2026-11-27T23:16:24.154256+00:00",
+          "checked_at": "2026-11-27T23:24:46.643438+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2448,8 +2564,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 5843,
-          "probe_ms": 5843,
+          "startup_ms": 4829,
+          "probe_ms": 4829,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -2458,19 +2574,20 @@
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 2,
-          "success_runs": 15,
-          "rank_score": 7256.57,
+          "attempts": 1,
+          "success_runs": 16,
+          "rank_score": 7271.71,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:24.154256+00:00",
-          "last_ok": "2026-11-27T23:16:24.154256+00:00"
+          "playback_checked_at": "2026-11-27T23:24:46.643438+00:00",
+          "last_ok": "2026-11-27T23:24:46.643438+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 4
       },
       "verified_count": 1,
       "name": "Euronews English",
@@ -2483,7 +2600,7 @@
         {
           "channel": "tvip_sat_euronews_italiano",
           "url": "https://cdn-euronews.akamaized.net/live/eds/euronews-it/25085/index.m3u8",
-          "checked_at": "2026-11-27T23:16:28.985873+00:00",
+          "checked_at": "2026-11-27T23:25:02.691409+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2491,8 +2608,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 9668,
-          "probe_ms": 9668,
+          "startup_ms": 12251,
+          "probe_ms": 12251,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -2502,18 +2619,19 @@
             "matches": 0
           },
           "attempts": 2,
-          "success_runs": 7,
-          "rank_score": 7178.32,
+          "success_runs": 8,
+          "rank_score": 7157.49,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:28.985873+00:00",
-          "last_ok": "2026-11-27T23:16:28.985873+00:00"
+          "playback_checked_at": "2026-11-27T23:25:02.691409+00:00",
+          "last_ok": "2026-11-27T23:25:02.691409+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Euronews Italiano",
@@ -2526,7 +2644,7 @@
         {
           "channel": "tvip_sat_france_24_english",
           "url": "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8",
-          "checked_at": "2026-11-27T23:16:24.509017+00:00",
+          "checked_at": "2026-11-27T23:24:53.461449+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2534,8 +2652,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 211,
-          "probe_ms": 211,
+          "startup_ms": 788,
+          "probe_ms": 788,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2545,18 +2663,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10912.89,
+          "success_runs": 16,
+          "rank_score": 10912.12,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:24.509017+00:00",
-          "last_ok": "2026-11-27T23:16:24.509017+00:00"
+          "playback_checked_at": "2026-11-27T23:24:53.461449+00:00",
+          "last_ok": "2026-11-27T23:24:53.461449+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 2
       },
       "verified_count": 1,
       "name": "France 24 English",
@@ -2569,7 +2688,7 @@
         {
           "channel": "tvip_sat_france_24_francais",
           "url": "https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_5000.m3u8",
-          "checked_at": "2026-11-27T23:16:26.149835+00:00",
+          "checked_at": "2026-11-27T23:24:54.939828+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2577,8 +2696,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 245,
-          "probe_ms": 245,
+          "startup_ms": 1432,
+          "probe_ms": 1432,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2588,18 +2707,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10912.55,
+          "success_runs": 16,
+          "rank_score": 10905.68,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:26.149835+00:00",
-          "last_ok": "2026-11-27T23:16:26.149835+00:00"
+          "playback_checked_at": "2026-11-27T23:24:54.939828+00:00",
+          "last_ok": "2026-11-27T23:24:54.939828+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "France 24 Français",
@@ -2612,7 +2732,7 @@
         {
           "channel": "tvip_sat_nhk_world_japan",
           "url": "https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8",
-          "checked_at": "2026-11-27T23:16:27.848632+00:00",
+          "checked_at": "2026-11-27T23:24:56.173875+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2620,8 +2740,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 1840,
-          "probe_ms": 1840,
+          "startup_ms": 3090,
+          "probe_ms": 3090,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2631,18 +2751,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10896.6,
+          "success_runs": 16,
+          "rank_score": 10889.1,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:27.848632+00:00",
-          "last_ok": "2026-11-27T23:16:27.848632+00:00"
+          "playback_checked_at": "2026-11-27T23:24:56.173875+00:00",
+          "last_ok": "2026-11-27T23:24:56.173875+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 5
       },
       "verified_count": 1,
       "name": "NHK World Japan",
@@ -2655,7 +2776,7 @@
         {
           "channel": "tvip_sat_parole_di_vita",
           "url": "https://stream.paroledivita.org/paroledivita.m3u8",
-          "checked_at": "2026-11-27T23:16:39.862705+00:00",
+          "checked_at": "2026-11-27T23:25:08.991736+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2663,8 +2784,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 13122,
-          "probe_ms": 13122,
+          "startup_ms": 13176,
+          "probe_ms": 13176,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2674,18 +2795,19 @@
             "matches": 0
           },
           "attempts": 2,
-          "success_runs": 8,
-          "rank_score": 10748.78,
+          "success_runs": 9,
+          "rank_score": 10753.24,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:39.862705+00:00",
-          "last_ok": "2026-11-27T23:16:39.862705+00:00"
+          "playback_checked_at": "2026-11-27T23:25:08.991736+00:00",
+          "last_ok": "2026-11-27T23:25:08.991736+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "Parole di Vita",
@@ -2698,7 +2820,7 @@
         {
           "channel": "tvip_sat_rtl_102_5_caliente",
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S8448465/zTYa1Z5Op9ue/playlist_video.m3u8",
-          "checked_at": "2026-11-27T23:16:42.378440+00:00",
+          "checked_at": "2026-11-27T23:25:11.575418+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2706,8 +2828,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 14027,
-          "probe_ms": 14027,
+          "startup_ms": 15874,
+          "probe_ms": 15874,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2717,18 +2839,19 @@
             "matches": 0
           },
           "attempts": 2,
-          "success_runs": 4,
-          "rank_score": 10719.73,
+          "success_runs": 5,
+          "rank_score": 10715.0,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:42.378440+00:00",
-          "last_ok": "2026-11-27T23:16:42.378440+00:00"
+          "playback_checked_at": "2026-11-27T23:25:11.575418+00:00",
+          "last_ok": "2026-11-27T23:25:11.575418+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "RTL 102.5 Caliente",
@@ -2744,7 +2867,8 @@
           "http_403": 1,
           "http_503": 1
         },
-        "availability": "audit_failed"
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
       },
       "verified_count": 0,
       "name": "Sky News",
@@ -2757,7 +2881,7 @@
         {
           "channel": "tvip_sat_sky_news_arabia",
           "url": "https://live-stream.skynewsarabia.com/c-horizontal-channel/horizontal-stream/index.m3u8",
-          "checked_at": "2026-11-27T23:16:34.786789+00:00",
+          "checked_at": "2026-11-27T23:25:02.628514+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2765,8 +2889,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 2675,
-          "probe_ms": 2675,
+          "startup_ms": 3830,
+          "probe_ms": 3830,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2776,18 +2900,19 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 10888.25,
+          "success_runs": 16,
+          "rank_score": 10881.7,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:34.786789+00:00",
-          "last_ok": "2026-11-27T23:16:34.786789+00:00"
+          "playback_checked_at": "2026-11-27T23:25:02.628514+00:00",
+          "last_ok": "2026-11-27T23:25:02.628514+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 3
       },
       "verified_count": 1,
       "name": "Sky News Arabia",
@@ -2800,7 +2925,7 @@
         {
           "channel": "tvip_sat_uninettuno_university_tv",
           "url": "https://stream6-rai-it.akamaized.net/live/uninettuno/playlist.m3u8",
-          "checked_at": "2026-11-27T23:16:37.701513+00:00",
+          "checked_at": "2026-11-27T23:25:03.535602+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2808,8 +2933,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 714,
-          "probe_ms": 714,
+          "startup_ms": 2342,
+          "probe_ms": 2342,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -2819,24 +2944,89 @@
             "matches": 0
           },
           "attempts": 1,
-          "success_runs": 15,
-          "rank_score": 7307.86,
+          "success_runs": 16,
+          "rank_score": 7296.58,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:16:37.701513+00:00",
-          "last_ok": "2026-11-27T23:16:37.701513+00:00"
+          "playback_checked_at": "2026-11-27T23:25:03.535602+00:00",
+          "last_ok": "2026-11-27T23:25:03.535602+00:00"
         }
       ],
       "audit": {
         "tested": 1,
         "failed": {},
-        "availability": "verified"
+        "availability": "verified",
+        "preliminary_av_count": 1
       },
       "verified_count": 1,
       "name": "UNINETTUNO University TV",
       "number": "",
       "group": "Satellite e emittenti tematiche",
       "logo": "https://i.imgur.com/BOGMeio.png"
+    },
+    "tvip_sat_trm_h24": {
+      "verified": [],
+      "audit": {
+        "tested": 1,
+        "failed": {
+          "manifest_unavailable": 1
+        },
+        "availability": "audit_failed",
+        "preliminary_av_count": 0
+      },
+      "verified_count": 0,
+      "name": "TRM h24",
+      "number": "",
+      "group": "News e internazionali",
+      "logo": "https://i.imgur.com/d47CdYU.png"
+    },
+    "tvip_puglia_studio_100": {
+      "verified": [],
+      "audit": {
+        "tested": 1,
+        "failed": {
+          "channel_identity_unconfirmed": 1
+        },
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
+      },
+      "verified_count": 0,
+      "name": "Studio 100",
+      "number": "98",
+      "group": "TV locali Puglia",
+      "logo": "https://i.imgur.com/z84qFXd.png"
+    },
+    "tvip_puglia_tele_foggia": {
+      "verified": [],
+      "audit": {
+        "tested": 1,
+        "failed": {
+          "channel_identity_unconfirmed": 1
+        },
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
+      },
+      "verified_count": 0,
+      "name": "Tele Foggia",
+      "number": "88",
+      "group": "TV locali Puglia",
+      "logo": "https://i.imgur.com/M7tqBu9.jpg"
+    },
+    "tvip_puglia_telemajg": {
+      "verified": [],
+      "audit": {
+        "tested": 1,
+        "failed": {
+          "channel_identity_unconfirmed": 1
+        },
+        "availability": "audit_failed",
+        "preliminary_av_count": 1
+      },
+      "verified_count": 0,
+      "name": "TeleMajg",
+      "number": "79",
+      "group": "TV locali Puglia",
+      "logo": "https://i.imgur.com/9tefonp.jpg"
     },
     "tvip_202_rai-radio-2-visual": {
       "name": "Rai Radio 2 Visual",
@@ -2849,7 +3039,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_257_gambero-rosso": {
@@ -2863,7 +3054,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_25_rai-premium": {
@@ -2877,7 +3069,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_26_cielo": {
@@ -2891,7 +3084,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_404_hell-s-kitchen-italy": {
@@ -2905,7 +3099,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 4
       }
     },
     "tvip_42_rai-gulp": {
@@ -2919,7 +3114,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_43_rai-yoyo": {
@@ -2933,7 +3129,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_45_boing-plus": {
@@ -2947,7 +3144,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_50_sky-tg24": {
@@ -2961,7 +3159,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_53_italia-53": {
@@ -2975,7 +3174,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_57_italiana": {
@@ -2989,7 +3189,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_57_rai-scuola": {
@@ -3003,7 +3204,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_58_rai-sport-hd": {
@@ -3017,7 +3219,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_61_club-tv": {
@@ -3031,7 +3234,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_68_bom-channel": {
@@ -3045,7 +3249,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_8_tv8": {
@@ -3059,7 +3264,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_community_dazn_darts": {
@@ -3073,7 +3279,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_community_dazn_serie_a": {
@@ -3087,7 +3294,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_community_dazn_serie_b": {
@@ -3101,7 +3309,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_community_sky_cinema_due": {
@@ -3115,7 +3324,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_community_zona_dazn": {
@@ -3129,7 +3339,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_7_gold_puglia": {
@@ -3143,7 +3354,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_amica_9": {
@@ -3157,7 +3369,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_azzurra_tv_italia": {
@@ -3171,7 +3384,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_puglia_btv": {
@@ -3185,7 +3399,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_canale_2": {
@@ -3199,7 +3414,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_canale_7_puglia": {
@@ -3213,7 +3429,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_cittadella_tv": {
@@ -3227,7 +3444,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_delta_tv": {
@@ -3241,7 +3459,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_easy_tv": {
@@ -3255,7 +3474,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_mediterranea_tv": {
@@ -3269,7 +3489,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_political_tv": {
@@ -3283,7 +3504,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_startv": {
@@ -3297,35 +3519,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
-      }
-    },
-    "tvip_puglia_studio_100": {
-      "name": "Studio 100",
-      "number": "98",
-      "group": "TV locali Puglia",
-      "logo": "https://i.imgur.com/z84qFXd.png",
-      "verified": [],
-      "verified_count": 0,
-      "audit": {
-        "tested": 0,
-        "failed": {},
-        "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
-      }
-    },
-    "tvip_puglia_tele_foggia": {
-      "name": "Tele Foggia",
-      "number": "88",
-      "group": "TV locali Puglia",
-      "logo": "https://i.imgur.com/M7tqBu9.jpg",
-      "verified": [],
-      "verified_count": 0,
-      "audit": {
-        "tested": 0,
-        "failed": {},
-        "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_teledue": {
@@ -3339,21 +3534,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
-      }
-    },
-    "tvip_puglia_telemajg": {
-      "name": "TeleMajg",
-      "number": "79",
-      "group": "TV locali Puglia",
-      "logo": "https://i.imgur.com/9tefonp.jpg",
-      "verified": [],
-      "verified_count": 0,
-      "audit": {
-        "tested": 0,
-        "failed": {},
-        "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_teleregione_color": {
@@ -3367,7 +3549,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_teletrullo": {
@@ -3381,7 +3564,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_puglia_trc": {
@@ -3395,7 +3579,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_al_masriyah": {
@@ -3409,7 +3594,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_arirang_tv": {
@@ -3423,7 +3609,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 3
       }
     },
     "tvip_sat_arte_investimenti": {
@@ -3437,7 +3624,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_bbc_arabic": {
@@ -3451,7 +3639,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 3
       }
     },
     "tvip_sat_canale_italia": {
@@ -3465,7 +3654,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_canzoni_napoletane": {
@@ -3479,7 +3669,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_cgtn": {
@@ -3493,7 +3684,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 5
       }
     },
     "tvip_sat_class_tv_moda": {
@@ -3507,7 +3699,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_cnbc": {
@@ -3521,7 +3714,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 2
       }
     },
     "tvip_sat_daystar": {
@@ -3535,7 +3729,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_equtv": {
@@ -3549,7 +3744,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_ewtn_english": {
@@ -3563,7 +3759,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_go_tv_channel": {
@@ -3577,7 +3774,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_marcopolo": {
@@ -3591,7 +3789,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_med_tv": {
@@ -3605,7 +3804,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sat_people_tv_rete_7": {
@@ -3619,7 +3819,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_primaset_149": {
@@ -3633,7 +3834,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_radio_italia_live": {
@@ -3647,7 +3849,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sat_record_tv_europa": {
@@ -3661,7 +3864,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_senato_tv": {
@@ -3675,7 +3879,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sat_sonlife_broadcasting_network": {
@@ -3689,7 +3894,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_telecupole": {
@@ -3703,7 +3909,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_teleradiopace_tv": {
@@ -3717,7 +3924,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_telesardegna": {
@@ -3731,7 +3939,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_the_word_network": {
@@ -3745,7 +3954,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sat_tlc_telecampione": {
@@ -3759,21 +3969,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
-      }
-    },
-    "tvip_sat_trm_h24": {
-      "name": "TRM h24",
-      "number": "",
-      "group": "News e internazionali",
-      "logo": "https://i.imgur.com/d47CdYU.png",
-      "verified": [],
-      "verified_count": 0,
-      "audit": {
-        "tested": 0,
-        "failed": {},
-        "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_tunis_7": {
@@ -3787,7 +3984,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_tva_vicenza": {
@@ -3801,7 +3999,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_tvp_polonia": {
@@ -3815,7 +4014,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sat_tvr_international": {
@@ -3829,7 +4029,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sat_vatican_media_europa": {
@@ -3843,7 +4044,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sat_videolina": {
@@ -3857,7 +4059,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_virgin_radio_tv": {
@@ -3871,7 +4074,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sat_wedotv_big_stories": {
@@ -3885,7 +4089,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sat_wedotv_movies": {
@@ -3899,7 +4104,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_bike": {
@@ -3913,7 +4119,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_boomerang": {
@@ -3927,7 +4134,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_caccia_e_pesca": {
@@ -3941,7 +4149,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_cartoon_network": {
@@ -3955,7 +4164,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_class_cnbc": {
@@ -3969,7 +4179,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sky_cnn_international": {
@@ -3983,7 +4194,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 2
       }
     },
     "tvip_sky_comedy_central": {
@@ -3997,7 +4209,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 2
       }
     },
     "tvip_sky_dazn_1": {
@@ -4011,7 +4224,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_dazn_2": {
@@ -4025,7 +4239,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_deajunior": {
@@ -4039,7 +4254,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_deakids": {
@@ -4053,7 +4269,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_discovery_italy": {
@@ -4067,7 +4284,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sky_disney_junior": {
@@ -4081,7 +4299,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_eurosport_1": {
@@ -4095,7 +4314,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 3
       }
     },
     "tvip_sky_eurosport_2": {
@@ -4109,7 +4329,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 3
       }
     },
     "tvip_sky_history": {
@@ -4123,7 +4344,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_horse_tv": {
@@ -4137,7 +4359,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 2
       }
     },
     "tvip_sky_inter_tv": {
@@ -4151,7 +4374,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 2
       }
     },
     "tvip_sky_milan_tv": {
@@ -4165,7 +4389,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_mtv": {
@@ -4179,7 +4404,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sky_nick_jr": {
@@ -4193,7 +4419,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_nickelodeon": {
@@ -4207,7 +4434,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 1
       }
     },
     "tvip_sky_sky_adventure": {
@@ -4221,7 +4449,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_arte": {
@@ -4235,7 +4464,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_atlantic": {
@@ -4249,7 +4479,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_cinema_action": {
@@ -4263,7 +4494,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_cinema_collection": {
@@ -4277,7 +4509,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_cinema_comedy": {
@@ -4291,7 +4524,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_cinema_drama": {
@@ -4305,7 +4539,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_cinema_family": {
@@ -4319,7 +4554,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_cinema_romance": {
@@ -4333,7 +4569,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_cinema_stories": {
@@ -4347,7 +4584,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_cinema_suspense": {
@@ -4361,7 +4599,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_cinema_uno": {
@@ -4375,7 +4614,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_cinema_uno_24": {
@@ -4389,7 +4629,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_classica": {
@@ -4403,7 +4644,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_collection": {
@@ -4417,7 +4659,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_crime": {
@@ -4431,7 +4674,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_documentaries": {
@@ -4445,7 +4689,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_investigation": {
@@ -4459,7 +4704,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_meteo24": {
@@ -4473,7 +4719,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_nature": {
@@ -4487,7 +4734,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_serie": {
@@ -4501,7 +4749,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport24": {
@@ -4515,7 +4764,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_251": {
@@ -4529,7 +4779,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_252": {
@@ -4543,7 +4794,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_253": {
@@ -4557,7 +4809,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_254": {
@@ -4571,7 +4824,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_255": {
@@ -4585,7 +4839,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_256": {
@@ -4599,7 +4854,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_257": {
@@ -4613,7 +4869,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_258": {
@@ -4627,7 +4884,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_259": {
@@ -4641,7 +4899,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_4k": {
@@ -4655,7 +4914,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_arena": {
@@ -4669,7 +4929,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_basket": {
@@ -4683,7 +4944,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_calcio": {
@@ -4697,7 +4959,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_calcio_ultra_live": {
@@ -4711,7 +4974,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_f1": {
@@ -4725,7 +4989,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_golf": {
@@ -4739,7 +5004,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_info": {
@@ -4753,7 +5019,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_legend": {
@@ -4767,7 +5034,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_max": {
@@ -4781,7 +5049,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_mix": {
@@ -4795,7 +5064,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_motogp": {
@@ -4809,7 +5079,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_tennis": {
@@ -4823,7 +5094,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_uno": {
@@ -4837,7 +5109,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_sport_uno_ultra_live": {
@@ -4851,7 +5124,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_tg24_primo_piano": {
@@ -4865,7 +5139,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_uno": {
@@ -4879,7 +5154,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_uno_plus": {
@@ -4893,7 +5169,8 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     },
     "tvip_sky_sky_voices": {
@@ -4907,35 +5184,361 @@
         "tested": 0,
         "failed": {},
         "status": "awaiting_source_review",
-        "availability": "awaiting_source_review"
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
       }
     }
   },
   "summary": {
-    "reviewed_channels": 91,
-    "tested": 153,
-    "visible": 49,
+    "reviewed_channels": 95,
+    "tested": 159,
+    "visible": 50,
     "passed": 50,
-    "retained_recent": 1,
+    "retained_recent": 2,
     "excluded": {
       "http_403": 49,
-      "ffprobe_error": 2,
+      "ffprobe_error": 3,
       "http_302": 3,
       "no_packets": 3,
       "ffprobe_timeout": 5,
-      "manifest_unavailable": 36,
-      "channel_identity_unconfirmed": 1,
+      "video_only": 1,
+      "manifest_unavailable": 38,
+      "channel_identity_unconfirmed": 4,
       "http_404": 2,
-      "decode_failed": 1,
       "http_503": 1
     },
     "availability_counts": {
-      "access_denied_unconfirmed": 10,
-      "audit_failed": 32,
-      "verified": 49,
-      "awaiting_source_review": 148
+      "access_denied_unconfirmed": 9,
+      "audit_failed": 36,
+      "verified": 50,
+      "awaiting_source_review": 144
     },
     "monitored_channels": 239,
-    "awaiting_source_review": 148
-  }
+    "awaiting_source_review": 144,
+    "preliminary_av_without_final_pass": 46
+  },
+  "review_queue": [
+    {
+      "id": "tvip_1_rai-1-hd",
+      "name": "Rai 1 HD",
+      "group": "Canali TV",
+      "preliminary_av_count": 3,
+      "availability": "access_denied_unconfirmed"
+    },
+    {
+      "id": "tvip_3_rai-3-hd",
+      "name": "Rai 3 HD",
+      "group": "Canali TV",
+      "preliminary_av_count": 3,
+      "availability": "access_denied_unconfirmed"
+    },
+    {
+      "id": "tvip_2_rai-2-hd",
+      "name": "Rai 2 HD",
+      "group": "Canali TV",
+      "preliminary_av_count": 2,
+      "availability": "access_denied_unconfirmed"
+    },
+    {
+      "id": "tvip_6_italia-1-hd",
+      "name": "Italia 1 HD",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_57_rai-scuola",
+      "name": "Rai Scuola",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_54_rai-storia",
+      "name": "Rai Storia",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "access_denied_unconfirmed"
+    },
+    {
+      "id": "tvip_43_rai-yoyo",
+      "name": "Rai Yoyo",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_4_rete-4-hd",
+      "name": "Rete 4 HD",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_puglia_azzurra_tv_italia",
+      "name": "Azzurra TV Italia",
+      "group": "TV locali Puglia",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_puglia_studio_100",
+      "name": "Studio 100",
+      "group": "TV locali Puglia",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_puglia_tele_foggia",
+      "name": "Tele Foggia",
+      "group": "TV locali Puglia",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_puglia_telemajg",
+      "name": "TeleMajg",
+      "group": "TV locali Puglia",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_sat_cgtn",
+      "name": "CGTN",
+      "group": "News e internazionali",
+      "preliminary_av_count": 5,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_404_hell-s-kitchen-italy",
+      "name": "Hell's Kitchen Italy",
+      "group": "Canali TV",
+      "preliminary_av_count": 4,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sat_arirang_tv",
+      "name": "Arirang TV",
+      "group": "News e internazionali",
+      "preliminary_av_count": 3,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sat_bbc_arabic",
+      "name": "BBC Arabic",
+      "group": "News e internazionali",
+      "preliminary_av_count": 3,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sky_eurosport_1",
+      "name": "Eurosport 1",
+      "group": "Altri canali pay TV",
+      "preliminary_av_count": 3,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sky_eurosport_2",
+      "name": "Eurosport 2",
+      "group": "Altri canali pay TV",
+      "preliminary_av_count": 3,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_60_sportitalia",
+      "name": "Sportitalia",
+      "group": "Canali TV",
+      "preliminary_av_count": 3,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_51_tgcom24",
+      "name": "TGCOM24",
+      "group": "Canali TV",
+      "preliminary_av_count": 3,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_sat_cnbc",
+      "name": "CNBC",
+      "group": "News e internazionali",
+      "preliminary_av_count": 2,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sky_cnn_international",
+      "name": "CNN International",
+      "group": "Altri canali pay TV",
+      "preliminary_av_count": 2,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sky_comedy_central",
+      "name": "Comedy Central",
+      "group": "Altri canali pay TV",
+      "preliminary_av_count": 2,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sky_horse_tv",
+      "name": "Horse TV",
+      "group": "Altri canali pay TV",
+      "preliminary_av_count": 2,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sky_inter_tv",
+      "name": "Inter TV",
+      "group": "Altri canali pay TV",
+      "preliminary_av_count": 2,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_11_radionorba-tv",
+      "name": "Radionorba TV",
+      "group": "Canali TV",
+      "preliminary_av_count": 2,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_40_boing",
+      "name": "Boing",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_68_bom-channel",
+      "name": "BOM CHANNEL",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_46_cartoonito",
+      "name": "Cartoonito",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_sky_class_cnbc",
+      "name": "Class CNBC",
+      "group": "Altri canali pay TV",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sky_discovery_italy",
+      "name": "Discovery Italy",
+      "group": "Altri canali pay TV",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_49_italia-2",
+      "name": "Italia 2",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_sat_med_tv",
+      "name": "Med TV",
+      "group": "Satellite e emittenti tematiche",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_55_mediaset-extra",
+      "name": "Mediaset Extra",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_sky_mtv",
+      "name": "MTV",
+      "group": "Altri canali pay TV",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sky_nickelodeon",
+      "name": "Nickelodeon",
+      "group": "Altri canali pay TV",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sat_radio_italia_live",
+      "name": "Radio Italia Live",
+      "group": "Musica e radiovisione",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sat_senato_tv",
+      "name": "Senato TV",
+      "group": "News e internazionali",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sat_sky_news",
+      "name": "Sky News",
+      "group": "Sky, sport e altri canali",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_sat_the_word_network",
+      "name": "The Word Network",
+      "group": "Satellite e emittenti tematiche",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_28_tv2000",
+      "name": "TV2000",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_sat_tvp_polonia",
+      "name": "TVP Polonia",
+      "group": "News e internazionali",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sat_tvr_international",
+      "name": "TVR International",
+      "group": "News e internazionali",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_sat_vatican_media_europa",
+      "name": "Vatican Media Europa",
+      "group": "News e internazionali",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    },
+    {
+      "id": "tvip_37_warner-tv",
+      "name": "Warner TV",
+      "group": "Canali TV",
+      "preliminary_av_count": 1,
+      "availability": "audit_failed"
+    },
+    {
+      "id": "tvip_sat_wedotv_big_stories",
+      "name": "wedotv Big Stories",
+      "group": "Satellite e emittenti tematiche",
+      "preliminary_av_count": 1,
+      "availability": "awaiting_source_review"
+    }
+  ]
 }
