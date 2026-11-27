@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "created_at": "2026-11-27",
+  "mode": "discovery_only",
+  "policy": "Metadata and candidate discovery only. Review source provenance, channel identity and playback authorization before inclusion; no automatic publication, access-control bypass or redistribution of protected streams.",
+  "collections": [
+    {
+      "name": "iptv-org Italy",
+      "url": "https://github.com/iptv-org/iptv",
+      "scope": "Italy and international public channel metadata"
+    },
+    {
+      "name": "Free-TV Italy",
+      "url": "https://github.com/Free-TV/IPTV/blob/master/lists/italy.md",
+      "scope": "Free TV channel candidates"
+    },
+    {
+      "name": "Tundrak IPTV Italia",
+      "url": "https://github.com/Tundrak/IPTV-Italia",
+      "scope": "Italian free TV and radio candidates"
+    },
+    {
+      "name": "Mr-Flower IPTV Italia",
+      "url": "https://github.com/Mr-Flower/iptv-italia",
+      "scope": "Free TV and FAST metadata; derived from Free-TV",
+      "upstream": "Free-TV/IPTV"
+    },
+    {
+      "name": "Nanobuo IPTV Italia",
+      "url": "https://github.com/Nanobuo/iptv-italia",
+      "scope": "Italian free TV and EPG candidates"
+    },
+    {
+      "name": "sfiorini IPTV Italy",
+      "url": "https://github.com/sfiorini/IPTV-Italy",
+      "scope": "Public stream candidates; provenance review required"
+    },
+    {
+      "name": "mrwolfjunior IPTV Italia",
+      "url": "https://github.com/mrwolfjunior/IPTV-Italia",
+      "scope": "Italian free TV candidates"
+    },
+    {
+      "name": "lpaxi765 IPTV Italia",
+      "url": "https://github.com/lpaxi765/IPTV-Italia",
+      "scope": "Italian free TV candidates"
+    },
+    {
+      "name": "Regione Puglia - Centro Media",
+      "url": "https://foreste.regione.puglia.it/web/comunicazione-istituzionale/anagrafe-centro-media-regionale",
+      "scope": "Regional broadcaster identity, historical registry"
+    },
+    {
+      "name": "Canale Salento - mux regionale",
+      "url": "https://www.canalesalento.it/tv-mux-regionale-puglia/",
+      "scope": "Regional channel names and terrestrial coverage"
+    }
+  ],
+  "providers": [
+    {
+      "name": "Sky TG24",
+      "url": "https://tg24.sky.it/diretta",
+      "access": "official_free_page"
+    },
+    {
+      "name": "TV8",
+      "url": "https://www.tv8.it/streaming",
+      "access": "official_free_page"
+    },
+    {
+      "name": "NOW",
+      "url": "https://www.nowtv.it/",
+      "access": "subscription_external_app",
+      "categories": [
+        "Sky Cinema",
+        "Sky Sport",
+        "Sky Entertainment"
+      ],
+      "direct_stream_import": false
+    },
+    {
+      "name": "NOW Sport",
+      "url": "https://www.nowtv.it/sport",
+      "access": "subscription_external_app",
+      "direct_stream_import": false
+    }
+  ],
+  "notes": [
+    "This registry is a research inventory, not a playable M3U playlist.",
+    "No new streams are marked approved or published by this file.",
+    "Forks and downstream mirrors are not independent sources."
+  ]
+}
