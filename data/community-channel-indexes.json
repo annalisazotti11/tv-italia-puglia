@@ -22,7 +22,7 @@
         "Gambero Rosso",
         "DeA Junior"
       ],
-      "handling": "Metadata only; not an M3U playlist and contains no direct stream URLs."
+      "handling": "Archivio di identificativi, non playlist. Contiene 377 righe contrassegnate Italia; utile come indice di copertura, non importato dal workflow M3U."
     },
     {
       "name": "Mike80p/italia-tv-hub",
