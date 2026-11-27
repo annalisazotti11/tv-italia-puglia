@@ -1,7 +1,8 @@
 {
   "version": "5.1.0",
-  "status": "pending",
-  "stage": "awaiting_visual_audit_and_cloudflare_deployment",
+  "status": "failure",
+  "stage": "visual_audit_and_cloudflare_deployment",
+  "source_commit": "d0925aa304bfcb2d22a5ac06cdfeee348646a3ce",
   "worker_url": "https://tv-italia-puglia.annalisazotti11.workers.dev",
-  "note": "Il deployment automatico parte solo dopo il successo del workflow audited-tv.yml e richiede CLOUDFLARE_API_TOKEN e CLOUDFLARE_ACCOUNT_ID."
-}
+  "updated_at": "2026-11-27T15:30:25.479Z"
+}\n
