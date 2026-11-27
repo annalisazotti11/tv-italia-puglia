@@ -344,6 +344,12 @@
     ],
     "tvip_puglia_studio_100": [
       "https://cdn16.streamshow.it/cloud-studio100/studio100/playlist.m3u8"
+    ],
+    "tvip_puglia_tele_foggia": [
+      "https://59d7d6f47d7fc.streamlock.net/telefoggia/telefoggia/playlist.m3u8"
+    ],
+    "tvip_puglia_telemajg": [
+      "https://59d7d6f47d7fc.streamlock.net/telemajg/telemajg/playlist.m3u8"
     ]
   },
   "identity_required": {
@@ -361,6 +367,18 @@
       "https://cdn16.streamshow.it/cloud-studio100/studio100/playlist.m3u8": {
         "references": [],
         "reason": "Exact route not declared in accessible official HTML; require authentic on-air identity corroboration."
+      }
+    },
+    "tvip_puglia_tele_foggia": {
+      "https://59d7d6f47d7fc.streamlock.net/telefoggia/telefoggia/playlist.m3u8": {
+        "references": [],
+        "reason": "Exact manifest not independently confirmed from official player; require authentic on-air identity evidence."
+      }
+    },
+    "tvip_puglia_telemajg": {
+      "https://59d7d6f47d7fc.streamlock.net/telemajg/telemajg/playlist.m3u8": {
+        "references": [],
+        "reason": "Exact manifest not independently confirmed from official player; require authentic on-air identity evidence."
       }
     }
   },
@@ -392,6 +410,20 @@
       "embedded_player": "https://cdn20.streamshow.it/hosted/html/studio100.html",
       "status": "same_broadcaster_player_provider_channel_named_candidate",
       "note": "Official embedded player confirms StreamShow as provider; exact candidate URL not independently extracted from player. Requires full audit; technical validation is not a redistribution license."
+    },
+    "https://59d7d6f47d7fc.streamlock.net/telefoggia/telefoggia/playlist.m3u8": {
+      "channel": "tvip_puglia_tele_foggia",
+      "page": "https://www.telefoggia.tv/streaming/",
+      "embedded_player": "https://player.streamshow.it/hosted/telefoggia.php",
+      "status": "official_player_confirmed_exact_candidate_not_confirmed",
+      "note": "Public official player confirmed; candidate found by preliminary scan. Exact manifest provenance and distribution permission not established."
+    },
+    "https://59d7d6f47d7fc.streamlock.net/telemajg/telemajg/playlist.m3u8": {
+      "channel": "tvip_puglia_telemajg",
+      "page": "https://linktr.ee/telemajg",
+      "embedded_player": "https://player.streamshow.it/hosted/telemajg.php",
+      "status": "official_player_confirmed_exact_candidate_not_confirmed",
+      "note": "Public official player confirmed; candidate found by preliminary scan. Exact manifest provenance and distribution permission not established."
     }
   }
 }
