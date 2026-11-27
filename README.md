@@ -6,6 +6,7 @@ Catalogo TV italiano con monitoraggio notturno delle playlist M3U/HLS/DASH.
 
 - **217 canali monitorati** nell'ultima scansione: playlist originale, 39 emittenti aggiuntive, Sky/Sky Cinema/Sky Sport, news internazionali e TV locali pugliesi. Il numero può variare con gli aggiornamenti. La presenza nel database non garantisce una diretta funzionante.
 - **18 raccolte pubbliche o curate** controllate automaticamente, comprese quattro nuove playlist italiane. Sono presenti **42 sorgenti aggiuntive curate**. Il numero di canali riproducibili può variare a ogni scansione: consulta [il rapporto](data/stream-report.md).
+- L'inventario `data/playlist-sources.json` contiene **79 voci** di playlist e indici; include anche voci `index_only` e mirror/fork, quindi non equivale a 79 sorgenti indipendenti, funzionanti o autorizzate.
 - Le sorgenti candidate trovate negli indici pubblici non diventano automaticamente sorgenti di riproduzione: devono superare i controlli di identità, provenienza, autorizzazione e riproducibilità.
 - I canali non confermati restano nella scansione notturna, ma **non vengono eliminati definitivamente**.
 - Le dirette a pagamento non vengono aggirate né decriptate.
