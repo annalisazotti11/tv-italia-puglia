@@ -1,7 +1,9 @@
 name: TV Italia + Puglia - verifica visiva generale 5.0
 on:
-  schedule:
-    - cron: '47 2 * * *'
+  workflow_run:
+    workflows: ['TV Italia + Puglia - verifica notturna delle dirette']
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
   push:
     branches: [main]
@@ -9,8 +11,8 @@ on:
       - 'scripts/audited_streams.py'
       - 'pilot_tests/test_audited_streams.py'
       - 'cloudflare/worker-tv-v5.0.0.js'
-      - 'cloudflare/worker-tv-v5.1.1.js'
-      - 'scripts/test_worker_v511.mjs'
+      - 'cloudflare/worker-tv-v5.1.2.js'
+      - 'scripts/test_worker_v512.mjs'
       - 'data/channel-watchlist.json'
       - 'data/source-identity-review.json'
       - 'data/source-quarantine.json'
@@ -22,6 +24,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   audit:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -40,8 +43,8 @@ jobs:
         run: |
           PYTHONPATH=scripts python -m unittest discover -s pilot_tests -p 'test_audited_streams.py' -v
           node --check cloudflare/worker-tv-v5.0.0.js
-          node --check cloudflare/worker-tv-v5.1.1.js
-          node scripts/test_worker_v511.mjs
+          node --check cloudflare/worker-tv-v5.1.2.js
+          node scripts/test_worker_v512.mjs
       - name: Verify reviewed live streams
         run: python scripts/audited_streams.py
       - name: Publish separate audited snapshot
@@ -83,7 +86,7 @@ jobs:
             exit 1
           fi
 
-      - name: Deploy Worker 5.1.1 in produzione
+      - name: Deploy Worker 5.1.2 in produzione
         id: cloudflare_deploy
         if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' }}
         uses: cloudflare/wrangler-action@v4
@@ -101,9 +104,9 @@ jobs:
         run: |
           set -euo pipefail
           curl -fsS --retry 12 --retry-delay 5 --retry-connrefused "$WORKER_URL/manifest.json" -o manifest.json
-          node --input-type=module -e "import fs from 'node:fs'; const m=JSON.parse(fs.readFileSync('manifest.json','utf8')); if(m.version!=='5.1.1'||m.id!=='community.tv-italia-puglia') throw new Error('Manifest produzione inatteso: '+JSON.stringify(m));"
+          node --input-type=module -e "import fs from 'node:fs'; const m=JSON.parse(fs.readFileSync('manifest.json','utf8')); if(m.version!=='5.1.2'||m.id!=='community.tv-italia-puglia') throw new Error('Manifest produzione inatteso: '+JSON.stringify(m));"
           curl -fsS --retry 12 --retry-delay 5 --retry-connrefused "$WORKER_URL/debug/channels.json" -o debug.json
-          node --input-type=module -e "import fs from 'node:fs'; const d=JSON.parse(fs.readFileSync('debug.json','utf8')); const expected=['Sky Cinema Due','Zona DAZN','DAZN Darts','Sky Sport Uno Ultra Live','Sky Sport Calcio Ultra Live','DAZN Serie A','DAZN Serie B']; if(d.version!=='5.1.1') throw new Error('Debug Worker non aggiornato'); for(const n of expected) if(!d.channels.some(c=>c.name===n&&c.discoveryOnly)) throw new Error('Canale monitorato mancante: '+n); console.log('Produzione verificata: Worker '+d.version+', '+d.visible+' canali visibili, '+d.watchlistCount+' monitorati, '+d.discoveryOnlyCount+' candidati discovery-only.');"
+          node --input-type=module -e "import fs from 'node:fs'; const d=JSON.parse(fs.readFileSync('debug.json','utf8')); const expected=['Sky Cinema Due','Zona DAZN','DAZN Darts','Sky Sport Uno Ultra Live','Sky Sport Calcio Ultra Live','DAZN Serie A','DAZN Serie B']; if(d.version!=='5.1.2') throw new Error('Debug Worker non aggiornato'); if(d.officialWebOnly!==0||d.directVerified!==d.visible) throw new Error('Catalogo contiene collegamenti web'); for(const n of expected) if(!d.channels.some(c=>c.name===n&&c.discoveryOnly)) throw new Error('Canale monitorato mancante: '+n); console.log('Produzione verificata: Worker '+d.version+', '+d.visible+' canali visibili, '+d.watchlistCount+' monitorati, '+d.discoveryOnlyCount+' candidati discovery-only.');"
 
       - name: Registra esito audit e deployment
         if: ${{ always() && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main' }}
@@ -132,7 +135,7 @@ jobs:
             : steps.production_verification === 'failure' ? 'production_verification'
             : 'visual_audit_and_cloudflare_deployment';
           const data = {
-            version: '5.1.1',
+            version: '5.1.2',
             status: process.env.RUN_RESULT || 'unknown',
             stage,
             steps,
@@ -144,5 +147,5 @@ jobs:
           NODE
           git add data/deployment-status.json
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'chore(tv): registra esito release Worker 5.1.1'
+          git commit -m 'chore(tv): registra esito release Worker 5.1.2'
           git push origin HEAD:main

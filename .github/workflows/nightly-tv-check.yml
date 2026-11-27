@@ -9,6 +9,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/nightly_check.py'
+      - 'scripts/discover_fta_indexes.py'
       - 'data/source-quarantine.json'
       - 'scripts/test_source_identity.py'
       - 'cloudflare/worker-tv-v4.3.0.js'
@@ -85,6 +86,10 @@ jobs:
           node scripts/test_worker_v492.mjs
           node --check cloudflare/worker-tv-v4.9.3.js
           node scripts/test_worker_v493.mjs
+      - name: Cerca nuovi indici pubblici FTA (metadati)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/discover_fta_indexes.py
       - name: Test playlist e stream
         run: python scripts/nightly_check.py
       - name: Verifica flussi con video e audio reali
@@ -103,6 +108,7 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           cp data/verified-streams.json /tmp/verified-streams.json
           cp data/stream-report.md /tmp/stream-report.md
+          cp data/fta-index-discovery.json /tmp/fta-index-discovery.json
           if [ -f data/epg-guide.json ]; then cp data/epg-guide.json /tmp/epg-guide.json; fi
           for attempt in 1 2 3 4; do
             git fetch origin main
@@ -116,8 +122,9 @@ jobs:
             fi
             cp /tmp/verified-streams.json data/verified-streams.json
             cp /tmp/stream-report.md data/stream-report.md
+            cp /tmp/fta-index-discovery.json data/fta-index-discovery.json
             if [ -f /tmp/epg-guide.json ]; then cp /tmp/epg-guide.json data/epg-guide.json; fi
-            git add data/verified-streams.json data/stream-report.md
+            git add data/verified-streams.json data/stream-report.md data/fta-index-discovery.json
             if [ -f /tmp/epg-guide.json ]; then git add data/epg-guide.json; fi
             if git diff --cached --quiet; then
               echo 'No changes to publish.'

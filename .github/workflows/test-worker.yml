@@ -1,11 +1,11 @@
-name: Test TV Italia + Puglia Worker 5.1.1
+name: Test TV Italia + Puglia Worker 5.1.2
 
 on:
   push:
     branches: [main]
     paths:
-      - 'cloudflare/worker-tv-v5.1.1.js'
-      - 'scripts/test_worker_v511.mjs'
+      - 'cloudflare/worker-tv-v5.1.2.js'
+      - 'scripts/test_worker_v512.mjs'
       - '.github/workflows/test-worker.yml'
   workflow_dispatch:
 
@@ -24,6 +24,6 @@ jobs:
         with:
           node-version: '22'
       - name: Syntax check
-        run: node --check cloudflare/worker-tv-v5.1.1.js
+        run: node --check cloudflare/worker-tv-v5.1.2.js
       - name: Worker behavior tests
-        run: node scripts/test_worker_v511.mjs
+        run: node scripts/test_worker_v512.mjs
