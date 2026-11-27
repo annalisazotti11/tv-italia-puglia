@@ -3,6 +3,27 @@ from datetime import datetime, timezone, timedelta
 import audited_streams as a
 
 class AuditTests(unittest.TestCase):
+    def test_manifest_standard_get_and_bounded_read(self):
+        from unittest.mock import patch, MagicMock
+        response = MagicMock()
+        response.__enter__.return_value = response
+        response.read.return_value = b'#EXTM3U\n#EXT-X-VERSION:3\n'
+        with patch.object(a.ci.urllib.request, 'build_opener') as factory:
+            opener = factory.return_value
+            opener.open.return_value = response
+            self.assertEqual(a.ci.manifest_check('https://example.org/live.m3u8'), 'ok')
+            req = opener.open.call_args.args[0]
+            self.assertEqual(req.get_method(), 'GET')
+            self.assertIsNone(req.get_header('Range'))
+            response.read.assert_called_once_with(a.ci.MAX_MANIFEST)
+    def test_manifest_protected_stream_stays_excluded(self):
+        from unittest.mock import patch, MagicMock
+        response = MagicMock()
+        response.__enter__.return_value = response
+        response.read.return_value = b'#EXTM3U\n#EXT-X-KEY:METHOD=SAMPLE-AES,URI="key"\n'
+        with patch.object(a.ci.urllib.request, 'build_opener') as factory:
+            factory.return_value.open.return_value = response
+            self.assertEqual(a.ci.manifest_check('https://example.org/live.m3u8'), 'protected_manifest')
     def test_reviewed_cdn_redirect_preserves_channel(self):
         check = a.ci.reviewed_redirect_allowed
         base = 'https://router.xdevel.com/video0s123-456/stream/playlist.m3u8'
