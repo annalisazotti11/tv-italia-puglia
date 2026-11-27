@@ -402,6 +402,11 @@
       "url": "https://raw.githubusercontent.com/untiiis/liste/4da85cc3c00e8d5b942e07e0dc6676aee63a0fe4/pp.txt",
       "scope": "index_only",
       "group_contains": "italy"
+    },
+    {
+      "name": "IPTV-BARI Italia Plus",
+      "url": "https://raw.githubusercontent.com/IPTV-BARI/IPTV/main/iptvitaplus.m3u",
+      "scope": "index_only"
     }
   ]
 }
