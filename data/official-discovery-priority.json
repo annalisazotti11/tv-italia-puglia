@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-27",
+  "mode": "official_discovery_only",
+  "notes": "Official broadcaster pages; not playable URLs. No automatic publication. TRM and Canale 7 already have legacy catalog IDs; Studio 100 and Teletrullo are potential new entries. Confirm actual identity and authorization before importing any source.",
+  "pages": [
+    {
+      "channel_id": "tvip_sat_trm_h24",
+      "channel": "TRM h24",
+      "official_page": "https://www.trmtv.it/",
+      "priority": "recovery_catalog",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": "tvip_puglia_canale_7_puglia",
+      "channel": "Canale 7 Puglia",
+      "official_page": "https://www.canale7.tv/dirette-live.html",
+      "priority": "recovery_catalog",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": null,
+      "channel": "Studio 100",
+      "official_page": "https://www.studio100.it/",
+      "priority": "new_catalog_candidate",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": null,
+      "channel": "Teletrullo",
+      "official_page": "https://www.teletrullo.info/",
+      "priority": "new_catalog_candidate",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": "tvip_puglia_telenorba",
+      "channel": "Telenorba",
+      "official_page": "https://play.telenorba.it/diretta/telenorba",
+      "priority": "recovery",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": "tvip_17_telebari",
+      "channel": "Telebari",
+      "official_page": "https://www.telebari.it/diretta-tv",
+      "priority": "intermittent",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": "tvip_puglia_tele_dehon",
+      "channel": "Tele Dehon",
+      "official_page": "https://www.teledehon.it/",
+      "priority": "recovery",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": "tvip_25_rai-premium",
+      "channel": "Rai Premium",
+      "official_page": "https://www.raiplay.it/dirette/raipremium",
+      "priority": "recovery_catalog",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": "tvip_58_rai-sport-hd",
+      "channel": "Rai Sport + HD",
+      "official_page": "https://www.raiplay.it/dirette/raisport",
+      "priority": "recovery_catalog",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": "tvip_43_rai-yoyo",
+      "channel": "Rai Yoyo",
+      "official_page": "https://www.raiplay.it/dirette/raiyoyo",
+      "priority": "recovery_catalog",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": "tvip_50_sky-tg24",
+      "channel": "Sky TG24",
+      "official_page": "https://tg24.sky.it/diretta",
+      "priority": "recovery_catalog",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": "tvip_8_tv8",
+      "channel": "TV8",
+      "official_page": "https://www.tv8.it/streaming",
+      "priority": "recovery_catalog",
+      "playback_verified": false,
+      "publication_approved": false
+    },
+    {
+      "channel_id": "tvip_26_cielo",
+      "channel": "Cielo",
+      "official_page": "https://www.cielotv.it/streaming",
+      "priority": "recovery_catalog",
+      "playback_verified": false,
+      "publication_approved": false
+    }
+  ]
+}
