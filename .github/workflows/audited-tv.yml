@@ -9,6 +9,9 @@ on:
       - 'scripts/audited_streams.py'
       - 'pilot_tests/test_audited_streams.py'
       - 'cloudflare/worker-tv-v5.0.0.js'
+      - 'cloudflare/worker-tv-v5.1.0.js'
+      - 'scripts/test_worker_v510.mjs'
+      - 'data/channel-watchlist.json'
       - 'data/source-identity-review.json'
       - 'data/source-quarantine.json'
       - '.github/workflows/audited-tv.yml'
@@ -37,6 +40,8 @@ jobs:
         run: |
           PYTHONPATH=scripts python -m unittest discover -s pilot_tests -p 'test_audited_streams.py' -v
           node --check cloudflare/worker-tv-v5.0.0.js
+          node --check cloudflare/worker-tv-v5.1.0.js
+          node scripts/test_worker_v510.mjs
       - name: Verify reviewed live streams
         run: python scripts/audited_streams.py
       - name: Publish separate audited snapshot
