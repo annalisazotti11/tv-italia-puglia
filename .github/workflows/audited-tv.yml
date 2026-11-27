@@ -9,6 +9,8 @@ on:
     branches: [main]
     paths:
       - 'scripts/audited_streams.py'
+      - 'scripts/content_identity.py'
+      - 'scripts/playback_quality.py'
       - 'pilot_tests/test_audited_streams.py'
       - 'cloudflare/worker-tv-v5.0.0.js'
       - 'cloudflare/worker-tv-v5.1.2.js'

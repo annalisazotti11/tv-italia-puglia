@@ -3,6 +3,20 @@ from datetime import datetime, timezone, timedelta
 import audited_streams as a
 
 class AuditTests(unittest.TestCase):
+    def test_reviewed_cdn_redirect_preserves_channel(self):
+        check = a.ci.reviewed_redirect_allowed
+        base = 'https://router.xdevel.com/video0s123-456/stream/playlist.m3u8'
+        self.assertTrue(check(base, 'https://edge.xdevel.com/video0s123-456/stream/playlist.m3u8'))
+        self.assertFalse(check(base, 'https://edge.xdevel.com/video0s999-456/stream/playlist.m3u8'))
+        self.assertFalse(check(base, 'https://unrelated.example/video0s123-456/stream/playlist.m3u8'))
+        self.assertFalse(check(base, 'https://edge.xdevel.com/video0s123-456/stream/playlist.m3u8?token=x'))
+        self.assertTrue(check('https://a.msvdn.net/live/S123/path/playlist.m3u8',
+                              'https://b.msvdn.net/live/S123/path2/playlist.m3u8'))
+        self.assertFalse(check('https://a.msvdn.net/live/S123/path/playlist.m3u8',
+                               'https://b.msvdn.net/live/S999/path2/playlist.m3u8'))
+        self.assertTrue(check('https://bloomberg.com/media-manifest/eu.m3u8',
+                              'https://www.bloomberg.com/media-manifest/eu.m3u8'))
+
     def test_reviewed_only_and_ambiguous(self):
         good = 'https://example.org/a.m3u8'
         duplicate = 'https://example.org/shared.m3u8'

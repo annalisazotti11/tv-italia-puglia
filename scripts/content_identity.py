@@ -56,11 +56,52 @@ def allowed_url(url):
         return False
 
 
-def manifest_check(url, *, timeout=5):
-    """No redirects, protected manifests or arbitrary schemes."""
+def reviewed_redirect_allowed(original, newurl):
+    """Ordinary CDN routing only: preserve the channel-specific route.
+
+    No authentication, signed-query extraction, cross-channel redirects,
+    IP literals, or unrestricted redirect following.
+    """
+    if not allowed_url(original) or not allowed_url(newurl):
+        return False
+    a, b = urllib.parse.urlsplit(original), urllib.parse.urlsplit(newurl)
+    ah, bh = a.hostname.lower(), b.hostname.lower()
+    if ah == bh and a.path.rstrip('/') == b.path.rstrip('/'):
+        return True
+    if ah in ('bloomberg.com', 'www.bloomberg.com') and bh in ('bloomberg.com', 'www.bloomberg.com'):
+        return a.path == b.path
+    # Public broadcaster-managed CDN routing: match the unique stream ID.
+    for suffix, marker in (
+            ('xdevel.com', r'/(video[0-9a-z]+-[0-9]+)/'),
+            ('msvdn.net', r'/live/(S[0-9]+)/'),
+            ('msvdn.net', r'/(super/super_main)/')):
+        if not ((ah == suffix or ah.endswith('.'+suffix)) and
+                (bh == suffix or bh.endswith('.'+suffix))):
+            continue
+        x, y = re.search(marker, a.path, re.I), re.search(marker, b.path, re.I)
+        if x and y and x.group(1).lower() == y.group(1).lower():
+            return True
+    return False
+
+
+class ReviewedRedirect(urllib.request.HTTPRedirectHandler):
+    max_redirections = 3
+    max_repeats = 1
+
+    def __init__(self, original):
+        self.original = original
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if not reviewed_redirect_allowed(self.original, newurl):
+            return None
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def manifest_check(url, *, timeout=5, reviewed_redirects=False):
+    """Reject protected manifests; permit scoped routing only when requested."""
     if not allowed_url(url):
         return 'unsafe_url'
-    opener = urllib.request.build_opener(NoRedirect())
+    opener = urllib.request.build_opener(ReviewedRedirect(url) if reviewed_redirects else NoRedirect())
     try:
         req = urllib.request.Request(url, headers={
             'User-Agent': 'TVIdentityPilot/1.0',
@@ -81,9 +122,9 @@ def manifest_check(url, *, timeout=5):
         return 'manifest_unavailable'
 
 
-def capture_frames(url, *, extended=False):
+def capture_frames(url, *, extended=False, reviewed_redirects=False):
     """Decode a short bounded sample into RAM, never display or persist media."""
-    why = manifest_check(url, timeout=10 if extended else 5)
+    why = manifest_check(url, timeout=10 if extended else 5, reviewed_redirects=reviewed_redirects)
     if why != 'ok':
         return [], why
     cmd = ['ffmpeg', '-nostdin', '-hide_banner', '-v', 'error',
@@ -94,8 +135,14 @@ def capture_frames(url, *, extended=False):
            '-f', 'rawvideo', 'pipe:1']
     try:
         run = subprocess.run(cmd, capture_output=True, timeout=40 if extended else CAPTURE_TIMEOUT, check=False)
-    except subprocess.TimeoutExpired:
-        return [], 'decode_timeout'
+    except subprocess.TimeoutExpired as exc:
+        # FFmpeg can emit valid frames before the deadline. Do not discard them.
+        partial = exc.stdout or b''
+        count = min(MAX_FRAMES, len(partial) // FRAME_MS)
+        if count < 3:
+            return [], 'decode_timeout'
+        return [Image.frombytes('RGB', (WIDTH, HEIGHT), partial[i*FRAME_MS:(i+1)*FRAME_MS])
+                for i in range(count)], 'sampled_before_timeout'
     except OSError:
         return [], 'ffmpeg_unavailable'
     count = min(MAX_FRAMES, len(run.stdout) // FRAME_MS)

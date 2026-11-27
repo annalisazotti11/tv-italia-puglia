@@ -100,14 +100,14 @@ def inspect(target, *, extended=False):
            'content_status': 'uncertain', 'sampled_frames': 0,
            'identity_required': rule is not None,
            'identity_status': 'unconfirmed' if rule is not None else 'not_required'}
-    why = ci.manifest_check(url, timeout=10 if extended else 5)
+    why = ci.manifest_check(url, timeout=10 if extended else 5, reviewed_redirects=rule is None)
     if why != 'ok':
         return row | {'reason': why}
     quality = pq.probe_stream(url, extended=extended)
     row.update(quality)
     if not quality.get('playback_ready'):
         return row
-    frames, why = ci.capture_frames(url, extended=extended)
+    frames, why = ci.capture_frames(url, extended=extended, reviewed_redirects=rule is None)
     row['sampled_frames'] = len(frames)
     safety = ci.safety_check(frames, detector())
     row['content_status'] = safety
@@ -123,7 +123,7 @@ def inspect(target, *, extended=False):
 # A transient failure gets one additional ordinary request. Never retry
 # forbidden, protected, mismatched or explicit-content results.
 TRANSIENT = {'http_503', 'http_502', 'http_504', 'manifest_unavailable',
-             'ffprobe_timeout', 'decode_timeout', 'decode_failed',
+             'ffprobe_timeout', 'decode_timeout', 'decode_failed', 'ffprobe_error',
              'no_packets', 'video_only', 'audio_only', 'short_sample'}
 # Preserve recent, fully approved results only when ordinary network or
 # decoding timeouts recur. Never preserve forbidden or identity/content failures.
@@ -135,7 +135,8 @@ def inspect_retry(target, inspect_fn=inspect, pause=time.sleep):
     row = inspect_fn(target)
     row['attempts'] = 1
     if (not eligible(row) and row.get('reason') in TRANSIENT and
-            row.get('content_status') in ('uncertain', 'not_sampled')):
+            (row.get('content_status') in ('uncertain', 'not_sampled') or
+             (row.get('content_status') == 'no_high_confidence_flag' and row.get('sampled_frames', 0) < 3))):
         pause(1)
         row = inspect(target, extended=True) if inspect_fn is inspect else inspect_fn(target)
         row['attempts'] = 2
