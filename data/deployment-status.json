@@ -1,9 +1,8 @@
 {
   "version": "5.1.0",
   "status": "failure",
-  "stage": "previous_release_attempt",
-  "source_commit": "d0925aa304bfcb2d22a5ac06cdfeee348646a3ce",
+  "stage": "visual_audit_and_cloudflare_deployment",
+  "source_commit": "45e8a959a1fe651c514b4f0f141e9f08674a8035",
   "worker_url": "https://tv-italia-puglia.annalisazotti11.workers.dev",
-  "note": "Il tentativo del 27 novembre alle 15:30 UTC è terminato con failure; il run precedente non registrava lo step specifico. È stato aggiornato il workflow per distinguere credenziali, deploy e verifica produzione e per consentire il rilancio manuale. Non è confermato che la versione 5.1.0 sia attiva in produzione.",
-  "updated_at": "2026-11-27T15:30:25.479Z"
+  "updated_at": "2026-11-27T15:33:45.030Z"
 }
