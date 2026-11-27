@@ -5,8 +5,8 @@ Catalogo TV italiano con monitoraggio notturno delle playlist M3U/HLS/DASH.
 ## Stato e copertura
 
 - **217 canali monitorati** nell'ultima scansione: playlist originale, 39 emittenti aggiuntive, Sky/Sky Cinema/Sky Sport, news internazionali e TV locali pugliesi. Il numero può variare con gli aggiornamenti. La presenza nel database non garantisce una diretta funzionante.
-- **18 raccolte pubbliche o curate** controllate automaticamente, comprese quattro nuove playlist italiane. Sono presenti **42 sorgenti aggiuntive curate**. Il numero di canali riproducibili può variare a ogni scansione: consulta [il rapporto](data/stream-report.md).
-- L'inventario `data/playlist-sources.json` contiene **79 voci** di playlist e indici; include anche voci `index_only` e mirror/fork, quindi non equivale a 79 sorgenti indipendenti, funzionanti o autorizzate.
+- **19 raccolte pubbliche o curate** controllate automaticamente, comprese quattro nuove playlist italiane. Sono presenti **42 sorgenti aggiuntive curate**. Il numero di canali riproducibili può variare a ogni scansione: consulta [il rapporto](data/stream-report.md).
+- L'inventario `data/playlist-sources.json` contiene **80 voci** di playlist e indici; include anche voci `index_only` e mirror/fork, quindi non equivale a 79 sorgenti indipendenti, funzionanti o autorizzate.
 - Le sorgenti candidate trovate negli indici pubblici non diventano automaticamente sorgenti di riproduzione: devono superare i controlli di identità, provenienza, autorizzazione e riproducibilità.
 - I canali non confermati restano nella scansione notturna, ma **non vengono eliminati definitivamente**.
 - Le dirette a pagamento non vengono aggirate né decriptate.
@@ -41,6 +41,7 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 - [Template responsive della guida TV](data/guide-ui.html)
 - [Piattaforme ufficiali e canali premium, con canali Sky Go confermati](data/official-platform-catalog.json)
 - [Manifest candidati trovati su pagine ufficiali (da verificare, non pubblicati)](data/official-manifest-candidates-2026-11-27.json)
+- [Indici community metadata-only, senza endpoint di streaming](data/community-channel-indexes.json)
 - [Worker 4.1.0](cloudflare/worker-tv-v4.1.0.js)
 
 ## Canale 5 — stato della sorgente Redge
@@ -81,3 +82,8 @@ Avvio manuale: `PYTHONPATH=scripts python -m unittest discover -s pilot_tests -v
 ### Analisi di campioni autorizzati locali
 
 Il [programma locale](tools/local-sample-analysis/LEGGIMI.txt) accetta esclusivamente video o immagini già disponibili sul computer, non URL o playlist. Confronta un campione della diretta autentica con un candidato acquisito legalmente nello stesso intervallo; genera un JSON senza conservare i fotogrammi. Il test diretto con Chrome ha mostrato ERR_BLOCKED_BY_CLIENT per le rotte Mediaset HLS e DASH: non è stato possibile analizzare il contenuto e non si tenta di aggirare il blocco. Nessun esito locale modifica il catalogo automaticamente.
+
+
+### Nuove fonti community — sola identificazione
+
+`nicolofajette/Canali` è registrata come `index_only`: il workflow legge i nomi dei canali ma non prova gli endpoint della playlist. È stata aggiunta anche `untiiis/liste` con la stessa modalità. Le etichette community non confermate (per esempio Sky Cinema Due e alcune voci DAZN) restano nella watchlist come metadati e non vengono mostrate in Nuvio senza una sorgente verificata e autorizzata. Gli indici non-M3U sono documentati in `data/community-channel-indexes.json`.
