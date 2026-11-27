@@ -1079,6 +1079,117 @@
       "source_refs": [
         "https://github.com/englishcd/ai/blob/522b28da6d4fca0408771fe13edcf62297959c40/b0.txt"
       ]
+    },
+    {
+      "id": "tvip_puglia_trc",
+      "name": "TRC Puglia",
+      "number": "76",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "76",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+    },
+    {
+      "id": "tvip_puglia_telemajg",
+      "name": "TeleMajg",
+      "number": "79",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "79",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+    },
+    {
+      "id": "tvip_puglia_teletrullo",
+      "name": "Teletrullo",
+      "number": "80",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "80",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+    },
+    {
+      "id": "tvip_puglia_easy_tv",
+      "name": "Easy TV",
+      "number": "81",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "81",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+    },
+    {
+      "id": "tvip_puglia_political_tv",
+      "name": "Political TV",
+      "number": "86",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "86",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+    },
+    {
+      "id": "tvip_puglia_mediterranea_tv",
+      "name": "Mediterranea TV - Video M Italia",
+      "number": "89",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "89",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+    },
+    {
+      "id": "tvip_puglia_canale_2",
+      "name": "Canale 2 TV",
+      "number": "90",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "90",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+    },
+    {
+      "id": "tvip_puglia_amica_9",
+      "name": "Amica 9",
+      "number": "91",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "91",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+    },
+    {
+      "id": "tvip_puglia_azzurra_tv_italia",
+      "name": "Azzurra TV Italia",
+      "number": "95",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "95",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+    },
+    {
+      "id": "tvip_puglia_startv",
+      "name": "StarTV",
+      "number": "96",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "96",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari"
+    },
+    {
+      "id": "tvip_puglia_studio_100",
+      "name": "Studio 100",
+      "number": "98",
+      "group": "TV locali Puglia",
+      "premium": false,
+      "puglia_lcn": "98",
+      "discovery_only": true,
+      "metadata_source": "https://www.otgtv.it/lista.php?code=BAAA&posto=Bari",
+      "official_page": "https://www.studio100.it/"
     }
   ]
 }
