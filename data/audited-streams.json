@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "mode": "reviewed_visual_gate_v1",
-  "generated_at": "2026-11-27T23:31:59.436202+00:00",
+  "generated_at": "2026-11-27T23:35:54.140208+00:00",
   "channels": {
     "tvip_101_rai-4k-hbbtv": {
       "verified": [],
@@ -56,7 +56,7 @@
         {
           "channel": "tvip_13_tg-norba-24",
           "url": "https://stream6.xdevel.com/video0s976570-1326/stream/playlist_dvr.m3u8",
-          "checked_at": "2026-11-27T23:28:00.310797+00:00",
+          "checked_at": "2026-11-27T23:32:48.516075+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -64,8 +64,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3233,
-          "probe_ms": 3233,
+          "startup_ms": 2916,
+          "probe_ms": 2916,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 404,
@@ -76,11 +76,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 4132.67,
+          "rank_score": 4135.84,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:00.310797+00:00",
-          "last_ok": "2026-11-27T23:28:00.310797+00:00"
+          "playback_checked_at": "2026-11-27T23:32:48.516075+00:00",
+          "last_ok": "2026-11-27T23:32:48.516075+00:00"
         }
       ],
       "audit": {
@@ -102,7 +102,7 @@
         {
           "channel": "tvip_145_padre-pio-tv",
           "url": "https://600f07e114306.streamlock.net/PadrePioTV/livestream/playlist.m3u8",
-          "checked_at": "2026-11-27T23:28:00.311224+00:00",
+          "checked_at": "2026-11-27T23:32:48.519384+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -110,8 +110,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4351,
-          "probe_ms": 4351,
+          "startup_ms": 2495,
+          "probe_ms": 2495,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -122,11 +122,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10881.49,
+          "rank_score": 10900.05,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:00.311224+00:00",
-          "last_ok": "2026-11-27T23:28:00.311224+00:00"
+          "playback_checked_at": "2026-11-27T23:32:48.519384+00:00",
+          "last_ok": "2026-11-27T23:32:48.519384+00:00"
         }
       ],
       "audit": {
@@ -146,7 +146,7 @@
         {
           "channel": "tvip_14_antenna-sud",
           "url": "https://live-antennasud.cdn.netrw.it/antennasud/hls/ccr/antennasud/master.m3u8",
-          "checked_at": "2026-11-27T23:28:13.066664+00:00",
+          "checked_at": "2026-11-27T23:33:01.296528+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -154,11 +154,11 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 23203,
-          "probe_ms": 23203,
+          "startup_ms": 23777,
+          "probe_ms": 23777,
           "video_codec": "h264",
           "audio_codec": "aac",
-          "playback_height": 720,
+          "playback_height": 1080,
           "reason": "audio_video_packets",
           "watermark": {
             "status": "reference_missing",
@@ -166,11 +166,11 @@
           },
           "attempts": 2,
           "success_runs": 2,
-          "rank_score": 7100.0,
+          "rank_score": 10700.0,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:13.066664+00:00",
-          "last_ok": "2026-11-27T23:28:13.066664+00:00"
+          "playback_checked_at": "2026-11-27T23:33:01.296528+00:00",
+          "last_ok": "2026-11-27T23:33:01.296528+00:00"
         }
       ],
       "audit": {
@@ -190,7 +190,7 @@
         {
           "channel": "tvip_158_radio-kiss-kiss-tv",
           "url": "https://kk.fluid.stream/KKMulti/smil:KissKissTV.smil/playlist.m3u8",
-          "checked_at": "2026-11-27T23:28:00.988649+00:00",
+          "checked_at": "2026-11-27T23:32:49.017200+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -198,8 +198,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 5858,
-          "probe_ms": 5858,
+          "startup_ms": 3484,
+          "probe_ms": 3484,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -210,11 +210,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 7266.42,
+          "rank_score": 7290.16,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:00.988649+00:00",
-          "last_ok": "2026-11-27T23:28:00.988649+00:00"
+          "playback_checked_at": "2026-11-27T23:32:49.017200+00:00",
+          "last_ok": "2026-11-27T23:32:49.017200+00:00"
         }
       ],
       "audit": {
@@ -234,7 +234,7 @@
         {
           "channel": "tvip_17_telebari",
           "url": "https://w1.mediastreaming.it/telebari/livestream/playlist.m3u8",
-          "checked_at": "2026-11-27T23:13:28.553899+00:00",
+          "checked_at": "2026-11-27T23:33:08.272428+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -242,8 +242,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 5440,
-          "probe_ms": 5440,
+          "startup_ms": 3977,
+          "probe_ms": 3977,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -253,20 +253,18 @@
             "matches": 0
           },
           "attempts": 2,
-          "success_runs": 1,
-          "rank_score": 10790.6,
+          "success_runs": 2,
+          "rank_score": 10810.23,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:13:28.553899+00:00",
-          "last_ok": "2026-11-27T23:13:28.553899+00:00",
-          "retained": true,
-          "retained_reason": "manifest_unavailable"
+          "playback_checked_at": "2026-11-27T23:33:08.272428+00:00",
+          "last_ok": "2026-11-27T23:33:08.272428+00:00"
         }
       ],
       "audit": {
         "tested": 2,
         "failed": {
-          "manifest_unavailable": 2
+          "manifest_unavailable": 1
         },
         "availability": "verified",
         "preliminary_av_count": 1
@@ -348,7 +346,7 @@
         {
           "channel": "tvip_233_rtl-102-5-news",
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S38122967/2lyQRIAAGgRR/playlist_video.m3u8",
-          "checked_at": "2026-11-27T23:28:15.660112+00:00",
+          "checked_at": "2026-11-27T23:32:59.377761+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -356,8 +354,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 9369,
-          "probe_ms": 9369,
+          "startup_ms": 7819,
+          "probe_ms": 7819,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -368,11 +366,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 10776.31,
+          "rank_score": 10791.81,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:15.660112+00:00",
-          "last_ok": "2026-11-27T23:28:15.660112+00:00"
+          "playback_checked_at": "2026-11-27T23:32:59.377761+00:00",
+          "last_ok": "2026-11-27T23:32:59.377761+00:00"
         }
       ],
       "audit": {
@@ -424,7 +422,7 @@
         {
           "channel": "tvip_258_radiofreccia",
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S3160845/0tuSetc8UFkF/playlist_video.m3u8",
-          "checked_at": "2026-11-27T23:28:16.148035+00:00",
+          "checked_at": "2026-11-27T23:33:00.400800+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -432,8 +430,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 9296,
-          "probe_ms": 9296,
+          "startup_ms": 8015,
+          "probe_ms": 8015,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -444,11 +442,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 10777.04,
+          "rank_score": 10789.85,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:16.148035+00:00",
-          "last_ok": "2026-11-27T23:28:16.148035+00:00"
+          "playback_checked_at": "2026-11-27T23:33:00.400800+00:00",
+          "last_ok": "2026-11-27T23:33:00.400800+00:00"
         }
       ],
       "audit": {
@@ -484,7 +482,7 @@
         {
           "channel": "tvip_265_rds-social-tv",
           "url": "https://stream.rdstv.radio/index.m3u8",
-          "checked_at": "2026-11-27T23:28:18.856039+00:00",
+          "checked_at": "2026-11-27T23:33:03.190494+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -492,8 +490,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 2839,
-          "probe_ms": 2839,
+          "startup_ms": 2852,
+          "probe_ms": 2852,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -504,11 +502,11 @@
           },
           "attempts": 1,
           "success_runs": 11,
-          "rank_score": 10866.61,
+          "rank_score": 10866.48,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:18.856039+00:00",
-          "last_ok": "2026-11-27T23:28:18.856039+00:00"
+          "playback_checked_at": "2026-11-27T23:33:03.190494+00:00",
+          "last_ok": "2026-11-27T23:33:03.190494+00:00"
         }
       ],
       "audit": {
@@ -528,7 +526,7 @@
         {
           "channel": "tvip_266_radio-zeta",
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/playlist_video.m3u8",
-          "checked_at": "2026-11-27T23:28:24.648911+00:00",
+          "checked_at": "2026-11-27T23:33:08.470070+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -536,8 +534,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 8155,
-          "probe_ms": 8155,
+          "startup_ms": 7431,
+          "probe_ms": 7431,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -548,11 +546,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 10788.45,
+          "rank_score": 10795.69,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:24.648911+00:00",
-          "last_ok": "2026-11-27T23:28:24.648911+00:00"
+          "playback_checked_at": "2026-11-27T23:33:08.470070+00:00",
+          "last_ok": "2026-11-27T23:33:08.470070+00:00"
         }
       ],
       "audit": {
@@ -605,7 +603,7 @@
         {
           "channel": "tvip_29_la7-cinema",
           "url": "https://d15umi5iaezxgx.cloudfront.net/HBBTV/LA7D/DASH/Live.mpd",
-          "checked_at": "2026-11-27T23:28:33.940541+00:00",
+          "checked_at": "2026-11-27T23:33:12.789252+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -613,8 +611,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 2862,
-          "probe_ms": 2862,
+          "startup_ms": 2010,
+          "probe_ms": 2010,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -625,11 +623,11 @@
           },
           "attempts": 2,
           "success_runs": 9,
-          "rank_score": 7256.38,
+          "rank_score": 7264.9,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "DASH",
-          "playback_checked_at": "2026-11-27T23:28:33.940541+00:00",
-          "last_ok": "2026-11-27T23:28:33.940541+00:00"
+          "playback_checked_at": "2026-11-27T23:33:12.789252+00:00",
+          "last_ok": "2026-11-27T23:33:12.789252+00:00"
         }
       ],
       "audit": {
@@ -684,7 +682,7 @@
         {
           "channel": "tvip_31_real-time",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/REALTIME/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:28:32.158108+00:00",
+          "checked_at": "2026-11-27T23:33:18.448145+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -692,8 +690,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4261,
-          "probe_ms": 4261,
+          "startup_ms": 4032,
+          "probe_ms": 4032,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -704,11 +702,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10882.39,
+          "rank_score": 10884.68,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:32.158108+00:00",
-          "last_ok": "2026-11-27T23:28:32.158108+00:00"
+          "playback_checked_at": "2026-11-27T23:33:18.448145+00:00",
+          "last_ok": "2026-11-27T23:33:18.448145+00:00"
         }
       ],
       "audit": {
@@ -728,7 +726,7 @@
         {
           "channel": "tvip_32_qvc",
           "url": "https://qrg.akamaized.net/hls/live/2017383/lsqvc1it/master.m3u8",
-          "checked_at": "2026-11-27T23:28:36.374179+00:00",
+          "checked_at": "2026-11-27T23:33:18.780711+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -736,8 +734,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 8101,
-          "probe_ms": 8101,
+          "startup_ms": 3585,
+          "probe_ms": 3585,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -748,11 +746,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 7243.99,
+          "rank_score": 7289.15,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:36.374179+00:00",
-          "last_ok": "2026-11-27T23:28:36.374179+00:00"
+          "playback_checked_at": "2026-11-27T23:33:18.780711+00:00",
+          "last_ok": "2026-11-27T23:33:18.780711+00:00"
         }
       ],
       "audit": {
@@ -772,7 +770,7 @@
         {
           "channel": "tvip_33_food-network",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/FOODNETWORK/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:28:36.812380+00:00",
+          "checked_at": "2026-11-27T23:33:19.952612+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -780,8 +778,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3209,
-          "probe_ms": 3209,
+          "startup_ms": 3338,
+          "probe_ms": 3338,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -792,11 +790,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10892.91,
+          "rank_score": 10891.62,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:36.812380+00:00",
-          "last_ok": "2026-11-27T23:28:36.812380+00:00"
+          "playback_checked_at": "2026-11-27T23:33:19.952612+00:00",
+          "last_ok": "2026-11-27T23:33:19.952612+00:00"
         }
       ],
       "audit": {
@@ -849,8 +847,8 @@
       "verified": [
         {
           "channel": "tvip_36_rtl-102-5",
-          "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_video.m3u8",
-          "checked_at": "2026-11-27T23:28:43.003556+00:00",
+          "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist.m3u8",
+          "checked_at": "2026-11-27T23:33:26.345368+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -858,8 +856,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 6643,
-          "probe_ms": 6643,
+          "startup_ms": 8301,
+          "probe_ms": 8301,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -870,16 +868,16 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 10803.57,
+          "rank_score": 10786.99,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:43.003556+00:00",
-          "last_ok": "2026-11-27T23:28:43.003556+00:00"
+          "playback_checked_at": "2026-11-27T23:33:26.345368+00:00",
+          "last_ok": "2026-11-27T23:33:26.345368+00:00"
         },
         {
           "channel": "tvip_36_rtl-102-5",
-          "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist.m3u8",
-          "checked_at": "2026-11-27T23:28:42.012537+00:00",
+          "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S97044836/tbbP8T1ZRPBL/playlist_video.m3u8",
+          "checked_at": "2026-11-27T23:33:27.063684+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -887,11 +885,11 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 7732,
-          "probe_ms": 7732,
+          "startup_ms": 7204,
+          "probe_ms": 7204,
           "video_codec": "h264",
           "audio_codec": "aac",
-          "playback_height": 1080,
+          "playback_height": 720,
           "reason": "audio_video_packets",
           "watermark": {
             "status": "reference_missing",
@@ -899,11 +897,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 10792.68,
+          "rank_score": 7197.96,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:42.012537+00:00",
-          "last_ok": "2026-11-27T23:28:42.012537+00:00"
+          "playback_checked_at": "2026-11-27T23:33:27.063684+00:00",
+          "last_ok": "2026-11-27T23:33:27.063684+00:00"
         }
       ],
       "audit": {
@@ -939,7 +937,7 @@
         {
           "channel": "tvip_38_giallo",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/GIALLO/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:28:45.531121+00:00",
+          "checked_at": "2026-11-27T23:33:27.906690+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -947,8 +945,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3760,
-          "probe_ms": 3760,
+          "startup_ms": 2647,
+          "probe_ms": 2647,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -959,11 +957,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10887.4,
+          "rank_score": 10898.53,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:45.531121+00:00",
-          "last_ok": "2026-11-27T23:28:45.531121+00:00"
+          "playback_checked_at": "2026-11-27T23:33:27.906690+00:00",
+          "last_ok": "2026-11-27T23:33:27.906690+00:00"
         }
       ],
       "audit": {
@@ -1084,7 +1082,7 @@
         {
           "channel": "tvip_47_super",
           "url": "https://495c5a85d9074f29acffeaea9e0215eb.msvdn.net/super/super_main/super_main_hbbtv/playlist.m3u8",
-          "checked_at": "2026-11-27T23:28:52.846104+00:00",
+          "checked_at": "2026-11-27T23:33:31.986137+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1092,8 +1090,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 1179,
-          "probe_ms": 1179,
+          "startup_ms": 2892,
+          "probe_ms": 2892,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -1104,11 +1102,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 7258.21,
+          "rank_score": 7241.08,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:28:52.846104+00:00",
-          "last_ok": "2026-11-27T23:28:52.846104+00:00"
+          "playback_checked_at": "2026-11-27T23:33:31.986137+00:00",
+          "last_ok": "2026-11-27T23:33:31.986137+00:00"
         }
       ],
       "audit": {
@@ -1130,7 +1128,7 @@
         {
           "channel": "tvip_48_rai-news-24",
           "url": "https://rainews1-dash-live.akamaized.net/dash/live/663981/rainews1/manifest.mpd",
-          "checked_at": "2026-11-27T23:28:54.156093+00:00",
+          "checked_at": "2026-11-27T23:33:32.908187+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 4,
           "identity_required": false,
@@ -1138,8 +1136,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 2589,
-          "probe_ms": 2589,
+          "startup_ms": 2026,
+          "probe_ms": 2026,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -1150,11 +1148,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 7244.11,
+          "rank_score": 7249.74,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "DASH",
-          "playback_checked_at": "2026-11-27T23:28:54.156093+00:00",
-          "last_ok": "2026-11-27T23:28:54.156093+00:00"
+          "playback_checked_at": "2026-11-27T23:33:32.908187+00:00",
+          "last_ok": "2026-11-27T23:33:32.908187+00:00"
         }
       ],
       "audit": {
@@ -1227,7 +1225,7 @@
         {
           "channel": "tvip_52_dmax",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/DMAX/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:29:00.604322+00:00",
+          "checked_at": "2026-11-27T23:33:44.027430+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1235,8 +1233,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4159,
-          "probe_ms": 4159,
+          "startup_ms": 2546,
+          "probe_ms": 2546,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1247,11 +1245,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10883.41,
+          "rank_score": 10899.54,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:00.604322+00:00",
-          "last_ok": "2026-11-27T23:29:00.604322+00:00"
+          "playback_checked_at": "2026-11-27T23:33:44.027430+00:00",
+          "last_ok": "2026-11-27T23:33:44.027430+00:00"
         }
       ],
       "audit": {
@@ -1304,7 +1302,7 @@
         {
           "channel": "tvip_56_hgtv",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/HGTV/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:29:02.498559+00:00",
+          "checked_at": "2026-11-27T23:33:47.744824+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1312,8 +1310,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3861,
-          "probe_ms": 3861,
+          "startup_ms": 2049,
+          "probe_ms": 2049,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1324,11 +1322,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10886.39,
+          "rank_score": 10904.51,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:02.498559+00:00",
-          "last_ok": "2026-11-27T23:29:02.498559+00:00"
+          "playback_checked_at": "2026-11-27T23:33:47.744824+00:00",
+          "last_ok": "2026-11-27T23:33:47.744824+00:00"
         }
       ],
       "audit": {
@@ -1348,7 +1346,7 @@
         {
           "channel": "tvip_59_discovery-turbo",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/TURBO/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:29:02.575119+00:00",
+          "checked_at": "2026-11-27T23:33:48.239630+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1356,8 +1354,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3309,
-          "probe_ms": 3309,
+          "startup_ms": 2518,
+          "probe_ms": 2518,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1368,11 +1366,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10891.91,
+          "rank_score": 10899.82,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:02.575119+00:00",
-          "last_ok": "2026-11-27T23:29:02.575119+00:00"
+          "playback_checked_at": "2026-11-27T23:33:48.239630+00:00",
+          "last_ok": "2026-11-27T23:33:48.239630+00:00"
         }
       ],
       "audit": {
@@ -1443,7 +1441,7 @@
         {
           "channel": "tvip_63_il-sole-24-ore-tv",
           "url": "https://ilsole24ore-radiovisual.akamaized.net/hls/live/2035302/persidera/master.m3u8",
-          "checked_at": "2026-11-27T23:29:11.109167+00:00",
+          "checked_at": "2026-11-27T23:33:52.451504+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1451,8 +1449,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 1827,
-          "probe_ms": 1827,
+          "startup_ms": 533,
+          "probe_ms": 533,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1463,11 +1461,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10906.73,
+          "rank_score": 10919.67,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:11.109167+00:00",
-          "last_ok": "2026-11-27T23:29:11.109167+00:00"
+          "playback_checked_at": "2026-11-27T23:33:52.451504+00:00",
+          "last_ok": "2026-11-27T23:33:52.451504+00:00"
         }
       ],
       "audit": {
@@ -1519,7 +1517,7 @@
         {
           "channel": "tvip_66_radio-105-tv",
           "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-ec/ec-clr.isml/index.m3u8",
-          "checked_at": "2026-11-27T23:29:26.765987+00:00",
+          "checked_at": "2026-11-27T23:33:53.961496+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1527,8 +1525,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 21553,
-          "probe_ms": 21553,
+          "startup_ms": 9732,
+          "probe_ms": 9732,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1537,13 +1535,13 @@
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 2,
+          "attempts": 1,
           "success_runs": 9,
-          "rank_score": 10735.0,
+          "rank_score": 10787.68,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:26.765987+00:00",
-          "last_ok": "2026-11-27T23:29:26.765987+00:00"
+          "playback_checked_at": "2026-11-27T23:33:53.961496+00:00",
+          "last_ok": "2026-11-27T23:33:53.961496+00:00"
         }
       ],
       "audit": {
@@ -1565,7 +1563,7 @@
         {
           "channel": "tvip_67_r101-tv",
           "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-er/er-clr.isml/index.m3u8",
-          "checked_at": "2026-11-27T23:29:33.512558+00:00",
+          "checked_at": "2026-11-27T23:33:59.928575+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1573,8 +1571,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 18877,
-          "probe_ms": 18877,
+          "startup_ms": 9121,
+          "probe_ms": 9121,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1583,13 +1581,13 @@
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 2,
+          "attempts": 1,
           "success_runs": 10,
-          "rank_score": 10740.0,
+          "rank_score": 10798.79,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:33.512558+00:00",
-          "last_ok": "2026-11-27T23:29:33.512558+00:00"
+          "playback_checked_at": "2026-11-27T23:33:59.928575+00:00",
+          "last_ok": "2026-11-27T23:33:59.928575+00:00"
         }
       ],
       "audit": {
@@ -1611,7 +1609,7 @@
         {
           "channel": "tvip_69_deejay-tv-hd",
           "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S85984808/sMO0tz9Sr2Rk/playlist.m3u8",
-          "checked_at": "2026-11-27T23:29:27.026934+00:00",
+          "checked_at": "2026-11-27T23:34:04.951484+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1619,8 +1617,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 8385,
-          "probe_ms": 8385,
+          "startup_ms": 7423,
+          "probe_ms": 7423,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1631,11 +1629,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 10786.15,
+          "rank_score": 10795.77,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:27.026934+00:00",
-          "last_ok": "2026-11-27T23:29:27.026934+00:00"
+          "playback_checked_at": "2026-11-27T23:34:04.951484+00:00",
+          "last_ok": "2026-11-27T23:34:04.951484+00:00"
         }
       ],
       "audit": {
@@ -1672,7 +1670,7 @@
         {
           "channel": "tvip_70_radioitaliatv",
           "url": "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/stream03/streamPlaylist.m3u8",
-          "checked_at": "2026-11-27T23:29:46.717909+00:00",
+          "checked_at": "2026-11-27T23:34:13.356694+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1680,8 +1678,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 455,
-          "probe_ms": 455,
+          "startup_ms": 401,
+          "probe_ms": 401,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 576,
@@ -1692,16 +1690,16 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 5880.45,
+          "rank_score": 5880.99,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:46.717909+00:00",
-          "last_ok": "2026-11-27T23:29:46.717909+00:00"
+          "playback_checked_at": "2026-11-27T23:34:13.356694+00:00",
+          "last_ok": "2026-11-27T23:34:13.356694+00:00"
         },
         {
           "channel": "tvip_70_radioitaliatv",
           "url": "https://radioitaliatv.akamaized.net/hls/live/2093117/RadioitaliaTV/master.m3u8",
-          "checked_at": "2026-11-27T23:29:57.608164+00:00",
+          "checked_at": "2026-11-27T23:34:10.398677+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1709,8 +1707,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 8408,
-          "probe_ms": 8408,
+          "startup_ms": 4928,
+          "probe_ms": 4928,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 576,
@@ -1719,13 +1717,13 @@
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 2,
+          "attempts": 1,
           "success_runs": 17,
-          "rank_score": 5800.92,
+          "rank_score": 5835.72,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:57.608164+00:00",
-          "last_ok": "2026-11-27T23:29:57.608164+00:00"
+          "playback_checked_at": "2026-11-27T23:34:10.398677+00:00",
+          "last_ok": "2026-11-27T23:34:10.398677+00:00"
         }
       ],
       "audit": {
@@ -1745,7 +1743,7 @@
         {
           "channel": "tvip_713_radio-capital-tv",
           "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S35394734/Z6U2wGoDYANk/playlist.m3u8",
-          "checked_at": "2026-11-27T23:29:48.815057+00:00",
+          "checked_at": "2026-11-27T23:34:14.492479+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1753,8 +1751,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 8648,
-          "probe_ms": 8648,
+          "startup_ms": 7006,
+          "probe_ms": 7006,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -1765,11 +1763,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 7183.52,
+          "rank_score": 7199.94,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:48.815057+00:00",
-          "last_ok": "2026-11-27T23:29:48.815057+00:00"
+          "playback_checked_at": "2026-11-27T23:34:14.492479+00:00",
+          "last_ok": "2026-11-27T23:34:14.492479+00:00"
         }
       ],
       "audit": {
@@ -1789,7 +1787,7 @@
         {
           "channel": "tvip_715_m2o-tv",
           "url": "https://4c4b867c89244861ac216426883d1ad0.msvdn.net/live/S62628868/uhdWBlkC1AoO/playlist.m3u8",
-          "checked_at": "2026-11-27T23:29:53.550640+00:00",
+          "checked_at": "2026-11-27T23:34:18.658962+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1797,8 +1795,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 7053,
-          "probe_ms": 7053,
+          "startup_ms": 8831,
+          "probe_ms": 8831,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1809,11 +1807,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 10799.47,
+          "rank_score": 10781.69,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:29:53.550640+00:00",
-          "last_ok": "2026-11-27T23:29:53.550640+00:00"
+          "playback_checked_at": "2026-11-27T23:34:18.658962+00:00",
+          "last_ok": "2026-11-27T23:34:18.658962+00:00"
         }
       ],
       "audit": {
@@ -1833,7 +1831,7 @@
         {
           "channel": "tvip_772_radio-montecarlo-tv",
           "url": "https://live02-seg.msr.cdn.mediaset.net/live/ch-bb/bb-clr.isml/index.m3u8",
-          "checked_at": "2026-11-27T23:30:12.387980+00:00",
+          "checked_at": "2026-11-27T23:34:19.241675+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1841,8 +1839,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 18644,
-          "probe_ms": 18644,
+          "startup_ms": 9058,
+          "probe_ms": 9058,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1851,13 +1849,13 @@
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 2,
+          "attempts": 1,
           "success_runs": 9,
-          "rank_score": 10735.0,
+          "rank_score": 10794.42,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:12.387980+00:00",
-          "last_ok": "2026-11-27T23:30:12.387980+00:00"
+          "playback_checked_at": "2026-11-27T23:34:19.241675+00:00",
+          "last_ok": "2026-11-27T23:34:19.241675+00:00"
         }
       ],
       "audit": {
@@ -1879,7 +1877,7 @@
         {
           "channel": "tvip_7_la7-hd",
           "url": "https://d15umi5iaezxgx.cloudfront.net/HBBTV/LA7/DASH/Live.mpd",
-          "checked_at": "2026-11-27T23:30:12.577957+00:00",
+          "checked_at": "2026-11-27T23:34:35.378109+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1887,8 +1885,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 2627,
-          "probe_ms": 2627,
+          "startup_ms": 1720,
+          "probe_ms": 1720,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -1899,11 +1897,11 @@
           },
           "attempts": 2,
           "success_runs": 9,
-          "rank_score": 7258.73,
+          "rank_score": 7267.8,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "DASH",
-          "playback_checked_at": "2026-11-27T23:30:12.577957+00:00",
-          "last_ok": "2026-11-27T23:30:12.577957+00:00"
+          "playback_checked_at": "2026-11-27T23:34:35.378109+00:00",
+          "last_ok": "2026-11-27T23:34:35.378109+00:00"
         }
       ],
       "audit": {
@@ -1955,7 +1953,7 @@
         {
           "channel": "tvip_9_nove",
           "url": "https://streaming.aurora.enhanced.live/live/mpc/enl0eG1mLmVncmVzcy5mZDJ2eHI=/out/v1/IT_SIMULCAST/NOVE/CMAF/index.m3u8",
-          "checked_at": "2026-11-27T23:30:11.343709+00:00",
+          "checked_at": "2026-11-27T23:34:38.109498+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -1963,8 +1961,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4878,
-          "probe_ms": 4878,
+          "startup_ms": 2394,
+          "probe_ms": 2394,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -1975,11 +1973,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10876.22,
+          "rank_score": 10901.06,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:11.343709+00:00",
-          "last_ok": "2026-11-27T23:30:11.343709+00:00"
+          "playback_checked_at": "2026-11-27T23:34:38.109498+00:00",
+          "last_ok": "2026-11-27T23:34:38.109498+00:00"
         }
       ],
       "audit": {
@@ -1999,16 +1997,16 @@
         {
           "channel": "tvip_puglia_antenna_sud_extra",
           "url": "https://live-antennasud.cdn.netrw.it/antennasud/hls/ccr/extra/master.m3u8",
-          "checked_at": "2026-11-27T23:30:26.398181+00:00",
+          "checked_at": "2026-11-27T23:34:50.723566+00:00",
           "content_status": "no_high_confidence_flag",
-          "sampled_frames": 5,
+          "sampled_frames": 3,
           "identity_required": false,
           "identity_status": "not_required",
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 24799,
-          "probe_ms": 24799,
+          "startup_ms": 15083,
+          "probe_ms": 15083,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -2022,8 +2020,8 @@
           "rank_score": 7095.0,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:26.398181+00:00",
-          "last_ok": "2026-11-27T23:30:26.398181+00:00"
+          "playback_checked_at": "2026-11-27T23:34:50.723566+00:00",
+          "last_ok": "2026-11-27T23:34:50.723566+00:00"
         }
       ],
       "audit": {
@@ -2059,7 +2057,7 @@
         {
           "channel": "tvip_puglia_tele_dehon",
           "url": "https://64b16f23efbee.streamlock.net/teledehonapp/ngrp:teledehonapp_all/playlist.m3u8",
-          "checked_at": "2026-11-27T23:30:20.992390+00:00",
+          "checked_at": "2026-11-27T23:34:41.447819+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2067,8 +2065,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4353,
-          "probe_ms": 4353,
+          "startup_ms": 2907,
+          "probe_ms": 2907,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2079,11 +2077,11 @@
           },
           "attempts": 1,
           "success_runs": 2,
-          "rank_score": 10806.47,
+          "rank_score": 10820.93,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:20.992390+00:00",
-          "last_ok": "2026-11-27T23:30:20.992390+00:00"
+          "playback_checked_at": "2026-11-27T23:34:41.447819+00:00",
+          "last_ok": "2026-11-27T23:34:41.447819+00:00"
         }
       ],
       "audit": {
@@ -2122,7 +2120,7 @@
         {
           "channel": "tvip_puglia_telerama",
           "url": "https://58d921499d3d3.streamlock.net/TeleRama/livestream/playlist.m3u8",
-          "checked_at": "2026-11-27T23:30:33.777773+00:00",
+          "checked_at": "2026-11-27T23:34:45.390246+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2130,8 +2128,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4397,
-          "probe_ms": 4397,
+          "startup_ms": 2589,
+          "probe_ms": 2589,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 576,
@@ -2142,11 +2140,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 5841.03,
+          "rank_score": 5859.11,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:33.777773+00:00",
-          "last_ok": "2026-11-27T23:30:33.777773+00:00"
+          "playback_checked_at": "2026-11-27T23:34:45.390246+00:00",
+          "last_ok": "2026-11-27T23:34:45.390246+00:00"
         }
       ],
       "audit": {
@@ -2182,7 +2180,7 @@
         {
           "channel": "tvip_puglia_telesveva",
           "url": "https://live2.telesveva.com/hls/svevahd.m3u8",
-          "checked_at": "2026-11-27T23:30:39.034274+00:00",
+          "checked_at": "2026-11-27T23:34:48.502890+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2190,8 +2188,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3012,
-          "probe_ms": 3012,
+          "startup_ms": 1888,
+          "probe_ms": 1888,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2202,11 +2200,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10894.88,
+          "rank_score": 10906.12,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:39.034274+00:00",
-          "last_ok": "2026-11-27T23:30:39.034274+00:00"
+          "playback_checked_at": "2026-11-27T23:34:48.502890+00:00",
+          "last_ok": "2026-11-27T23:34:48.502890+00:00"
         }
       ],
       "audit": {
@@ -2226,7 +2224,7 @@
         {
           "channel": "tvip_sat_aci_sport_tv",
           "url": "https://webstream.multistream.it/memfs/e2cb3629-c1a2-495b-b43a-9eb386f04ed8.m3u8",
-          "checked_at": "2026-11-27T23:30:42.481528+00:00",
+          "checked_at": "2026-11-27T23:34:52.074152+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2234,8 +2232,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3446,
-          "probe_ms": 3446,
+          "startup_ms": 3426,
+          "probe_ms": 3426,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -2246,11 +2244,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 7290.54,
+          "rank_score": 7290.74,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:42.481528+00:00",
-          "last_ok": "2026-11-27T23:30:42.481528+00:00"
+          "playback_checked_at": "2026-11-27T23:34:52.074152+00:00",
+          "last_ok": "2026-11-27T23:34:52.074152+00:00"
         }
       ],
       "audit": {
@@ -2270,7 +2268,7 @@
         {
           "channel": "tvip_sat_al_arabiya",
           "url": "https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8",
-          "checked_at": "2026-11-27T23:30:45.517470+00:00",
+          "checked_at": "2026-11-27T23:34:53.734711+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2278,8 +2276,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 1883,
-          "probe_ms": 1883,
+          "startup_ms": 1816,
+          "probe_ms": 1816,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2290,11 +2288,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10906.17,
+          "rank_score": 10906.84,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:45.517470+00:00",
-          "last_ok": "2026-11-27T23:30:45.517470+00:00"
+          "playback_checked_at": "2026-11-27T23:34:53.734711+00:00",
+          "last_ok": "2026-11-27T23:34:53.734711+00:00"
         }
       ],
       "audit": {
@@ -2314,7 +2312,7 @@
         {
           "channel": "tvip_sat_al_jazeera_arabic",
           "url": "https://live-hls-web-aja.getaj.net/AJA/index.m3u8",
-          "checked_at": "2026-11-27T23:30:46.255992+00:00",
+          "checked_at": "2026-11-27T23:34:58.865022+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2322,8 +2320,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 6397,
-          "probe_ms": 6397,
+          "startup_ms": 1666,
+          "probe_ms": 1666,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2334,11 +2332,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10861.03,
+          "rank_score": 10908.34,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:46.255992+00:00",
-          "last_ok": "2026-11-27T23:30:46.255992+00:00"
+          "playback_checked_at": "2026-11-27T23:34:58.865022+00:00",
+          "last_ok": "2026-11-27T23:34:58.865022+00:00"
         }
       ],
       "audit": {
@@ -2358,7 +2356,7 @@
         {
           "channel": "tvip_sat_al_jazeera_english",
           "url": "https://live-hls-apps-aje-fa.getaj.net/AJE/index.m3u8",
-          "checked_at": "2026-11-27T23:30:46.953331+00:00",
+          "checked_at": "2026-11-27T23:35:07.071313+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2366,8 +2364,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 4851,
-          "probe_ms": 4851,
+          "startup_ms": 2302,
+          "probe_ms": 2302,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2376,13 +2374,13 @@
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 1,
+          "attempts": 2,
           "success_runs": 9,
-          "rank_score": 10836.49,
+          "rank_score": 10861.98,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:46.953331+00:00",
-          "last_ok": "2026-11-27T23:30:46.953331+00:00"
+          "playback_checked_at": "2026-11-27T23:35:07.071313+00:00",
+          "last_ok": "2026-11-27T23:35:07.071313+00:00"
         }
       ],
       "audit": {
@@ -2402,7 +2400,7 @@
         {
           "channel": "tvip_sat_bejoy_kids",
           "url": "https://stream.paroledivita.org/bejoy.m3u8",
-          "checked_at": "2026-11-27T23:30:48.620462+00:00",
+          "checked_at": "2026-11-27T23:35:02.973934+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2410,8 +2408,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 9410,
-          "probe_ms": 9410,
+          "startup_ms": 6056,
+          "probe_ms": 6056,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2422,11 +2420,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10830.9,
+          "rank_score": 10864.44,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:48.620462+00:00",
-          "last_ok": "2026-11-27T23:30:48.620462+00:00"
+          "playback_checked_at": "2026-11-27T23:35:02.973934+00:00",
+          "last_ok": "2026-11-27T23:35:02.973934+00:00"
         }
       ],
       "audit": {
@@ -2446,7 +2444,7 @@
         {
           "channel": "tvip_sat_bloomberg_television",
           "url": "https://bloomberg.com/media-manifest/streams/eu.m3u8",
-          "checked_at": "2026-11-27T23:30:54.794215+00:00",
+          "checked_at": "2026-11-27T23:35:04.496639+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2454,8 +2452,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3208,
-          "probe_ms": 3208,
+          "startup_ms": 2203,
+          "probe_ms": 2203,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -2466,11 +2464,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 7237.92,
+          "rank_score": 7247.97,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:54.794215+00:00",
-          "last_ok": "2026-11-27T23:30:54.794215+00:00"
+          "playback_checked_at": "2026-11-27T23:35:04.496639+00:00",
+          "last_ok": "2026-11-27T23:35:04.496639+00:00"
         }
       ],
       "audit": {
@@ -2490,7 +2488,7 @@
         {
           "channel": "tvip_sat_camera_dei_deputati",
           "url": "https://video-ar.radioradicale.it/diretta/camera2/playlist.m3u8",
-          "checked_at": "2026-11-27T23:30:57.731781+00:00",
+          "checked_at": "2026-11-27T23:35:06.887378+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2498,8 +2496,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 5576,
-          "probe_ms": 5576,
+          "startup_ms": 4058,
+          "probe_ms": 4058,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 360,
@@ -2510,11 +2508,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 3669.24,
+          "rank_score": 3684.42,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:30:57.731781+00:00",
-          "last_ok": "2026-11-27T23:30:57.731781+00:00"
+          "playback_checked_at": "2026-11-27T23:35:06.887378+00:00",
+          "last_ok": "2026-11-27T23:35:06.887378+00:00"
         }
       ],
       "audit": {
@@ -2534,7 +2532,7 @@
         {
           "channel": "tvip_sat_dw_english",
           "url": "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/master.m3u8",
-          "checked_at": "2026-11-27T23:31:11.566299+00:00",
+          "checked_at": "2026-11-27T23:35:08.195268+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2542,23 +2540,23 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 11190,
-          "probe_ms": 11190,
+          "startup_ms": 7188,
+          "probe_ms": 7188,
           "video_codec": "h264",
           "audio_codec": "aac",
-          "playback_height": 1080,
+          "playback_height": 720,
           "reason": "audio_video_packets",
           "watermark": {
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 2,
+          "attempts": 1,
           "success_runs": 6,
-          "rank_score": 10758.1,
+          "rank_score": 7198.12,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:31:11.566299+00:00",
-          "last_ok": "2026-11-27T23:31:11.566299+00:00"
+          "playback_checked_at": "2026-11-27T23:35:08.195268+00:00",
+          "last_ok": "2026-11-27T23:35:08.195268+00:00"
         }
       ],
       "audit": {
@@ -2578,7 +2576,7 @@
         {
           "channel": "tvip_sat_euronews_english",
           "url": "https://cdn-euronews.akamaized.net/live/eds/euronews-en/25002/index.m3u8",
-          "checked_at": "2026-11-27T23:31:01.403671+00:00",
+          "checked_at": "2026-11-27T23:35:08.992668+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2586,8 +2584,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 8161,
-          "probe_ms": 8161,
+          "startup_ms": 7092,
+          "probe_ms": 7092,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -2598,11 +2596,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 7243.39,
+          "rank_score": 7254.08,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:31:01.403671+00:00",
-          "last_ok": "2026-11-27T23:31:01.403671+00:00"
+          "playback_checked_at": "2026-11-27T23:35:08.992668+00:00",
+          "last_ok": "2026-11-27T23:35:08.992668+00:00"
         }
       ],
       "audit": {
@@ -2622,7 +2620,7 @@
         {
           "channel": "tvip_sat_euronews_italiano",
           "url": "https://cdn-euronews.akamaized.net/live/eds/euronews-it/25085/index.m3u8",
-          "checked_at": "2026-11-27T23:31:15.552966+00:00",
+          "checked_at": "2026-11-27T23:35:12.685348+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2630,23 +2628,23 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 9969,
-          "probe_ms": 9969,
+          "startup_ms": 7121,
+          "probe_ms": 7121,
           "video_codec": "h264",
           "audio_codec": "aac",
-          "playback_height": 720,
+          "playback_height": 360,
           "reason": "audio_video_packets",
           "watermark": {
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 2,
+          "attempts": 1,
           "success_runs": 9,
-          "rank_score": 7185.31,
+          "rank_score": 3613.79,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:31:15.552966+00:00",
-          "last_ok": "2026-11-27T23:31:15.552966+00:00"
+          "playback_checked_at": "2026-11-27T23:35:12.685348+00:00",
+          "last_ok": "2026-11-27T23:35:12.685348+00:00"
         }
       ],
       "audit": {
@@ -2666,7 +2664,7 @@
         {
           "channel": "tvip_sat_france_24_english",
           "url": "https://live.france24.com/hls/live/2037218/F24_EN_HI_HLS/master_5000.m3u8",
-          "checked_at": "2026-11-27T23:31:12.983280+00:00",
+          "checked_at": "2026-11-27T23:35:18.413287+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2674,8 +2672,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 686,
-          "probe_ms": 686,
+          "startup_ms": 446,
+          "probe_ms": 446,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2686,11 +2684,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10918.14,
+          "rank_score": 10920.54,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:31:12.983280+00:00",
-          "last_ok": "2026-11-27T23:31:12.983280+00:00"
+          "playback_checked_at": "2026-11-27T23:35:18.413287+00:00",
+          "last_ok": "2026-11-27T23:35:18.413287+00:00"
         }
       ],
       "audit": {
@@ -2710,7 +2708,7 @@
         {
           "channel": "tvip_sat_france_24_francais",
           "url": "https://live.france24.com/hls/live/2037179-b/F24_FR_HI_HLS/master_5000.m3u8",
-          "checked_at": "2026-11-27T23:31:13.251946+00:00",
+          "checked_at": "2026-11-27T23:35:18.725503+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2718,8 +2716,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 1339,
-          "probe_ms": 1339,
+          "startup_ms": 363,
+          "probe_ms": 363,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2730,11 +2728,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10911.61,
+          "rank_score": 10921.37,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:31:13.251946+00:00",
-          "last_ok": "2026-11-27T23:31:13.251946+00:00"
+          "playback_checked_at": "2026-11-27T23:35:18.725503+00:00",
+          "last_ok": "2026-11-27T23:35:18.725503+00:00"
         }
       ],
       "audit": {
@@ -2754,7 +2752,7 @@
         {
           "channel": "tvip_sat_nhk_world_japan",
           "url": "https://masterpl.hls.nhkworld.jp/hls/w/live/smarttv.m3u8",
-          "checked_at": "2026-11-27T23:31:13.914118+00:00",
+          "checked_at": "2026-11-27T23:35:21.400584+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2762,8 +2760,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 2013,
-          "probe_ms": 2013,
+          "startup_ms": 2640,
+          "probe_ms": 2640,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2774,11 +2772,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10904.87,
+          "rank_score": 10898.6,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:31:13.914118+00:00",
-          "last_ok": "2026-11-27T23:31:13.914118+00:00"
+          "playback_checked_at": "2026-11-27T23:35:21.400584+00:00",
+          "last_ok": "2026-11-27T23:35:21.400584+00:00"
         }
       ],
       "audit": {
@@ -2798,7 +2796,7 @@
         {
           "channel": "tvip_sat_parole_di_vita",
           "url": "https://stream.paroledivita.org/paroledivita.m3u8",
-          "checked_at": "2026-11-27T23:31:27.485206+00:00",
+          "checked_at": "2026-11-27T23:35:21.572502+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2806,8 +2804,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 14391,
-          "probe_ms": 14391,
+          "startup_ms": 7168,
+          "probe_ms": 7168,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2816,13 +2814,13 @@
             "status": "reference_missing",
             "matches": 0
           },
-          "attempts": 2,
+          "attempts": 1,
           "success_runs": 10,
-          "rank_score": 10746.09,
+          "rank_score": 10818.32,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:31:27.485206+00:00",
-          "last_ok": "2026-11-27T23:31:27.485206+00:00"
+          "playback_checked_at": "2026-11-27T23:35:21.572502+00:00",
+          "last_ok": "2026-11-27T23:35:21.572502+00:00"
         }
       ],
       "audit": {
@@ -2842,7 +2840,7 @@
         {
           "channel": "tvip_sat_rtl_102_5_caliente",
           "url": "https://dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S8448465/zTYa1Z5Op9ue/playlist_video.m3u8",
-          "checked_at": "2026-11-27T23:31:17.120309+00:00",
+          "checked_at": "2026-11-27T23:35:21.797021+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2850,8 +2848,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 8340,
-          "probe_ms": 8340,
+          "startup_ms": 7356,
+          "probe_ms": 7356,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2862,11 +2860,11 @@
           },
           "attempts": 1,
           "success_runs": 6,
-          "rank_score": 10786.6,
+          "rank_score": 10796.44,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:31:17.120309+00:00",
-          "last_ok": "2026-11-27T23:31:17.120309+00:00"
+          "playback_checked_at": "2026-11-27T23:35:21.797021+00:00",
+          "last_ok": "2026-11-27T23:35:21.797021+00:00"
         }
       ],
       "audit": {
@@ -2903,7 +2901,7 @@
         {
           "channel": "tvip_sat_sky_news_arabia",
           "url": "https://live-stream.skynewsarabia.com/c-horizontal-channel/horizontal-stream/index.m3u8",
-          "checked_at": "2026-11-27T23:31:26.594214+00:00",
+          "checked_at": "2026-11-27T23:35:24.702741+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2911,8 +2909,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 3867,
-          "probe_ms": 3867,
+          "startup_ms": 1468,
+          "probe_ms": 1468,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 1080,
@@ -2923,11 +2921,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 10886.33,
+          "rank_score": 10910.32,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:31:26.594214+00:00",
-          "last_ok": "2026-11-27T23:31:26.594214+00:00"
+          "playback_checked_at": "2026-11-27T23:35:24.702741+00:00",
+          "last_ok": "2026-11-27T23:35:24.702741+00:00"
         }
       ],
       "audit": {
@@ -2947,7 +2945,7 @@
         {
           "channel": "tvip_sat_uninettuno_university_tv",
           "url": "https://stream6-rai-it.akamaized.net/live/uninettuno/playlist.m3u8",
-          "checked_at": "2026-11-27T23:31:28.762762+00:00",
+          "checked_at": "2026-11-27T23:35:25.892164+00:00",
           "content_status": "no_high_confidence_flag",
           "sampled_frames": 5,
           "identity_required": false,
@@ -2955,8 +2953,8 @@
           "playback_ready": true,
           "has_video": true,
           "has_audio": true,
-          "startup_ms": 2331,
-          "probe_ms": 2331,
+          "startup_ms": 565,
+          "probe_ms": 565,
           "video_codec": "h264",
           "audio_codec": "aac",
           "playback_height": 720,
@@ -2967,11 +2965,11 @@
           },
           "attempts": 1,
           "success_runs": 17,
-          "rank_score": 7301.69,
+          "rank_score": 7319.35,
           "source": "Percorso emittente/CDN già revisionato",
           "kind": "HLS",
-          "playback_checked_at": "2026-11-27T23:31:28.762762+00:00",
-          "last_ok": "2026-11-27T23:31:28.762762+00:00"
+          "playback_checked_at": "2026-11-27T23:35:25.892164+00:00",
+          "last_ok": "2026-11-27T23:35:25.892164+00:00"
         }
       ],
       "audit": {
@@ -3049,6 +3047,94 @@
       "number": "79",
       "group": "TV locali Puglia",
       "logo": "https://i.imgur.com/9tefonp.jpg"
+    },
+    "tvip_sat_senato_tv": {
+      "verified": [
+        {
+          "channel": "tvip_sat_senato_tv",
+          "url": "https://senato-live.morescreens.com/SENATO_1_001/playlist.m3u8",
+          "checked_at": "2026-11-27T23:35:31.078996+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 7522,
+          "probe_ms": 7522,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 1080,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 1,
+          "success_runs": 1,
+          "rank_score": 10769.78,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:35:31.078996+00:00",
+          "last_ok": "2026-11-27T23:35:31.078996+00:00"
+        }
+      ],
+      "audit": {
+        "tested": 1,
+        "failed": {},
+        "availability": "verified",
+        "preliminary_av_count": 1
+      },
+      "verified_count": 1,
+      "name": "Senato TV",
+      "number": "",
+      "group": "News e internazionali",
+      "logo": "https://i.imgur.com/FoQoNZW.png"
+    },
+    "tvip_sat_cgtn": {
+      "verified": [
+        {
+          "channel": "tvip_sat_cgtn",
+          "url": "https://english-livebkali.cgtn.com/live/encgtn.m3u8",
+          "checked_at": "2026-11-27T23:35:36.977740+00:00",
+          "content_status": "no_high_confidence_flag",
+          "sampled_frames": 5,
+          "identity_required": false,
+          "identity_status": "not_required",
+          "playback_ready": true,
+          "has_video": true,
+          "has_audio": true,
+          "startup_ms": 7185,
+          "probe_ms": 7185,
+          "video_codec": "h264",
+          "audio_codec": "aac",
+          "playback_height": 1080,
+          "reason": "audio_video_packets",
+          "watermark": {
+            "status": "reference_missing",
+            "matches": 0
+          },
+          "attempts": 1,
+          "success_runs": 1,
+          "rank_score": 10773.15,
+          "source": "Percorso emittente/CDN già revisionato",
+          "kind": "HLS",
+          "playback_checked_at": "2026-11-27T23:35:36.977740+00:00",
+          "last_ok": "2026-11-27T23:35:36.977740+00:00"
+        }
+      ],
+      "audit": {
+        "tested": 1,
+        "failed": {},
+        "availability": "verified",
+        "preliminary_av_count": 5
+      },
+      "verified_count": 1,
+      "name": "CGTN",
+      "number": "",
+      "group": "News e internazionali",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/CGTN.svg/960px-CGTN.svg.png"
     },
     "tvip_202_rai-radio-2-visual": {
       "name": "Rai Radio 2 Visual",
@@ -3695,21 +3781,6 @@
         "preliminary_av_count": 0
       }
     },
-    "tvip_sat_cgtn": {
-      "name": "CGTN",
-      "number": "",
-      "group": "News e internazionali",
-      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/CGTN.svg/960px-CGTN.svg.png",
-      "verified": [],
-      "verified_count": 0,
-      "audit": {
-        "tested": 0,
-        "failed": {},
-        "status": "awaiting_source_review",
-        "availability": "awaiting_source_review",
-        "preliminary_av_count": 5
-      }
-    },
     "tvip_sat_class_tv_moda": {
       "name": "Class TV Moda",
       "number": "",
@@ -3888,21 +3959,6 @@
         "status": "awaiting_source_review",
         "availability": "awaiting_source_review",
         "preliminary_av_count": 0
-      }
-    },
-    "tvip_sat_senato_tv": {
-      "name": "Senato TV",
-      "number": "",
-      "group": "News e internazionali",
-      "logo": "https://i.imgur.com/FoQoNZW.png",
-      "verified": [],
-      "verified_count": 0,
-      "audit": {
-        "tested": 0,
-        "failed": {},
-        "status": "awaiting_source_review",
-        "availability": "awaiting_source_review",
-        "preliminary_av_count": 1
       }
     },
     "tvip_sat_sonlife_broadcasting_network": {
@@ -5209,20 +5265,62 @@
         "availability": "awaiting_source_review",
         "preliminary_av_count": 0
       }
+    },
+    "tvip_fta_si_solocalcio": {
+      "verified": [],
+      "verified_count": 0,
+      "audit": {
+        "tested": 0,
+        "failed": {},
+        "status": "awaiting_source_review",
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
+      },
+      "name": "SI SoloCalcio HD",
+      "number": "",
+      "group": "Sport in chiaro"
+    },
+    "tvip_fta_si_motori": {
+      "verified": [],
+      "verified_count": 0,
+      "audit": {
+        "tested": 0,
+        "failed": {},
+        "status": "awaiting_source_review",
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
+      },
+      "name": "SI Motori HD",
+      "number": "",
+      "group": "Sport in chiaro"
+    },
+    "tvip_fta_si_live24": {
+      "verified": [],
+      "verified_count": 0,
+      "audit": {
+        "tested": 0,
+        "failed": {},
+        "status": "awaiting_source_review",
+        "availability": "awaiting_source_review",
+        "preliminary_av_count": 0
+      },
+      "name": "SI Live24 HD",
+      "number": "",
+      "group": "Sport in chiaro"
     }
   },
   "summary": {
-    "reviewed_channels": 95,
-    "tested": 159,
-    "visible": 51,
-    "passed": 52,
-    "retained_recent": 1,
+    "reviewed_channels": 97,
+    "tested": 161,
+    "visible": 53,
+    "passed": 55,
+    "retained_recent": 0,
     "excluded": {
       "http_403": 49,
       "ffprobe_error": 2,
       "http_302": 3,
       "no_packets": 3,
-      "manifest_unavailable": 39,
+      "manifest_unavailable": 38,
       "channel_identity_unconfirmed": 4,
       "ffprobe_timeout": 4,
       "http_404": 2,
@@ -5231,12 +5329,12 @@
     "availability_counts": {
       "access_denied_unconfirmed": 9,
       "audit_failed": 35,
-      "verified": 51,
-      "awaiting_source_review": 144
+      "verified": 53,
+      "awaiting_source_review": 145
     },
-    "monitored_channels": 239,
-    "awaiting_source_review": 144,
-    "preliminary_av_without_final_pass": 46
+    "monitored_channels": 242,
+    "awaiting_source_review": 145,
+    "preliminary_av_without_final_pass": 44
   },
   "review_queue": [
     {
@@ -5322,13 +5420,6 @@
       "group": "TV locali Puglia",
       "preliminary_av_count": 1,
       "availability": "audit_failed"
-    },
-    {
-      "id": "tvip_sat_cgtn",
-      "name": "CGTN",
-      "group": "News e internazionali",
-      "preliminary_av_count": 5,
-      "availability": "awaiting_source_review"
     },
     {
       "id": "tvip_404_hell-s-kitchen-italy",
@@ -5495,13 +5586,6 @@
       "id": "tvip_sat_radio_italia_live",
       "name": "Radio Italia Live",
       "group": "Musica e radiovisione",
-      "preliminary_av_count": 1,
-      "availability": "awaiting_source_review"
-    },
-    {
-      "id": "tvip_sat_senato_tv",
-      "name": "Senato TV",
-      "group": "News e internazionali",
       "preliminary_av_count": 1,
       "availability": "awaiting_source_review"
     },
