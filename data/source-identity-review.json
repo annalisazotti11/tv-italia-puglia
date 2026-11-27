@@ -350,6 +350,12 @@
     ],
     "tvip_puglia_telemajg": [
       "https://59d7d6f47d7fc.streamlock.net/telemajg/telemajg/playlist.m3u8"
+    ],
+    "tvip_sat_senato_tv": [
+      "https://senato-live.morescreens.com/SENATO_1_001/playlist.m3u8"
+    ],
+    "tvip_sat_cgtn": [
+      "https://english-livebkali.cgtn.com/live/encgtn.m3u8"
     ]
   },
   "identity_required": {
@@ -426,6 +432,20 @@
       "status": "official_player_link_confirmed_manifest_identity_pending",
       "note": "Public official player confirmed; candidate found by preliminary scan. Exact manifest provenance and distribution permission not established.",
       "player_link_evidence": "https://linktr.ee/telemajg"
+    },
+    "https://senato-live.morescreens.com/SENATO_1_001/playlist.m3u8": {
+      "channel": "tvip_sat_senato_tv",
+      "page": "https://webtv.senato.it/",
+      "source": "https://invisiblenetwork.ai/live/SenatoTV.it?play=1",
+      "status": "public_institutional_channel_provider_trace",
+      "note": "Public broadcaster or institutional direct route, subject to full playback/content audit; not a general redistribution license."
+    },
+    "https://english-livebkali.cgtn.com/live/encgtn.m3u8": {
+      "channel": "tvip_sat_cgtn",
+      "page": "https://www.cgtn.com/",
+      "source": "https://invisiblenetwork.ai/live/CGTN.cn?play=1",
+      "status": "broadcaster_owned_domain",
+      "note": "Public broadcaster or institutional direct route, subject to full playback/content audit; not a general redistribution license."
     }
   }
 }
