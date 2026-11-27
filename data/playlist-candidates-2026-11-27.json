@@ -1,0 +1,2162 @@
+{
+  "schema": 1,
+  "created_at": "2026-11-27",
+  "mode": "candidate_inventory_no_playback",
+  "notes": "Upstream playlist references and metadata only; no individual URLs republished. Upstream maintainers declare free public content. Provenance, identity and authorization remain to be assessed before activation. Existing catalog and local configuration unchanged.",
+  "collections": [
+    {
+      "repository": "xN1ckuz/OpenIPTVItaly",
+      "playlist_url": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/OpenIPTVItaly.m3u",
+      "source_blob": "e1d2866fccf189988091712858fb616b5c1229dd",
+      "declared_scope": "free public TV",
+      "entries": [
+        {
+          "name": "Rai 1",
+          "tvg_id": "Rai.1.HD..101.it",
+          "lcn": "1",
+          "line": 3,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 2",
+          "tvg_id": "Rai.2.HD..102.it",
+          "lcn": "2",
+          "line": 8,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3",
+          "tvg_id": "Rai.3.HD..103.it",
+          "lcn": "3",
+          "line": 13,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rete 4 HD",
+          "tvg_id": "Rete.4.it",
+          "lcn": "4",
+          "line": 18,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Canale 5 HD",
+          "tvg_id": "Canale.5.it",
+          "lcn": "5",
+          "line": 23,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Italia 1 HD",
+          "tvg_id": "Italia.1.it",
+          "lcn": "6",
+          "line": 28,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "LA7 HD",
+          "tvg_id": "LA7.HD.it",
+          "lcn": "7",
+          "line": 33,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TV8 HD",
+          "tvg_id": "TV8.HD.it",
+          "lcn": "8",
+          "line": 38,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "NOVE HD",
+          "tvg_id": "Nove.it",
+          "lcn": "9",
+          "line": 43,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Telenorba",
+          "tvg_id": null,
+          "lcn": "10",
+          "line": 48,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Radionorba TV HD",
+          "tvg_id": "RADIONORBA.TV.it",
+          "lcn": "11",
+          "line": 53,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Teledue",
+          "tvg_id": null,
+          "lcn": "12",
+          "line": 58,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TG Norba 24",
+          "tvg_id": "TG.NORBA.24.it",
+          "lcn": "13",
+          "line": 63,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Antenna Sud",
+          "tvg_id": null,
+          "lcn": "14",
+          "line": 68,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Telerama",
+          "tvg_id": null,
+          "lcn": "15",
+          "line": 73,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TRM H24",
+          "tvg_id": "TRM.h24.it",
+          "lcn": "16",
+          "line": 78,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Telebari",
+          "tvg_id": null,
+          "lcn": "17",
+          "line": 83,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Telesveva",
+          "tvg_id": null,
+          "lcn": "18",
+          "line": 88,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Tele Dehon",
+          "tvg_id": null,
+          "lcn": "19",
+          "line": 93,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "20Mediaset HD",
+          "tvg_id": "20.it",
+          "lcn": "20",
+          "line": 98,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 4",
+          "tvg_id": "Rai.4..5021.it",
+          "lcn": "21",
+          "line": 103,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Iris HD",
+          "tvg_id": "Iris.it",
+          "lcn": "22",
+          "line": 108,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 5",
+          "tvg_id": "Rai.5..5023.it",
+          "lcn": "23",
+          "line": 113,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai Movie",
+          "tvg_id": "Rai.Movie..5024.it",
+          "lcn": "24",
+          "line": 118,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai Premium",
+          "tvg_id": "Rai.Premium..5025.it",
+          "lcn": "25",
+          "line": 123,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Cielo HD",
+          "tvg_id": "cielo.it",
+          "lcn": "26",
+          "line": 128,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "27Twentyseven HD",
+          "tvg_id": "27.Twentyseven.it",
+          "lcn": "27",
+          "line": 133,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TV 2000",
+          "tvg_id": null,
+          "lcn": "28",
+          "line": 138,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "LA7 Cinema",
+          "tvg_id": "LA7.CINEMA.it",
+          "lcn": "29",
+          "line": 143,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "La5 HD",
+          "tvg_id": "La.5.it",
+          "lcn": "30",
+          "line": 148,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Real Time HD",
+          "tvg_id": "Real.Time.it",
+          "lcn": "31",
+          "line": 153,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "QVC HD",
+          "tvg_id": "QVC.it",
+          "lcn": "32",
+          "line": 158,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Food Network HD",
+          "tvg_id": "Food.Network.it",
+          "lcn": "33",
+          "line": 163,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Cine34 HD",
+          "tvg_id": "Cine34.it",
+          "lcn": "34",
+          "line": 168,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "FOCUS HD",
+          "tvg_id": "Focus.it",
+          "lcn": "35",
+          "line": 173,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "RTL 102.5",
+          "tvg_id": "RTL.102.5.HD.it",
+          "lcn": "36",
+          "line": 178,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Discovery",
+          "tvg_id": "Discovery.Channel.it",
+          "lcn": "37",
+          "line": 183,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Giallo",
+          "tvg_id": "Giallo.TV.it",
+          "lcn": "38",
+          "line": 188,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Top Crime HD",
+          "tvg_id": "Top.Crime.it",
+          "lcn": "39",
+          "line": 193,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Boing HD",
+          "tvg_id": "Boing.it",
+          "lcn": "40",
+          "line": 198,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "K2",
+          "tvg_id": "K2.it",
+          "lcn": "41",
+          "line": 203,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai Gulp",
+          "tvg_id": "RaiGulp.it",
+          "lcn": "42",
+          "line": 208,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai Yoyo",
+          "tvg_id": "RaiYoyo.it",
+          "lcn": "43",
+          "line": 213,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Frisbee",
+          "tvg_id": "Frisbee.it",
+          "lcn": "44",
+          "line": 218,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Boing Plus",
+          "tvg_id": "BoingPlus.it",
+          "lcn": "45",
+          "line": 223,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Cartoonito HD",
+          "tvg_id": "Cartoonito.it",
+          "lcn": "46",
+          "line": 228,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Super!",
+          "tvg_id": "Super.it",
+          "lcn": "47",
+          "line": 233,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai News 24",
+          "tvg_id": "RaiNews24.it",
+          "lcn": "48",
+          "line": 238,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Italia 2 HD",
+          "tvg_id": "Italia.2.it",
+          "lcn": "49",
+          "line": 243,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Sky TG24",
+          "tvg_id": "Sky.TG24.it",
+          "lcn": "50",
+          "line": 248,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TGCOM 24 HD",
+          "tvg_id": "TGCom.it",
+          "lcn": "51",
+          "line": 253,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DMAX",
+          "tvg_id": "DMAX.it",
+          "lcn": "52",
+          "line": 258,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Italia 53",
+          "tvg_id": null,
+          "lcn": "53",
+          "line": 263,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai Storia HD",
+          "tvg_id": "Rai.Storia..5054.it",
+          "lcn": "54",
+          "line": 268,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Mediaset Extra HD",
+          "tvg_id": "Mediaset.Extra.it",
+          "lcn": "55",
+          "line": 273,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "HGTV - Home&Garden",
+          "tvg_id": "HGTV.it",
+          "lcn": "56",
+          "line": 278,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Italiana",
+          "tvg_id": "Rai.Scuola..5057.it",
+          "lcn": "57",
+          "line": 283,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai Sport",
+          "tvg_id": "RAI.Sport...227.it",
+          "lcn": "58",
+          "line": 288,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Discovery Turbo",
+          "tvg_id": "Motor.Trend.it",
+          "lcn": "59",
+          "line": 293,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Sportitalia HD",
+          "tvg_id": "Sportitalia.it",
+          "lcn": "60",
+          "line": 298,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "il61",
+          "tvg_id": null,
+          "lcn": "61",
+          "line": 303,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Donna TV",
+          "tvg_id": null,
+          "lcn": "62",
+          "line": 308,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Canale 63",
+          "tvg_id": null,
+          "lcn": "63",
+          "line": 313,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "SuperTennis",
+          "tvg_id": "SuperTennis.HD.it",
+          "lcn": "64",
+          "line": 318,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Alma TV",
+          "tvg_id": null,
+          "lcn": "65",
+          "line": 323,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Radio 105 TV",
+          "tvg_id": "Radio.105.it",
+          "lcn": "66",
+          "line": 328,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "R101 TV",
+          "tvg_id": "R101tv.it",
+          "lcn": "67",
+          "line": 333,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Bom Channel",
+          "tvg_id": null,
+          "lcn": "68",
+          "line": 338,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Deejay TV HD",
+          "tvg_id": "Deejay.TV.it",
+          "lcn": "69",
+          "line": 343,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "RadioItaliaTV",
+          "tvg_id": "Radio.Italia.TV.HD.it",
+          "lcn": "70",
+          "line": 348,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "RSI La 1",
+          "tvg_id": null,
+          "lcn": "71",
+          "line": 353,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "RSI La 2",
+          "tvg_id": null,
+          "lcn": "72",
+          "line": 358,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "La Nuova TV",
+          "tvg_id": null,
+          "lcn": "73",
+          "line": 363,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 4K",
+          "tvg_id": null,
+          "lcn": "101",
+          "line": 368,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "FIFA+",
+          "tvg_id": null,
+          "lcn": "102",
+          "line": 373,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Radio TV Serie A",
+          "tvg_id": null,
+          "lcn": "103",
+          "line": 378,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Radio Kiss Kiss TV",
+          "tvg_id": null,
+          "lcn": "158",
+          "line": 383,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai Radio 2 Visual",
+          "tvg_id": null,
+          "lcn": "202",
+          "line": 388,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "MAN-GA",
+          "tvg_id": null,
+          "lcn": "236",
+          "line": 393,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Radio 24 - IlSole24OreTV",
+          "tvg_id": null,
+          "lcn": "246",
+          "line": 398,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Gambero Rosso",
+          "tvg_id": "Gambero.Rosso.HD.it",
+          "lcn": "257",
+          "line": 403,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "RadioFreccia",
+          "tvg_id": "RADIOFRECCIA.HD.it",
+          "lcn": "258",
+          "line": 408,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Virgin Radio",
+          "tvg_id": null,
+          "lcn": "263",
+          "line": 413,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "RDS Social TV",
+          "tvg_id": null,
+          "lcn": "265",
+          "line": 418,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Radio Zeta",
+          "tvg_id": null,
+          "lcn": "266",
+          "line": 423,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Euronews IT",
+          "tvg_id": "Euronews.IT",
+          "lcn": "401",
+          "line": 428,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "ACI Sport TV HD",
+          "tvg_id": "ACI.Sport.TV.HD.it",
+          "lcn": "402",
+          "line": 433,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "BBC Top Gear Italy",
+          "tvg_id": null,
+          "lcn": "403",
+          "line": 438,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Hell's Kitchen Italy",
+          "tvg_id": null,
+          "lcn": "404",
+          "line": 443,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Sportitalia Solocalcio HD",
+          "tvg_id": "Solocalcio.it.it",
+          "lcn": "405",
+          "line": 448,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "RaiPlay Sport 1",
+          "tvg_id": null,
+          "lcn": "406",
+          "line": 453,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Italian Fishing TV",
+          "tvg_id": null,
+          "lcn": "407",
+          "line": 458,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Radio Carina TV",
+          "tvg_id": null,
+          "lcn": "408",
+          "line": 463,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Horse TV",
+          "tvg_id": "Horse.TV.HD.it",
+          "lcn": "409",
+          "line": 468,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "AutoMoto",
+          "tvg_id": null,
+          "lcn": "410",
+          "line": 473,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "MotoRetrò",
+          "tvg_id": null,
+          "lcn": "411",
+          "line": 478,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rally.TV FAST+",
+          "tvg_id": null,
+          "lcn": "412",
+          "line": 483,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Trace Urban",
+          "tvg_id": null,
+          "lcn": "413",
+          "line": 488,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Trace Latina",
+          "tvg_id": null,
+          "lcn": "414",
+          "line": 493,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Radio Capital TV",
+          "tvg_id": null,
+          "lcn": "713",
+          "line": 498,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "M2O TV",
+          "tvg_id": null,
+          "lcn": "715",
+          "line": 503,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Radio Montecarlo TV",
+          "tvg_id": "RMC.it",
+          "lcn": "772",
+          "line": 508,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Valle d'Aosta",
+          "tvg_id": null,
+          "lcn": "801",
+          "line": 513,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Piemonte",
+          "tvg_id": null,
+          "lcn": "802",
+          "line": 518,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Liguria",
+          "tvg_id": null,
+          "lcn": "803",
+          "line": 523,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Lombardia",
+          "tvg_id": null,
+          "lcn": "804",
+          "line": 528,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Veneto",
+          "tvg_id": null,
+          "lcn": "805",
+          "line": 533,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Bolzano",
+          "tvg_id": null,
+          "lcn": "806",
+          "line": 538,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Trento",
+          "tvg_id": null,
+          "lcn": "807",
+          "line": 543,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Südtirol HD",
+          "tvg_id": null,
+          "lcn": "808",
+          "line": 548,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Friuli Venezia Giulia",
+          "tvg_id": null,
+          "lcn": "809",
+          "line": 553,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Furlanija Krajina",
+          "tvg_id": null,
+          "lcn": "810",
+          "line": 558,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Emilia-Romagna",
+          "tvg_id": null,
+          "lcn": "811",
+          "line": 563,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Toscana",
+          "tvg_id": null,
+          "lcn": "812",
+          "line": 568,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Marche",
+          "tvg_id": null,
+          "lcn": "813",
+          "line": 573,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Umbria",
+          "tvg_id": null,
+          "lcn": "814",
+          "line": 578,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Lazio",
+          "tvg_id": null,
+          "lcn": "815",
+          "line": 583,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Abruzzo",
+          "tvg_id": null,
+          "lcn": "816",
+          "line": 588,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Molise",
+          "tvg_id": null,
+          "lcn": "817",
+          "line": 593,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Campania",
+          "tvg_id": null,
+          "lcn": "818",
+          "line": 598,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Puglia",
+          "tvg_id": null,
+          "lcn": "819",
+          "line": 603,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Basilicata",
+          "tvg_id": null,
+          "lcn": "820",
+          "line": 608,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Calabria",
+          "tvg_id": null,
+          "lcn": "821",
+          "line": 613,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Sardegna",
+          "tvg_id": null,
+          "lcn": "822",
+          "line": 618,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Rai 3 TGR Sicilia",
+          "tvg_id": null,
+          "lcn": "823",
+          "line": 623,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        }
+      ]
+    },
+    {
+      "repository": "freecasthub/public-iptv",
+      "playlist_url": "https://raw.githubusercontent.com/freecasthub/public-iptv/main/playlist.m3u",
+      "source_blob": "45d8dae9ad23dcc73628f07b18d560536a126b5a",
+      "declared_scope": "free public TV",
+      "entries": [
+        {
+          "name": "DW English",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 3,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DW Arabic",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 5,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DW Español",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 7,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "France 24 English",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 9,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "France 24 Arabic",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 11,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "France 24 Español",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 13,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "BBC Arabic",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 15,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "BBC Persian",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 17,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "ABC News Live",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 19,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "VOA TV Africa",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 21,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "VOA Persian",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 23,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Alhurra",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 25,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Al Jazeera English",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 27,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Al Jazeera Arabic",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 29,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "CGTN",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 31,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "CGTN Arabic",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 33,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "CGTN French",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 35,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "CGTN Russian",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 37,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "CGTN Spanish",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 39,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Euronews English",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 41,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TRT World",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 43,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "NHK World-Japan",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 45,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Arirang TV",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 47,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "ABC News Australia",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 49,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "CNA International",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 51,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DD News",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 53,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "24 Horas",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 55,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "3CatInfo",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 57,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "ICI RDI",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 59,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Belarus 24",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 61,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Press TV English",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 63,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Africanews French",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 65,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Red Bull TV",
+          "tvg_id": "redbull_tv",
+          "lcn": null,
+          "line": 68,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "FIFA+ English",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 70,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "FIFA+ Women",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 72,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Motorsport.tv",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 74,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Teledeporte",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 76,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Esport3",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 78,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "L'Équipe",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 80,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "ERT Sports 1",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 82,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "ERT Sports 2",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 84,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "San Marino RTV Sport",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 86,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "RTSH Sport",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 88,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Belarus 5",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 90,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TVRI Sport",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 92,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TDM Sports",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 94,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "MNB Sport",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 96,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Varzesh TV",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 98,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "RTA Sport",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 100,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TJK TV",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 102,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Stadium",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 104,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "SportsGrid",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 106,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "FUEL TV",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 108,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "EDGESport",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 110,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "World of Freesports",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 112,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Trace Sport Stars",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 114,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Fox Weather",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 117,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "AccuWeather Now",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 119,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Sky News Weather",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 121,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Meteonews",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 123,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "NHK Kishou Saigai",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 125,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Weathernews",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 127,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "3Cat Càmeres del temps",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 129,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "中国气象频道",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 131,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "ALTV",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 134,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "ARD-alpha",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 136,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Canal Educação",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 138,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Canal Saúde",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 140,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Canal Savoir",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 142,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Classic Arts Showcase",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 144,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Cloudflare TV",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 146,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Create",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 148,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 1",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 150,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 2",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 152,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 3",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 154,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 4",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 156,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 5",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 158,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 6",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 160,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 7",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 162,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 8",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 164,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 9",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 166,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 10",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 168,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 11",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 170,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 12",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 172,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 13",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 174,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 14",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 176,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "DLTV 15",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 178,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "EBS 1",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 180,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "EBS 2",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 182,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "EBS E",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 184,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "EBS+ 1",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 186,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "EBS+ 2",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 188,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Kan Kids",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 190,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "OUN",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 192,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Once México",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 194,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "PBS Honolulu",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 196,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "PBS Kids",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 198,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "PBS Kids Alaska",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 200,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "PBS Kids Hawaii",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 202,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "PBS Kids Mountain",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 204,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "PBS Kids Pacific",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 206,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Télé-Québec",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 208,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TRT EBA Ilkokul",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 210,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TRT EBA Lise",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 212,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "TVE RS",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 214,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "Vyas NIC",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 216,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "World Channel",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 218,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        },
+        {
+          "name": "МосОбрТВ",
+          "tvg_id": null,
+          "lcn": null,
+          "line": 220,
+          "has_http_reference": true,
+          "playback": "not_tested",
+          "publication": "not_approved"
+        }
+      ]
+    }
+  ],
+  "additional_discovery": [
+    {
+      "name": "Nexonic IPTV",
+      "url": "https://github.com/nexonic-technologies/nexonic-iptv",
+      "status": "repository_identified_only"
+    },
+    {
+      "name": "Doubo Italy",
+      "url": "https://doubo.tv/en/playlists/it/",
+      "playlist_url": "https://cdn.jsdelivr.net/gh/streamline-iptv/iptv-playlists@dist/countries/it.m3u",
+      "upstream": "iptv-org",
+      "status": "playlist_reference_identified_only"
+    }
+  ],
+  "priority": [
+    "Rai",
+    "Mediaset",
+    "LA7",
+    "NOVE",
+    "TV8",
+    "Cielo",
+    "Sky TG24",
+    "Warner TV",
+    "K2",
+    "Frisbee",
+    "Sportitalia",
+    "Supertennis"
+  ],
+  "subscription_providers": [
+    {
+      "name": "NOW",
+      "url": "https://www.nowtv.it/",
+      "scope": "Sky Cinema, Sport, Entertainment",
+      "direct_import": false
+    },
+    {
+      "name": "Sky Go",
+      "url": "https://www.sky.it/tv/sky-go",
+      "direct_import": false
+    }
+  ]
+}
