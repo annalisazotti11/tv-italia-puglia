@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at": "2026-11-27",
+  "generated_at": "2026-11-28",
   "mode": "official_platform_directory",
   "purpose": "Mappa le piattaforme ufficiali e i canali premium presenti nella watchlist. Non contiene URL di flussi, playlist M3U, token o credenziali.",
   "policy": {
@@ -29,10 +29,21 @@
         "Rai Premium",
         "Rai Storia",
         "Rai Yoyo",
-        "Rai Gulp"
+        "Rai Gulp",
+        "Rai Radio 2",
+        "RaiPlay Sport 1",
+        "RaiPlay Sport 2"
       ],
       "direct_m3u_import": false,
-      "discovery": "official_live_directory"
+      "discovery": "official_live_directory",
+      "examples": {
+        "Rai 1": "https://www.raiplay.it/dirette/rai1",
+        "Rai 2": "https://www.raiplay.it/dirette/rai2",
+        "Rai 3": "https://www.raiplay.it/dirette/rai3",
+        "Rai Premium": "https://www.raiplay.it/dirette/raipremium",
+        "Rai Gulp": "https://www.raiplay.it/dirette/raigulp",
+        "Rai Sport": "https://www.raiplay.it/dirette/raisport"
+      }
     },
     {
       "id": "mediaset_infinity",
@@ -59,7 +70,7 @@
         "Cartoonito"
       ],
       "examples": {
-        "Canale 5": "https://mediasetinfinity.mediaset.it/diretta/canale5_cC5v",
+        "Canale 5": "https://mediasetinfinity.mediaset.it/diretta/canale-5_cC5",
         "Italia 1": "https://mediasetinfinity.mediaset.it/diretta/italia1_cI1rai",
         "TGCOM24": "https://mediasetinfinity.mediaset.it/diretta/_cKF"
       },
@@ -140,6 +151,28 @@
       "device_scope": "supported Smart TVs and apps",
       "direct_m3u_import": false,
       "discovery": "official_fast_catalogue"
+    },
+    {
+      "id": "sky_tg24_live",
+      "name": "Sky TG24",
+      "url": "https://tg24.sky.it/diretta",
+      "access": "free_official_live",
+      "coverage": [
+        "Sky TG24"
+      ],
+      "direct_m3u_import": false,
+      "discovery": "official_live_page"
+    },
+    {
+      "id": "tv8_live",
+      "name": "TV8",
+      "url": "https://www.tv8.it/streaming",
+      "access": "free_official_live",
+      "coverage": [
+        "TV8"
+      ],
+      "direct_m3u_import": false,
+      "discovery": "official_live_page"
     }
   ],
   "sky_go_confirmed_channels": [
