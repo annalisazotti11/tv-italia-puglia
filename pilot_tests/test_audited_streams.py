@@ -24,6 +24,24 @@ class AuditTests(unittest.TestCase):
         with patch.object(a.ci.urllib.request, 'build_opener') as factory:
             factory.return_value.open.return_value = response
             self.assertEqual(a.ci.manifest_check('https://example.org/live.m3u8'), 'protected_manifest')
+    def test_review_queue_counts_only_unpublished_av_without_urls(self):
+        result = {'channels': {
+            'tvip_rai': {'name': 'Rai 1 HD', 'verified': [],
+                         'audit': {'availability': 'access_denied_unconfirmed'}},
+            'tvip_local': {'name': 'Local TV', 'verified': [{'ok': True}]},
+            'tvip_other': {'name': 'Other TV', 'verified': []}},
+            'summary': {}}
+        valid = {'url': 'https://example.org/stream.m3u8',
+                 'playback_ready': True, 'has_audio': True, 'has_video': True}
+        legacy = {'channels': {
+            'tvip_rai': {'verified': [valid]},
+            'tvip_local': {'verified': [valid]},
+            'tvip_other': {'verified': [dict(valid, has_audio=False)]}}}
+        a.annotate_review_queue(result, legacy)
+        self.assertEqual(result['summary']['preliminary_av_without_final_pass'], 1)
+        self.assertEqual(result['review_queue'][0]['id'], 'tvip_rai')
+        self.assertNotIn(valid['url'], str(result['review_queue']))
+        self.assertFalse(result['channels']['tvip_rai']['verified'])
     def test_reviewed_cdn_redirect_preserves_channel(self):
         check = a.ci.reviewed_redirect_allowed
         base = 'https://router.xdevel.com/video0s123-456/stream/playlist.m3u8'
