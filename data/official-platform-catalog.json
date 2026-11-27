@@ -144,8 +144,7 @@
   ],
   "sky_go_confirmed_channels": [
     {
-      "name": "Sky Uno +",
-      "official_label": "Sky Uno",
+      "name": "Sky Uno",
       "channel_number": "108"
     },
     {
@@ -293,6 +292,34 @@
     {
       "name": "Boomerang",
       "channel_number": "607"
+    },
+    {
+      "name": "Sky Sport Uno",
+      "channel_number": "201"
+    },
+    {
+      "name": "Sky Cinema Family",
+      "channel_number": "304"
+    },
+    {
+      "name": "Sky Cinema Action",
+      "channel_number": "305"
+    },
+    {
+      "name": "Sky Cinema Comedy",
+      "channel_number": "307"
+    },
+    {
+      "name": "Sky Cinema Romance",
+      "channel_number": "308"
+    },
+    {
+      "name": "Sky Cinema Drama",
+      "channel_number": "309"
+    },
+    {
+      "name": "Gambero Rosso",
+      "channel_number": "415"
     }
   ],
   "premium_channels_needing_individual_package_confirmation": [
@@ -320,6 +347,35 @@
     "Sky Go channel numbers above are transcribed from Sky's official channel FAQ; the offer depends on the active subscription and can change.",
     "A channel absent from the consulted Sky Go FAQ is marked for individual confirmation, not as definitively unavailable.",
     "Samsung TV Plus, LG Channels and Rakuten TV are app-based FAST services; their public catalogues are not equivalent to downloadable M3U playlists.",
-    "The premium watchlist remains intact even where no standalone authorized stream URL exists."
+    "The premium watchlist remains intact even where no standalone authorized stream URL exists.",
+    "Le etichette Sky Cinema Due, Zona DAZN, DAZN Darts e DAZN Serie A/B rilevate in indici community sono mantenute come candidati non confermati; non equivalgono a canali lineari Sky Go verificati.",
+    "Sky Sport Uno Ultra Live (215) e Sky Sport Calcio Ultra Live (216) sono voci specifiche Sky Glass/Stream, distinte dai canali standard."
+  ],
+  "sky_glass_extra_channels": [
+    {
+      "name": "Sky Sport 4K",
+      "channel_number": "213",
+      "availability": "Sky Glass, Sky Stream and compatible Sky Q; package Sport/Calcio",
+      "direct_m3u_import": false
+    },
+    {
+      "name": "Sky Sport Uno Ultra Live",
+      "channel_number": "215",
+      "availability": "Sky Glass / Sky Stream; package Sport",
+      "direct_m3u_import": false
+    },
+    {
+      "name": "Sky Sport Calcio Ultra Live",
+      "channel_number": "216",
+      "availability": "Sky Glass / Sky Stream; package Calcio",
+      "direct_m3u_import": false
+    }
+  ],
+  "community_labels_not_confirmed": [
+    "Sky Cinema Due",
+    "Zona DAZN",
+    "DAZN Darts",
+    "DAZN Serie A",
+    "DAZN Serie B"
   ]
 }
