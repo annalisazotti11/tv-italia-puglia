@@ -77,12 +77,13 @@ jobs:
                       u = urlsplit(candidate)
                       if (u.hostname and u.port in (None, 443) and not u.query and
                           not u.fragment and not u.username and not u.password and
+                          '/drm/' not in u.path.lower() and
                           u.path.lower().endswith(('.m3u8','.mpd','.m3u'))):
                           result.add(candidate)
                   except ValueError:
                       pass
               return sorted(result)
-          assert extract('https://example.org/live.m3u8 https://example.org/live.m3u8?token=x') == ['https://example.org/live.m3u8']
+          assert extract('https://example.org/live.m3u8 https://example.org/live.m3u8?token=x https://example.org/DRM/live.m3u8') == ['https://example.org/live.m3u8']
           def inspect(pair):
               name, page = pair
               result = {'channel': name, 'official_page': page, 'publish_allowed': False}
