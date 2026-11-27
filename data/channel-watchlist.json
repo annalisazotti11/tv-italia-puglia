@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "description": "Canali aggiuntivi da monitorare. Non creano locandine finché non si trova una diretta valida.",
+  "description": "Canali aggiuntivi da monitorare. Le voci discovery_only sono metadati/community label: non creano locandine né abilitano sorgenti finché identità, provenienza, autorizzazione e diretta non sono verificate.",
   "channels": [
     {
       "id": "tvip_sky_sky_uno_plus",
@@ -1002,6 +1002,83 @@
       "group": "TV locali Puglia",
       "premium": false,
       "puglia_lcn": "155"
+    },
+    {
+      "id": "tvip_community_sky_cinema_due",
+      "name": "Sky Cinema Due",
+      "number": "",
+      "group": "Canali community da verificare",
+      "premium": true,
+      "discovery_only": true,
+      "source_refs": [
+        "https://raw.githubusercontent.com/untiiis/liste/4da85cc3c00e8d5b942e07e0dc6676aee63a0fe4/pp.txt"
+      ]
+    },
+    {
+      "id": "tvip_community_zona_dazn",
+      "name": "Zona DAZN",
+      "number": "",
+      "group": "Canali community da verificare",
+      "premium": true,
+      "discovery_only": true,
+      "source_refs": [
+        "https://github.com/nicolofajette/Canali/blob/main/Italia.m3u"
+      ]
+    },
+    {
+      "id": "tvip_community_dazn_darts",
+      "name": "DAZN Darts",
+      "number": "",
+      "group": "Canali community da verificare",
+      "premium": true,
+      "discovery_only": true,
+      "source_refs": [
+        "https://github.com/nicolofajette/Canali/blob/main/Italia.m3u"
+      ]
+    },
+    {
+      "id": "tvip_sky_sky_sport_uno_ultra_live",
+      "name": "Sky Sport Uno Ultra Live",
+      "number": "215",
+      "group": "Sky Sport - Sky Glass/Stream",
+      "premium": true,
+      "discovery_only": true,
+      "source_refs": [
+        "https://assistenza.sky.it/sky-glass/faq-funzionalita"
+      ]
+    },
+    {
+      "id": "tvip_sky_sky_sport_calcio_ultra_live",
+      "name": "Sky Sport Calcio Ultra Live",
+      "number": "216",
+      "group": "Sky Sport - Sky Glass/Stream",
+      "premium": true,
+      "discovery_only": true,
+      "source_refs": [
+        "https://assistenza.sky.it/sky-glass/faq-funzionalita"
+      ]
+    },
+    {
+      "id": "tvip_community_dazn_serie_a",
+      "name": "DAZN Serie A",
+      "number": "",
+      "group": "Canali community da verificare",
+      "premium": true,
+      "discovery_only": true,
+      "source_refs": [
+        "https://github.com/englishcd/ai/blob/522b28da6d4fca0408771fe13edcf62297959c40/b0.txt"
+      ]
+    },
+    {
+      "id": "tvip_community_dazn_serie_b",
+      "name": "DAZN Serie B",
+      "number": "",
+      "group": "Canali community da verificare",
+      "premium": true,
+      "discovery_only": true,
+      "source_refs": [
+        "https://github.com/englishcd/ai/blob/522b28da6d4fca0408771fe13edcf62297959c40/b0.txt"
+      ]
     }
   ]
 }
