@@ -8,7 +8,7 @@ on:
     branches: [main]
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: tv-italia-puglia-production
@@ -55,3 +55,66 @@ jobs:
           node --input-type=module -e "import fs from 'node:fs'; const m=JSON.parse(fs.readFileSync('manifest.json','utf8')); if(m.version!=='5.1.0'||m.id!=='community.tv-italia-puglia') throw new Error('Manifest produzione inatteso: '+JSON.stringify(m));"
           curl -fsS --retry 12 --retry-delay 5 --retry-connrefused "$WORKER_URL/debug/channels.json" -o debug.json
           node --input-type=module -e "import fs from 'node:fs'; const d=JSON.parse(fs.readFileSync('debug.json','utf8')); const expected=['Sky Cinema Due','Zona DAZN','DAZN Darts','Sky Sport Uno Ultra Live','Sky Sport Calcio Ultra Live','DAZN Serie A','DAZN Serie B']; if(d.version!=='5.1.0') throw new Error('Debug Worker non aggiornato'); for(const n of expected) if(!d.channels.some(c=>c.name===n&&c.discoveryOnly)) throw new Error('Canale monitorato mancante: '+n); console.log('Produzione verificata: Worker '+d.version+', '+d.visible+' canali visibili, '+d.watchlistCount+' monitorati, '+d.discoveryOnlyCount+' candidati discovery-only.');"
+      - name: Registra esito deployment
+        if: always()
+        shell: bash
+        env:
+          DEPLOY_RESULT: ${{ job.status }}
+          AUDIT_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          git reset --hard origin/main
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const data = {
+            version: '5.1.0',
+            status: process.env.DEPLOY_RESULT || 'unknown',
+            stage: 'cloudflare_deployment',
+            audit_commit: process.env.AUDIT_SHA || null,
+            worker_url: 'https://tv-italia-puglia.annalisazotti11.workers.dev',
+            updated_at: new Date().toISOString()
+          };
+          fs.writeFileSync('data/deployment-status.json', JSON.stringify(data, null, 2) + '\\n');
+          NODE
+          git add data/deployment-status.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'chore(tv): registra esito deployment Worker 5.1.0'
+          git push origin HEAD:main
+
+  audit_failed:
+    if: ${{ github.event.workflow_run.conclusion != 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Registra audit non riuscito
+        shell: bash
+        env:
+          AUDIT_RESULT: ${{ github.event.workflow_run.conclusion }}
+          AUDIT_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main
+          git reset --hard origin/main
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const data = {
+            version: '5.1.0',
+            status: 'not_deployed',
+            stage: 'visual_audit',
+            audit_result: process.env.AUDIT_RESULT || 'unknown',
+            audit_commit: process.env.AUDIT_SHA || null,
+            worker_url: 'https://tv-italia-puglia.annalisazotti11.workers.dev',
+            updated_at: new Date().toISOString()
+          };
+          fs.writeFileSync('data/deployment-status.json', JSON.stringify(data, null, 2) + '\\n');
+          NODE
+          git add data/deployment-status.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'chore(tv): registra esito audit Worker 5.1.0'
+          git push origin HEAD:main
