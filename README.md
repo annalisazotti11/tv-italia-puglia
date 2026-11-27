@@ -4,7 +4,7 @@ Catalogo TV italiano con monitoraggio notturno delle playlist M3U/HLS/DASH.
 
 ## Stato e copertura
 
-- **217 canali monitorati** nell'ultima scansione: playlist originale, 39 emittenti aggiuntive, Sky/Sky Cinema/Sky Sport, news internazionali e TV locali pugliesi. Il numero può variare con gli aggiornamenti. La presenza nel database non garantisce una diretta funzionante.
+- **226 canali monitorati** nell'ultima scansione: playlist originale, 39 emittenti aggiuntive, Sky/Sky Cinema/Sky Sport, news internazionali e TV locali pugliesi. Il numero può variare con gli aggiornamenti. La presenza nel database non garantisce una diretta funzionante.
 - **19 raccolte pubbliche o curate** controllate automaticamente, comprese quattro nuove playlist italiane. Sono presenti **42 sorgenti aggiuntive curate**. Il numero di canali riproducibili può variare a ogni scansione: consulta [il rapporto](data/stream-report.md).
 - L'inventario `data/playlist-sources.json` contiene **80 voci** di playlist e indici; include anche voci `index_only` e mirror/fork, quindi non equivale a 79 sorgenti indipendenti, funzionanti o autorizzate.
 - Le sorgenti candidate trovate negli indici pubblici non diventano automaticamente sorgenti di riproduzione: devono superare i controlli di identità, provenienza, autorizzazione e riproducibilità.
@@ -43,6 +43,12 @@ La localizzazione del visitatore **non garantisce** che il server Cloudflare eff
 - [Manifest candidati trovati su pagine ufficiali (da verificare, non pubblicati)](data/official-manifest-candidates-2026-11-27.json)
 - [Indici community metadata-only, senza endpoint di streaming](data/community-channel-indexes.json)
 - [Worker 4.1.0](cloudflare/worker-tv-v4.1.0.js)
+- [Worker 5.1.0](cloudflare/worker-tv-v5.1.0.js)
+- [Watchlist canali](data/channel-watchlist.json)
+- [Configurazione Wrangler](wrangler.jsonc)
+- [Test Worker 5.1.0](scripts/test_worker_v510.mjs)
+- [Workflow test Worker](.github/workflows/test-worker.yml)
+- [Workflow deployment Cloudflare](.github/workflows/deploy-worker.yml)
 
 ## Canale 5 — stato della sorgente Redge
 
@@ -52,23 +58,23 @@ Il flusso Redge individuato in una playlist community è stato riprodotto tecnic
 
 La ricerca automatica può continuare a individuare nuove voci nelle playlist pubbliche, ma la presenza in una lista, un manifest HLS valido o un test VLC non costituiscono prova di autorizzazione. Le candidate non approvate restano in revisione e non vengono pubblicate come dirette in Nuvio.
 
-## Worker 5.0.0 — controllo visivo generale (da collaudare)
+## Worker 5.1.0 — watchlist e deployment controllato
 
 La nuova pipeline [audited-tv.yml](.github/workflows/audited-tv.yml) gira ogni notte alle **02:47 UTC** (03:47 in Italia in inverno, 04:47 in estate). La ricerca nelle playlist registrate rimane nel workflow notturno precedente. Una nuova voce community non viene promossa automaticamente: il nuovo controllo apre esclusivamente i percorsi emittente/CDN già revisionati, rispettando la quarantena e senza aggirare DRM o limitazioni geografiche. La revisione tecnica non costituisce una licenza generale di redistribuzione.
 
 Per ciascun percorso il controllo verifica manifest, pacchetti audio/video, risoluzione rilevata e almeno tre fotogrammi in RAM, analizzati con il rilevatore locale NudeNet. Se il modello non è disponibile, il campione è insufficiente o viene rilevato contenuto esplicito, la sorgente non viene inserita nell'indice. Nessun fotogramma viene pubblicato. Il campionamento non garantisce l'identità del canale o l'assenza futura di contenuti espliciti: il riconoscimento di watermark necessita di riferimenti autentici, attualmente mancanti.
 
-La graduatoria considera risoluzione fino a 2160p, storico dei successi, tempi di verifica e codec. Il [Worker 5.0.0](cloudflare/worker-tv-v5.0.0.js) legge il nuovo indice separato `data/audited-streams.json`, scarta esiti più vecchi di 36 ore e restituisce la sola sorgente meglio classificata. Restano invariati ID addon, ID canali, EPG e priorità TGR Puglia. Le riserve sono nell'indice, non vengono esposte tutte al player. Canale 5 mantiene il collegamento ufficiale se non esiste uno stream diretto verificato.
+La graduatoria considera risoluzione fino a 2160p, storico dei successi, tempi di verifica e codec. Il [Worker 5.1.0](cloudflare/worker-tv-v5.1.0.js) legge il nuovo indice separato `data/audited-streams.json`, scarta esiti più vecchi di 36 ore e restituisce la sola sorgente meglio classificata. Restano invariati ID addon, ID canali, EPG e priorità TGR Puglia. Le riserve sono nell'indice, non vengono esposte tutte al player. Canale 5 mantiene il collegamento ufficiale se non esiste uno stream diretto verificato. Il Worker 5.1.0 integra anche `data/channel-watchlist.json` come metadati: i sette nuovi candidati sono presenti nel monitoraggio e in `/debug/channels.json`, ma non entrano nel catalogo Nuvio finché non superano il controllo visivo e la revisione d'identità. Gli endpoint delle fonti community `index_only` non vengono esposti.
 
 **Primo run (27 novembre 2026, ore 00:53 italiane):** 150 sorgenti testate, 31 passate, 30 canali con controllo completo. La scansione precedente rilevava audio e video su 72 canali; 44 di questi non sono presenti nel nuovo indice. Tra gli esiti negativi figurano 48 HTTP 403, 35 manifest non disponibili, 14 redirect HTTP 301/302 e 10 timeout FFprobe. Non sono tutti errori geografici accertati.
 
 **Aggiornamento:** un secondo tentativo è previsto solo per gli errori temporanei; nessun retry su HTTP 403 o allarme esplicito. La diagnostica per canale distingue le fonti fallite dai canali privi di sorgenti revisionate; non pubblica URL falliti. Il Worker ricontrolla anche il registro di revisione corrente prima di servire le sorgenti. Il codice supporta il riscontro dei watermark autentici quando si forniscono i relativi template; al momento il registro dei template è vuoto. Il nuovo run e i nuovi test non sono ancora confermati.
 
-**Deployment sospeso:** il primo risultato non offre una copertura comparabile a quella precedente. Nessun deployment Cloudflare è stato eseguito.
+**Copertura attuale:** l'ultimo indice visivo ha 30 canali visibili su 219 monitorati. La nuova release mantiene questa soglia qualitativa: i candidati non revisionati non vengono promossi automaticamente. Il deployment 5.1.0 viene avviato soltanto dopo il completamento positivo dell'audit visivo e dei test automatici.
 
 ## Pubblicazione in Cloudflare
 
-L'aggiornamento di GitHub non pubblica automaticamente il Worker. **Non distribuire la build 4.9.6 ritirata.** Prima di un nuovo deployment serve una versione generale verificata su tutti i canali, con controlli di identità, provenienza, autorizzazione e contenuto. Mantieni invariato il Worker attualmente attivo finché non è pronta una release sostitutiva.
+Il deployment è gestito da [deploy-worker.yml](.github/workflows/deploy-worker.yml) e parte soltanto quando [audited-tv.yml](.github/workflows/audited-tv.yml) termina con esito positivo. Prima del rilascio vengono eseguiti i test automatici del Worker 5.1.0. Il workflow usa [wrangler.jsonc](wrangler.jsonc), aggiorna il Worker esistente `tv-italia-puglia` e verifica `/manifest.json` e `/debug/channels.json`. Richiede i GitHub Actions secrets `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID` (l'account ID può essere anche una repository variable con lo stesso nome). Il token deve avere permesso di modifica dei Workers; non va inserito nel repository. **Non distribuire la build 4.9.6 ritirata.**
 
 Per verificare la versione attualmente attiva apri `/manifest.json` sul dominio Worker già configurato in Nuvio. Dopo una release validata, il deployment avverrà sullo stesso Worker e manterrà invariato l'ID addon.
 ## Pilota analisi del contenuto (Canale 5)
