@@ -25,7 +25,7 @@ FFPROBE_TIMEOUT = 10.5
 PROBE_MAX_AGE_HOURS = 24
 
 
-def probe_stream(url: str) -> dict:
+def probe_stream(url: str, *, extended: bool = False) -> dict:
     """Inspect actual *packets*, not only manifest metadata.
 
     FFprobe opens the stream and reads up to 2s of audio/video packets.
@@ -45,16 +45,16 @@ def probe_stream(url: str) -> dict:
             return result
         cmd = [
             'ffprobe', '-v', 'error',
-            '-rw_timeout', '5000000',
-            '-probesize', '524288',
-            '-analyzeduration', '1500000',
-            '-read_intervals', '%+2',
+            '-rw_timeout', '10000000' if extended else '5000000',
+            '-probesize', '2097152' if extended else '524288',
+            '-analyzeduration', '5000000' if extended else '1500000',
+            '-read_intervals', '%+5' if extended else '%+2',
             '-show_entries',
             'stream=index,codec_type,codec_name,width,height:packet=stream_index',
             '-of', 'json', url
         ]
         run = subprocess.run(
-            cmd, capture_output=True, text=True, timeout=FFPROBE_TIMEOUT,
+            cmd, capture_output=True, text=True, timeout=25 if extended else FFPROBE_TIMEOUT,
             check=False
         )
         result['probe_ms'] = int((time.monotonic() - start) * 1000)

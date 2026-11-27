@@ -1,4 +1,5 @@
 import unittest
+from datetime import datetime, timezone, timedelta
 import audited_streams as a
 
 class AuditTests(unittest.TestCase):
@@ -39,6 +40,30 @@ class AuditTests(unittest.TestCase):
             row = a.inspect_retry(('a','https://example.org/a.m3u8'),inspect,lambda _:None)
             self.assertEqual(len(calls),expected)
             self.assertEqual(row['attempts'],expected)
+    def test_retention_only_recent_reviewed_full_pass_after_timeout(self):
+        url='https://example.org/a.m3u8'
+        r={'schema':1,'channels':{'a':[url]}}
+        p={'schema':1,'blocked_hosts':[],'blocked_by_channel':{},'approved_only':{}}
+        now=datetime.now(timezone.utc)
+        old={'channel':'a','url':url,'checked_at':now.isoformat(),
+             'playback_ready':True,'has_video':True,'has_audio':True,
+             'content_status':'no_high_confidence_flag','sampled_frames':3,
+             'playback_height':720,'rank_score':7200}
+        for reason,status,hours,expected in (
+                ('ffprobe_timeout','uncertain',1,True),
+                ('http_403','uncertain',1,False),
+                ('decode_timeout','explicit_suspected',1,False),
+                ('manifest_unavailable','uncertain',37,False)):
+            prior=dict(old,checked_at=(now-timedelta(hours=hours)).isoformat())
+            result=a.build(r,p,{'channels':{'a':{'verified':[prior]}}},
+                inspect_fn=lambda x:{'channel':x[0],'url':x[1],
+                                     'reason':reason,'content_status':status})
+            rows=result['channels']['a']['verified']
+            self.assertEqual(bool(rows),expected)
+            if expected:
+                self.assertTrue(rows[0]['retained'])
+                self.assertEqual(rows[0]['checked_at'],prior['checked_at'])
+                self.assertEqual(result['summary']['passed'],0)
     def test_failure_diagnostics_do_not_expose_url(self):
         url='https://example.org/a.m3u8'
         r={'schema':1,'channels':{'a':[url]}}

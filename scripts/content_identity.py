@@ -56,7 +56,7 @@ def allowed_url(url):
         return False
 
 
-def manifest_check(url):
+def manifest_check(url, *, timeout=5):
     """No redirects, protected manifests or arbitrary schemes."""
     if not allowed_url(url):
         return 'unsafe_url'
@@ -66,7 +66,7 @@ def manifest_check(url):
             'User-Agent': 'TVIdentityPilot/1.0',
             'Accept': 'application/vnd.apple.mpegurl,application/dash+xml,*/*',
             'Range': f'bytes=0-{MAX_MANIFEST - 1}'})
-        with opener.open(req, timeout=5) as response:
+        with opener.open(req, timeout=timeout) as response:
             data = response.read(MAX_MANIFEST).decode('utf-8-sig', errors='replace').lstrip()
         if data.startswith('#EXTM3U') and '#EXT-X-' in data:
             if '#EXT-X-SESSION-KEY' in data or re.search(r'#EXT-X-KEY:(?![^\r\n]*METHOD=NONE)', data):
@@ -81,19 +81,19 @@ def manifest_check(url):
         return 'manifest_unavailable'
 
 
-def capture_frames(url):
+def capture_frames(url, *, extended=False):
     """Decode a short bounded sample into RAM, never display or persist media."""
-    why = manifest_check(url)
+    why = manifest_check(url, timeout=10 if extended else 5)
     if why != 'ok':
         return [], why
     cmd = ['ffmpeg', '-nostdin', '-hide_banner', '-v', 'error',
-           '-rw_timeout', '5000000', '-protocol_whitelist', 'https,tls,tcp',
+           '-rw_timeout', '10000000' if extended else '5000000', '-protocol_whitelist', 'https,tls,tcp',
            '-i', url, '-map', '0:v:0', '-an', '-sn', '-dn',
            '-vf', f'fps=1/3,scale={WIDTH}:{HEIGHT}:flags=bilinear',
            '-frames:v', str(MAX_FRAMES), '-pix_fmt', 'rgb24', '-threads', '1',
            '-f', 'rawvideo', 'pipe:1']
     try:
-        run = subprocess.run(cmd, capture_output=True, timeout=CAPTURE_TIMEOUT, check=False)
+        run = subprocess.run(cmd, capture_output=True, timeout=40 if extended else CAPTURE_TIMEOUT, check=False)
     except subprocess.TimeoutExpired:
         return [], 'decode_timeout'
     except OSError:

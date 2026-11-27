@@ -92,7 +92,7 @@ def corroborate_identity(cid, url, frames, logo, capture=ci.capture_frames):
                 return 'reference_scenes_match'
     return 'unconfirmed'
 
-def inspect(target):
+def inspect(target, *, extended=False):
     cid, url = target
     now = datetime.now(timezone.utc).isoformat()
     rule = identity_rules().get(cid, {}).get(url)
@@ -100,14 +100,14 @@ def inspect(target):
            'content_status': 'uncertain', 'sampled_frames': 0,
            'identity_required': rule is not None,
            'identity_status': 'unconfirmed' if rule is not None else 'not_required'}
-    why = ci.manifest_check(url)
+    why = ci.manifest_check(url, timeout=10 if extended else 5)
     if why != 'ok':
         return row | {'reason': why}
-    quality = pq.probe_stream(url)
+    quality = pq.probe_stream(url, extended=extended)
     row.update(quality)
     if not quality.get('playback_ready'):
         return row
-    frames, why = ci.capture_frames(url)
+    frames, why = ci.capture_frames(url, extended=extended)
     row['sampled_frames'] = len(frames)
     safety = ci.safety_check(frames, detector())
     row['content_status'] = safety
@@ -123,7 +123,13 @@ def inspect(target):
 # A transient failure gets one additional ordinary request. Never retry
 # forbidden, protected, mismatched or explicit-content results.
 TRANSIENT = {'http_503', 'http_502', 'http_504', 'manifest_unavailable',
-             'ffprobe_timeout', 'decode_timeout', 'decode_failed'}
+             'ffprobe_timeout', 'decode_timeout', 'decode_failed',
+             'no_packets', 'video_only', 'audio_only', 'short_sample'}
+# Preserve recent, fully approved results only when ordinary network or
+# decoding timeouts recur. Never preserve forbidden or identity/content failures.
+GRACE_REASONS = {'http_503', 'http_502', 'http_504', 'manifest_unavailable',
+                 'ffprobe_timeout', 'decode_timeout'}
+GRACE_SECONDS = 36 * 3600
 
 def inspect_retry(target, inspect_fn=inspect, pause=time.sleep):
     row = inspect_fn(target)
@@ -131,7 +137,7 @@ def inspect_retry(target, inspect_fn=inspect, pause=time.sleep):
     if (not eligible(row) and row.get('reason') in TRANSIENT and
             row.get('content_status') in ('uncertain', 'not_sampled')):
         pause(1)
-        row = inspect_fn(target)
+        row = inspect(target, extended=True) if inspect_fn is inspect else inspect_fn(target)
         row['attempts'] = 2
     return row
 
@@ -171,6 +177,10 @@ def build(review, policy, previous=None, inspect_fn=inspect_retry):
     prior = { (cid, s['url']): s.get('success_runs', 0)
               for cid, c in previous.get('channels', {}).items()
               for s in c.get('verified', []) }
+    last_good = {(cid, s['url']): s
+                 for cid, c in previous.get('channels', {}).items()
+                 for s in c.get('verified', [])}
+    now = datetime.now(timezone.utc)
     jobs = targets(review, policy)
     channels = {cid: {'verified': [], 'audit': {'tested': 0, 'failed': {}}} for cid in review['channels']}
     reasons = Counter()
@@ -183,6 +193,21 @@ def build(review, policy, previous=None, inspect_fn=inspect_retry):
                 reason = failure_reason(row)
                 reasons[reason] += 1
                 audit['failed'][reason] = audit['failed'].get(reason, 0) + 1
+                old = last_good.get((cid, row['url']))
+                # No relaxation of the exact review/quarantine, audio/video,
+                # positive identity, or explicit-content requirements.
+                if (reason in GRACE_REASONS and
+                        row.get('content_status') in ('uncertain', 'not_sampled') and
+                        not row.get('identity_required') and
+                        row['url'] not in review.get('identity_required', {}).get(cid, {}) and
+                        old and not old.get('identity_required') and eligible(old)):
+                    try:
+                        age = (now - datetime.fromisoformat(old['checked_at'])).total_seconds()
+                    except (KeyError, TypeError, ValueError):
+                        age = GRACE_SECONDS + 1
+                    if 0 <= age < GRACE_SECONDS:
+                        channels[cid]['verified'].append(dict(old, retained=True,
+                            retained_reason=reason))
                 continue
             row['success_runs'] = min(prior.get((cid, row['url']), 0) + 1, 30)
             row['rank_score'] = rank(row)
@@ -200,7 +225,8 @@ def build(review, policy, previous=None, inspect_fn=inspect_retry):
             'channels': channels,
             'summary': {'reviewed_channels': len(channels), 'tested': len(jobs),
                         'visible': sum(bool(c['verified']) for c in channels.values()),
-                        'passed': sum(len(c['verified']) for c in channels.values()),
+                        'passed': sum(not s.get('retained') for c in channels.values() for s in c['verified']),
+                        'retained_recent': sum(bool(s.get('retained')) for c in channels.values() for s in c['verified']),
                         'excluded': dict(reasons)}}
 
 def main():
