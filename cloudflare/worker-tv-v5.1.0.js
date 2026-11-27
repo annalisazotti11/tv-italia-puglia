@@ -1,5 +1,5 @@
 
-// TV Italia + Puglia 5.0.0 — selezione uniforme da indice visivo separato
+// TV Italia + Puglia 5.1.0 — watchlist monitorata e selezione da indice visivo separato
 // Una sola sorgente per canale: la migliore secondo i test notturni.
 
 const VERSION = '5.1.0';
