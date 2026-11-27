@@ -1,0 +1,7 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tv-italia-puglia",
+  "main": "cloudflare/worker-tv-v5.1.0.js",
+  "compatibility_date": "2026-11-27",
+  "workers_dev": true
+}
