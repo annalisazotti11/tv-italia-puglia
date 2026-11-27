@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "generated_at": "2026-11-27T11:52:07Z",
+  "mode": "official_page_manifest_discovery_only",
+  "summary": {
+    "official_pages_read": 35,
+    "manifest_references_found": 6,
+    "retained_for_manual_review": 4,
+    "excluded_drm_references": 2
+  },
+  "candidates": [
+    {
+      "channel": "Tele Dehon",
+      "official_page": "https://www.teledehon.it/diretta.html",
+      "url": "https://5f22d76e220e1.streamlock.net:443/Teledehon/smil:Teledehon.smil/playlist.m3u8",
+      "format": "HLS",
+      "declared_on_official_page": true,
+      "media_requested": false,
+      "playback_checked": false,
+      "channel_identity_verified": false,
+      "authorization_review": "pending",
+      "publish_allowed": false
+    },
+    {
+      "channel": "Tele Dehon",
+      "official_page": "https://www.teledehon.it/diretta.html",
+      "url": "https://5f22d76e220e1.streamlock.net:443/rtmpteledehon/smil:rtmpteledehon.smil/playlist.m3u8",
+      "format": "HLS",
+      "declared_on_official_page": true,
+      "media_requested": false,
+      "playback_checked": false,
+      "channel_identity_verified": false,
+      "authorization_review": "pending",
+      "publish_allowed": false
+    },
+    {
+      "channel": "Tele Dehon",
+      "official_page": "https://www.teledehon.it/diretta.html",
+      "url": "https://64b16f23efbee.streamlock.net:443/teledehonapp/ngrp:teledehonapp_all/playlist.m3u8",
+      "format": "HLS",
+      "declared_on_official_page": true,
+      "media_requested": false,
+      "playback_checked": false,
+      "channel_identity_verified": false,
+      "authorization_review": "pending",
+      "publish_allowed": false
+    },
+    {
+      "channel": "TRM h24",
+      "official_page": "https://www.trmtv.it/",
+      "url": "https://w1.viastreaming.net/trmh24/live/playlist.m3u8",
+      "format": "HLS",
+      "declared_on_official_page": true,
+      "media_requested": false,
+      "playback_checked": false,
+      "channel_identity_verified": false,
+      "authorization_review": "pending",
+      "publish_allowed": false
+    }
+  ],
+  "excluded": [
+    {
+      "channel": "LA7",
+      "official_page": "https://tg.la7.it/dirette-tv",
+      "reason": "I due riferimenti manifest trovati contengono /DRM/ nel percorso. Non vengono trasferiti nell'elenco dei candidati né sottoposti a test o integrazione."
+    }
+  ],
+  "note": "I riferimenti sono stati letti dal codice HTML delle pagine ufficiali. Nessuna richiesta ai flussi media è stata eseguita. La presenza del link sulla pagina ufficiale non equivale a un'autorizzazione alla redistribuzione o a una verifica di riproduzione. Nessun candidato è approvato o pubblicato nel Worker."
+}
