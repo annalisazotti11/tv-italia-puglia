@@ -1,0 +1,77 @@
+name: TV Italia + Puglia - verifica singolo canale
+on:
+  workflow_dispatch:
+    inputs:
+      channel_id:
+        description: ID del canale (es. tvip_1_rai-1-hd)
+        required: true
+        default: tvip_1_rai-1-hd
+        type: string
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/single-channel-audit.yml'
+permissions:
+  contents: read
+jobs:
+  channel-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CHANNEL_ID: ${{ inputs.channel_id || 'tvip_1_rai-1-hd' }}
+      PYTHONPATH: scripts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audit dependencies
+        run: |
+          python -m pip install --disable-pip-version-check 'Pillow==11.3.0' 'nudenet==3.4.2'
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+      - name: Audit selected channel (read-only)
+        run: |
+          python - <<'PY'
+          import os, json, re
+          from pathlib import Path
+          from datetime import datetime, timezone
+          import audited_streams as a
+
+          cid = os.environ['CHANNEL_ID']
+          if not re.fullmatch(r'tvip_[a-z0-9_-]{3,90}', cid):
+              raise SystemExit('Invalid channel ID')
+          review, policy = a.read(a.REVIEW), a.read(a.POLICY)
+          targets = [(c,u) for c,u in a.targets(review, policy) if c == cid]
+          legacy = a.read(a.ROOT / 'data/verified-streams.json')
+          previous = legacy.get('channels', {}).get(cid, {})
+          rows = []
+          for i, target in enumerate(targets, 1):
+              r = a.inspect_retry(target)
+              rows.append({'route_number': i, 'passed': a.eligible(r),
+                           'reason': a.failure_reason(r) if not a.eligible(r) else 'passed',
+                           'height': r.get('playback_height', 0),
+                           'audio': r.get('has_audio', False),
+                           'video': r.get('has_video', False),
+                           'startup_ms': r.get('startup_ms'),
+                           'attempts': r.get('attempts'),
+                           'identity_status': r.get('identity_status')})
+          rows.sort(key=lambda r: (not r['passed'], -r['height'], r['startup_ms'] or 999999))
+          report = {'channel_id': cid, 'name': previous.get('name', cid),
+                    'checked_at': datetime.now(timezone.utc).isoformat(),
+                    'reviewed_routes': len(targets),
+                    'preliminary_snapshot_at': legacy.get('generated_at'),
+                    'preliminary_candidates': previous.get('candidate_count', 0),
+                    'preliminary_av': previous.get('av_ready_count', 0),
+                    'passed': sum(x['passed'] for x in rows),
+                    'results': rows, 'production_changed': False}
+          Path('channel-audit.json').write_text(json.dumps(report, indent=2, ensure_ascii=False)+'\n', encoding='utf-8')
+          print(json.dumps(report, indent=2, ensure_ascii=False))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: single-channel-audit
+          path: channel-audit.json
+          retention-days: 14
