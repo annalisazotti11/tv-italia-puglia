@@ -66,7 +66,7 @@ export function entryKey(e,geo={}){
  if(identified(key))return key;
  // A trusted channel name in the independent identity directory outranks playlist labels.
  if(geo.__brands?.[key])return key;
- if(alt&&identified(alt)&&!exactId)return alt;
+ if(alt&&identified(alt)&&!exactId&&!/(?:\b(?:plus|extra|cinema|sport|news|puglia)\b|\+\s*\d+)/i.test(e.name))return alt;
  if(exactId&&(!identified(alt)||alt===exactId))return exactId;
  return key;
 }
@@ -109,8 +109,17 @@ export function unwantedChannel(g){
 export function rankedCombine(state){
  const groups=new Map();
  const geo=state.geo||{};
+ const nameKeys=new Map();
+ const ambiguousNames=new Set();
+ // Learn exact alternate labels within this catalogue only, never use fuzzy name similarity alone.
  for(const list of Object.values(state.lists))for(const e of list){
-  const key=entryKey(e,geo); if(!key||reg(e,geo)==="other")continue;
+   const a=canonicalKey(e.name,geo),b=entryKey(e,geo);
+   if(!a||!b||a===b||identified(a)||geo.__brands?.[a])continue;
+   if(nameKeys.has(a)&&nameKeys.get(a)!==b)ambiguousNames.add(a);else nameKeys.set(a,b);
+ }
+ for(const a of ambiguousNames)nameKeys.delete(a);
+ for(const list of Object.values(state.lists))for(const e of list){
+  const base=entryKey(e,geo),key=nameKeys.get(base)||base; if(!key||reg(e,geo)==="other")continue;
   if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(key),name:cleanName(e.name),poster:"",entries:[],regional:reg(e,geo)==="puglia",number:0,key});
   const g=groups.get(key); const index=g.entries.findIndex(x=>x.url===e.url);
   if(index<0)g.entries.push(e);else if(compareQuality(e,g.entries[index])<0)g.entries[index]=e;
@@ -141,6 +150,7 @@ export function rankedCombine(state){
  // https://www.auditel.it/wp-content/uploads/2026/11/Sintesi-Mensile-Ottobre-2026_TA47.xlsx-Sola-lettura.pdf
  const audiences=new Map([["Sky Sport Uno",44801],["Sky Uno",43329],["Discovery Turbo",27775],["Sky Sport 24",27681],["Sky Sport F1",27671],["Discovery",26912],["Supertennis",18173],["Sky Serie",14663],["Sky Cinema Uno",13451],["Sky Investigation",12694],["Sky Sport 251",12294],["Sky Sport Tennis",11877],["Sky Collection",7550],["Sky Atlantic",7487],["Sky Cinema Collection",6477],["Sky Sport Arena",6068],["Sky Sport 4K",5806],["Sky Cinema Action",5369],["Sky Cinema Comedy",5340],["Sky Sport 252",5026],["Sky Sport Moto GP",4846],["Sky Cinema Stories",4729],["Sky Nature",4291],["Sky Cinema Family",3852],["Sky Sport Basket",3695],["History HD",3688],["Sky Crime",3653],["DAZN 1",3456],["Sky Cinema Romance",3311],["Sky Cinema Uno +24",2983],["Sky Sport 253",2956],["Sky Cinema Suspense",2921],["Sky Adventure",2717],["Sky Documentaries",2619],["Sky Sport Max",2274],["Sky Cinema Drama",2038],["Gambero Rosso",1476],["Disney Junior",1375],["DeA Junior",1188],["Comedy Central",1108],["Sky Sport 254",1005],["Sky Sport Golf",725],["DeAKids",656],["Nick Jr.",459],["Sky Sport 255",364],["Nickelodeon",363],["Cartoon Network",351],["Sky Sport 256",251],["Boomerang",219],["Sky Sport 257",201],["Sky Sport 258",169],["DAZN 2",82],["Sky Sport 259",50]].map(([n,v])=>[keyOf(n),v]));
  for(const [name,value] of [["Italia 1",375333],["La7",366293],["NOVE",211867],["TV8",202951],["Real Time",146214],["Rai 4",134654],["Top Crime",103584],["La5",94448],["27 Twentyseven",90890],["Cine34",90245],["20 Mediaset",88394],["Iris",87040],["Rai Premium",84594],["Rai Movie",72608],["Giallo",68133],["DMAX",67980],["Mediaset Extra",66091],["Focus",60987],["Cielo",59644],["Food Network",51953],["LA7 Cinema",48178],["Rai News 24",45715],["TGCOM24",44149],["Rai 5",37059],["Sky TG24",32351],["Rai YoYo",32566],["Rai Sport",31302],["Boing",30291],["Mediaset Italia 2",27809],["Frisbee",27531],["HGTV",25851],["K2",24435],["RadioItaliaTV",22412],["Sportitalia",21704],["Boing Plus",20662],["Cartoonito",19872],["Italiana",12569],["RTL 102.5",11432],["Rai Gulp",10845],["Rai Storia",9667],["Padre Pio TV",9633],["Deejay TV",3394]])audiences.set(keyOf(name),value);
+ audiences.set(keyOf("Sky Uno +"),7777);
  const audience=g=>audiences.get(g.key)??audiences.get(keyOf(g.name))??null;
  for(const g of all)g.audience=audience(g);
  // Preserve original sections for existing exclusion rules; rank all remaining national/extra channels together.
@@ -152,7 +162,7 @@ export function rankedCombine(state){
  for(const g of all){if(!g.number||used.has(g.number)){while(used.has(next))next++;g.number=next++;}used.add(g.number);}
  // Preserve the section order, not the globally ascending LCN.
 
- return {groups:all,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:[...new Set(g.entries.map(e=>e.name))]})).filter(g=>g.variants.length>1),excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
+ return {groups:all,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
 }
 export async function loadGeo(previous={}){
  try{
