@@ -82,5 +82,21 @@
   {
     "name": "Streamline lingua italiana",
     "url": "https://cdn.jsdelivr.net/gh/streamline-iptv/iptv-playlists@dist/languages/ita.m3u"
+  },
+  {
+    "name": "M3UPlayerPro Italia",
+    "url": "https://m3uplayerpro.com/free-streams/it/playlist.m3u"
+  },
+  {
+    "name": "Pluto TV Italia",
+    "url": "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/plutotv_it.m3u"
+  },
+  {
+    "name": "Samsung TV Plus Italia",
+    "url": "https://raw.githubusercontent.com/BuddyChewChew/app-m3u-generator/main/playlists/samsungtvplus_it.m3u"
+  },
+  {
+    "name": "Sfiorini IPTV Italy",
+    "url": "https://raw.githubusercontent.com/sfiorini/IPTV-Italy/main/iptvitaly.m3u"
   }
 ]
