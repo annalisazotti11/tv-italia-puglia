@@ -18,11 +18,11 @@ if not re.fullmatch(r"[A-Za-z0-9_-]{32,128}",access):
     raise SystemExit("TV_COMPLETE_ACCESS_TOKEN: usa 32-128 caratteri alfanumerici, trattini o underscore.")
 try:
     playlists=json.loads(required("TV_COMPLETE_PLAYLIST_SOURCES"))
-    assert isinstance(playlists,list) and 1<=len(playlists)<=30
+    assert isinstance(playlists,list) and 1<=len(playlists)<=100
     assert all(isinstance(p,dict) and isinstance(p.get("name"),str) and p["name"].strip() and isinstance(p.get("url"),str) and p["url"].startswith("https://") for p in playlists)
     assert len({p["name"] for p in playlists})==len(playlists)
 except (ValueError,AssertionError):
-    raise SystemExit("TV_COMPLETE_PLAYLIST_SOURCES: array JSON con 1-30 coppie name/url HTTPS e nomi univoci.")
+    raise SystemExit("TV_COMPLETE_PLAYLIST_SOURCES: array JSON con 1-100 coppie name/url HTTPS e nomi univoci.")
 
 # The existing private configuration remains the primary source list.
 # Additional Italian playlist endpoints are maintained in the repository.
@@ -30,7 +30,7 @@ extra=json.loads(pathlib.Path("complete/playlist-candidates.json").read_text())
 urls={p["url"].lower() for p in playlists}
 names={p["name"] for p in playlists}
 for p in extra:
-    if len(playlists)>=30: break
+    if len(playlists) >=100: break
     if p["url"].lower() in urls or p["name"] in names: continue
     playlists.append(p)
     urls.add(p["url"].lower())
@@ -61,10 +61,18 @@ while True:
 if not namespace:
     namespace=api("",method="POST",body={"title":title})["result"]["id"]
 folder=pathlib.Path("complete")
-config={"name":"tv-italia-complete","main":"worker.mjs","compatibility_date":"2026-11-27","workers_dev":True,"triggers":{"crons":["17 * * * *"]},"kv_namespaces":[{"binding":"PLAYLISTS","id":namespace}]}
+config={"name":"tv-italia-complete","main":"worker.mjs","compatibility_date":"2026-11-27","workers_dev":True,"triggers":{"crons":["*/12 * * * *"]},"kv_namespaces":[{"binding":"PLAYLISTS","id":namespace}]}
 config["assets"]={"directory":"./brand-assets"}
 (folder/"wrangler.generated.json").write_text(json.dumps(config))
 secret_path=pathlib.Path(os.environ["RUNNER_TEMP"])/"tv-complete-secrets.json"
 secret_path.touch(mode=0o600,exist_ok=True)
-secret_path.write_text(json.dumps({"ACCESS_TOKEN":access,"PLAYLIST_SOURCES":json.dumps(playlists)}))
+# Split the private configuration into small secrets; never publish private URLs.
+secret_values={"ACCESS_TOKEN":access}
+for i in range(5):
+    key="PLAYLIST_SOURCES" if i==0 else f"PLAYLIST_SOURCES_{i+1}"
+    value=json.dumps(playlists[i*20:(i+1)*20],ensure_ascii=True,separators=(",",":"))
+    if len(value.encode())>5120:
+        raise SystemExit("Configurazione playlist troppo lunga per il singolo secret Cloudflare.")
+    secret_values[key]=value
+secret_path.write_text(json.dumps(secret_values))
 print("Configurazione dedicata pronta; nessun dato segreto pubblicato.")
