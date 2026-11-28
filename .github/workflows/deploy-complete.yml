@@ -1,0 +1,37 @@
+name: TV Italia Complete - deploy separato
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'complete/worker.mjs'
+      - 'complete/deploy_config.py'
+      - '.github/workflows/deploy-complete.yml'
+permissions:
+  contents: read
+concurrency:
+  group: tv-italia-complete-deployment
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID || vars.CLOUDFLARE_ACCOUNT_ID }}
+      TV_COMPLETE_ACCESS_TOKEN: ${{ secrets.TV_COMPLETE_ACCESS_TOKEN }}
+      TV_COMPLETE_PLAYLIST_SOURCES: ${{ secrets.TV_COMPLETE_PLAYLIST_SOURCES }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JS syntax (no stream tests)
+        run: node --check complete/worker.mjs
+      - name: Prepare dedicated KV and private configuration
+        run: python3 complete/deploy_config.py
+      - name: Deploy only tv-italia-complete
+        run: npx --yes wrangler@4 deploy --config complete/wrangler.generated.json --secrets-file "$RUNNER_TEMP/tv-complete-secrets.json"
+      - name: Remove temporary secrets
+        if: always()
+        run: rm -f "$RUNNER_TEMP/tv-complete-secrets.json" complete/wrangler.generated.json
