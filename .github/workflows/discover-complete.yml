@@ -20,12 +20,25 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - name: Restore public research history
+        uses: actions/cache/restore@v4
+        with:
+          path: complete/discovery-history.json
+          key: tv-complete-discovery-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            tv-complete-discovery-v1-
       - name: Search public project and directory metadata
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           python3 -m py_compile complete/discover_playlists.py
           python3 complete/discover_playlists.py
+      - name: Save public research history
+        if: success()
+        uses: actions/cache/save@v4
+        with:
+          path: complete/discovery-history.json
+          key: tv-complete-discovery-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
