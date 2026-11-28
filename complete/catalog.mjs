@@ -29,7 +29,7 @@ for(const [a,b] of [["Rai Sport +","Rai Sport"],["Rai Sport Plus","Rai Sport"],[
 for(const [a,b] of [["20","20 Mediaset"],["Italia 2 Mediaset","Mediaset Italia 2"],["HGTV Home & Garden","HGTV"],["Sky TG24 (50)","Sky TG24"],["Rai Sport HD","Rai Sport"],["Rai3 TGR Puglia HD","Rai 3 TGR Puglia"]])alias.set(flat(a),flat(b));
 for(const [a,b] of [["Sky 1","Sky Uno"],["Sky Uno Italia","Sky Uno"],["Sky Uno Italy","Sky Uno"]])alias.set(flat(a),flat(b));
 const SKY_MAIN=new Set(["Sky Sport Uno","Sky Sport 24","Sky TG24","Sky Cinema Uno","Sky Atlantic","Sky Serie","Sky Sport F1","Sky Sport Moto GP","Sky Sport Tennis","Sky Sport Arena","Sky Sport Max","Sky Sport Basket","Sky Cinema Due","Sky Cinema Action","Sky Cinema Comedy","Sky Cinema Family","Sky Cinema Collection","Sky Cinema Stories","Sky Cinema Romance","Sky Cinema Drama","Sky Cinema Suspense","Sky Investigation","Sky Crime","Sky Nature","Sky Documentaries","Sky Arte"].map(flat));
-const knownNames=new Set([...lcnMap.keys(),...localMap.keys(),...SKY_MAIN,...BRAND_REGISTRY.map(b=>flat(b.name))]);
+const knownNames=new Set([...lcnMap.keys(),...localMap.keys(),...SKY_MAIN,...alias.values(),...BRAND_REGISTRY.map(b=>flat(b.name))]);
 const keyOf=n=>{
  let s=cleanName(n);
  let k=flat(s);
@@ -48,6 +48,9 @@ const keyOf=n=>{
    s=candidate;const t=flat(s),a=alias.get(t)||t;
    if(isKnown(t))return a;
  }
+ // Resolve glued quality labels only when the base station is known.
+ const glued=k.match(/^(.+?)(?:fullhd|fhd|uhd|hd|sd|1080p|720p|576p|480p)$/);
+ if(glued&&isKnown(glued[1]))return alias.get(glued[1])||glued[1];
  return alias.get(k)||k;
 };
 const curated=new Map(BRAND_REGISTRY.map(b=>[keyOf(b.name),{name:cleanName(b.name),logo:b.logo}]));
@@ -168,15 +171,17 @@ export function rankedCombine(state){
  for(const g of all)g.audience=audience(g);
  // Preserve original sections for existing exclusion rules; rank all remaining national/extra channels together.
  const block=g=>g.section<1?g.section:g.key==="skyuno"?0.5:g.section===1?1:([6,7,8,9].includes(g.lcn)?2:SKY_MAIN.has(g.key)?3:4);
- const compare=(a,b)=>block(a)-block(b)||(block(a)>=3?((b.audience??-1)-(a.audience??-1)||((a.number||99999)-(b.number||99999))):((a.number||99999)-(b.number||99999)))||a.name.localeCompare(b.name,"it",{numeric:true});
+ const compare=(a,b)=>block(a)-block(b)||(block(a)>=3?((b.audience??-1)-(a.audience??-1)||((a.number||99999)-(b.number||99999))):((a.number||99999)-(b.number||99999)))||a.name.localeCompare(b.name,"it",{numeric:true})||a.key.localeCompare(b.key);
  for(const g of all)g.orderBlock=block(g);
  all.sort(compare);
  for(const [i,g] of all.entries())g.position=i;
  const used=new Set(),reserved=new Set(all.map(g=>g.lcn).filter(Boolean));let next=1000;
  for(const g of all){if(!g.number||used.has(g.number)||(!g.lcn&&reserved.has(g.number))){while(used.has(next)||reserved.has(next))next++;g.number=next++;}used.add(g.number);}
  // Preserve the section order, not the globally ascending LCN.
-
- return {groups:all,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
+ const displayGroups=new Map();
+ for(const g of all){const label=flat(g.name);if(!displayGroups.has(label))displayGroups.set(label,[]);displayGroups.get(label).push(g.name);}
+ const displayConflicts=[...displayGroups.values()].filter(v=>v.length>1);
+ return {groups:all,displayConflicts,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
 }
 export async function loadGeo(previous={}){
  try{
