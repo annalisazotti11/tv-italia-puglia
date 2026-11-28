@@ -1,0 +1,11 @@
+name = "tv-italia-complete"
+main = "worker.mjs"
+compatibility_date = "2026-11-27"
+workers_dev = true
+
+[triggers]
+crons = ["17 * * * *"]
+
+[[kv_namespaces]]
+binding = "PLAYLISTS"
+id = "INSERIRE_ID_KV"
