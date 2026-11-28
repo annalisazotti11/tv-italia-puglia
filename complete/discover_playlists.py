@@ -104,9 +104,18 @@ def metadata(p):
         body,headers=read(p["url"])
         raw=body.decode("utf-8-sig",errors="replace")
         if not raw.lstrip().startswith("#EXTM3U"):raise ValueError("not a playlist")
-        entries=sum(1 for line in raw.splitlines() if line.strip().startswith("#EXTINF:"))
+        entry_lines=[line.strip() for line in raw.splitlines() if line.strip().startswith("#EXTINF:")]
+        entries=len(entry_lines)
         if entries==0 or re.search(r"(?m)^#EXT-X-(?:TARGETDURATION|STREAM-INF|MEDIA-SEQUENCE):",raw):raise ValueError("not a channel collection")
-        return {"name":p["name"],"status":"available","entries":entries,
+        # A metadata-only fingerprint detects reordered copies with different formatting.
+        labels=set()
+        for line in entry_lines:
+            name=line.rsplit(",",1)[-1].casefold()
+            name=re.sub(r"\b(?:fhd|uhd|hd|sd|1080p|720p|4k)\b","",name)
+            label=re.sub(r"[^a-z0-9]+","",name)
+            if label:labels.add(label)
+        label_hash=hashlib.sha256("\n".join(sorted(labels)).encode()).hexdigest()
+        return {"name":p["name"],"status":"available","entries":entries,"distinct_labels":len(labels),"channel_label_hash":label_hash,
             "sha256":hashlib.sha256(body).hexdigest(),"last_modified":headers.get("Last-Modified") or headers.get("last-modified")}
     except Exception as e:
         return {"name":p["name"],"status":type(e).__name__,"http_status":getattr(e,"code",None),"detail":str(e)[:140] if isinstance(e,ValueError) else None}
@@ -168,7 +177,7 @@ def search_projects():
                             "review":"not automatically approved"}
                     projects[full]["matched_queries"].append(phrase)
                 if len(items)<50 or retrieved>=payload.get("total_count",0):break
-                time.sleep(2.1)
+                time.sleep(2.5)
             queries.append({"query":phrase,"returned":retrieved})
         except Exception as e:
             errors.append({"query":phrase,"error":type(e).__name__,"http_status":getattr(e,"code",None)})
@@ -333,6 +342,10 @@ def main():
     dirs=expand_directories(dirs)
     available=[p for p in inspected if p["status"]=="available"]
     unique=len({p["sha256"] for p in available})
+    fingerprints={}
+    for p in available:
+        fingerprints.setdefault(p.get("channel_label_hash"),[]).append(p["name"])
+    same_lineups=[v for k,v in fingerprints.items() if k and len(v)>1]
     projects,queries,errors=search_projects()
     by_name={p['name'].lower():p for p in projects}
     for p in seeded_projects(dirs):by_name.setdefault(p['name'].lower(),p)
@@ -352,6 +365,8 @@ def main():
     project_summary=repository_summary(list(queue.values()),inventories)
     report={"generated_at":TODAY.isoformat(),"target":100,"public_candidates":len(candidates),
         "available_public_files":len(available),"byte_distinct_files":unique,
+        "identical_label_sets":same_lineups,"distinct_label_sets":len(fingerprints),
+        "note_label_sets":"Same channel labels suggest overlapping coverage, not identical playback sources or rights.",
         "note":"Private configured sources are intentionally not inspected. Same bytes do not prove independent providers; repository push date is not necessarily playlist freshness. Unknown sources require review before import. No playback requests.",
         "existing_candidates":inspected,"external_directories":dirs,"github_projects":projects,
         "search_queries":queries,"search_errors":errors,"repository_inventories":inventories,
