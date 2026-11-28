@@ -13,6 +13,15 @@ export function cleanName(value){
       .replace(/^\s*\[(?:IT|ITA|ITALY|ITALIA)\]\s*/i,"").trim();
    if(previous===s)break;
  }
+ // A platform label is distribution metadata, not an editorial channel name.
+ // Require a separator or parentheses; do not strip brand names from real titles.
+ const platform=/(?:Pluto\s*TV(?:\s*(?:Italia|Italy|IT))?|Samsung\s*TV\s*Plus|Rakuten\s*TV|LG\s*Channels|Plex(?:\s*TV)?|TCL\s*Channel|Xiaomi\s*TV\+|CHILI|DistroTV|Freevee|VIDAA\s*Channels)/i;
+ for(let i=0;i<4;i++){
+   const old=s;
+   s=s.replace(new RegExp("\\s*(?:[-–—|·:]\\s*"+platform.source+"|\\(\\s*"+platform.source+"\\s*\\)|\\[\\s*"+platform.source+"\\s*\\])\\s*$","i"),"").trim();
+   s=s.replace(new RegExp("^\\s*(?:"+platform.source+"\\s*[-–—|·:]\\s*|\\[\\s*"+platform.source+"\\s*\\]\\s*)","i"),"").trim();
+   if(s===old)break;
+ }
  // Remove only technical annotations, not programme/channel variants (+1, Cinema, Sport, regional editions).
  const tech=/^(?:\s*(?:\d{3,4}[pi]?|[248]k|uhd|fhd|full\s*hd|hd\+?|sd|hevc|h\.?26[45]|avc|aac|hdr10?|dolby\s*vision|\d+(?:\.\d+)?\s*fps|[0-9.]+\s*[mk]bps|[x×]\s*\d+|[-/|,;:+×x\s])+)\s*$/i;
  s=s.replace(/^(rai|sky sport)\s*[(\[]\s*4k\s*[)\]]/i,"$1 4K");
@@ -39,6 +48,8 @@ for(const [a,b] of [["Rai Uno","Rai 1"],["Rai Due","Rai 2"],["Rai Tre","Rai 3"],
 for(const [a,b] of [["Rai Sport +","Rai Sport"],["Rai Sport Plus","Rai Sport"],["Rai Sport 1","Rai Sport"],["Rai 4K HbbTV","Rai 4K"],["Rai 3 TGR Puglia 103","Rai 3 TGR Puglia"],["Rai 3 Puglia 819","Rai 3 TGR Puglia"],["Rai 3 TGR Puglia 3","Rai 3 TGR Puglia"],["Rai 3 TGR Puglia (Italia)","Rai 3 TGR Puglia"],["Rai3 TGR Puglia","Rai 3 TGR Puglia"],["Rai News 24 TV","Rai News 24"],["TG Com 24","TGCOM24"],["Mediaset TGCOM24","TGCOM24"],["Mediaset Rete 4","Rete 4"],["Mediaset Canale 5","Canale 5"],["Mediaset Italia 1","Italia 1"],["La 5 Mediaset","La5"],["20 Mediaset Italia","20 Mediaset"],["27 Twenty Seven","27 Twentyseven"],["Twenty Seven","27 Twentyseven"],["Nove TV","NOVE"],["TV 8 Italia","TV8"],["Dmax Italia","DMAX"],["Real Time Italia","Real Time"],["Food Network Italia","Food Network"],["Discovery Italia","Discovery"],["Discovery Italy","Discovery"],["Discovery Channel Italia","Discovery"],["Discovery Channel Italy","Discovery"],["Radio Italia TV","RadioItaliaTV"],["Radio Italia Television","RadioItaliaTV"],["Radio Italia Solo Musica Italiana TV","RadioItaliaTV"],["Radio Kiss Kiss Television","Radio Kiss Kiss TV"],["Radio Norba","Radionorba TV"],["Tele Norba","Telenorba"],["Tele Norba 1","Telenorba"],["Tele Due","Teledue"],["Tele Rama","Telerama"],["TRM 24","TRM H24"],["TRM H 24","TRM H24"],["Antenna Sud TV","Antenna Sud"],["Antenna Sud 14","Antenna Sud"],["Antenna Sud Extra 92","Antenna Sud Extra"],["Tele Bari TV","Telebari"],["Teleradio Padre Pio TV","Padre Pio TV"]])alias.set(flat(a),flat(b));
 for(const [a,b] of [["20","20 Mediaset"],["Italia 2 Mediaset","Mediaset Italia 2"],["HGTV Home & Garden","HGTV"],["Sky TG24 (50)","Sky TG24"],["Rai Sport HD","Rai Sport"],["Rai3 TGR Puglia HD","Rai 3 TGR Puglia"]])alias.set(flat(a),flat(b));
 for(const [a,b] of [["Sky 1","Sky Uno"],["Sky Uno Italia","Sky Uno"],["Sky Uno Italy","Sky Uno"]])alias.set(flat(a),flat(b));
+// Explicit aliases for the Italian FAST brands observed in the catalogue.
+for(const [a,b] of [["Affare Fatto Pluto TV","Affare Fatto"],["Affare Fatto Italia","Affare Fatto"],["Affare Fatto Italy","Affare Fatto"],["Affare Fatto IT","Affare Fatto"],["Andromeda Pluto TV","Andromeda"],["Andromeda Italia","Andromeda"],["Andromeda Italy","Andromeda"],["Andromeda IT","Andromeda"],["Andromeda (Italia)","Andromeda"],["Andromeda (Italy)","Andromeda"],["Andromeda (IT)","Andromeda"],["Andromeda [IT]","Andromeda"]])alias.set(flat(a),flat(b));
 const SKY_MAIN=new Set(["Sky Sport Uno","Sky Sport 24","Sky TG24","Sky Cinema Uno","Sky Atlantic","Sky Serie","Sky Sport F1","Sky Sport Moto GP","Sky Sport Tennis","Sky Sport Arena","Sky Sport Max","Sky Sport Basket","Sky Cinema Due","Sky Cinema Action","Sky Cinema Comedy","Sky Cinema Family","Sky Cinema Collection","Sky Cinema Stories","Sky Cinema Romance","Sky Cinema Drama","Sky Cinema Suspense","Sky Investigation","Sky Crime","Sky Nature","Sky Documentaries","Sky Arte"].map(flat));
 const knownNames=new Set([...lcnMap.keys(),...localMap.keys(),...SKY_MAIN,...alias.values(),...BRAND_REGISTRY.map(b=>flat(b.name))]);
 const keyOf=n=>{
@@ -65,7 +76,7 @@ const keyOf=n=>{
  return alias.get(k)||k;
 };
 const curated=new Map(BRAND_REGISTRY.map(b=>[keyOf(b.name),{name:cleanName(b.name),logo:b.logo}]));
-const preferred=new Map([["rai1","Rai 1"],["rai2","Rai 2"],["rai3","Rai 3"],["rete4","Rete 4"],["canale5","Canale 5"],["italia1","Italia 1"],["raimovie","Rai Movie"],["raipremium","Rai Premium"],["rai3tgrpuglia","Rai 3 TGR Puglia"],["la7","LA7"],["tv8","TV8"],["nove","NOVE"],["skyuno","Sky Uno"]]);
+const preferred=new Map([["rai1","Rai 1"],["rai2","Rai 2"],["rai3","Rai 3"],["rete4","Rete 4"],["canale5","Canale 5"],["italia1","Italia 1"],["raimovie","Rai Movie"],["raipremium","Rai Premium"],["rai3tgrpuglia","Rai 3 TGR Puglia"],["la7","LA7"],["tv8","TV8"],["nove","NOVE"],["skyuno","Sky Uno"],["affarefatto","Affare Fatto"],["andromeda","Andromeda"]]);
 export const canonicalKey=(n,geo)=>{
  const k=keyOf(n);
  if(lcnMap.has(k)||localMap.has(k)||preferred.has(k)||SKY_MAIN.has(k))return k;
@@ -166,6 +177,7 @@ export function rankedCombine(state){
    delete g.urlIndex;delete g.names;
    g.name=preferred.get(g.key)||geo.__brands?.[g.key]?.name||curated.get(g.key)?.name||g.originalNames.map(cleanName).sort((a,b)=>a.length-b.length||a.localeCompare(b,"it"))[0]||g.name;
    g.poster=findLogo(g,geo);
+   g.publicLogo=geo.__brands?.[g.key]?.logo||curated.get(g.key)?.logo||"";
    const known=lcnMap.get(g.key)||0;
    g.lcn=known||null;
    const dtt=g.entries.some(e=>/\b(?:DTT|DVB-T2?|digitale terrestre)\b/i.test(e.info.match(/group-title="([^"]*)"/i)?.[1]||""));
@@ -194,9 +206,12 @@ export function rankedCombine(state){
  const displayGroups=new Map();
  for(const g of all){const label=flat(g.name);if(!displayGroups.has(label))displayGroups.set(label,[]);displayGroups.get(label).push(g.name);}
  const displayConflicts=[...displayGroups.values()].filter(v=>v.length>1);
+ const sameLogo=new Map();
+ for(const g of all){if(!g.poster)continue;if(!sameLogo.has(g.poster))sameLogo.set(g.poster,[]);sameLogo.get(g.poster).push(g.name);}
+ const sharedLogoGroups=[...sameLogo.values()].filter(v=>v.length>1);
  const priorityMissing=["rai3tgrpuglia","rai1","rai2","rai3","rete4","canale5","skyuno"].filter(k=>!all.some(g=>g.key===k)).map(k=>preferred.get(k)||k);
  const priorityDiagnostics=["rai3tgrpuglia","rai1","rai2","rai3","rete4","canale5","skyuno"].map(k=>{const g=all.find(x=>x.key===k);return {name:preferred.get(k)||k,present:!!g,position:g?.position??null,alternatives:g?.entries.length??0};});
- return {groups:all,displayConflicts,priorityMissing,priorityDiagnostics,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
+ return {groups:all,displayConflicts,sharedLogoGroups,priorityMissing,priorityDiagnostics,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
 }
 export async function loadGeo(previous={}){
  try{
