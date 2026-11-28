@@ -27,6 +27,16 @@ DIRS=[
  ("Tivùsat channel directory","https://www.tivusat.tv/canali/canali-televisivi.aspx"),
  ("RaiPlay live directory","https://www.raiplay.it/dirette/"),
  ("LA7 live directory","https://tg.la7.it/dirette-tv"),
+ ("Broadcast Atlas official","https://broadcastatlas.com/official"),
+ ("LegalFreeIPTV","https://biskyt.github.io/legalFreeIPTVplaylist/"),
+ ("Doubo Italia public directory","https://doubo.tv/en/lists/iptv-org-it/"),
+ ("M3UPlayerPro Italy directory","https://m3uplayerpro.com/free-streams/country/italy"),
+ ("Regione Puglia broadcaster registry","https://www.regione.puglia.it/web/comunicazione-istituzionale/anagrafe-centro-media-regionale"),
+ ("Free Public IPTV project","https://github.com/freecasthub/public-iptv"),
+ ("Nexonic public broadcasts","https://github.com/nexonic-technologies/nexonic-iptv"),
+ ("Nanobuo FTA project","https://github.com/Nanobuo/iptv-italia"),
+ ("Dearbulut project","https://github.com/dearbulut/iptv"),
+ ("OpenIPTVItaly project","https://github.com/xN1ckuz/OpenIPTVItaly"),
 ]
 def read(url,github=False,max_bytes=6000000):
     headers={"User-Agent":"TVItaliaComplete-source-catalog/1.0"}
@@ -109,11 +119,33 @@ def search_projects():
       '"Italy" "public streams" M3U','"FAST" Italy "free TV" playlist',
       'topic:free-tv italy','topic:iptv "free-to-air" italian',
     ]
+    # Multilingual public-broadcast discovery, including documentation and international catalogues.
+    for country,terms in [
+        ("Italy",["free television","public broadcaster","official broadcast","free-to-air","public domain"]),
+        ("Italia",["TV in chiaro","emittenti gratuite","dirette ufficiali","televisione pubblica","canali free-to-air"]),
+        ("Italie",["chaînes gratuites","télévision publique","diffusion officielle"]),
+        ("Italien",["frei empfangbar","öffentlich-rechtlich","kostenloses Fernsehen"]),
+        ("Italia",["canales gratuitos","televisión pública","emisiones oficiales"]),
+        ("Itália",["canais gratuitos","televisão pública"]),
+    ]:
+        for term in terms:phrases.append(country+' "'+term+'" M3U in:readme')
+    phrases.extend([
+      '"free-to-air" "Italy" IPTV in:readme','"canali in chiaro" "Puglia" in:readme',
+      '"official broadcaster" "Italy" in:readme','"legal IPTV" "Italy" in:readme',
+      '"free television" "Italian" in:readme','"public television" "Italian" in:readme',
+      '"official live streams" "Italy" in:readme','"open television" "Italy" in:readme',
+      '"FAST" "Italian" "free" in:readme','"public domain" "Italy" television in:readme',
+      '"free TV" "Italia" "M3U" in:readme','"free-to-air" "Italia" in:readme',
+    ])
+    phrases=list(dict.fromkeys(phrases))
+    # Rotate order each day so rate limits do not starve later languages.
+    offset=TODAY.date().toordinal()%len(phrases)
+    phrases=phrases[offset:]+phrases[:offset]
     for phrase in phrases:
         q=phrase+" pushed:>="+cutoff+" archived:false"
         retrieved=0
         try:
-            for page in (1,2):
+            for page in (1,2,3):
                 params=urllib.parse.urlencode({"q":q,"sort":"updated","order":"desc","per_page":50,"page":page})
                 raw,_=read("https://api.github.com/search/repositories?"+params,github=True)
                 payload=json.loads(raw)
@@ -153,9 +185,64 @@ def project_inventory(project):
             # File names for Italian collections, not addresses of streams.
             if re.search(r"\.m3u8?$",path,re.I) and re.search(r"ital(?:ia|y|ian)|puglia|(?:^|[/_.-])it(?:a)?(?:[/_.-]|$)|nazionali|regionali|canali.in.chiaro|free.tv",path,re.I):
                 files.append({"path":path,"bytes":row.get("size")})
-        return {"name":name,"status":"listed","truncated":tree.get("truncated",False),"collection_files":files[:100],"review":"file inventory only"}
+        return {"name":name,"status":"listed","truncated":tree.get("truncated",False),"collection_files":files[:200],"review":"file inventory only"}
     except Exception as e:
         return {"name":name,"status":type(e).__name__,"http_status":getattr(e,"code",None)}
+
+
+def other_forges():
+    """Discover public project descriptions on other code hosts, not stream links."""
+    terms=["free-to-air IPTV","public television Italy","canali in chiaro","free TV Italy","Italian public broadcasters","emittenti locali Puglia"]
+    found={}
+    outcomes=[]
+    for host in ("gitlab","codeberg"):
+        for term in terms:
+            try:
+                if host=="gitlab":
+                    base="https://gitlab.com/api/v4/projects?"
+                    params={"search":term,"visibility":"public","simple":"true","per_page":50,"order_by":"last_activity_at","sort":"desc"}
+                else:
+                    base="https://codeberg.org/api/v1/repos/search?"
+                    params={"q":term,"limit":50}
+                raw,_=read(base+urllib.parse.urlencode(params),max_bytes=3000000)
+                payload=json.loads(raw)
+                items=payload if isinstance(payload,list) else payload.get("data",[])
+                for row in items:
+                    if row.get("private") or row.get("archived"):continue
+                    page=row.get("web_url") or row.get("html_url") or ""
+                    if not page.startswith("https://"):continue
+                    found[page]={"host":host,"project_page":page,"name":row.get("path_with_namespace") or row.get("full_name") or row.get("name"),
+                       "description":row.get("description"),"last_activity":row.get("last_activity_at") or row.get("updated_at"),"review":"not automatically approved"}
+                outcomes.append({"host":host,"query":term,"returned":len(items)})
+            except Exception as e:
+                outcomes.append({"host":host,"query":term,"error":type(e).__name__,"http_status":getattr(e,"code",None)})
+                if getattr(e,"code",None) in (403,429):break
+            time.sleep(0.4)
+    return list(found.values()),outcomes
+
+def seeded_projects(dirs):
+    """Resolve project pages identified by directories and verified research seeds."""
+    names=set()
+    for d in dirs:
+        for page in d.get("project_pages",[])+[d.get("page","")]:
+            p=urllib.parse.urlsplit(page)
+            if p.hostname!="github.com":continue
+            parts=p.path.strip("/").split("/")
+            if len(parts)!=2 or not all(re.fullmatch(r"[A-Za-z0-9_.-]+",part) for part in parts):continue
+            if parts[0] in {"topics","features","settings","orgs","sponsors","marketplace","login","search","site","about","security","readme","enterprise","collections"}:continue
+            names.add("/".join(parts))
+    # Only metadata, no playlist/stream downloads for previously unreviewed projects.
+    def resolve(name):
+        try:
+            raw,_=read("https://api.github.com/repos/"+name,github=True,max_bytes=1000000)
+            p=json.loads(raw)
+            if p.get("private") or p.get("archived"):return None
+            return {"name":p["full_name"],"project_page":p["html_url"],"description":p.get("description"),
+                "last_push":p.get("pushed_at"),"stars":p.get("stargazers_count"),"fork":p.get("fork"),
+                "default_branch":p.get("default_branch"),"matched_queries":["directory reference"],"review":"not automatically approved"}
+        except Exception:return None
+    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+        return [p for p in pool.map(resolve,sorted(names)[:60]) if p]
 
 def main():
     candidates=json.loads((ROOT/"playlist-candidates.json").read_text())
@@ -165,13 +252,20 @@ def main():
     available=[p for p in inspected if p["status"]=="available"]
     unique=len({p["sha256"] for p in available})
     projects,queries,errors=search_projects()
-    with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
-        inventories=list(pool.map(project_inventory,projects[:45]))
+    by_name={p['name'].lower():p for p in projects}
+    for p in seeded_projects(dirs):by_name.setdefault(p['name'].lower(),p)
+    projects=sorted(by_name.values(),key=lambda x:x.get('last_push') or '',reverse=True)
+    with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+        inventories=list(pool.map(project_inventory,projects[:150]))
+    external_projects,external_queries=other_forges()
     report={"generated_at":TODAY.isoformat(),"target":100,"public_candidates":len(candidates),
         "available_public_files":len(available),"byte_distinct_files":unique,
         "note":"Private configured sources are intentionally not inspected. Same bytes do not prove independent providers; repository push date is not necessarily playlist freshness. Unknown sources require review before import. No playback requests.",
         "existing_candidates":inspected,"external_directories":dirs,"github_projects":projects,
         "search_queries":queries,"search_errors":errors,"repository_inventories":inventories,
+        "other_forge_projects":external_projects,"other_forge_queries":external_queries,
+        "distinct_project_count":len(projects)+len(external_projects),
+        "gap_to_100_public_readable":max(0,100-len(available)),
         "potential_collection_files":sum(len(x.get("collection_files",[])) for x in inventories),
         "external_collection_pages":len({p["page"] for d in dirs for p in d.get("collection_pages",[])})}
     dest=ROOT/"discovery-report.json"
