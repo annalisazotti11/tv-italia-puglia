@@ -34,12 +34,14 @@ class AuditTests(unittest.TestCase):
         valid = {'url': 'https://example.org/stream.m3u8',
                  'playback_ready': True, 'has_audio': True, 'has_video': True}
         legacy = {'channels': {
-            'tvip_rai': {'verified': [valid]},
+            'tvip_rai': {'verified': [valid], 'candidates': [valid, dict(valid, url='https://example.org/second.m3u8')], 'candidate_count': 4},
             'tvip_local': {'verified': [valid]},
             'tvip_other': {'verified': [dict(valid, has_audio=False)]}}}
         a.annotate_review_queue(result, legacy)
         self.assertEqual(result['summary']['preliminary_av_without_final_pass'], 1)
         self.assertEqual(result['review_queue'][0]['id'], 'tvip_rai')
+        self.assertEqual(result['channels']['tvip_rai']['audit']['preliminary_av_count'], 2)
+        self.assertEqual(result['channels']['tvip_rai']['audit']['preliminary_candidate_count'], 4)
         self.assertNotIn(valid['url'], str(result['review_queue']))
         self.assertFalse(result['channels']['tvip_rai']['verified'])
     def test_reviewed_cdn_redirect_preserves_channel(self):
