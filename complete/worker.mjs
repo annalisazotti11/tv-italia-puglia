@@ -83,7 +83,7 @@ async function getCatalogue(env){
   cached={key,binding:env.PLAYLISTS,until:now+20000,promise};
   try{return await promise;}catch(e){if(cached?.promise===promise)cached=undefined;throw e;}
 }
-const manifest={id:"it.personal.tvitaliacomplete",version:"1.6.7",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
+const manifest={id:"it.personal.tvitaliacomplete",version:"1.6.8",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
 function brand(g,origin){
   const asset=BRAND_ASSETS[g.key];
   const original=asset?.logo||g.poster||undefined;
