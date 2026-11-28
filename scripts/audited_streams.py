@@ -100,7 +100,7 @@ def inspect(target, *, extended=False):
            'content_status': 'uncertain', 'sampled_frames': 0,
            'identity_required': rule is not None,
            'identity_status': 'unconfirmed' if rule is not None else 'not_required'}
-    why = ci.manifest_check(url, timeout=10 if extended else 5, reviewed_redirects=rule is None)
+    why = ci.manifest_check(url, timeout=18 if extended else 8, reviewed_redirects=rule is None)
     if why != 'ok':
         return row | {'reason': why}
     quality = pq.probe_stream(url, extended=extended)
