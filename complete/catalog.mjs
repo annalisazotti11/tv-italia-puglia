@@ -3,6 +3,16 @@ import PUGLIA_FALLBACK from "./puglia-fallback.mjs";
 export function cleanName(value){
  let s=String(value||"").normalize("NFKC").replace(/[\u200b-\u200f\u202a-\u202e\u2060\ufeff©®™]/g," ").trim();
  s=s.replace(/^(?:IT|ITA|ITALY|ITALIA)\s*[:|–-]\s*/i,"").replace(/^\[(?:IT|ITA|ITALY|ITALIA)\]\s*/i,"");
+ // Playlist position labels are not channel identity. Preserve numbers in channel names.
+ for(let i=0;i<6;i++){
+   const previous=s;
+   s=s.replace(/^\s*\[\s*\d{1,5}\s*\]\s*(?:[-:|·–—]\s*)?/,"")
+      .replace(/^\s*\(\s*\d{1,5}\s*\)\s*(?:[-:|·–—]\s*)?/,"")
+      .replace(/^\s*\d{1,5}\s*[·|:–—]\s*/,"")
+      .replace(/^\s*(?:IT|ITA|ITALY|ITALIA)\s*[:|–-]\s*/i,"")
+      .replace(/^\s*\[(?:IT|ITA|ITALY|ITALIA)\]\s*/i,"").trim();
+   if(previous===s)break;
+ }
  // Remove only technical annotations, not programme/channel variants (+1, Cinema, Sport, regional editions).
  const tech=/^(?:\s*(?:\d{3,4}[pi]?|[248]k|uhd|fhd|full\s*hd|hd\+?|sd|hevc|h\.?26[45]|avc|aac|hdr10?|dolby\s*vision|\d+(?:\.\d+)?\s*fps|[0-9.]+\s*[mk]bps|[x×]\s*\d+|[-/|,;:+×x\s])+)\s*$/i;
  s=s.replace(/\(([^()]*)\)|\[([^\[\]]*)\]/g,(m,a,b)=>tech.test(a??b)?" ":m);
@@ -57,10 +67,10 @@ const curated=new Map(BRAND_REGISTRY.map(b=>[keyOf(b.name),{name:cleanName(b.nam
 const preferred=new Map([["rai1","Rai 1"],["rai2","Rai 2"],["rai3","Rai 3"],["rete4","Rete 4"],["canale5","Canale 5"],["italia1","Italia 1"],["raimovie","Rai Movie"],["raipremium","Rai Premium"],["rai3tgrpuglia","Rai 3 TGR Puglia"],["la7","LA7"],["tv8","TV8"],["nove","NOVE"],["skyuno","Sky Uno"]]);
 export const canonicalKey=(n,geo)=>{
  const k=keyOf(n);
- if(lcnMap.has(k)||localMap.has(k)||k==="rai3tgrpuglia")return k;
+ if(lcnMap.has(k)||localMap.has(k)||preferred.has(k)||SKY_MAIN.has(k))return k;
  return keyOf(geo?.__identities?.[k]||k);
 };
-const identified=k=>lcnMap.has(k)||localMap.has(k)||curated.has(k);
+const identified=k=>lcnMap.has(k)||localMap.has(k)||curated.has(k)||preferred.has(k)||SKY_MAIN.has(k);
 export function entryKey(e,geo={}){
  const key=canonicalKey(e.name,geo);
  const named=e.info?.match(/(?:^|\s)tvg-name="([^"]+)"/i)?.[1];
@@ -99,7 +109,7 @@ function reg(e,geo,k=entryKey(e,geo)){
  const labels=e.name+" "+group;
  if(localMap.has(k)||k==="rai3tgrpuglia")return "puglia";
  if(geo[e.id]==="other"&&!puglia.test(e.name))return "other";
- if(lcnMap.has(k)&&!localMap.has(k)&&geo[e.id]!=="puglia")return "national";
+ if((lcnMap.has(k)||k==="skyuno"||SKY_MAIN.has(k))&&!localMap.has(k)&&geo[e.id]!=="puglia")return "national";
  if(puglia.test(labels))return "puglia";
  if(regions.test(labels)||/\b(?:regional|regionali|locali|local tv|regional dvb-t)\b/i.test(group))return geo[e.id]==="puglia"||geo[k]==="puglia"?"puglia":"other";
  return geo[e.id]||geo[k]||"national";
@@ -181,7 +191,8 @@ export function rankedCombine(state){
  const displayGroups=new Map();
  for(const g of all){const label=flat(g.name);if(!displayGroups.has(label))displayGroups.set(label,[]);displayGroups.get(label).push(g.name);}
  const displayConflicts=[...displayGroups.values()].filter(v=>v.length>1);
- return {groups:all,displayConflicts,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
+ const priorityMissing=["rai3tgrpuglia","rai1","rai2","rai3","rete4","canale5","skyuno"].filter(k=>!all.some(g=>g.key===k)).map(k=>preferred.get(k)||k);
+ return {groups:all,displayConflicts,priorityMissing,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
 }
 export async function loadGeo(previous={}){
  try{
