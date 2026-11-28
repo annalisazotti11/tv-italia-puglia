@@ -22,13 +22,25 @@ for(const [n,v] of [["Italia Channel",123],["Arte Italia 125",125],["Gold TV Ita
 for(const [k,v] of localMap)if(v)lcnMap.set(k,v);
 const alias=new Map([["radioitaliatv","radioitaliatv"],["radioitalia","radioitaliatv"],["la7","la7"],["20mediaset","20mediaset"],["mediaset20","20mediaset"],["canale20","20mediaset"],["rai3puglia","rai3tgrpuglia"],["raitreregionepuglia","rai3tgrpuglia"],["tg3puglia","rai3tgrpuglia"],["raitreregionalepuglia","rai3tgrpuglia"],["telebari","telebari"],["tgnorba24","tgnorba24"]]);
 for(const [a,b] of [["radio norba television","Radionorba TV"],["radio norba tv","Radionorba TV"],["T.R. Padre Pio","Padre Pio TV"],["Teleradio Padre Pio","Padre Pio TV"],["Tele Radio Padre Pio","Padre Pio TV"],["TRM h24","TRM H24"],["Delta TV 1","Delta TV"],["Tele Regione Color","Teleregione Color"],["Rai 3 TGR Puglia 819","Rai 3 TGR Puglia"],["Italia 2","Mediaset Italia 2"],["Mediaset Italia Due","Mediaset Italia 2"],["La7d","LA7 Cinema"],["Rai Radio 2 Visual","Radio 2 Visual"],["27","27 Twentyseven"],["Twentyseven","27 Twentyseven"],["Tg Norba 24","TG Norba 24"],["Casa Italia 53","Italia 53"]])alias.set(flat(a),flat(b));
-const keyOf=n=>alias.get(flat(n))||flat(n);
+// Recognize provider suffixes only when the remaining name is a known channel.
+const knownNames=new Set([...lcnMap.keys(),...localMap.keys(),...BRAND_REGISTRY.map(b=>flat(b.name))]);
+const keyOf=n=>{
+ let s=cleanName(n);
+ let k=flat(s);
+ for(let i=0;i<4;i++){
+   const candidate=s.replace(/\s*(?:\((?:G|GEO|GEOBLOCKED|GEOBLOCK|IT|ITA)\)|\[(?:G|GEO|GEOBLOCKED|GEOBLOCK|IT|ITA)\]|[\s|–—:;,.-]+(?:G|GEO|GEOBLOCKED|GEOBLOCK|IT|ITA))\s*$/i,"").trim();
+   if(candidate===s)break;
+   s=candidate;const t=flat(s),a=alias.get(t)||t;
+   if(knownNames.has(t)||knownNames.has(a)||alias.has(t))return a;
+ }
+ return alias.get(k)||k;
+};
 const curated=new Map(BRAND_REGISTRY.map(b=>[keyOf(b.name),{name:cleanName(b.name),logo:b.logo}]));
 const preferred=new Map([["rai1","Rai 1"],["rai2","Rai 2"],["rai3","Rai 3"],["rete4","Rete 4"],["canale5","Canale 5"],["italia1","Italia 1"],["raimovie","Rai Movie"],["raipremium","Rai Premium"],["rai3tgrpuglia","Rai 3 TGR Puglia"],["la7","LA7"],["tv8","TV8"],["nove","NOVE"]]);
-export const canonicalKey=(n,geo)=>{const k=keyOf(n);return geo?.__identities?.[k]||k;};
+export const canonicalKey=(n,geo)=>{const k=keyOf(n);return knownNames.has(k)||k==="rai3tgrpuglia"?k:(geo?.__identities?.[k]||k);};
 export function findLogo(g,geo){
  const b=geo.__brands?.[g.key]||curated.get(g.key);
- return b?.logo||"";
+ return b?.logo||g.entries.map(e=>e.logo).find(u=>/^https:\/\//i.test(u||""))||"";
 }
 export function posterUrl(logo){
  if(!/^https:\/\//i.test(logo||""))return undefined;
@@ -78,7 +90,7 @@ export function rankedCombine(state){
    const known=lcnMap.get(g.key)||0;
    const dtt=g.entries.some(e=>/\b(?:DTT|DVB-T2?|digitale terrestre)\b/i.test(e.info.match(/group-title="([^"]*)"/i)?.[1]||""));
    g.number=known||(g.regional||dtt?g.number:0);
-   g.section=known>=1&&known<=5?0:g.regional?1:known||dtt?2:3;
+   g.section=g.key==="rai3tgrpuglia"?-1:known>=1&&known<=5?0:g.regional?1:known||dtt?2:3;
  }
  // Ordine richiesto, indipendente dal numero LCN: 1–5, Puglia, DTT, extra.
  // Auditel Total Audience, 4–31 ottobre 2026, AM giornata intera (02:00–25:59).
