@@ -61,3 +61,15 @@ assert.notEqual(canonicalKey("Boing Plus",{}),canonicalKey("Boing",{}));
 assert.notEqual(canonicalKey("Sky Sport 4K",{}),canonicalKey("Sky Sport",{}));
 assert.ok(Array.isArray(sky.displayConflicts));
 console.log("Joined quality suffix and display collision checks passed.");
+
+const numbered=[["[36] RTL 102.5","RTL 102.5"],["[37] Warner TV","Warner TV"],["[38] Giallo","Giallo"],["[39] Top Crime","Top Crime"],["[40] Boing","Boing"],["[41] K2","K2"],["[42] Rai Gulp","Rai Gulp"],["[43] Rai Yoyo","Rai Yoyo"],["[44] Frisbee","Frisbee"],["1043 · [38] Giallo","Giallo"],["[IT] [1] Rai 1 HD","Rai 1"],["[108] Unknown Station","Unknown Station"]];
+for(const [a,b] of numbered)assert.equal(canonicalKey(a,{}),canonicalKey(b,{}),a);
+const screenshot=rankedCombine({geo:{},lists:{a:numbered.flatMap(([a,b],i)=>[e(a,i+800),e(b,i+900)])}});
+assert.equal(screenshot.groups.filter(g=>g.key==="giallo").length,1);
+assert.equal(screenshot.groups.find(g=>g.key==="giallo").number,38);
+assert.equal(screenshot.groups.find(g=>g.key==="giallo").name,"Giallo");
+assert.ok(screenshot.groups.find(g=>g.key==="giallo").poster);
+assert.ok(screenshot.priorityMissing.includes("Sky Uno"));
+assert.notEqual(canonicalKey("[20] 20 Mediaset",{}),canonicalKey("Mediaset Extra",{}));
+assert.notEqual(canonicalKey("[1] Rai 1",{}),canonicalKey("Rai 2",{}));
+console.log("Screenshot regression, logos, canonical numbers and missing-priority diagnostics passed.");
