@@ -323,15 +323,26 @@ def remember(report,old):
     for p in report.get("other_forge_projects",[]):forges[p["project_page"]]=p
     current_projects={p["name"].lower() for p in report["github_projects"]}
     old_projects={p["name"].lower() for p in old.get("projects",[]) if p.get("name")}
+    previous_checks={p["name"]:p for p in old.get("public_file_checks",[]) if p.get("name")}
+    checks=dict(previous_checks)
+    for p in report["existing_candidates"]:
+        if p.get("status")!="available":continue
+        prior=previous_checks.get(p["name"],{})
+        first=prior.get("first_seen",TODAY.isoformat())
+        last_change=prior.get("last_observed_change")
+        if prior.get("sha256") and prior["sha256"]!=p["sha256"]:last_change=TODAY.isoformat()
+        checks[p["name"]]={**p,"first_seen":first,"last_success":TODAY.isoformat(),"last_observed_change":last_change}
     report["history_summary"]={
         "new_projects_this_run":len(current_projects-old_projects),
+        "public_files_with_observed_change":sum(bool(p.get("last_observed_change")) for p in checks.values()),
         "github_projects_seen_total":len(projects),
         "other_forge_projects_seen_total":len(forges),
         "historical_file_paths":sum(len(p.get("collection_files",[])) for p in inventories.values()),
         "historical_projects_with_files":sum(bool(p.get("collection_files")) for p in inventories.values()),
         "note":"Cumulative candidates, not active or authorized playlists. Older inventories may be stale."
     }
-    HISTORY.write_text(json.dumps({"projects":list(projects.values()),"inventories":list(inventories.values()),"other_forges":list(forges.values())},ensure_ascii=False,indent=2)+"\n")
+    report["public_file_checks"]=sorted(checks.values(),key=lambda p:(p.get("last_observed_change") or "",p.get("last_success") or ""),reverse=True)
+    HISTORY.write_text(json.dumps({"projects":list(projects.values()),"inventories":list(inventories.values()),"other_forges":list(forges.values()),"public_file_checks":list(checks.values())},ensure_ascii=False,indent=2)+"\n")
 
 def main():
     old=read_history()
