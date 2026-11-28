@@ -1,4 +1,4 @@
-// Channel branding inherited from the existing catalogue; current logos API takes precedence.
+// Original channel brand candidates from the existing catalogue.
 export default [
   {
     "name": "Rai 4K (HbbTV)",
@@ -643,5 +643,153 @@ export default [
   {
     "name": "Sky Sport Uno",
     "logo": "https://i.imgur.com/ThJHEuN.png"
+  },
+  {
+    "name": "Rai 1 HD",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/1-rai1hd.png"
+  },
+  {
+    "name": "Rai 2 HD",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/2-rai2hd.png"
+  },
+  {
+    "name": "Rai 3 HD",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/3-rai3hd.png"
+  },
+  {
+    "name": "Rete 4 HD",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/4-rete4hd.png"
+  },
+  {
+    "name": "Canale 5 HD",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/5-canale5hd.png"
+  },
+  {
+    "name": "Italia 1 HD",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/6-italia1hd.png"
+  },
+  {
+    "name": "LA7 HD",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/7-la7hd.png"
+  },
+  {
+    "name": "TV8",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/8-tv8hd.png"
+  },
+  {
+    "name": "NOVE",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/9-novehd.png"
+  },
+  {
+    "name": "Radionorba TV",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/11-radionorbatv.png"
+  },
+  {
+    "name": "TG Norba 24",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/13-tgnorba24.png"
+  },
+  {
+    "name": "Antenna Sud",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/14-antennasud.png"
+  },
+  {
+    "name": "Telebari",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/17-telebari.png"
+  },
+  {
+    "name": "20 Mediaset HD",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/20-20hd.png"
+  },
+  {
+    "name": "Rai 4",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/21-rai4hd.png"
+  },
+  {
+    "name": "Iris",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/22-irishd.png"
+  },
+  {
+    "name": "Rai 5",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/23-rai5hd.png"
+  },
+  {
+    "name": "Rai Movie",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/24-raimoviehd.png"
+  },
+  {
+    "name": "Cielo",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/26-cielohd.png"
+  },
+  {
+    "name": "27 Twentyseven",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/27-27hd.png"
+  },
+  {
+    "name": "La5",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/30-la5hd.png"
+  },
+  {
+    "name": "Real Time",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/31-realtimehd.png"
+  },
+  {
+    "name": "Food Network",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/33-foodnetworkhd.png"
+  },
+  {
+    "name": "Cine34",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/34-cine34hd.png"
+  },
+  {
+    "name": "Focus",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/35-focushd.png"
+  },
+  {
+    "name": "RTL 102.5",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/36-rtl1025.png"
+  },
+  {
+    "name": "Rai News 24",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/48-rainews24hd.png"
+  },
+  {
+    "name": "Sky TG24",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/50-skytg24.png"
+  },
+  {
+    "name": "TGCOM24",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/51-tgcom24hd.png"
+  },
+  {
+    "name": "DMAX",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/52-dmaxhd.png"
+  },
+  {
+    "name": "Rai Storia",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/54-raistoriahd.png"
+  },
+  {
+    "name": "HGTV",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/56-hgtv.png"
+  },
+  {
+    "name": "Radio 105 TV",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/66-radio105.png"
+  },
+  {
+    "name": "Deejay TV HD",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/69-deejay.png"
+  },
+  {
+    "name": "RadioItaliaTV",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/70-radioitalia.png"
+  },
+  {
+    "name": "Radio Kiss Kiss TV",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/158-kisskiss.png"
+  },
+  {
+    "name": "Gambero Rosso",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/257-gamberorosso.png"
   }
 ];
