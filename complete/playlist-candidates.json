@@ -80,7 +80,7 @@
     "url": "https://THEROCKSSS.github.io/sorted-iptv/italian.m3u"
   },
   {
-    "name": "Tundrak radio italiana",
-    "url": "https://raw.githubusercontent.com/Tundrak/IPTV-Italia/main/ipradioita.m3u"
+    "name": "Streamline lingua italiana",
+    "url": "https://cdn.jsdelivr.net/gh/streamline-iptv/iptv-playlists@dist/languages/ita.m3u"
   }
 ]
