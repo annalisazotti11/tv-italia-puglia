@@ -55,3 +55,9 @@ assert.ok(pos("skycinemauno")<pos("realtime"));
 assert.ok(pos("realtime")<pos("skysport251"));
 assert.ok(pos("skyunoplus")>pos("skyuno"));
 console.log("Sky priority and fixed DTT ordering passed.");
+
+for(const [a,b] of [["Rai1HD","Rai 1"],["Canale5FHD","Canale 5"],["SkyUnoHD","Sky Uno"],["TelebariHD","Telebari"]])assert.equal(canonicalKey(a,{}),canonicalKey(b,{}),a);
+assert.notEqual(canonicalKey("Boing Plus",{}),canonicalKey("Boing",{}));
+assert.notEqual(canonicalKey("Sky Sport 4K",{}),canonicalKey("Sky Sport",{}));
+assert.ok(Array.isArray(sky.displayConflicts));
+console.log("Joined quality suffix and display collision checks passed.");
