@@ -5,7 +5,7 @@ const KEY="complete-v1";
 const cors={"Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"GET, OPTIONS"};
 const json=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{...cors,"Content-Type":"application/json","Cache-Control":"no-store"}});
 const attr=(s,k)=>s.match(new RegExp('(?:^|\\s)'+k+'="([^"]*)"','i'))?.[1]||"";
-const normalize=s=>s.normalize("NFKC").trim().toLowerCase().replace(/\s+(?:fhd|uhd|hd|sd|4k|1080p|720p)$/i,"");
+const normalize=s=>cleanName(String(s||"")).normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"");
 function sources(env){
   const chunks=[env.PLAYLIST_SOURCES,env.PLAYLIST_SOURCES_2,env.PLAYLIST_SOURCES_3,env.PLAYLIST_SOURCES_4,env.PLAYLIST_SOURCES_5].map(v=>JSON.parse(v||"[]"));
   if(!chunks.every(Array.isArray))throw Error("PLAYLIST_SOURCES: configurazione non valida");
@@ -67,7 +67,7 @@ async function readState(env){
   return {lists,status,geo:chunks[0]?.geo||legacy?.geo||{},updated:times.sort().at(-1)||null};
 }
 export const combine=rankedCombine;
-const manifest={id:"it.personal.tvitaliacomplete",version:"1.5.2",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
+const manifest={id:"it.personal.tvitaliacomplete",version:"1.6.0",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
 function brand(g,origin){
   const asset=BRAND_ASSETS[g.key];
   const original=asset?.logo||g.poster||undefined;
@@ -87,11 +87,11 @@ async function handle(req,env){
   // Do not expose cached lists that have since been removed from the configuration.
   const allowed=new Set(sources(env).map(x=>x.name));
   const data=combine({geo:s.geo||{},lists:Object.fromEntries(Object.entries(s.lists).filter(([k])=>allowed.has(k)))});
-  if(p==="status.json")return json({updated:s.updated,entries:data.entries.length,channels:data.groups.length,alternatives:data.alternatives,excludedChannels:data.excluded,mergedNames:data.mergedNames,regionalMissing:data.regionalMissing,missingLogos:data.groups.filter(g=>!BRAND_ASSETS[g.key]&&!g.poster).map(g=>g.name),generatedLogos:data.groups.filter(g=>BRAND_ASSETS[g.key]).length,sources:Object.fromEntries(Object.entries(s.status).filter(([k])=>allowed.has(k)))});
+  if(p==="status.json")return json({updated:s.updated,entries:data.entries.length,channels:data.groups.length,alternatives:data.alternatives,excludedChannels:data.excluded,mergedNames:data.mergedNames,identityConflicts:data.identityConflicts,audiencePeriod:"2026-10",catalogOrder:data.groups.map(g=>({name:g.name,position:g.position,lcn:g.number,averageAudience:g.audience})),regionalMissing:data.regionalMissing,missingLogos:data.groups.filter(g=>!BRAND_ASSETS[g.key]&&!g.poster).map(g=>g.name),generatedLogos:data.groups.filter(g=>BRAND_ASSETS[g.key]).length,sources:Object.fromEntries(Object.entries(s.status).filter(([k])=>allowed.has(k)))});
   if(p==="italia-completa.m3u")return new Response("#EXTM3U\n"+data.entries.map(e=>{let info=e.info;let q=false,i=0;for(;i<info.length;i++){if(info[i]==='"')q=!q;if(!q&&info[i]===",")break;}let head=info.slice(0,i).replace(/\s+(?:tvg-chno|tvg-lcn|channel-number|lcn|tvg-logo)="[^"]*"/gi,"");return [head+(e.brandLogo?' tvg-logo="'+e.brandLogo.replace(/"/g,"%22")+'"':"")+' tvg-chno="'+e.number+'",'+e.number+" · "+e.displayName,...e.opts,e.url].join("\n");}).join("\n")+"\n",{headers:{...cors,"Content-Type":"audio/x-mpegurl","Cache-Control":"no-store"}});
   if(/^catalog\/tv\/italia(?:\/.*)?\.json$/.test(p)){
     const q=new URLSearchParams(p.replace(/^catalog\/tv\/italia\/?/,"").replace(/\.json$/,"")).get("search")||u.searchParams.get("search")||"";
-    return json({metas:data.groups.filter(g=>normalize(g.name).includes(normalize(q))).map(g=>meta(g,u.origin))});
+    return json({metas:data.groups.filter(g=>!q||[g.name,...(g.originalNames||[])].some(n=>normalize(n).includes(normalize(q)))).map(g=>meta(g,u.origin))});
   }
   const m=p.match(/^(meta|stream)\/tv\/(.+)\.json$/);if(m){
     let id;try{id=decodeURIComponent(m[2]);}catch{return json({error:"ID non valido"},400);}
