@@ -142,12 +142,18 @@ export function rankedCombine(state){
  const geo=state.geo||{};
  const nameKeys=new Map();
  const prepared=[];
+ const observed=new Map();
  const ambiguousNames=new Set();
  // Learn exact alternate labels within this catalogue only, never use fuzzy name similarity alone.
  for(const list of Object.values(state.lists))for(const e of list){
    const a=canonicalKey(e.name,geo),b=entryKey(e,geo);
    if(!b)continue;
-   const region=reg(e,geo,b);if(region==="other")continue;
+   const region=reg(e,geo,b);
+   const stats=observed.get(b)||{entries:0,excludedRegion:0,sourceNames:new Set()};
+   stats.entries++;if(region==="other")stats.excludedRegion++;
+   if(e.source)stats.sourceNames.add(e.source);
+   observed.set(b,stats);
+   if(region==="other")continue;
    prepared.push({e,base:b,region});
    if(!a||a===b||identified(a)||geo.__brands?.[a])continue;
    if(nameKeys.has(a)&&nameKeys.get(a)!==b)ambiguousNames.add(a);else nameKeys.set(a,b);
@@ -210,7 +216,7 @@ export function rankedCombine(state){
  for(const g of all){if(!g.poster)continue;if(!sameLogo.has(g.poster))sameLogo.set(g.poster,[]);sameLogo.get(g.poster).push(g.name);}
  const sharedLogoGroups=[...sameLogo.values()].filter(v=>v.length>1);
  const priorityMissing=["rai3tgrpuglia","rai1","rai2","rai3","rete4","canale5","skyuno"].filter(k=>!all.some(g=>g.key===k)).map(k=>preferred.get(k)||k);
- const priorityDiagnostics=["rai3tgrpuglia","rai1","rai2","rai3","rete4","canale5","skyuno"].map(k=>{const g=all.find(x=>x.key===k);return {name:preferred.get(k)||k,present:!!g,position:g?.position??null,alternatives:g?.entries.length??0};});
+ const priorityDiagnostics=["rai3tgrpuglia","rai1","rai2","rai3","rete4","canale5","skyuno"].map(k=>{const g=all.find(x=>x.key===k),o=observed.get(k);return {name:preferred.get(k)||k,present:!!g,position:g?.position??null,alternatives:g?.entries.length??0,observedEntries:o?.entries??0,observedCollections:o?.sourceNames.size??0,excludedByRegion:o?.excludedRegion??0,reason:g?"present":!o?"not_found_in_loaded_collections":o.excludedRegion===o.entries?"regional_classification":"not_in_final_catalogue"};});
  return {groups:all,displayConflicts,sharedLogoGroups,priorityMissing,priorityDiagnostics,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
 }
 export async function loadGeo(previous={}){
