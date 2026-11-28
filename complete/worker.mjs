@@ -1,4 +1,4 @@
-import {rankedCombine, loadGeo, declared} from "./catalog.mjs";
+import {rankedCombine, loadGeo, declared, posterUrl, canonicalKey, cleanName} from "./catalog.mjs";
 // Personal aggregator: configure only playlists you are authorized to use.
 const KEY="complete-v1";
 const cors={"Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"GET, OPTIONS"};
@@ -36,8 +36,8 @@ async function refresh(env){
   const state={lists,status,geo,updated:new Date().toISOString()};await env.PLAYLISTS.put(KEY,JSON.stringify(state));return state;
 }
 export const combine=rankedCombine;
-const manifest={id:"it.personal.tvitaliacomplete",version:"1.2.0",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
-const meta=g=>({id:g.id,type:"tv",name:g.number+" · "+g.name,poster:g.poster||undefined,posterShape:"square",description:declared(g.entries[0])[0]?declared(g.entries[0])[0]+"p (dichiarati)": "Qualità non dichiarata"});
+const manifest={id:"it.personal.tvitaliacomplete",version:"1.3.0",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
+const meta=g=>({id:g.id,type:"tv",name:g.number+" · "+g.name,poster:posterUrl(g.poster),logo:g.poster||undefined,posterShape:"square",description:declared(g.entries[0])[0]?declared(g.entries[0])[0]+"p (dichiarati)": "Qualità non dichiarata"});
 async function handle(req,env){
   const u=new URL(req.url),parts=u.pathname.split("/").filter(Boolean);
   if(!env.ACCESS_TOKEN||env.ACCESS_TOKEN.length<32||parts.shift()!==env.ACCESS_TOKEN)return json({error:"Not found"},404);
@@ -50,15 +50,16 @@ async function handle(req,env){
   // Do not expose cached lists that have since been removed from the configuration.
   const allowed=new Set(sources(env).map(x=>x.name));
   const data=combine({geo:s.geo||{},lists:Object.fromEntries(Object.entries(s.lists).filter(([k])=>allowed.has(k)))});
-  if(p==="status.json")return json({updated:s.updated,entries:data.entries.length,channels:data.groups.length,alternatives:data.alternatives,regionalMissing:data.regionalMissing,sources:Object.fromEntries(Object.entries(s.status).filter(([k])=>allowed.has(k)))});
-  if(p==="italia-completa.m3u")return new Response("#EXTM3U\n"+data.entries.map(e=>{let info=e.info;let q=false,i=0;for(;i<info.length;i++){if(info[i]==='"')q=!q;if(!q&&info[i]===",")break;}let head=info.slice(0,i).replace(/\s+(?:tvg-chno|tvg-lcn|channel-number|lcn)="[^"]*"/gi,"");return [head+' tvg-chno="'+e.number+'",'+e.number+" · "+e.displayName,...e.opts,e.url].join("\n");}).join("\n")+"\n",{headers:{...cors,"Content-Type":"audio/x-mpegurl","Cache-Control":"no-store"}});
+  if(p==="status.json")return json({updated:s.updated,entries:data.entries.length,channels:data.groups.length,alternatives:data.alternatives,regionalMissing:data.regionalMissing,missingLogos:data.groups.filter(g=>!g.poster).map(g=>g.name),sources:Object.fromEntries(Object.entries(s.status).filter(([k])=>allowed.has(k)))});
+  if(p==="italia-completa.m3u")return new Response("#EXTM3U\n"+data.entries.map(e=>{let info=e.info;let q=false,i=0;for(;i<info.length;i++){if(info[i]==='"')q=!q;if(!q&&info[i]===",")break;}let head=info.slice(0,i).replace(/\s+(?:tvg-chno|tvg-lcn|channel-number|lcn|tvg-logo)="[^"]*"/gi,"");return [head+(e.brandLogo?' tvg-logo="'+e.brandLogo.replace(/"/g,"%22")+'"':"")+' tvg-chno="'+e.number+'",'+e.number+" · "+e.displayName,...e.opts,e.url].join("\n");}).join("\n")+"\n",{headers:{...cors,"Content-Type":"audio/x-mpegurl","Cache-Control":"no-store"}});
   if(/^catalog\/tv\/italia(?:\/.*)?\.json$/.test(p)){
     const q=new URLSearchParams(p.replace(/^catalog\/tv\/italia\/?/,"").replace(/\.json$/,"")).get("search")||u.searchParams.get("search")||"";
     return json({metas:data.groups.filter(g=>normalize(g.name).includes(normalize(q))).map(meta)});
   }
   const m=p.match(/^(meta|stream)\/tv\/(.+)\.json$/);if(m){
     let id;try{id=decodeURIComponent(m[2]);}catch{return json({error:"ID non valido"},400);}
-    const g=data.groups.find(x=>x.id===m[2]||decodeURIComponent(x.id)===id||x.id===id);
+    const legacyKey=canonicalKey(id.replace(/^tvic:/,""),s.geo||{});
+    const g=data.groups.find(x=>x.id===m[2]||decodeURIComponent(x.id)===id||x.id===id||x.key===legacyKey);
     return m[1]==="meta"?json({meta:g?meta(g):null}):json({streams:g?.entries.slice(0,1).map(e=>({name:e.source,title:e.name+(declared(e)[0]?" · "+declared(e)[0]+"p (dichiarati)":""),url:e.url}))||[]});
   }return json({error:"Not found"},404);
 }
