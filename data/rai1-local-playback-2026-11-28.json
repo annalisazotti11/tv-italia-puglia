@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "channel_id": "tvip_1_rai-1-hd",
+  "name": "Rai 1 HD",
+  "date": "2026-11-28",
+  "scope": "user_reported_client_network_test",
+  "http_status": 200,
+  "ffprobe": {
+    "video_codec": "h264",
+    "width": 1280,
+    "height": 720,
+    "audio_codec": "aac",
+    "packet_validation": false
+  },
+  "vlc": {
+    "user_reported_playback": true
+  },
+  "remote_audit": {
+    "http_status": 403
+  },
+  "interpretation": "The reviewed broadcaster route is reachable and user-reported playable on the user's network. The difference in HTTP status does not establish the precise cause. This observation is not an automated audit or authorization to redistribute, does not change production eligibility, and is not a global availability claim.",
+  "production_changed": false
+}
