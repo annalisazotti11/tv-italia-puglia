@@ -92,15 +92,17 @@ export function compareQuality(a,b){const x=declared(a),y=declared(b);return y[0
 function reg(e,geo,k=entryKey(e,geo)){
  const group=e.info.match(/group-title="([^"]*)"/i)?.[1]||"";
  const labels=e.name+" "+group;
- if(geo[e.id]==="other"&&!puglia.test(labels))return "other";
- if(localMap.has(k)||puglia.test(labels)||k==="rai3tgrpuglia"||["radionorbatv","tgnorba24","antennasud","telebari"].includes(k))return "puglia";
+ if(localMap.has(k)||k==="rai3tgrpuglia")return "puglia";
+ if(geo[e.id]==="other"&&!puglia.test(e.name))return "other";
+ if(lcnMap.has(k)&&!localMap.has(k)&&geo[e.id]!=="puglia")return "national";
+ if(puglia.test(labels))return "puglia";
  if(regions.test(labels)||/\b(?:regional|regionali|locali|local tv|regional dvb-t)\b/i.test(group))return geo[e.id]==="puglia"||geo[k]==="puglia"?"puglia":"other";
  return geo[e.id]||geo[k]||"national";
 }
 // Personal catalogue exclusions: requested Medjugorje variants and non-programming extras.
 // Keep Italian terrestrial/local channels and unknown-audience broadcasters.
 export function unwantedChannel(g){
- const names=[g.name,...g.entries.map(e=>e.name)].map(n=>String(n||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase());
+ const names=[g.name,...(g.originalNames||g.entries.map(e=>e.name))].map(n=>String(n||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase());
  if(names.some(n=>/medj?ugorj[ei]|medugorje|međugorje|medjugorie/i.test(n)))return true;
  if(g.section!==3)return false;
  return names.some(n=>/^(?:test(?: channel| card| pattern| stream| signal)?|no signal|segnale assente|canale test|monoscopio|test tecnico)(?:\s*[- #]?\d+)?$/i.test(cleanName(n))||
@@ -141,12 +143,13 @@ export function rankedCombine(state){
  }
  let all=[...groups.values()];
  for(const g of all){
-   g.entries.sort(compareQuality);
+   g.entries.sort((a,b)=>compareQuality(a,b)||String(a.source||"").localeCompare(String(b.source||""),"it")||String(a.url).localeCompare(String(b.url)));
    g.originalNames=g.names?[...g.names]:[...new Set(g.entries.map(e=>e.name))];
    delete g.urlIndex;delete g.names;
    g.name=preferred.get(g.key)||geo.__brands?.[g.key]?.name||curated.get(g.key)?.name||g.originalNames.map(cleanName).sort((a,b)=>a.length-b.length||a.localeCompare(b,"it"))[0]||g.name;
    g.poster=findLogo(g,geo);
    const known=lcnMap.get(g.key)||0;
+   g.lcn=known||null;
    const dtt=g.entries.some(e=>/\b(?:DTT|DVB-T2?|digitale terrestre)\b/i.test(e.info.match(/group-title="([^"]*)"/i)?.[1]||""));
    g.number=known||(g.regional||dtt?g.number:0);
    g.section=g.key==="rai3tgrpuglia"?-1:known>=1&&known<=5?0:g.regional?1:known||dtt?2:3;
@@ -166,8 +169,8 @@ export function rankedCombine(state){
  const compare=(a,b)=>block(a)-block(b)||(block(a)===2?((b.audience??-1)-(a.audience??-1)||((a.number||99999)-(b.number||99999))):((a.number||99999)-(b.number||99999)))||a.name.localeCompare(b.name,"it",{numeric:true});
  all.sort(compare);
  for(const [i,g] of all.entries())g.position=i;
- const used=new Set();let next=1000;
- for(const g of all){if(!g.number||used.has(g.number)){while(used.has(next))next++;g.number=next++;}used.add(g.number);}
+ const used=new Set(),reserved=new Set(all.map(g=>g.lcn).filter(Boolean));let next=1000;
+ for(const g of all){if(!g.number||used.has(g.number)||(!g.lcn&&reserved.has(g.number))){while(used.has(next)||reserved.has(next))next++;g.number=next++;}used.add(g.number);}
  // Preserve the section order, not the globally ascending LCN.
 
  return {groups:all,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
