@@ -54,6 +54,25 @@ jobs:
         run: python3 complete/deploy_config.py
       - name: Deploy only tv-italia-complete
         run: npx --yes wrangler@4 deploy --config complete/wrangler.generated.json --secrets-file "$RUNNER_TEMP/tv-complete-secrets.json"
+      - name: Verify published manifest version (no playback requests)
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, re, time, urllib.request
+          expected = re.search(r'version:"([^"]+)"', pathlib.Path("complete/worker.mjs").read_text()).group(1)
+          url = "https://tv-italia-complete.annalisazotti11.workers.dev/" + os.environ["TV_COMPLETE_ACCESS_TOKEN"] + "/manifest.json"
+          for attempt in range(6):
+              try:
+                  with urllib.request.urlopen(url, timeout=15) as response:
+                      manifest = json.load(response)
+                  if manifest.get("version") == expected and manifest.get("id") == "it.personal.tvitaliacomplete":
+                      print("Manifest verified: " + expected)
+                      break
+              except Exception:
+                  pass
+              if attempt < 5: time.sleep(5)
+          else:
+              raise SystemExit("Published manifest could not be verified; check deployment.")
+          PY
       - name: Remove temporary secrets
         if: always()
         run: rm -f "$RUNNER_TEMP/tv-complete-secrets.json" complete/wrangler.generated.json
