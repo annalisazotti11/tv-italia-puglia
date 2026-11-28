@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'complete/worker.mjs'
+      - 'complete/catalog.mjs'
+      - 'complete/playlist-candidates.json'
       - 'complete/deploy_config.py'
       - '.github/workflows/deploy-complete.yml'
 permissions:
