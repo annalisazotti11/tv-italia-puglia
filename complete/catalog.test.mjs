@@ -73,3 +73,13 @@ assert.ok(screenshot.priorityMissing.includes("Sky Uno"));
 assert.notEqual(canonicalKey("[20] 20 Mediaset",{}),canonicalKey("Mediaset Extra",{}));
 assert.notEqual(canonicalKey("[1] Rai 1",{}),canonicalKey("Rai 2",{}));
 console.log("Screenshot regression, logos, canonical numbers and missing-priority diagnostics passed.");
+
+assert.equal(canonicalKey("Rai (4K)",{}),canonicalKey("Rai 4K",{}));
+assert.equal(canonicalKey("Sky Sport [4K]",{}),canonicalKey("Sky Sport 4K",{}));
+assert.equal(canonicalKey("038 Giallo",{}),"giallo");
+assert.equal(canonicalKey("1038 Giallo",{}),"giallo");
+assert.notEqual(canonicalKey("27 Twentyseven",{}),canonicalKey("Twentyseven Plus",{}));
+assert.equal(entryKey(e("Example Plus",5001,{id:"RaiMovie.it"}),{__channelIds:{"raimovie.it":"raimovie"}}),"exampleplus");
+assert.equal(screenshot.priorityDiagnostics.find(g=>g.name==="Sky Uno").present,false);
+assert.equal(sky.priorityDiagnostics.find(g=>g.name==="Sky Uno").position,6);
+console.log("Number variants, protected editorial identities and priority diagnostics passed.");
