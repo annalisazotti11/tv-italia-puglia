@@ -1,5 +1,16 @@
+import BRAND_REGISTRY from "./brand-registry.mjs";
 import PUGLIA_FALLBACK from "./puglia-fallback.mjs";
-const flat=s=>String(s||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\b(?:2160|1080|720|576|480)[pi]\b|\b(?:full\s*hd|fhd|uhd|hd|sd|4k|8k)\b/gi,"").replace(/[^a-z0-9]/g,"");
+export function cleanName(value){
+ let s=String(value||"").normalize("NFKC").replace(/[\u200b-\u200f\u202a-\u202e\u2060\ufeff©®™]/g," ").trim();
+ s=s.replace(/^(?:IT|ITA|ITALY|ITALIA)\s*[:|–-]\s*/i,"");
+ // Remove only technical annotations, not programme/channel variants (+1, Cinema, Sport, regional editions).
+ const tech=/^(?:\s*(?:\d{3,4}[pi]?|[248]k|uhd|fhd|full\s*hd|hd\+?|sd|hevc|h\.?26[45]|avc|aac|hdr10?|dolby\s*vision|\d+(?:\.\d+)?\s*fps|[0-9.]+\s*[mk]bps|[x×]\s*\d+|[-/|,;:+×x\s])+)\s*$/i;
+ s=s.replace(/\(([^()]*)\)|\[([^\[\]]*)\]/g,(m,a,b)=>tech.test(a??b)?" ":m);
+ let old;
+ do{old=s;s=s.replace(/(?:[\s|–—:;,.-]+)(?:\d{3,4}[pi]|\d{3,4}\s*[x×]\s*\d{3,4}|[248]k|uhd|fhd|full\s*hd|hd\+?|sd|hevc|h\.?26[45]|avc|hdr10?|\d+(?:\.\d+)?\s*fps)\s*$/i,"").replace(/[\s|–—:;,.-]+$/g,"").trim();}while(s!==old);
+ return s.replace(/\s+/g," ").trim();
+}
+const flat=s=>cleanName(s).normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");
 const localMap=new Map([["Telenorba",10],["Teledue",12],["Telerama",15],["Tele Dehon",19],["Canale 7 Puglia",78],["Delta TV",83],["Teleregione Color",0],["Antenna Sud Extra",92],["7 Gold Puglia",84],["BTV",0],["La Nuova TV",0],["Telesveva",18],["Tele Sud Puglia",155],["TRC Puglia",76],["TeleMajg",79],["Teletrullo",80],["Easy TV",81],["Political TV",86],["Mediterranea TV - Video M Italia",89],["Canale 2 TV",90],["Amica 9",91],["Azzurra TV Italia",95],["StarTV",96],["Studio 100",98],["Tele Foggia",88],["Cittadella TV",94]].map(([n,v])=>[flat(n),v]));
 const lcnMap=new Map([["Rai 1 HD",1],["Rai 2 HD",2],["Rai 3 HD",3],["Rai 3 TGR Puglia",103],["Rete 4 HD",4],["Canale 5 HD",5],["Italia 1 HD",6],["LA7 HD",7],["TV8",8],["NOVE",9],["Radionorba TV",11],["TG Norba 24",13],["Antenna Sud",14],["Telebari",17],["20 Mediaset HD",20],["Rai 4",21],["Iris",22],["Rai 5",23],["Rai Movie",24],["Cielo",26],["27 Twentyseven",27],["La5",30],["Real Time",31],["Food Network",33],["Cine34",34],["Focus",35],["RTL 102.5",36],["Rai News 24",48],["Sky TG24",50],["TGCOM24",51],["DMAX",52],["Rai Storia",54],["HGTV",56],["Radio 105 TV",66],["Deejay TV HD",69],["RadioItaliaTV",70],["Radio Kiss Kiss TV",158],["Gambero Rosso",257],["Hell's Kitchen Italy",404]].map(([n,v])=>[flat(n),v]));
 // LCN nazionali novembre 2026 e mappa regionale Puglia.
@@ -11,6 +22,18 @@ for(const [k,v] of localMap)if(v)lcnMap.set(k,v);
 const alias=new Map([["radioitaliatv","radioitaliatv"],["radioitalia","radioitaliatv"],["la7","la7"],["20mediaset","20mediaset"],["mediaset20","20mediaset"],["canale20","20mediaset"],["rai3puglia","rai3tgrpuglia"],["raitreregionepuglia","rai3tgrpuglia"],["tg3puglia","rai3tgrpuglia"],["raitreregionalepuglia","rai3tgrpuglia"],["telebari","telebari"],["tgnorba24","tgnorba24"]]);
 for(const [a,b] of [["radio norba television","Radionorba TV"],["radio norba tv","Radionorba TV"],["T.R. Padre Pio","Padre Pio TV"],["Teleradio Padre Pio","Padre Pio TV"],["Tele Radio Padre Pio","Padre Pio TV"],["TRM h24","TRM H24"],["Delta TV 1","Delta TV"],["Tele Regione Color","Teleregione Color"],["Rai 3 TGR Puglia 819","Rai 3 TGR Puglia"],["Italia 2","Mediaset Italia 2"],["Mediaset Italia Due","Mediaset Italia 2"],["La7d","LA7 Cinema"],["Rai Radio 2 Visual","Radio 2 Visual"],["27","27 Twentyseven"],["Twentyseven","27 Twentyseven"],["Tg Norba 24","TG Norba 24"],["Casa Italia 53","Italia 53"]])alias.set(flat(a),flat(b));
 const keyOf=n=>alias.get(flat(n))||flat(n);
+const curated=new Map(BRAND_REGISTRY.map(b=>[keyOf(b.name),{name:cleanName(b.name),logo:b.logo}]));
+const preferred=new Map([["rai1","Rai 1"],["rai2","Rai 2"],["rai3","Rai 3"],["rete4","Rete 4"],["canale5","Canale 5"],["italia1","Italia 1"],["raimovie","Rai Movie"],["raipremium","Rai Premium"],["rai3tgrpuglia","Rai 3 TGR Puglia"],["la7","LA7"],["tv8","TV8"],["nove","NOVE"]]);
+const canonicalKey=(n,geo)=>{const k=keyOf(n);return geo.__identities?.[k]||k;};
+export function findLogo(g,geo){
+ const b=geo.__brands?.[g.key]||curated.get(g.key);
+ return b?.logo||"";
+}
+export function posterUrl(logo){
+ if(!/^https:\/\//i.test(logo||""))return undefined;
+ // Normalize the original logo as a centered square PNG; only the public logo URL is sent to the image service.
+ return "https://wsrv.nl/?url="+encodeURIComponent(logo)+"&w=500&h=500&fit=contain&cbg=white&output=png&v=130";
+}
 const regions=/\b(?:abruzzo|basilicata|calabria|campania|emilia(?: romagna)?|friuli(?: venezia giulia)?|lazio|liguria|lombardia|marche|molise|piemonte|sardegna|sicilia|toscana|trentino(?: alto adige)?|umbria|valle d[’' ]aosta|veneto|sudtirol)\b/i;
 const puglia=/\b(?:puglia|apulia|salento|bari|barletta|andria|trani|brindisi|foggia|lecce|taranto|norba)\b/i;
 export function declared(e){
@@ -33,22 +56,24 @@ export function rankedCombine(state){
  const groups=new Map();
  const geo=state.geo||{};
  for(const list of Object.values(state.lists))for(const e of list){
-  const key=keyOf(e.name); if(!key||reg(e,geo)==="other")continue;
-  if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(e.name.normalize("NFKC").trim().toLowerCase().replace(/\s+(?:fhd|uhd|hd|sd|4k|1080p|720p)$/i,"")),name:e.name,poster:e.logo,entries:[],regional:reg(e,geo)==="puglia",number:0,key});
+  const key=canonicalKey(e.name,geo); if(!key||reg(e,geo)==="other")continue;
+  if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(e.name.normalize("NFKC").trim().toLowerCase().replace(/\s+(?:fhd|uhd|hd|sd|4k|1080p|720p)$/i,"")),name:cleanName(e.name),poster:"",entries:[],regional:reg(e,geo)==="puglia",number:0,key});
   const g=groups.get(key); const index=g.entries.findIndex(x=>x.url===e.url);
   if(index<0)g.entries.push(e);else if(compareQuality(e,g.entries[index])<0)g.entries[index]=e;
-  if(!g.poster&&e.logo)g.poster=e.logo;
+  if(reg(e,geo)==="puglia")g.regional=true;
   const l=Number(e.info.match(/(?:tvg-chno|tvg-lcn|channel-number|lcn)="(\d+)"/i)?.[1]||0);
   if(l>0&&(!g.number||l<g.number))g.number=l;
  }
  // Sorgenti singole di riserva solo per canali pugliesi non presenti nelle playlist.
  for(const e of PUGLIA_FALLBACK){
-   const key=keyOf(e.name);
-   if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(e.name.normalize("NFKC").trim().toLowerCase()),name:e.name,poster:e.logo,entries:[e],regional:true,number:0,key});
+   const key=canonicalKey(e.name,geo);
+   if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(e.name.normalize("NFKC").trim().toLowerCase()),name:cleanName(e.name),poster:"",entries:[e],regional:true,number:0,key});
  }
  const all=[...groups.values()];
  for(const g of all){
    g.entries.sort(compareQuality);
+   g.name=preferred.get(g.key)||geo.__brands?.[g.key]?.name||curated.get(g.key)?.name||g.name;
+   g.poster=findLogo(g,geo);
    const known=lcnMap.get(g.key)||0;
    const dtt=g.entries.some(e=>/\b(?:DTT|DVB-T2?|digitale terrestre)\b/i.test(e.info.match(/group-title="([^"]*)"/i)?.[1]||""));
    g.number=known||(g.regional||dtt?g.number:0);
@@ -61,13 +86,13 @@ export function rankedCombine(state){
  for(const g of all){if(!g.number||used.has(g.number)){while(used.has(next))next++;g.number=next++;}used.add(g.number);}
  // Preserve the section order, not the globally ascending LCN.
 
- return {groups:all,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
+ return {groups:all,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
 }
 export async function loadGeo(previous={}){
  try{
   const base="https://iptv-org.github.io/api/";
   const get=async p=>{const r=await fetch(base+p,{signal:AbortSignal.timeout(15000)});if(!r.ok)throw Error("metadata");return r.json();};
-  const [channels,feeds]=await Promise.all([get("channels.json"),get("feeds.json")]);
+  const [channels,feeds,logos]=await Promise.all([get("channels.json"),get("feeds.json"),get("logos.json").catch(()=>null)]);
   const italian=new Map(channels.filter(c=>c.country==="IT").map(c=>[c.id,c]));
   const by=new Map(),out={};
   for(const f of feeds){if(!italian.has(f.channel))continue;
@@ -79,6 +104,26 @@ export async function loadGeo(previous={}){
     const old=by.get(f.channel); if(!old||k==="national"||old==="other"&&k==="puglia")by.set(f.channel,k);
   }
   for(const [id,k] of by){const c=italian.get(id);out[id]=k;for(const n of [c.name,...(c.alt_names||[])])out[keyOf(n)]=k;}
+  const identities={},ambiguous=new Set(),brands={};
+  const logoBy=new Map();
+  for(const l of logos||[]){
+    if(!l.in_use||!italian.has(l.channel)||!/^https:\/\//i.test(l.url||"")||l.feed)continue;
+    const tags=l.tags||[];
+    const score=(tags.includes("color")?8:0)+(tags.includes("horizontal")?2:0)-(tags.includes("white")?8:0)+(l.format==="PNG"?3:l.format==="SVG"?2:0)+Math.min(Number(l.width)||0,1000)/1000;
+    if(!logoBy.has(l.channel)||logoBy.get(l.channel).score<score)logoBy.set(l.channel,{url:l.url,score});
+  }
+  for(const [id,c] of italian){
+    const k=keyOf(c.name);if(!k)continue;
+    const logo=logoBy.get(id)?.url||previous.__brands?.[k]?.logo;
+    if(logo)brands[k]={name:cleanName(c.name),logo};
+    for(const n of [c.name,...(c.alt_names||[])]){
+      const a=keyOf(n);if(!a||a===k||localMap.has(a)||lcnMap.has(a))continue;
+      if(identities[a]&&identities[a]!==k)ambiguous.add(a);
+      else identities[a]=k;
+    }
+  }
+  for(const a of ambiguous)delete identities[a];
+  out.__identities=identities;out.__brands=brands;
   return out;
  }catch{return previous;}
 }
