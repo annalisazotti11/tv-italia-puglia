@@ -21,8 +21,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SNAPSHOT = ROOT / 'data/verified-streams.json'
 MAX_ATTEMPTS_PER_CHANNEL = 6
 CONCURRENCY = 10
-FFPROBE_TIMEOUT = 10.5
+FFPROBE_TIMEOUT = 18
 PROBE_MAX_AGE_HOURS = 24
+EXTENDED_FFPROBE_TIMEOUT = 40
 
 
 def packet_tracks(data):
@@ -56,16 +57,16 @@ def probe_stream(url: str, *, extended: bool = False) -> dict:
             return result
         cmd = [
             'ffprobe', '-v', 'error',
-            '-rw_timeout', '10000000' if extended else '5000000',
+            '-rw_timeout', '18000000' if extended else '8000000',
             '-probesize', '2097152' if extended else '524288',
-            '-analyzeduration', '5000000' if extended else '1500000',
+            '-analyzeduration', '8000000' if extended else '2500000',
             '-read_intervals', '%+5' if extended else '%+2',
             '-show_entries',
             'stream=index,codec_type,codec_name,width,height:packet=stream_index',
             '-of', 'json', url
         ]
         run = subprocess.run(
-            cmd, capture_output=True, text=True, timeout=25 if extended else FFPROBE_TIMEOUT,
+            cmd, capture_output=True, text=True, timeout=EXTENDED_FFPROBE_TIMEOUT if extended else FFPROBE_TIMEOUT,
             check=False
         )
         result['probe_ms'] = int((time.monotonic() - start) * 1000)
@@ -100,7 +101,7 @@ def rank(entry: dict) -> float:
     av_tracks = bool(entry.get('has_video')) and bool(entry.get('has_audio'))
     confirmed = bool(entry.get('last_ok'))
     speed = entry.get('startup_ms') or entry.get('latency_ms') or 10000
-    height = min(int(entry.get('playback_height') or entry.get('height') or 0), 1080)
+    height = min(int(entry.get('playback_height') or entry.get('height') or 0), 2160)
     runs = min(int(entry.get('success_runs') or 0), 30)
     bitrate = int(entry.get('bandwidth') or 0)
     # A working, quick 720p A/V stream beats a slow/unknown 1080p link.
@@ -109,7 +110,7 @@ def rank(entry: dict) -> float:
     score += 80 if entry.get('audio') else 0
     score += runs * 12
     score += min(height, 720) / 10
-    score += max(0, min(height - 720, 360)) / 45
+    score += max(0, min(height - 720, 1440)) / 45
     score -= min(float(speed) / 16, 700)
     score -= 60 if bitrate > 7500000 else 0
     score -= 600 if entry.get('stale') else 0
