@@ -13,3 +13,12 @@ assert.equal(result.groups.filter(g=>g.key==="rai3").length,1);
 assert.equal(entryKey(e("Generic station label",7,{id:"RaiMovie.it"}),{__channelIds:{"raimovie.it":"raimovie"}}),"raimovie");
 assert.equal(entryKey(e("Rai 3",8,{id:"RaiMovie.it"}),{__channelIds:{"raimovie.it":"raimovie"}}),"rai3");
 console.log("Catalog identity checks passed; no playback requests.");
+
+const ordered=rankedCombine({geo:{},lists:{a:["Rai 1","Rai 2","Rai 3","Rete 4","Canale 5","Telenorba","Italia 1","LA7","TV8","NOVE","Real Time","Rai Movie G","Rai Movie HD","Unknown Station","Sky Uno","Sky Uno +"].map((name,i)=>e(name,100+i))}});
+assert.equal(ordered.groups.slice(0,6).map(g=>g.key).join(","),"rai3tgrpuglia,rai1,rai2,rai3,rete4,canale5");
+const remaining=ordered.groups.filter(g=>g.section>1);
+for(let i=1;i<remaining.length;i++)assert.ok((remaining[i-1].audience??-1)>=(remaining[i].audience??-1),"Audience order");
+assert.notEqual(canonicalKey("Sky Uno",{}),canonicalKey("Sky Uno +",{}));
+assert.equal(ordered.groups.filter(g=>g.key==="raimovie").length,1);
+assert.ok(remaining.some(g=>g.name==="Unknown Station"),"Unknown audience is not excluded");
+console.log("Fixed opening, audience ordering and unknown audience checks passed.");
