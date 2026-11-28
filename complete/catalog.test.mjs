@@ -27,3 +27,19 @@ const many=rankedCombine({geo:{},lists:{a:Array.from({length:5000},(_,i)=>e(i%2?
 assert.equal(many.groups.find(g=>g.key==="raimovie").entries.length,250);
 assert.equal(many.groups.find(g=>g.key==="raimovie").originalNames.length,2);
 console.log("5,000-entry identity fixture passed.");
+
+const regional=rankedCombine({geo:{},lists:{a:[
+e("Rai 1",201,{info:'#EXTINF:-1 group-title="Puglia",Rai 1'}),
+e("Italia 1",202,{info:'#EXTINF:-1 group-title="Puglia",Italia 1'}),
+e("Telenorba",203),
+e("Local Puglia Test Station",204,{info:'#EXTINF:-1 tvg-chno="6" group-title="Puglia",Local Puglia Test Station'})
+]}});
+assert.equal(regional.groups.find(g=>g.key==="italia1").regional,false);
+assert.equal(regional.groups.find(g=>g.key==="telenorba").regional,true);
+assert.equal(regional.groups.find(g=>g.key==="italia1").number,6);
+assert.notEqual(regional.groups.find(g=>g.key==="localpugliateststation").number,6);
+const equalQuality=[e("Rai Movie HD",301,{source:"B"}),e("Rai Movie HD",302,{source:"A"})];
+const best=list=>rankedCombine({geo:{},lists:{a:list}}).groups.find(g=>g.key==="raimovie").entries[0].source;
+assert.equal(best(equalQuality),"A");
+assert.equal(best([...equalQuality].reverse()),"A");
+console.log("Regional classification, reserved LCN and stable tie-breaking checks passed.");
