@@ -18,15 +18,15 @@ function reg(e,geo){
  const k=keyOf(e.name), group=e.info.match(/group-title="([^"]*)"/i)?.[1]||"";
  const labels=e.name+" "+group;
  if(localMap.has(k)||puglia.test(labels)||k==="rai3tgrpuglia"||["radionorbatv","tgnorba24","antennasud","telebari"].includes(k))return "puglia";
- if(regions.test(labels)||/\b(?:regional|regionali|locali|local tv|regional dvb-t)\b/i.test(group))return geo[k]||geo[e.id]||"other";
- return geo[k]||geo[e.id]||"national";
+ if(regions.test(labels)||/\b(?:regional|regionali|locali|local tv|regional dvb-t)\b/i.test(group))return geo[e.id]==="puglia"||geo[k]==="puglia"?"puglia":"other";
+ return geo[e.id]||geo[k]||"national";
 }
 export function rankedCombine(state){
  const groups=new Map();
  const geo=state.geo||{};
  for(const list of Object.values(state.lists))for(const e of list){
   const key=keyOf(e.name); if(!key||reg(e,geo)==="other")continue;
-  if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(key),name:e.name,poster:e.logo,entries:[],regional:reg(e,geo)==="puglia",number:0,key});
+  if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(e.name.normalize("NFKC").trim().toLowerCase().replace(/\s+(?:fhd|uhd|hd|sd|4k|1080p|720p)$/i,"")),name:e.name,poster:e.logo,entries:[],regional:reg(e,geo)==="puglia",number:0,key});
   const g=groups.get(key); const index=g.entries.findIndex(x=>x.url===e.url);
   if(index<0)g.entries.push(e);else if(compareQuality(e,g.entries[index])<0)g.entries[index]=e;
   if(!g.poster&&e.logo)g.poster=e.logo;
