@@ -2,7 +2,7 @@ const flat=s=>String(s||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toL
 const localMap=new Map([["Telenorba",10],["Teledue",12],["Telerama",15],["Tele Dehon",19],["Canale 7 Puglia",78],["Delta TV",83],["Teleregione Color",0],["Antenna Sud Extra",92],["7 Gold Puglia",84],["BTV",0],["La Nuova TV",0],["Telesveva",18],["Tele Sud Puglia",155],["TRC Puglia",76],["TeleMajg",79],["Teletrullo",80],["Easy TV",81],["Political TV",86],["Mediterranea TV - Video M Italia",89],["Canale 2 TV",90],["Amica 9",91],["Azzurra TV Italia",95],["StarTV",96],["Studio 100",98],["Tele Foggia",88],["Cittadella TV",94]].map(([n,v])=>[flat(n),v]));
 const lcnMap=new Map([["Rai 1 HD",1],["Rai 2 HD",2],["Rai 3 HD",3],["Rai 3 TGR Puglia",103],["Rete 4 HD",4],["Canale 5 HD",5],["Italia 1 HD",6],["LA7 HD",7],["TV8",8],["NOVE",9],["Radionorba TV",11],["TG Norba 24",13],["Antenna Sud",14],["Telebari",17],["20 Mediaset HD",20],["Rai 4",21],["Iris",22],["Rai 5",23],["Rai Movie",24],["Cielo",26],["27 Twentyseven",27],["La5",30],["Real Time",31],["Food Network",33],["Cine34",34],["Focus",35],["RTL 102.5",36],["Rai News 24",48],["Sky TG24",50],["TGCOM24",51],["DMAX",52],["Rai Storia",54],["HGTV",56],["Radio 105 TV",66],["Deejay TV HD",69],["RadioItaliaTV",70],["Radio Kiss Kiss TV",158],["Gambero Rosso",257],["Hell's Kitchen Italy",404]].map(([n,v])=>[flat(n),v]));
 for(const [k,v] of localMap)if(v)lcnMap.set(k,v);
-const alias=new Map([["radioitaliatv","radioitaliatv"],["radioitalia","radioitaliatv"],["la7","la7"],["20mediaset","20mediaset"],["mediaset20","20mediaset"],["canale20","20mediaset"],["rai3puglia","rai3tgrpuglia"],["raitreregionepuglia","rai3tgrpuglia"],["tg3puglia","rai3tgrpuglia"],["raitreregionalepuglia","rai3tgrpuglia"],["telesud","telesudpuglia"],["telebari","telebari"],["tgnorba24","tgnorba24"]]);
+const alias=new Map([["radioitaliatv","radioitaliatv"],["radioitalia","radioitaliatv"],["la7","la7"],["20mediaset","20mediaset"],["mediaset20","20mediaset"],["canale20","20mediaset"],["rai3puglia","rai3tgrpuglia"],["raitreregionepuglia","rai3tgrpuglia"],["tg3puglia","rai3tgrpuglia"],["raitreregionalepuglia","rai3tgrpuglia"],["telebari","telebari"],["tgnorba24","tgnorba24"]]);
 const keyOf=n=>alias.get(flat(n))||flat(n);
 const regions=/\b(?:abruzzo|basilicata|calabria|campania|emilia(?: romagna)?|friuli(?: venezia giulia)?|lazio|liguria|lombardia|marche|molise|piemonte|sardegna|sicilia|toscana|trentino(?: alto adige)?|umbria|valle d[’' ]aosta|veneto|sudtirol)\b/i;
 const puglia=/\b(?:puglia|apulia|salento|bari|barletta|andria|trani|brindisi|foggia|lecce|taranto|norba)\b/i;
@@ -17,6 +17,7 @@ export function compareQuality(a,b){const x=declared(a),y=declared(b);return y[0
 function reg(e,geo){
  const k=keyOf(e.name), group=e.info.match(/group-title="([^"]*)"/i)?.[1]||"";
  const labels=e.name+" "+group;
+ if(geo[e.id]==="other"&&!puglia.test(labels))return "other";
  if(localMap.has(k)||puglia.test(labels)||k==="rai3tgrpuglia"||["radionorbatv","tgnorba24","antennasud","telebari"].includes(k))return "puglia";
  if(regions.test(labels)||/\b(?:regional|regionali|locali|local tv|regional dvb-t)\b/i.test(group))return geo[e.id]==="puglia"||geo[k]==="puglia"?"puglia":"other";
  return geo[e.id]||geo[k]||"national";
