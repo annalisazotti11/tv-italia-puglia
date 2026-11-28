@@ -95,3 +95,8 @@ const logoShared=rankedCombine({geo:{},lists:{a:[e("Test Alpha",5300,{logo:"http
 assert.ok(logoShared.sharedLogoGroups.some(v=>v.includes("Test Alpha")&&v.includes("Test Beta")));
 assert.ok(logoShared.groups.some(g=>g.key==="testalpha")&&logoShared.groups.some(g=>g.key==="testbeta"));
 console.log("FAST platform variants, distinct programming and shared-logo diagnostics passed.");
+
+assert.equal(screenshot.priorityDiagnostics.find(g=>g.name==="Sky Uno").reason,"not_found_in_loaded_collections");
+assert.equal(sky.priorityDiagnostics.find(g=>g.name==="Sky Uno").observedEntries,2);
+assert.equal(sky.priorityDiagnostics.find(g=>g.name==="Sky Uno").reason,"present");
+console.log("Priority presence diagnostics passed; no stream URLs inspected.");
