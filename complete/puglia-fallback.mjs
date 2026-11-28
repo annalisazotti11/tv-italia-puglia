@@ -1,5 +1,14 @@
-// Fallback di singole emittenti FTA già pubblicate nel catalogo esistente; nessun nuovo test.
+// Sorgenti FTA di riserva; nessun nuovo test di riproduzione.
 export default [
+  {
+    "name": "Rai 3 TGR Puglia",
+    "logo": "https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/819-rai3tgrpuglia.png",
+    "id": "",
+    "info": "#EXTINF:-1 tvg-chno=\"819\" tvg-logo=\"https://raw.githubusercontent.com/xN1ckuz/OpenIPTVItaly/refs/heads/main/Logos/819-rai3tgrpuglia.png\" group-title=\"Puglia\",Rai 3 TGR Puglia",
+    "opts": [],
+    "source": "Diretta regionale Rai (catalogo emittente già revisionato)",
+    "url": "https://tgrpuglia-live.akamaized.net/hls/live/2025570/tgrpuglia/tgrpuglia/playlist.m3u8"
+  },
   {
     "name": "TG Norba 24",
     "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Tg_norba24.png/500px-Tg_norba24.png",
