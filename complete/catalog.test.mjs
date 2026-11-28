@@ -22,3 +22,8 @@ assert.notEqual(canonicalKey("Sky Uno",{}),canonicalKey("Sky Uno +",{}));
 assert.equal(ordered.groups.filter(g=>g.key==="raimovie").length,1);
 assert.ok(remaining.some(g=>g.name==="Unknown Station"),"Unknown audience is not excluded");
 console.log("Fixed opening, audience ordering and unknown audience checks passed.");
+
+const many=rankedCombine({geo:{},lists:{a:Array.from({length:5000},(_,i)=>e(i%2?"Rai Movie G":"Rai Movie HD",i%250))}});
+assert.equal(many.groups.find(g=>g.key==="raimovie").entries.length,250);
+assert.equal(many.groups.find(g=>g.key==="raimovie").originalNames.length,2);
+console.log("5,000-entry identity fixture passed.");
