@@ -43,6 +43,11 @@ DIRS=[
  ("Puglia DTT channels inventory","https://www.canalesalento.it/tv-mux-regionale-puglia/"),
  ("OnAirTV public FTA collection","https://github.com/gcardinale/onairtv-playlist"),
  ("FreetuxTV public channel directory","https://database.freetuxtv.net/"),
+ ("TV Garden Italy directory","https://tvgarden.world/tv/it"),
+ ("LegalFreeIPTV project documentation","https://github.com/biskyt/legalFreeIPTVplaylist"),
+ ("mrwolfjunior free-to-air project documentation","https://github.com/mrwolfjunior/IPTV-Italia"),
+ ("Italian public broadcaster and service directory","https://www.sky.it/tv/canali"),
+ ("Italian TV channel directory MioTV","https://www.miotvonline.com/tv/italia/"),
 ]
 def read(url,github=False,max_bytes=6000000):
     headers={"User-Agent":"TVItaliaComplete-source-catalog/1.0"}
@@ -107,10 +112,18 @@ def metadata(p):
         entry_lines=[line.strip() for line in raw.splitlines() if line.strip().startswith("#EXTINF:")]
         entries=len(entry_lines)
         if entries==0 or re.search(r"(?m)^#EXT-X-(?:TARGETDURATION|STREAM-INF|MEDIA-SEQUENCE):",raw):raise ValueError("not a channel collection")
-        # A metadata-only fingerprint detects reordered copies with different formatting.
+        # Split EXTINF at the first unquoted comma, preserving commas in channel titles.
         labels=set()
         for line in entry_lines:
-            name=line.rsplit(",",1)[-1].casefold()
+            quoted=False
+            separator=None
+            for i,ch in enumerate(line):
+                if ch=='"':quoted=not quoted
+                elif ch==',' and not quoted:
+                    separator=i
+                    break
+            if separator is None:continue
+            name=line[separator+1:].strip().casefold()
             name=re.sub(r"\b(?:fhd|uhd|hd|sd|1080p|720p|4k)\b","",name)
             label=re.sub(r"[^a-z0-9]+","",name)
             if label:labels.add(label)
@@ -357,6 +370,9 @@ def main():
     for p in available:
         fingerprints.setdefault(p.get("channel_label_hash"),[]).append(p["name"])
     same_lineups=[v for k,v in fingerprints.items() if k and len(v)>1]
+    hashes={}
+    for p in available:hashes.setdefault(p["sha256"],[]).append(p["name"])
+    exact_duplicates=[v for v in hashes.values() if len(v)>1]
     projects,queries,errors=search_projects()
     by_name={p['name'].lower():p for p in projects}
     for p in seeded_projects(dirs):by_name.setdefault(p['name'].lower(),p)
@@ -377,6 +393,10 @@ def main():
     report={"generated_at":TODAY.isoformat(),"target":100,"public_candidates":len(candidates),
         "available_public_files":len(available),"byte_distinct_files":unique,
         "identical_label_sets":same_lineups,"distinct_label_sets":len(fingerprints),
+        "exact_duplicate_files":exact_duplicates,"unique_readable_public_files":unique,
+        "gap_to_100_distinct_public_files":max(0,100-unique),
+        "unavailable_public_files":len(inspected)-len(available),
+        "review_only_sources":[{"project":"OnAirTV","reason":"Declares FTA but contains mixed channel names; authorization not verified","status":"not added to deployment"},{"project":"LegalFreeIPTV","reason":"International collection; Italian coverage and rights need review","status":"not added to deployment"},{"project":"mrwolfjunior/IPTV-Italia","reason":"Fork of TVITALIA; independence and rights need review","status":"not added to deployment"},{"project":"TV Garden Italy","reason":"Documentation directory based on IPTV-org, not an independent M3U","status":"not added to deployment"}],
         "note_label_sets":"Same channel labels suggest overlapping coverage, not identical playback sources or rights.",
         "note":"Private configured sources are intentionally not inspected. Same bytes do not prove independent providers; repository push date is not necessarily playlist freshness. Unknown sources require review before import. No playback requests.",
         "existing_candidates":inspected,"external_directories":dirs,"github_projects":projects,
