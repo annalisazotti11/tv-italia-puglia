@@ -37,12 +37,12 @@ async function refresh(env){
   const state={lists,status,geo,updated:new Date().toISOString()};await env.PLAYLISTS.put(KEY,JSON.stringify(state));return state;
 }
 export const combine=rankedCombine;
-const manifest={id:"it.personal.tvitaliacomplete",version:"1.4.0",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
+const manifest={id:"it.personal.tvitaliacomplete",version:"1.4.1",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
 function brand(g,origin){
   const asset=BRAND_ASSETS[g.key];
   const original=asset?.logo||g.poster||undefined;
   // Only public branding is served on this path. No private addon token.
-  return {poster:asset?origin+asset.path+"?v=140":original,logo:original};
+  return {poster:asset?origin+asset.path+"?v=141":original,logo:original};
 }
 const meta=(g,origin)=>({id:g.id,type:"tv",name:g.number+" · "+g.name,...brand(g,origin),posterShape:"square",description:declared(g.entries[0])[0]?declared(g.entries[0])[0]+"p (dichiarati)": "Qualità non dichiarata"});
 async function handle(req,env){
