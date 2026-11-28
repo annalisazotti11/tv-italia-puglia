@@ -83,12 +83,12 @@ async function getCatalogue(env){
   cached={key,binding:env.PLAYLISTS,until:now+20000,promise};
   try{return await promise;}catch(e){if(cached?.promise===promise)cached=undefined;throw e;}
 }
-const manifest={id:"it.personal.tvitaliacomplete",version:"1.6.1",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
+const manifest={id:"it.personal.tvitaliacomplete",version:"1.6.2",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
 function brand(g,origin){
   const asset=BRAND_ASSETS[g.key];
   const original=asset?.logo||g.poster||undefined;
   // Only public branding is served on this path. No private addon token.
-  return {poster:asset?origin+asset.path+"?v=161":original,logo:original};
+  return {poster:asset?origin+asset.path+"?v=162":original,logo:original};
 }
 const meta=(g,origin)=>({id:g.id,type:"tv",name:g.number+" · "+g.name,...brand(g,origin),posterShape:"square",description:declared(g.entries[0])[0]?declared(g.entries[0])[0]+"p (dichiarati)": "Qualità non dichiarata"});
 async function handle(req,env){
@@ -100,11 +100,11 @@ async function handle(req,env){
   if(p==="manifest.json")return json(manifest);
   if(!env.PLAYLISTS)return json({error:"KV non configurato"},503);
   const {s,allowed,data}=await getCatalogue(env);
-  if(p==="status.json")return json({updated:s.updated,configuredPlaylists:allowed.size,readablePlaylists:Object.values(s.status).filter(x=>x.count>0&&!x.retained).length,retainedPlaylists:Object.values(s.status).filter(x=>x.retained).length,pendingPlaylists:Object.values(s.status).filter(x=>x.pending).length,entries:data.entries.length,channels:data.groups.length,alternatives:data.alternatives,excludedChannels:data.excluded,mergedNames:data.mergedNames,identityConflicts:data.identityConflicts,audiencePeriod:"2026-10",catalogOrder:data.groups.map(g=>({name:g.name,position:g.position,lcn:g.number,averageAudience:g.audience})),regionalMissing:data.regionalMissing,missingLogos:data.groups.filter(g=>!BRAND_ASSETS[g.key]&&!g.poster).map(g=>g.name),generatedLogos:data.groups.filter(g=>BRAND_ASSETS[g.key]).length,sources:Object.fromEntries(Object.entries(s.status).filter(([k])=>allowed.has(k)))});
+  if(p==="status.json")return json({updated:s.updated,configuredPlaylists:allowed.size,readablePlaylists:Object.values(s.status).filter(x=>x.count>0&&!x.retained).length,retainedPlaylists:Object.values(s.status).filter(x=>x.retained).length,pendingPlaylists:Object.values(s.status).filter(x=>x.pending).length,entries:data.entries.length,channels:data.groups.length,alternatives:data.alternatives,excludedChannels:data.excluded,mergedNames:data.mergedNames,identityConflicts:data.identityConflicts,channelsWithAudience:data.groups.filter(g=>g.audience!==null).length,channelsWithoutAudience:data.groups.filter(g=>g.audience===null).length,audiencePeriod:"2026-10",catalogOrder:data.groups.map(g=>({name:g.name,position:g.position,lcn:g.lcn??null,displayNumber:g.number,averageAudience:g.audience})),regionalMissing:data.regionalMissing,missingLogos:data.groups.filter(g=>!BRAND_ASSETS[g.key]&&!g.poster).map(g=>g.name),generatedLogos:data.groups.filter(g=>BRAND_ASSETS[g.key]).length,sources:Object.fromEntries(Object.entries(s.status).filter(([k])=>allowed.has(k)))});
   if(p==="italia-completa.m3u")return new Response("#EXTM3U\n"+data.entries.map(e=>{let info=e.info;let q=false,i=0;for(;i<info.length;i++){if(info[i]==='"')q=!q;if(!q&&info[i]===",")break;}let head=info.slice(0,i).replace(/\s+(?:tvg-chno|tvg-lcn|channel-number|lcn|tvg-logo)="[^"]*"/gi,"");return [head+(e.brandLogo?' tvg-logo="'+e.brandLogo.replace(/"/g,"%22")+'"':"")+' tvg-chno="'+e.number+'",'+e.number+" · "+e.displayName,...e.opts,e.url].join("\n");}).join("\n")+"\n",{headers:{...cors,"Content-Type":"audio/x-mpegurl","Cache-Control":"no-store"}});
   if(/^catalog\/tv\/italia(?:\/.*)?\.json$/.test(p)){
     const q=new URLSearchParams(p.replace(/^catalog\/tv\/italia\/?/,"").replace(/\.json$/,"")).get("search")||u.searchParams.get("search")||"";
-    return json({metas:data.groups.filter(g=>!q||[g.name,...(g.originalNames||[])].some(n=>normalize(n).includes(normalize(q)))).map(g=>meta(g,u.origin))});
+    return json({metas:data.groups.filter(g=>!q||[g.name,...(g.originalNames||[])].some(n=>normalize(n).includes(normalize(q)))||(/^\d+$/.test(q.trim())&&String(g.number)===q.trim())).map(g=>meta(g,u.origin))});
   }
   const m=p.match(/^(meta|stream)\/tv\/(.+)\.json$/);if(m){
     let id;try{id=decodeURIComponent(m[2]);}catch{return json({error:"ID non valido"},400);}
