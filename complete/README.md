@@ -14,3 +14,18 @@ Modulo indipendente nello stesso repository TV Italia + Puglia. Non modifica il 
 Le fonti sono configurabili senza modificare codice. Nessuna sorgente non approvata viene importata di default. Il catalogo raggruppa per nome normalizzato; può mantenere alias come voci separate. Non garantisce disponibilità, identità o qualità delle trasmissioni. Il modulo non effettua proxy, non aggira DRM né restrizioni geografiche; opzioni specifiche dei player possono non funzionare nel catalogo addon. Non condividere il manifest con il token.
 
 Stato: codice nel repository, deployment e configurazione Cloudflare da completare. Il progetto di produzione rimane invariato.
+
+## Deployment automatico con GitHub Actions
+
+Il workflow [deploy-complete.yml](../.github/workflows/deploy-complete.yml) riutilizza i secret esistenti `CLOUDFLARE_API_TOKEN` e `CLOUDFLARE_ACCOUNT_ID` (o la variable per l'ID). Il token deve avere i permessi Workers Scripts Edit e Workers KV Storage Edit per l'account.
+
+Nelle impostazioni del repository, Actions secrets, aggiungi:
+- `TV_COMPLETE_ACCESS_TOKEN`: token personale casuale di almeno 32 caratteri (solo lettere, numeri, trattino, underscore).
+- `TV_COMPLETE_PLAYLIST_SOURCES`: array JSON con le playlist che hai diritto di utilizzare, massimo 30. Nessuna credenziale nel codice o nei log.
+
+Esempio di struttura (sostituisci con gli URL autorizzati):
+```json
+[{"name":"Lista 1","url":"https://example.com/authorized.m3u"}]
+```
+
+Avvia manualmente il workflow **TV Italia Complete - deploy separato** dalla scheda Actions dopo aver aggiunto i secret. Il workflow crea o riutilizza il namespace KV dedicato, genera una configurazione Wrangler temporanea, installa i secret direttamente su Cloudflare e attiva il cron ogni ora al minuto 17 UTC. Non contatta gli stream durante il deploy. Non cambia il Worker tv-italia-puglia. Il trigger su push può fallire prima che i secret siano configurati; non significa che la produzione esistente abbia un problema. Il link di installazione è disponibile solo dopo il deployment riuscito: usa il dominio del nuovo Worker, il token personale e /manifest.json. Non condividere tale link.
