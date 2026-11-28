@@ -24,6 +24,19 @@ try:
 except (ValueError,AssertionError):
     raise SystemExit("TV_COMPLETE_PLAYLIST_SOURCES: array JSON con 1-30 coppie name/url HTTPS e nomi univoci.")
 
+# The existing private configuration remains the primary source list.
+# Additional Italian playlist endpoints are maintained in the repository.
+extra=json.loads(pathlib.Path("complete/playlist-candidates.json").read_text())
+urls={p["url"].lower() for p in playlists}
+names={p["name"] for p in playlists}
+for p in extra:
+    if len(playlists)>=30: break
+    if p["url"].lower() in urls or p["name"] in names: continue
+    playlists.append(p)
+    urls.add(p["url"].lower())
+    names.add(p["name"])
+print(f"Playlist configurate: {len(playlists)} (disponibilità dei file non ancora accertata).")
+
 def api(path,method="GET",body=None):
     url=f"https://api.cloudflare.com/client/v4/accounts/{account}/storage/kv/namespaces{path}"
     req=urllib.request.Request(url,method=method,headers={"Authorization":"Bearer "+api_token,"Content-Type":"application/json"},data=json.dumps(body).encode() if body is not None else None)
