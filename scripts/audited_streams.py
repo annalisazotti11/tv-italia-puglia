@@ -236,9 +236,17 @@ def annotate_review_queue(result, legacy):
     for cid, channel in result['channels'].items():
         old = legacy.get('channels', {}).get(cid, {})
         audit = channel.setdefault('audit', {})
-        av = sum(row.get('playback_ready') is True and row.get('has_audio') is True
-                 and row.get('has_video') is True for row in old.get('verified', []))
+        # Count distinct actual A/V successes in either preliminary group.
+        # Manifest-only success is never counted as a playable stream.
+        av_urls = {row['url'] for key in ('verified', 'candidates')
+                   for row in old.get(key, []) if row.get('url')
+                   and row.get('playback_ready') is True and row.get('has_audio') is True
+                   and row.get('has_video') is True}
+        av = len(av_urls)
         audit['preliminary_av_count'] = av
+        audit['preliminary_candidate_count'] = old.get('candidate_count', 0)
+        audit['preliminary_checked_at'] = old.get('checked_at')
+        audit['preliminary_snapshot_at'] = legacy.get('generated_at')
         if not channel.get('verified') and av:
             name = channel.get('name') or old.get('name') or cid
             group = channel.get('group') or old.get('group') or ''
