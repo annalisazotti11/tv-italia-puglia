@@ -36,7 +36,7 @@ async function refresh(env){
   const state={lists,status,geo,updated:new Date().toISOString()};await env.PLAYLISTS.put(KEY,JSON.stringify(state));return state;
 }
 export const combine=rankedCombine;
-const manifest={id:"it.personal.tvitaliacomplete",version:"1.1.0",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
+const manifest={id:"it.personal.tvitaliacomplete",version:"1.2.0",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
 const meta=g=>({id:g.id,type:"tv",name:g.number+" · "+g.name,poster:g.poster||undefined,posterShape:"square",description:declared(g.entries[0])[0]?declared(g.entries[0])[0]+"p (dichiarati)": "Qualità non dichiarata"});
 async function handle(req,env){
   const u=new URL(req.url),parts=u.pathname.split("/").filter(Boolean);
@@ -50,7 +50,7 @@ async function handle(req,env){
   // Do not expose cached lists that have since been removed from the configuration.
   const allowed=new Set(sources(env).map(x=>x.name));
   const data=combine({geo:s.geo||{},lists:Object.fromEntries(Object.entries(s.lists).filter(([k])=>allowed.has(k)))});
-  if(p==="status.json")return json({updated:s.updated,entries:data.entries.length,channels:data.groups.length,alternatives:data.alternatives,sources:Object.fromEntries(Object.entries(s.status).filter(([k])=>allowed.has(k)))});
+  if(p==="status.json")return json({updated:s.updated,entries:data.entries.length,channels:data.groups.length,alternatives:data.alternatives,regionalMissing:data.regionalMissing,sources:Object.fromEntries(Object.entries(s.status).filter(([k])=>allowed.has(k)))});
   if(p==="italia-completa.m3u")return new Response("#EXTM3U\n"+data.entries.map(e=>{let info=e.info;let q=false,i=0;for(;i<info.length;i++){if(info[i]==='"')q=!q;if(!q&&info[i]===",")break;}let head=info.slice(0,i).replace(/\s+(?:tvg-chno|tvg-lcn|channel-number|lcn)="[^"]*"/gi,"");return [head+' tvg-chno="'+e.number+'",'+e.number+" · "+e.displayName,...e.opts,e.url].join("\n");}).join("\n")+"\n",{headers:{...cors,"Content-Type":"audio/x-mpegurl","Cache-Control":"no-store"}});
   if(/^catalog\/tv\/italia(?:\/.*)?\.json$/.test(p)){
     const q=new URLSearchParams(p.replace(/^catalog\/tv\/italia\/?/,"").replace(/\.json$/,"")).get("search")||u.searchParams.get("search")||"";
