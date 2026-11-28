@@ -83,3 +83,15 @@ assert.equal(entryKey(e("Example Plus",5001,{id:"RaiMovie.it"}),{__channelIds:{"
 assert.equal(screenshot.priorityDiagnostics.find(g=>g.name==="Sky Uno").present,false);
 assert.equal(sky.priorityDiagnostics.find(g=>g.name==="Sky Uno").position,6);
 console.log("Number variants, protected editorial identities and priority diagnostics passed.");
+
+const fastAliases=[["Affare Fatto – Pluto TV","Affare Fatto"],["Affare Fatto (Samsung TV Plus)","Affare Fatto"],["Affare Fatto Pluto TV","Affare Fatto"],["Andromeda - Rakuten TV","Andromeda"],["Andromeda Italia","Andromeda"],["Andromeda (IT)","Andromeda"],["Andromeda Italy","Andromeda"],["[Pluto TV] Andromeda","Andromeda"],["Film d'autore – Plex","Film d'autore"]];
+for(const [a,b] of fastAliases)assert.equal(canonicalKey(a,{}),canonicalKey(b,{}),a);
+for(const [a,b] of [["Andromeda English","Andromeda"],["Affare Fatto +1","Affare Fatto"],["Pluto TV Cinema","Pluto TV Serie"],["Antenna Sud Extra","Antenna Sud"]])assert.notEqual(canonicalKey(a,{}),canonicalKey(b,{}),a);
+const fast=rankedCombine({geo:{},lists:{a:fastAliases.flatMap(([a,b],i)=>[e(a,i+5100),e(b,i+5200)])}});
+assert.equal(fast.groups.filter(g=>g.key==="affarefatto").length,1);
+assert.equal(fast.groups.filter(g=>g.key==="andromeda").length,1);
+assert.equal(fast.groups.find(g=>g.key==="andromeda").name,"Andromeda");
+const logoShared=rankedCombine({geo:{},lists:{a:[e("Test Alpha",5300,{logo:"https://example.invalid/logo.png"}),e("Test Beta",5301,{logo:"https://example.invalid/logo.png"})]}});
+assert.ok(logoShared.sharedLogoGroups.some(v=>v.includes("Test Alpha")&&v.includes("Test Beta")));
+assert.ok(logoShared.groups.some(g=>g.key==="testalpha")&&logoShared.groups.some(g=>g.key==="testbeta"));
+console.log("FAST platform variants, distinct programming and shared-logo diagnostics passed.");
