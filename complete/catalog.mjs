@@ -6,8 +6,9 @@ export function cleanName(value){
  // Remove only technical annotations, not programme/channel variants (+1, Cinema, Sport, regional editions).
  const tech=/^(?:\s*(?:\d{3,4}[pi]?|[248]k|uhd|fhd|full\s*hd|hd\+?|sd|hevc|h\.?26[45]|avc|aac|hdr10?|dolby\s*vision|\d+(?:\.\d+)?\s*fps|[0-9.]+\s*[mk]bps|[x×]\s*\d+|[-/|,;:+×x\s])+)\s*$/i;
  s=s.replace(/\(([^()]*)\)|\[([^\[\]]*)\]/g,(m,a,b)=>tech.test(a??b)?" ":m);
+ const dedicated4k=/^(?:rai|sky sport)\s*4k$/i.test(s);
  let old;
- do{old=s;s=s.replace(/(?:[\s|–—:;,.-]+)(?:\d{3,4}[pi]|\d{3,4}\s*[x×]\s*\d{3,4}|[248]k|uhd|fhd|full\s*hd|hd\+?|sd|hevc|h\.?26[45]|avc|hdr10?|\d+(?:\.\d+)?\s*fps)\s*$/i,"").replace(/[\s|–—:;,.-]+$/g,"").trim();}while(s!==old);
+ if(!dedicated4k)do{old=s;s=s.replace(/(?:[\s|–—:;,.-]+)(?:\d{3,4}[pi]|\d{3,4}\s*[x×]\s*\d{3,4}|[248]k|uhd|fhd|full\s*hd|hd\+?|sd|hevc|h\.?26[45]|avc|hdr10?|\d+(?:\.\d+)?\s*fps)\s*$/i,"").replace(/[\s|–—:;,.-]+$/g,"").trim();}while(s!==old);
  return s.replace(/\s+/g," ").trim();
 }
 const flat=s=>cleanName(s).normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]/g,"");
@@ -24,7 +25,7 @@ for(const [a,b] of [["radio norba television","Radionorba TV"],["radio norba tv"
 const keyOf=n=>alias.get(flat(n))||flat(n);
 const curated=new Map(BRAND_REGISTRY.map(b=>[keyOf(b.name),{name:cleanName(b.name),logo:b.logo}]));
 const preferred=new Map([["rai1","Rai 1"],["rai2","Rai 2"],["rai3","Rai 3"],["rete4","Rete 4"],["canale5","Canale 5"],["italia1","Italia 1"],["raimovie","Rai Movie"],["raipremium","Rai Premium"],["rai3tgrpuglia","Rai 3 TGR Puglia"],["la7","LA7"],["tv8","TV8"],["nove","NOVE"]]);
-const canonicalKey=(n,geo)=>{const k=keyOf(n);return geo.__identities?.[k]||k;};
+export const canonicalKey=(n,geo)=>{const k=keyOf(n);return geo?.__identities?.[k]||k;};
 export function findLogo(g,geo){
  const b=geo.__brands?.[g.key]||curated.get(g.key);
  return b?.logo||"";
@@ -57,7 +58,7 @@ export function rankedCombine(state){
  const geo=state.geo||{};
  for(const list of Object.values(state.lists))for(const e of list){
   const key=canonicalKey(e.name,geo); if(!key||reg(e,geo)==="other")continue;
-  if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(e.name.normalize("NFKC").trim().toLowerCase().replace(/\s+(?:fhd|uhd|hd|sd|4k|1080p|720p)$/i,"")),name:cleanName(e.name),poster:"",entries:[],regional:reg(e,geo)==="puglia",number:0,key});
+  if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(key),name:cleanName(e.name),poster:"",entries:[],regional:reg(e,geo)==="puglia",number:0,key});
   const g=groups.get(key); const index=g.entries.findIndex(x=>x.url===e.url);
   if(index<0)g.entries.push(e);else if(compareQuality(e,g.entries[index])<0)g.entries[index]=e;
   if(reg(e,geo)==="puglia")g.regional=true;
@@ -67,7 +68,7 @@ export function rankedCombine(state){
  // Sorgenti singole di riserva solo per canali pugliesi non presenti nelle playlist.
  for(const e of PUGLIA_FALLBACK){
    const key=canonicalKey(e.name,geo);
-   if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(e.name.normalize("NFKC").trim().toLowerCase()),name:cleanName(e.name),poster:"",entries:[e],regional:true,number:0,key});
+   if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(key),name:cleanName(e.name),poster:"",entries:[e],regional:true,number:0,key});
  }
  const all=[...groups.values()];
  for(const g of all){
