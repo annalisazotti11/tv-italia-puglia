@@ -79,7 +79,7 @@ MAX_CANDIDATES_PER_CHANNEL = 100
 MAX_PROBES_PER_CHANNEL = 24
 MAX_VERIFIED_PER_CHANNEL = 8
 WORKERS = 24
-TIMEOUT = 5.5
+TIMEOUT = 10
 ALIASES = {
     'rai uno': 'rai 1', 'rai due': 'rai 2', 'rai tre': 'rai 3',
     'tele bari': 'telebari', 'radio norba tv': 'radionorba tv',
@@ -474,6 +474,18 @@ def source_identity_allowed(cid: str, url: str) -> bool:
     return url not in policy.get('blocked_by_channel', {}).get(cid, [])
 
 
+@lru_cache(maxsize=1)
+def reviewed_routes():
+    review = json.loads((ROOT / 'data' / 'source-identity-review.json').read_text(encoding='utf-8'))
+    if review.get('schema') != 1:
+        raise ValueError('Invalid reviewed source registry')
+    return {cid: set(urls) for cid, urls in review['channels'].items()}
+
+
+def is_reviewed(cid, url):
+    return url in reviewed_routes().get(cid, set()) and source_identity_allowed(cid, url)
+
+
 def assign_candidate(channels, by_name, name, attrs, url, provider):
     label = normalize(name)
     matched = by_name.get(label, [])
@@ -488,7 +500,7 @@ def assign_candidate(channels, by_name, name, attrs, url, provider):
             continue
         if not ch.get('logo') and trusted_channel_logo(logo):
             ch['logo'] = logo
-        if not allowed or not source_identity_allowed(cid, url) or len(ch['urls']) >= MAX_CANDIDATES_PER_CHANNEL:
+        if not allowed or not source_identity_allowed(cid, url) or (len(ch['urls']) >= MAX_CANDIDATES_PER_CHANNEL and not is_reviewed(cid, url)):
             continue
         if not any(x['url'] == url for x in ch['urls']):
             ch['urls'].append({'url': url, 'source': provider})
@@ -601,6 +613,7 @@ def scan_playlists(channels, by_name):
                         if cid in channels:
                             matched.add(cid)
                 result['matched_channel_count'] = len(matched)
+                result['matched_channels'] = sorted(matched)
             elif result['read']:
                 for item in candidates:
                     assign_candidate(channels, by_name, item['name'], item['attrs'],
@@ -771,7 +784,17 @@ def main():
     playlist_status = scan_playlists(channels, names)
     total_discovered_links = sum(len(c['urls']) for c in channels.values())
     for channel in channels.values():
-        channel['urls'] = diverse_channel_sources([x for x in channel['urls'] if source_identity_allowed(channel['id'], x['url'])])
+        cid = channel['id']
+        available = [x for x in channel['urls'] if source_identity_allowed(cid, x['url'])]
+        # Every exact reviewed route is tested, regardless of the preliminary
+        # discovery budget. Never expand probing of unreviewed routes.
+        reviewed = {x['url']: x for x in available if is_reviewed(cid, x['url'])}
+        for url in sorted(reviewed_routes().get(cid, set())):
+            if is_reviewed(cid, url) and permitted_stream_url(channel['name'], url):
+                reviewed.setdefault(url, {'url': url, 'source': 'Registro revisionato'})
+        selected = diverse_channel_sources(available)
+        selected_urls = {x['url'] for x in selected}
+        channel['urls'] = selected + [x for url, x in reviewed.items() if url not in selected_urls]
     jobs = [(cid, candidate) for cid, c in channels.items() for candidate in c['urls']]
     print(f'Candidates: {len(jobs)} across {len(channels)} configured channels', flush=True)
     for p in playlist_status:
@@ -809,18 +832,15 @@ def main():
             result['score'] = round(result['score'] + reliability_bonus + official_bonus, 2)
         verified = sorted((x for x in ch['results'] if x['ok']), key=lambda x: x['score'], reverse=True)
         verified_count += len(verified)
-        # Preserve independent CDN hosts rather than eight nearly identical
-        # variants from one provider. Up to two tested links per hostname.
+        # Keep all exact reviewed successes; bound only other preliminary results.
         diversified = []
         per_host = Counter()
         for item in verified:
             host = urllib.parse.urlsplit(item['url']).hostname or ''
-            if per_host[host] >= 2:
+            if not is_reviewed(cid, item['url']) and (per_host[host] >= 2 or len(diversified) >= MAX_VERIFIED_PER_CHANNEL):
                 continue
             per_host[host] += 1
             diversified.append(item)
-            if len(diversified) >= MAX_VERIFIED_PER_CHANNEL:
-                break
         entries = [{k: x[k] for k in ('url','source','kind','height','bandwidth','audio','latency_ms','score','success_runs')}
                    | {'last_ok': stamped, 'stale': False}
                    for x in diversified]
@@ -830,9 +850,9 @@ def main():
         fresh_urls = {x['url'] for x in entries}
         current = {x['url']: x for x in ch['results']}
         for old in prior:
-            if len(entries) >= MAX_VERIFIED_PER_CHANNEL:
-                break
             url = old.get('url')
+            if len(entries) >= MAX_VERIFIED_PER_CHANNEL and not is_reviewed(cid, url or ''):
+                continue
             if not url or url in fresh_urls or not source_identity_allowed(cid, url) or not permitted_stream_url(ch['name'], url):
                 continue
             result = current.get(url)
@@ -891,7 +911,8 @@ def main():
         'sources_verified': verified_count, 'links_tested': len(jobs),
         'channels_with_candidate': sum(bool(x.get('candidates')) for x in snapshot['channels'].values()),
         'discovered_channel_links': total_discovered_links,
-        'max_channel_tested': MAX_PROBES_PER_CHANNEL,
+        'max_channel_tested': max((len(c['results']) for c in channels.values()), default=0),
+        'unreviewed_probe_budget': MAX_PROBES_PER_CHANNEL,
         'regional_recheck_channels': sum(bool(x['regional_candidates']) and not x['visible'] for x in snapshot['channels'].values()),
         'playlists_loaded': sum(p['read'] for p in playlist_status),
         'playlists_configured': len(registered_playlists()),
