@@ -67,7 +67,7 @@ async function readState(env){
   return {lists,status,geo:chunks[0]?.geo||legacy?.geo||{},updated:times.sort().at(-1)||null};
 }
 export const combine=rankedCombine;
-const manifest={id:"it.personal.tvitaliacomplete",version:"1.5.1",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
+const manifest={id:"it.personal.tvitaliacomplete",version:"1.5.2",name:"TV Italia Complete",description:"Aggregazione M3U personale; nessun test dei flussi.",types:["tv"],resources:["catalog","meta","stream"],idPrefixes:["tvic:"],catalogs:[{type:"tv",id:"italia",name:"TV Italia Complete",extra:[{name:"search",isRequired:false}]}]};
 function brand(g,origin){
   const asset=BRAND_ASSETS[g.key];
   const original=asset?.logo||g.poster||undefined;
@@ -87,7 +87,7 @@ async function handle(req,env){
   // Do not expose cached lists that have since been removed from the configuration.
   const allowed=new Set(sources(env).map(x=>x.name));
   const data=combine({geo:s.geo||{},lists:Object.fromEntries(Object.entries(s.lists).filter(([k])=>allowed.has(k)))});
-  if(p==="status.json")return json({updated:s.updated,entries:data.entries.length,channels:data.groups.length,alternatives:data.alternatives,excludedChannels:data.excluded,regionalMissing:data.regionalMissing,missingLogos:data.groups.filter(g=>!BRAND_ASSETS[g.key]&&!g.poster).map(g=>g.name),generatedLogos:data.groups.filter(g=>BRAND_ASSETS[g.key]).length,sources:Object.fromEntries(Object.entries(s.status).filter(([k])=>allowed.has(k)))});
+  if(p==="status.json")return json({updated:s.updated,entries:data.entries.length,channels:data.groups.length,alternatives:data.alternatives,excludedChannels:data.excluded,mergedNames:data.mergedNames,regionalMissing:data.regionalMissing,missingLogos:data.groups.filter(g=>!BRAND_ASSETS[g.key]&&!g.poster).map(g=>g.name),generatedLogos:data.groups.filter(g=>BRAND_ASSETS[g.key]).length,sources:Object.fromEntries(Object.entries(s.status).filter(([k])=>allowed.has(k)))});
   if(p==="italia-completa.m3u")return new Response("#EXTM3U\n"+data.entries.map(e=>{let info=e.info;let q=false,i=0;for(;i<info.length;i++){if(info[i]==='"')q=!q;if(!q&&info[i]===",")break;}let head=info.slice(0,i).replace(/\s+(?:tvg-chno|tvg-lcn|channel-number|lcn|tvg-logo)="[^"]*"/gi,"");return [head+(e.brandLogo?' tvg-logo="'+e.brandLogo.replace(/"/g,"%22")+'"':"")+' tvg-chno="'+e.number+'",'+e.number+" · "+e.displayName,...e.opts,e.url].join("\n");}).join("\n")+"\n",{headers:{...cors,"Content-Type":"audio/x-mpegurl","Cache-Control":"no-store"}});
   if(/^catalog\/tv\/italia(?:\/.*)?\.json$/.test(p)){
     const q=new URLSearchParams(p.replace(/^catalog\/tv\/italia\/?/,"").replace(/\.json$/,"")).get("search")||u.searchParams.get("search")||"";
