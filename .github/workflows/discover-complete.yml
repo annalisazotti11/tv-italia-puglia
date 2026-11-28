@@ -17,7 +17,7 @@ concurrency:
 jobs:
   discovery:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - name: Search public project and directory metadata
@@ -27,6 +27,7 @@ jobs:
           python3 -m py_compile complete/discover_playlists.py
           python3 complete/discover_playlists.py
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: playlist-discovery-report
           path: complete/discovery-report.json
