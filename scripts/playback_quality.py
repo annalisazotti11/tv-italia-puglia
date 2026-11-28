@@ -119,13 +119,25 @@ def rank(entry: dict) -> float:
 
 def enhance(data: dict, probe=probe_stream) -> dict:
     tasks = []
+    review = json.loads((ROOT / 'data/source-identity-review.json').read_text(encoding='utf-8'))
+    policy = json.loads((ROOT / 'data/source-quarantine.json').read_text(encoding='utf-8'))
+    def reviewed(cid, url):
+        if not url or url not in review['channels'].get(cid, []):
+            return False
+        host = (urllib.parse.urlsplit(url).hostname or '').lower().rstrip('.')
+        approved = policy.get('approved_only', {}).get(cid)
+        return (host not in policy.get('blocked_hosts', [])
+                and url not in policy.get('blocked_by_channel', {}).get(cid, [])
+                and (approved is None or url in approved))
     for cid, channel in data.get('channels', {}).items():
         fresh = channel.get('verified', [])
         candidates = channel.get('candidates', [])
         selected = []
         for source, verified in (
             [(x, True) for x in fresh[:MAX_ATTEMPTS_PER_CHANNEL]] +
-            [(x, False) for x in candidates[:(2 if fresh else 4)]]
+            [(x, False) for x in candidates[:(2 if fresh else 4)]] +
+            [(x, True) for x in fresh if reviewed(cid, x.get('url'))] +
+            [(x, False) for x in candidates if reviewed(cid, x.get('url'))]
         ):
             if source.get('url') and source['url'] not in [
                 x['url'] for x, _ in selected
