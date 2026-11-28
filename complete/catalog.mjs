@@ -23,12 +23,13 @@ for(const [k,v] of localMap)if(v)lcnMap.set(k,v);
 const alias=new Map([["radioitaliatv","radioitaliatv"],["radioitalia","radioitaliatv"],["la7","la7"],["20mediaset","20mediaset"],["mediaset20","20mediaset"],["canale20","20mediaset"],["rai3puglia","rai3tgrpuglia"],["raitreregionepuglia","rai3tgrpuglia"],["tg3puglia","rai3tgrpuglia"],["raitreregionalepuglia","rai3tgrpuglia"],["telebari","telebari"],["tgnorba24","tgnorba24"]]);
 for(const [a,b] of [["radio norba television","Radionorba TV"],["radio norba tv","Radionorba TV"],["T.R. Padre Pio","Padre Pio TV"],["Teleradio Padre Pio","Padre Pio TV"],["Tele Radio Padre Pio","Padre Pio TV"],["TRM h24","TRM H24"],["Delta TV 1","Delta TV"],["Tele Regione Color","Teleregione Color"],["Rai 3 TGR Puglia 819","Rai 3 TGR Puglia"],["Italia 2","Mediaset Italia 2"],["Mediaset Italia Due","Mediaset Italia 2"],["La7d","LA7 Cinema"],["Rai Radio 2 Visual","Radio 2 Visual"],["27","27 Twentyseven"],["Twentyseven","27 Twentyseven"],["Tg Norba 24","TG Norba 24"],["Casa Italia 53","Italia 53"]])alias.set(flat(a),flat(b));
 // Recognize provider suffixes only when the remaining name is a known channel.
+for(const [a,b] of [["Rai Uno","Rai 1"],["Rai Due","Rai 2"],["Rai Tre","Rai 3"],["Rete Quattro","Rete 4"],["Canale Cinque","Canale 5"],["Italia Uno","Italia 1"],["Rai News","Rai News 24"],["Rai Movie Italia","Rai Movie"],["TGR Puglia","Rai 3 TGR Puglia"],["Rai Tre TGR Puglia","Rai 3 TGR Puglia"],["Rai 3 Regione Puglia","Rai 3 TGR Puglia"],["Rai 3 Puglia TGR","Rai 3 TGR Puglia"],["Rai 3 TGR Puglia (HbbTV)","Rai 3 TGR Puglia"]])alias.set(flat(a),flat(b));
 const knownNames=new Set([...lcnMap.keys(),...localMap.keys(),...BRAND_REGISTRY.map(b=>flat(b.name))]);
 const keyOf=n=>{
  let s=cleanName(n);
  let k=flat(s);
  for(let i=0;i<4;i++){
-   const candidate=s.replace(/\s*(?:\((?:G|GEO|GEOBLOCKED|GEOBLOCK|IT|ITA)\)|\[(?:G|GEO|GEOBLOCKED|GEOBLOCK|IT|ITA)\]|[\s|–—:;,.-]+(?:G|GEO|GEOBLOCKED|GEOBLOCK|IT|ITA))\s*$/i,"").trim();
+   const candidate=s.replace(/\s*(?:\((?:G|GEO|GEO[- ]?BLOCKED|GEO[- ]?BLOCK|IT|ITA)\)|\[(?:G|GEO|GEO[- ]?BLOCKED|GEO[- ]?BLOCK|IT|ITA)\]|[\s|–—:;,.-]+(?:G|GEO|GEO[- ]?BLOCKED|GEO[- ]?BLOCK|IT|ITA))\s*$/i,"").trim();
    if(candidate===s)break;
    s=candidate;const t=flat(s),a=alias.get(t)||t;
    if(knownNames.has(t)||knownNames.has(a)||alias.has(t))return a;
