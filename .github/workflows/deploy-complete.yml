@@ -6,6 +6,10 @@ on:
     paths:
       - 'complete/worker.mjs'
       - 'complete/catalog.mjs'
+      - 'complete/brand-registry.mjs'
+      - 'complete/brand-assets-index.mjs'
+      - 'complete/prepare-brand-candidates.mjs'
+      - 'complete/build_brand_assets.py'
       - 'complete/playlist-candidates.json'
       - 'complete/deploy_config.py'
       - '.github/workflows/deploy-complete.yml'
@@ -30,6 +34,17 @@ jobs:
           node-version: '22'
       - name: Check JS syntax (no stream tests)
         run: node --check complete/worker.mjs
+      - name: Prepare original channel logos (no stream requests)
+        env:
+          CLOUDFLARE_API_TOKEN: ""
+          CLOUDFLARE_ACCOUNT_ID: ""
+          TV_COMPLETE_ACCESS_TOKEN: ""
+          TV_COMPLETE_PLAYLIST_SOURCES: ""
+        run: |
+          python3 -m pip install --disable-pip-version-check Pillow CairoSVG defusedxml
+          node complete/prepare-brand-candidates.mjs
+          python3 complete/build_brand_assets.py
+          node --check complete/brand-assets-index.mjs
       - name: Prepare dedicated KV and private configuration
         run: python3 complete/deploy_config.py
       - name: Deploy only tv-italia-complete
