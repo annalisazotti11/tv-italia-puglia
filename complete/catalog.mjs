@@ -81,7 +81,11 @@ export function rankedCombine(state){
    g.section=known>=1&&known<=5?0:g.regional?1:known||dtt?2:3;
  }
  // Ordine richiesto, indipendente dal numero LCN: 1–5, Puglia, DTT, extra.
- const compare=(a,b)=>a.section-b.section||(a.number||99999)-(b.number||99999)||a.name.localeCompare(b.name,"it",{numeric:true});
+ // Auditel Total Audience, 4–31 ottobre 2026, AM giornata intera (02:00–25:59).
+ // https://www.auditel.it/wp-content/uploads/2026/11/Sintesi-Mensile-Ottobre-2026_TA47.xlsx-Sola-lettura.pdf
+ const audiences=new Map([["Sky Sport Uno",44801],["Sky Uno",43329],["Discovery Turbo",27775],["Sky Sport 24",27681],["Sky Sport F1",27671],["Discovery",26912],["Supertennis",18173],["Sky Serie",14663],["Sky Cinema Uno",13451],["Sky Investigation",12694],["Sky Sport 251",12294],["Sky Sport Tennis",11877],["Sky Collection",7550],["Sky Atlantic",7487],["Sky Cinema Collection",6477],["Sky Sport Arena",6068],["Sky Sport 4K",5806],["Sky Cinema Action",5369],["Sky Cinema Comedy",5340],["Sky Sport 252",5026],["Sky Sport Moto GP",4846],["Sky Cinema Stories",4729],["Sky Nature",4291],["Sky Cinema Family",3852],["Sky Sport Basket",3695],["History HD",3688],["Sky Crime",3653],["DAZN 1",3456],["Sky Cinema Romance",3311],["Sky Cinema Uno +24",2983],["Sky Sport 253",2956],["Sky Cinema Suspense",2921],["Sky Adventure",2717],["Sky Documentaries",2619],["Sky Sport Max",2274],["Sky Cinema Drama",2038],["Gambero Rosso",1476],["Disney Junior",1375],["DeA Junior",1188],["Comedy Central",1108],["Sky Sport 254",1005],["Sky Sport Golf",725],["DeAKids",656],["Nick Jr.",459],["Sky Sport 255",364],["Nickelodeon",363],["Cartoon Network",351],["Sky Sport 256",251],["Boomerang",219],["Sky Sport 257",201],["Sky Sport 258",169],["DAZN 2",82],["Sky Sport 259",50]].map(([n,v])=>[keyOf(n),v]));
+ const audience=g=>audiences.get(g.key)??audiences.get(keyOf(g.name))??0;
+ const compare=(a,b)=>a.section-b.section||(a.section===3?audience(b)-audience(a):(a.number||99999)-(b.number||99999))||a.name.localeCompare(b.name,"it",{numeric:true});
  all.sort(compare);
  const used=new Set();let next=1000;
  for(const g of all){if(!g.number||used.has(g.number)){while(used.has(next))next++;g.number=next++;}used.add(g.number);}
