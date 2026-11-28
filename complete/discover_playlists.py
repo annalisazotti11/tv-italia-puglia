@@ -41,6 +41,8 @@ DIRS=[
  ("EBU members","https://www.ebu.ch/about/members"),
  ("Aeranti-Corallo local broadcasters association","https://www.aeranticorallo.it/"),
  ("Puglia DTT channels inventory","https://www.canalesalento.it/tv-mux-regionale-puglia/"),
+ ("OnAirTV public FTA collection","https://github.com/gcardinale/onairtv-playlist"),
+ ("FreetuxTV public channel directory","https://database.freetuxtv.net/"),
 ]
 def read(url,github=False,max_bytes=6000000):
     headers={"User-Agent":"TVItaliaComplete-source-catalog/1.0"}
@@ -289,7 +291,41 @@ def repository_summary(projects,inventories):
              "review":"candidate, not approved"})
     return sorted(results,key=lambda x:(not x.get("fork"),x.get("last_push") or "",x["files"]),reverse=True)
 
+# Only public discovery metadata. Never cache private playlist configuration or streams.
+HISTORY=ROOT/"discovery-history.json"
+def read_history():
+    try:
+        data=json.loads(HISTORY.read_text())
+        return data if isinstance(data,dict) else {}
+    except (OSError,ValueError):return {}
+
+def remember(report,old):
+    projects={p["name"].lower():p for p in old.get("projects",[]) if p.get("name")}
+    for p in report["github_projects"]:
+        key=p["name"].lower()
+        prior=projects.get(key,{})
+        projects[key]={**p,"first_seen":prior.get("first_seen",TODAY.isoformat()),"last_seen":TODAY.isoformat()}
+    inventories={p["name"].lower():p for p in old.get("inventories",[]) if p.get("name")}
+    for p in report["repository_inventories"]:
+        key=p["name"].lower()
+        if p.get("status")=="listed":
+            inventories[key]={**p,"last_success":TODAY.isoformat()}
+    forges={p["project_page"]:p for p in old.get("other_forges",[]) if p.get("project_page")}
+    for p in report.get("other_forge_projects",[]):forges[p["project_page"]]=p
+    current_projects={p["name"].lower() for p in report["github_projects"]}
+    old_projects={p["name"].lower() for p in old.get("projects",[]) if p.get("name")}
+    report["history_summary"]={
+        "new_projects_this_run":len(current_projects-old_projects),
+        "github_projects_seen_total":len(projects),
+        "other_forge_projects_seen_total":len(forges),
+        "historical_file_paths":sum(len(p.get("collection_files",[])) for p in inventories.values()),
+        "historical_projects_with_files":sum(bool(p.get("collection_files")) for p in inventories.values()),
+        "note":"Cumulative candidates, not active or authorized playlists. Older inventories may be stale."
+    }
+    HISTORY.write_text(json.dumps({"projects":list(projects.values()),"inventories":list(inventories.values()),"other_forges":list(forges.values())},ensure_ascii=False,indent=2)+"\n")
+
 def main():
+    old=read_history()
     candidates=json.loads((ROOT/"playlist-candidates.json").read_text())
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         inspected=list(pool.map(metadata,candidates))
@@ -301,10 +337,19 @@ def main():
     by_name={p['name'].lower():p for p in projects}
     for p in seeded_projects(dirs):by_name.setdefault(p['name'].lower(),p)
     projects=sorted(by_name.values(),key=lambda x:x.get('last_push') or '',reverse=True)
+    # Prefer unseen and not-yet-inspected projects instead of rescanning the same 150.
+    seen_inventories={p["name"].lower():p for p in old.get("inventories",[]) if p.get("name")}
+    queue={p["name"].lower():p for p in projects}
+    for p in old.get("projects",[]):
+        if p.get("name"):queue.setdefault(p["name"].lower(),p)
+    def scan_priority(p):
+        prior=seen_inventories.get(p["name"].lower(),{})
+        return (bool(prior),prior.get("last_success",""),p["name"].lower())
+    scan_queue=sorted(queue.values(),key=scan_priority)
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
-        inventories=list(pool.map(project_inventory,projects[:150]))
+        inventories=list(pool.map(project_inventory,scan_queue[:150]))
     external_projects,external_queries=other_forges()
-    project_summary=repository_summary(projects,inventories)
+    project_summary=repository_summary(list(queue.values()),inventories)
     report={"generated_at":TODAY.isoformat(),"target":100,"public_candidates":len(candidates),
         "available_public_files":len(available),"byte_distinct_files":unique,
         "note":"Private configured sources are intentionally not inspected. Same bytes do not prove independent providers; repository push date is not necessarily playlist freshness. Unknown sources require review before import. No playback requests.",
@@ -318,6 +363,7 @@ def main():
         "gap_to_100_public_readable":max(0,100-len(available)),
         "potential_collection_files":sum(len(x.get("collection_files",[])) for x in inventories),
         "external_collection_pages":len({p["page"] for d in dirs for p in d.get("collection_pages",[])})}
+    remember(report,old)
     dest=ROOT/"discovery-report.json"
     dest.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
     print(f"Public candidates: {len(candidates)}, readable: {len(available)}, different file hashes: {unique}, projects: {len(report['github_projects'])}")
