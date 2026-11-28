@@ -15,6 +15,7 @@ export function cleanName(value){
  }
  // Remove only technical annotations, not programme/channel variants (+1, Cinema, Sport, regional editions).
  const tech=/^(?:\s*(?:\d{3,4}[pi]?|[248]k|uhd|fhd|full\s*hd|hd\+?|sd|hevc|h\.?26[45]|avc|aac|hdr10?|dolby\s*vision|\d+(?:\.\d+)?\s*fps|[0-9.]+\s*[mk]bps|[x×]\s*\d+|[-/|,;:+×x\s])+)\s*$/i;
+ s=s.replace(/^(rai|sky sport)\s*[(\[]\s*4k\s*[)\]]/i,"$1 4K");
  s=s.replace(/\(([^()]*)\)|\[([^\[\]]*)\]/g,(m,a,b)=>tech.test(a??b)?" ":m);
  s=s.replace(/\s*(?:\((?:not\s*24\/7|geo[- ]?blocked|geo[- ]?block|backup|hbbtv|test stream)\)|\[(?:not\s*24\/7|geo[- ]?blocked|geo[- ]?block|backup|hbbtv|test stream)\])\s*/gi," ").trim();
  const dedicated4k=/^(?:rai|sky sport)\s*4k$/i.test(s);
@@ -50,7 +51,7 @@ const keyOf=n=>{
  const prefix=s.match(/^(\d{1,4})\s*(?:[.·:|–-]\s*|\s+)(.+)$/);
  if(prefix){
    const t=flat(prefix[2]),a=alias.get(t)||t;
-   if(isKnown(t)&&lcnMap.get(a)===Number(prefix[1]))return a;
+   if(isKnown(t)&&(lcnMap.get(a)===Number(prefix[1])||/^0\d|^\d{3,4}\s/.test(s)))return a;
  }
  for(let i=0;i<6;i++){
    const candidate=s.replace(/\s*(?:\((?:G|GEO|GEO[- ]?BLOCKED|GEO[- ]?BLOCK|IT|ITA|ITALIA|ITALY|BACKUP|HBBTV|NOT\s*24\/7)\)|\[(?:G|GEO|GEO[- ]?BLOCKED|GEO[- ]?BLOCK|IT|ITA|ITALIA|ITALY|BACKUP|HBBTV|NOT\s*24\/7)\]|[\s|–—:;,.-]+(?:G|GEO|GEO[- ]?BLOCKED|GEO[- ]?BLOCK|IT|ITA|ITALIA|ITALY|BACKUP|HBBTV|NOT\s*24\/7))\s*$/i,"").trim();
@@ -79,6 +80,8 @@ export function entryKey(e,geo={}){
  const exactId=geo.__channelIds?.[id]||"";
  // Only use alternate names and trusted exact IDs when they do not conflict with a known name.
  if(identified(key))return key;
+ // Explicit editorial variants must not be collapsed by a generic TVG identifier.
+ if(/(?:\b(?:plus|extra)\b|\+\s*\d*\s*$|\b(?:tgr|regione)\b)/i.test(cleanName(e.name)))return key;
  // A trusted channel name in the independent identity directory outranks playlist labels.
  if(geo.__brands?.[key])return key;
  if(alt&&identified(alt)&&!exactId&&!/(?:\b(?:plus|extra|cinema|sport|news|puglia)\b|\+\s*\d+)/i.test(e.name))return alt;
@@ -192,7 +195,8 @@ export function rankedCombine(state){
  for(const g of all){const label=flat(g.name);if(!displayGroups.has(label))displayGroups.set(label,[]);displayGroups.get(label).push(g.name);}
  const displayConflicts=[...displayGroups.values()].filter(v=>v.length>1);
  const priorityMissing=["rai3tgrpuglia","rai1","rai2","rai3","rete4","canale5","skyuno"].filter(k=>!all.some(g=>g.key===k)).map(k=>preferred.get(k)||k);
- return {groups:all,displayConflicts,priorityMissing,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
+ const priorityDiagnostics=["rai3tgrpuglia","rai1","rai2","rai3","rete4","canale5","skyuno"].map(k=>{const g=all.find(x=>x.key===k);return {name:preferred.get(k)||k,present:!!g,position:g?.position??null,alternatives:g?.entries.length??0};});
+ return {groups:all,displayConflicts,priorityMissing,priorityDiagnostics,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),mergedNames:all.map(g=>({name:g.name,variants:g.originalNames||[]})).filter(g=>g.variants.length>1),identityConflicts:[...ambiguousNames],excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
 }
 export async function loadGeo(previous={}){
  try{
