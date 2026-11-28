@@ -36,19 +36,20 @@ def load(url):
                 raise ValueError("Unsupported SVG element")
         if re.search(rb'@import|url\(\s*["\x27]?\s*(?:https?:|//|file:)',raw,re.I):
             raise ValueError("External SVG resource")
-        raw=cairosvg.svg2png(bytestring=raw,output_width=640,output_height=640)
+        raw=cairosvg.svg2png(bytestring=raw,output_width=640)
     im=Image.open(io.BytesIO(raw))
     im=ImageOps.exif_transpose(im).convert("RGBA")
     box=im.getchannel("A").getbbox()
     if not box: raise ValueError("Empty logo")
     im=im.crop(box)
-    # Preserve the original artwork: fit inside 68% of canvas, never crop.
-    im.thumbnail((340,340),Image.Resampling.LANCZOS)
+    # Preserve the original aspect ratio; upscale small logos as well as downscale large ones.
+    scale=min(340/im.width,340/im.height)
+    im=im.resize((max(1,round(im.width*scale)),max(1,round(im.height*scale))),Image.Resampling.LANCZOS)
     if min(im.size)<3: raise ValueError("Invalid dimensions")
     # White artwork needs a darker canvas for legibility; preserve its colors.
-    opaque=im.convert("RGB")
-    extrema=opaque.getextrema()
-    white_only=all(lo>=215 for lo,hi in extrema)
+    pixels=[(r,g,b) for r,g,b,a in im.getdata() if a>=180]
+    if not pixels: raise ValueError("Invisible logo")
+    white_only=sum(min(rgb)>=215 for rgb in pixels)/len(pixels)>=0.90
     bg=(35,35,35,255) if white_only else (255,255,255,255)
     canvas=Image.new("RGBA",(500,500),bg)
     canvas.alpha_composite(im,((500-im.width)//2,(500-im.height)//2))
@@ -57,7 +58,7 @@ def load(url):
 def build(item):
     key, options=item
     if not re.fullmatch(r"[a-z0-9]+",key): return None
-    for opt in options[:4]:
+    for opt in options[:8]:
         try:
             img=load(opt["url"])
             img.save(OUT / (key+".png"), optimize=True)
