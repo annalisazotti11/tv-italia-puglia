@@ -12,7 +12,7 @@ export function cleanName(value){
  if(!dedicated4k)do{old=s;s=s.replace(/(?:[\s|–—:;,.-]+)(?:\d{3,4}[pi]|\d{3,4}\s*[x×]\s*\d{3,4}|[248]k|uhd|fhd|full\s*hd|hd\+?|sd|hevc|h\.?26[45]|avc|hdr10?|\d+(?:\.\d+)?\s*fps)\s*$/i,"").replace(/[\s|–—:;,.-]+$/g,"").trim();}while(s!==old);
  return s.replace(/\s+/g," ").trim();
 }
-const flat=s=>cleanName(s).normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\+\s*(?=\d)/g,"plus").replace(/[^a-z0-9]/g,"");
+const flat=s=>cleanName(s).normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\+\s*(?=\d|$)/g,"plus").replace(/[^a-z0-9]/g,"");
 const localMap=new Map([["Telenorba",10],["Teledue",12],["Telerama",15],["Tele Dehon",19],["Canale 7 Puglia",78],["Delta TV",83],["Teleregione Color",0],["Antenna Sud Extra",92],["7 Gold Puglia",84],["BTV",0],["La Nuova TV",0],["Telesveva",18],["Tele Sud Puglia",155],["TRC Puglia",76],["TeleMajg",79],["Teletrullo",80],["Easy TV",81],["Political TV",86],["Mediterranea TV - Video M Italia",89],["Canale 2 TV",90],["Amica 9",91],["Azzurra TV Italia",95],["StarTV",96],["Studio 100",98],["Tele Foggia",88],["Cittadella TV",94]].map(([n,v])=>[flat(n),v]));
 const lcnMap=new Map([["Rai 1 HD",1],["Rai 2 HD",2],["Rai 3 HD",3],["Rai 3 TGR Puglia",103],["Rete 4 HD",4],["Canale 5 HD",5],["Italia 1 HD",6],["LA7 HD",7],["TV8",8],["NOVE",9],["Radionorba TV",11],["TG Norba 24",13],["Antenna Sud",14],["Telebari",17],["20 Mediaset HD",20],["Rai 4",21],["Iris",22],["Rai 5",23],["Rai Movie",24],["Cielo",26],["27 Twentyseven",27],["La5",30],["Real Time",31],["Food Network",33],["Cine34",34],["Focus",35],["RTL 102.5",36],["Rai News 24",48],["Sky TG24",50],["TGCOM24",51],["DMAX",52],["Rai Storia",54],["HGTV",56],["Radio 105 TV",66],["Deejay TV HD",69],["RadioItaliaTV",70],["Radio Kiss Kiss TV",158],["Gambero Rosso",257],["Hell's Kitchen Italy",404]].map(([n,v])=>[flat(n),v]));
 // LCN nazionali novembre 2026 e mappa regionale Puglia.
@@ -26,6 +26,7 @@ for(const [a,b] of [["radio norba television","Radionorba TV"],["radio norba tv"
 // Recognize provider suffixes only when the remaining name is a known channel.
 for(const [a,b] of [["Rai Uno","Rai 1"],["Rai Due","Rai 2"],["Rai Tre","Rai 3"],["Rete Quattro","Rete 4"],["Canale Cinque","Canale 5"],["Italia Uno","Italia 1"],["Rai News","Rai News 24"],["Rai Movie Italia","Rai Movie"],["TGR Puglia","Rai 3 TGR Puglia"],["Rai Tre TGR Puglia","Rai 3 TGR Puglia"],["Rai 3 Regione Puglia","Rai 3 TGR Puglia"],["Rai 3 Puglia TGR","Rai 3 TGR Puglia"],["Rai 3 TGR Puglia (HbbTV)","Rai 3 TGR Puglia"]])alias.set(flat(a),flat(b));
 for(const [a,b] of [["Rai Sport +","Rai Sport"],["Rai Sport Plus","Rai Sport"],["Rai Sport 1","Rai Sport"],["Rai 4K HbbTV","Rai 4K"],["Rai 3 TGR Puglia 103","Rai 3 TGR Puglia"],["Rai 3 Puglia 819","Rai 3 TGR Puglia"],["Rai 3 TGR Puglia 3","Rai 3 TGR Puglia"],["Rai 3 TGR Puglia (Italia)","Rai 3 TGR Puglia"],["Rai3 TGR Puglia","Rai 3 TGR Puglia"],["Rai News 24 TV","Rai News 24"],["TG Com 24","TGCOM24"],["Mediaset TGCOM24","TGCOM24"],["Mediaset Rete 4","Rete 4"],["Mediaset Canale 5","Canale 5"],["Mediaset Italia 1","Italia 1"],["La 5 Mediaset","La5"],["20 Mediaset Italia","20 Mediaset"],["27 Twenty Seven","27 Twentyseven"],["Twenty Seven","27 Twentyseven"],["Nove TV","NOVE"],["TV 8 Italia","TV8"],["Dmax Italia","DMAX"],["Real Time Italia","Real Time"],["Food Network Italia","Food Network"],["Discovery Italia","Discovery"],["Discovery Italy","Discovery"],["Discovery Channel Italia","Discovery"],["Discovery Channel Italy","Discovery"],["Radio Italia TV","RadioItaliaTV"],["Radio Italia Television","RadioItaliaTV"],["Radio Italia Solo Musica Italiana TV","RadioItaliaTV"],["Radio Kiss Kiss Television","Radio Kiss Kiss TV"],["Radio Norba","Radionorba TV"],["Tele Norba","Telenorba"],["Tele Norba 1","Telenorba"],["Tele Due","Teledue"],["Tele Rama","Telerama"],["TRM 24","TRM H24"],["TRM H 24","TRM H24"],["Antenna Sud TV","Antenna Sud"],["Antenna Sud 14","Antenna Sud"],["Antenna Sud Extra 92","Antenna Sud Extra"],["Tele Bari TV","Telebari"],["Teleradio Padre Pio TV","Padre Pio TV"]])alias.set(flat(a),flat(b));
+for(const [a,b] of [["20","20 Mediaset"],["Italia 2 Mediaset","Mediaset Italia 2"],["HGTV Home & Garden","HGTV"],["Sky TG24 (50)","Sky TG24"],["Rai Sport HD","Rai Sport"],["Rai3 TGR Puglia HD","Rai 3 TGR Puglia"]])alias.set(flat(a),flat(b));
 const knownNames=new Set([...lcnMap.keys(),...localMap.keys(),...BRAND_REGISTRY.map(b=>flat(b.name))]);
 const keyOf=n=>{
  let s=cleanName(n);
@@ -63,6 +64,8 @@ export function entryKey(e,geo={}){
  const exactId=geo.__channelIds?.[id]||"";
  // Only use alternate names and trusted exact IDs when they do not conflict with a known name.
  if(identified(key))return key;
+ // A trusted channel name in the independent identity directory outranks playlist labels.
+ if(geo.__brands?.[key])return key;
  if(alt&&identified(alt)&&!exactId)return alt;
  if(exactId&&(!identified(alt)||alt===exactId))return exactId;
  return key;
@@ -123,6 +126,7 @@ export function rankedCombine(state){
  let all=[...groups.values()];
  for(const g of all){
    g.entries.sort(compareQuality);
+   g.originalNames=[...new Set(g.entries.map(e=>e.name))];
    g.name=preferred.get(g.key)||geo.__brands?.[g.key]?.name||curated.get(g.key)?.name||g.name;
    g.poster=findLogo(g,geo);
    const known=lcnMap.get(g.key)||0;
@@ -136,9 +140,14 @@ export function rankedCombine(state){
  // Auditel Total Audience, 4–31 ottobre 2026, AM giornata intera (02:00–25:59).
  // https://www.auditel.it/wp-content/uploads/2026/11/Sintesi-Mensile-Ottobre-2026_TA47.xlsx-Sola-lettura.pdf
  const audiences=new Map([["Sky Sport Uno",44801],["Sky Uno",43329],["Discovery Turbo",27775],["Sky Sport 24",27681],["Sky Sport F1",27671],["Discovery",26912],["Supertennis",18173],["Sky Serie",14663],["Sky Cinema Uno",13451],["Sky Investigation",12694],["Sky Sport 251",12294],["Sky Sport Tennis",11877],["Sky Collection",7550],["Sky Atlantic",7487],["Sky Cinema Collection",6477],["Sky Sport Arena",6068],["Sky Sport 4K",5806],["Sky Cinema Action",5369],["Sky Cinema Comedy",5340],["Sky Sport 252",5026],["Sky Sport Moto GP",4846],["Sky Cinema Stories",4729],["Sky Nature",4291],["Sky Cinema Family",3852],["Sky Sport Basket",3695],["History HD",3688],["Sky Crime",3653],["DAZN 1",3456],["Sky Cinema Romance",3311],["Sky Cinema Uno +24",2983],["Sky Sport 253",2956],["Sky Cinema Suspense",2921],["Sky Adventure",2717],["Sky Documentaries",2619],["Sky Sport Max",2274],["Sky Cinema Drama",2038],["Gambero Rosso",1476],["Disney Junior",1375],["DeA Junior",1188],["Comedy Central",1108],["Sky Sport 254",1005],["Sky Sport Golf",725],["DeAKids",656],["Nick Jr.",459],["Sky Sport 255",364],["Nickelodeon",363],["Cartoon Network",351],["Sky Sport 256",251],["Boomerang",219],["Sky Sport 257",201],["Sky Sport 258",169],["DAZN 2",82],["Sky Sport 259",50]].map(([n,v])=>[keyOf(n),v]));
- const audience=g=>audiences.get(g.key)??audiences.get(keyOf(g.name))??0;
- const compare=(a,b)=>a.section-b.section||(a.section===3?audience(b)-audience(a):(a.number||99999)-(b.number||99999))||a.name.localeCompare(b.name,"it",{numeric:true});
+ for(const [name,value] of [["Italia 1",375333],["La7",366293],["NOVE",211867],["TV8",202951],["Real Time",146214],["Rai 4",134654],["Top Crime",103584],["La5",94448],["27 Twentyseven",90890],["Cine34",90245],["20 Mediaset",88394],["Iris",87040],["Rai Premium",84594],["Rai Movie",72608],["Giallo",68133],["DMAX",67980],["Mediaset Extra",66091],["Focus",60987],["Cielo",59644],["Food Network",51953],["LA7 Cinema",48178],["Rai News 24",45715],["TGCOM24",44149],["Rai 5",37059],["Sky TG24",32351],["Rai YoYo",32566],["Rai Sport",31302],["Boing",30291],["Mediaset Italia 2",27809],["Frisbee",27531],["HGTV",25851],["K2",24435],["RadioItaliaTV",22412],["Sportitalia",21704],["Boing Plus",20662],["Cartoonito",19872],["Italiana",12569],["RTL 102.5",11432],["Rai Gulp",10845],["Rai Storia",9667],["Padre Pio TV",9633],["Deejay TV",3394]])audiences.set(keyOf(name),value);
+ const audience=g=>audiences.get(g.key)??audiences.get(keyOf(g.name))??null;
+ for(const g of all)g.audience=audience(g);
+ // Preserve original sections for existing exclusion rules; rank all remaining national/extra channels together.
+ const block=g=>g.section<=1?g.section:2;
+ const compare=(a,b)=>block(a)-block(b)||(block(a)===2?((b.audience??-1)-(a.audience??-1)||((a.number||99999)-(b.number||99999))):((a.number||99999)-(b.number||99999)))||a.name.localeCompare(b.name,"it",{numeric:true});
  all.sort(compare);
+ for(const [i,g] of all.entries())g.position=i;
  const used=new Set();let next=1000;
  for(const g of all){if(!g.number||used.has(g.number)){while(used.has(next))next++;g.number=next++;}used.add(g.number);}
  // Preserve the section order, not the globally ascending LCN.
