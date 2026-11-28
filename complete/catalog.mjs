@@ -66,6 +66,15 @@ function reg(e,geo){
  if(regions.test(labels)||/\b(?:regional|regionali|locali|local tv|regional dvb-t)\b/i.test(group))return geo[e.id]==="puglia"||geo[k]==="puglia"?"puglia":"other";
  return geo[e.id]||geo[k]||"national";
 }
+// Personal catalogue exclusions: requested Medjugorje variants and non-programming extras.
+// Keep Italian terrestrial/local channels and unknown-audience broadcasters.
+export function unwantedChannel(g){
+ const names=[g.name,...g.entries.map(e=>e.name)].map(n=>String(n||"").normalize("NFKD").replace(/[\u0300-\u036f]/g,"").toLowerCase());
+ if(names.some(n=>/medj?ugorj[ei]|medugorje|međugorje|medjugorie/i.test(n)))return true;
+ if(g.section!==3)return false;
+ return names.some(n=>/^(?:test(?: channel| card| pattern| stream| signal)?|no signal|segnale assente|canale test|monoscopio|test tecnico)(?:\s*[- #]?\d+)?$/i.test(cleanName(n))||
+ /\b(?:web\s*cam|live\s*cam|telecamera)\b.*\b(?:santuario|santuari|chiesa|basilica|grotta|cappella|lourdes|fatima)\b|\b(?:santuario|santuari|chiesa|basilica|grotta|cappella|lourdes|fatima)\b.*\b(?:web\s*cam|live\s*cam|telecamera)\b/i.test(n));
+}
 export function rankedCombine(state){
  const groups=new Map();
  const geo=state.geo||{};
@@ -83,7 +92,7 @@ export function rankedCombine(state){
    const key=canonicalKey(e.name,geo);
    if(!groups.has(key))groups.set(key,{id:"tvic:"+encodeURIComponent(key),name:cleanName(e.name),poster:"",entries:[e],regional:true,number:0,key});
  }
- const all=[...groups.values()];
+ let all=[...groups.values()];
  for(const g of all){
    g.entries.sort(compareQuality);
    g.name=preferred.get(g.key)||geo.__brands?.[g.key]?.name||curated.get(g.key)?.name||g.name;
@@ -93,6 +102,8 @@ export function rankedCombine(state){
    g.number=known||(g.regional||dtt?g.number:0);
    g.section=g.key==="rai3tgrpuglia"?-1:known>=1&&known<=5?0:g.regional?1:known||dtt?2:3;
  }
+ const excluded=all.filter(unwantedChannel).map(g=>g.name);
+ all=all.filter(g=>!unwantedChannel(g));
  // Ordine richiesto, indipendente dal numero LCN: 1–5, Puglia, DTT, extra.
  // Auditel Total Audience, 4–31 ottobre 2026, AM giornata intera (02:00–25:59).
  // https://www.auditel.it/wp-content/uploads/2026/11/Sintesi-Mensile-Ottobre-2026_TA47.xlsx-Sola-lettura.pdf
@@ -104,7 +115,7 @@ export function rankedCombine(state){
  for(const g of all){if(!g.number||used.has(g.number)){while(used.has(next))next++;g.number=next++;}used.add(g.number);}
  // Preserve the section order, not the globally ascending LCN.
 
- return {groups:all,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
+ return {groups:all,entries:all.map(g=>({...g.entries[0],number:g.number,displayName:g.name,brandLogo:g.poster})),alternatives:all.reduce((sum,g)=>sum+g.entries.length,0),excluded,regionalMissing:[...localMap.keys()].filter(k=>!groups.has(k))};
 }
 export async function loadGeo(previous={}){
  try{
