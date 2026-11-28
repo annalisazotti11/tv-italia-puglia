@@ -27,7 +27,9 @@ for(const [a,b] of [["radio norba television","Radionorba TV"],["radio norba tv"
 for(const [a,b] of [["Rai Uno","Rai 1"],["Rai Due","Rai 2"],["Rai Tre","Rai 3"],["Rete Quattro","Rete 4"],["Canale Cinque","Canale 5"],["Italia Uno","Italia 1"],["Rai News","Rai News 24"],["Rai Movie Italia","Rai Movie"],["TGR Puglia","Rai 3 TGR Puglia"],["Rai Tre TGR Puglia","Rai 3 TGR Puglia"],["Rai 3 Regione Puglia","Rai 3 TGR Puglia"],["Rai 3 Puglia TGR","Rai 3 TGR Puglia"],["Rai 3 TGR Puglia (HbbTV)","Rai 3 TGR Puglia"]])alias.set(flat(a),flat(b));
 for(const [a,b] of [["Rai Sport +","Rai Sport"],["Rai Sport Plus","Rai Sport"],["Rai Sport 1","Rai Sport"],["Rai 4K HbbTV","Rai 4K"],["Rai 3 TGR Puglia 103","Rai 3 TGR Puglia"],["Rai 3 Puglia 819","Rai 3 TGR Puglia"],["Rai 3 TGR Puglia 3","Rai 3 TGR Puglia"],["Rai 3 TGR Puglia (Italia)","Rai 3 TGR Puglia"],["Rai3 TGR Puglia","Rai 3 TGR Puglia"],["Rai News 24 TV","Rai News 24"],["TG Com 24","TGCOM24"],["Mediaset TGCOM24","TGCOM24"],["Mediaset Rete 4","Rete 4"],["Mediaset Canale 5","Canale 5"],["Mediaset Italia 1","Italia 1"],["La 5 Mediaset","La5"],["20 Mediaset Italia","20 Mediaset"],["27 Twenty Seven","27 Twentyseven"],["Twenty Seven","27 Twentyseven"],["Nove TV","NOVE"],["TV 8 Italia","TV8"],["Dmax Italia","DMAX"],["Real Time Italia","Real Time"],["Food Network Italia","Food Network"],["Discovery Italia","Discovery"],["Discovery Italy","Discovery"],["Discovery Channel Italia","Discovery"],["Discovery Channel Italy","Discovery"],["Radio Italia TV","RadioItaliaTV"],["Radio Italia Television","RadioItaliaTV"],["Radio Italia Solo Musica Italiana TV","RadioItaliaTV"],["Radio Kiss Kiss Television","Radio Kiss Kiss TV"],["Radio Norba","Radionorba TV"],["Tele Norba","Telenorba"],["Tele Norba 1","Telenorba"],["Tele Due","Teledue"],["Tele Rama","Telerama"],["TRM 24","TRM H24"],["TRM H 24","TRM H24"],["Antenna Sud TV","Antenna Sud"],["Antenna Sud 14","Antenna Sud"],["Antenna Sud Extra 92","Antenna Sud Extra"],["Tele Bari TV","Telebari"],["Teleradio Padre Pio TV","Padre Pio TV"]])alias.set(flat(a),flat(b));
 for(const [a,b] of [["20","20 Mediaset"],["Italia 2 Mediaset","Mediaset Italia 2"],["HGTV Home & Garden","HGTV"],["Sky TG24 (50)","Sky TG24"],["Rai Sport HD","Rai Sport"],["Rai3 TGR Puglia HD","Rai 3 TGR Puglia"]])alias.set(flat(a),flat(b));
-const knownNames=new Set([...lcnMap.keys(),...localMap.keys(),...BRAND_REGISTRY.map(b=>flat(b.name))]);
+for(const [a,b] of [["Sky 1","Sky Uno"],["Sky Uno Italia","Sky Uno"],["Sky Uno Italy","Sky Uno"]])alias.set(flat(a),flat(b));
+const SKY_MAIN=new Set(["Sky Sport Uno","Sky Sport 24","Sky TG24","Sky Cinema Uno","Sky Atlantic","Sky Serie","Sky Sport F1","Sky Sport Moto GP","Sky Sport Tennis","Sky Sport Arena","Sky Sport Max","Sky Sport Basket","Sky Cinema Due","Sky Cinema Action","Sky Cinema Comedy","Sky Cinema Family","Sky Cinema Collection","Sky Cinema Stories","Sky Cinema Romance","Sky Cinema Drama","Sky Cinema Suspense","Sky Investigation","Sky Crime","Sky Nature","Sky Documentaries","Sky Arte"].map(flat));
+const knownNames=new Set([...lcnMap.keys(),...localMap.keys(),...SKY_MAIN,...BRAND_REGISTRY.map(b=>flat(b.name))]);
 const keyOf=n=>{
  let s=cleanName(n);
  let k=flat(s);
@@ -49,7 +51,7 @@ const keyOf=n=>{
  return alias.get(k)||k;
 };
 const curated=new Map(BRAND_REGISTRY.map(b=>[keyOf(b.name),{name:cleanName(b.name),logo:b.logo}]));
-const preferred=new Map([["rai1","Rai 1"],["rai2","Rai 2"],["rai3","Rai 3"],["rete4","Rete 4"],["canale5","Canale 5"],["italia1","Italia 1"],["raimovie","Rai Movie"],["raipremium","Rai Premium"],["rai3tgrpuglia","Rai 3 TGR Puglia"],["la7","LA7"],["tv8","TV8"],["nove","NOVE"]]);
+const preferred=new Map([["rai1","Rai 1"],["rai2","Rai 2"],["rai3","Rai 3"],["rete4","Rete 4"],["canale5","Canale 5"],["italia1","Italia 1"],["raimovie","Rai Movie"],["raipremium","Rai Premium"],["rai3tgrpuglia","Rai 3 TGR Puglia"],["la7","LA7"],["tv8","TV8"],["nove","NOVE"],["skyuno","Sky Uno"]]);
 export const canonicalKey=(n,geo)=>{
  const k=keyOf(n);
  if(lcnMap.has(k)||localMap.has(k)||k==="rai3tgrpuglia")return k;
@@ -165,8 +167,9 @@ export function rankedCombine(state){
  const audience=g=>audiences.get(g.key)??audiences.get(keyOf(g.name))??null;
  for(const g of all)g.audience=audience(g);
  // Preserve original sections for existing exclusion rules; rank all remaining national/extra channels together.
- const block=g=>g.section<=1?g.section:2;
- const compare=(a,b)=>block(a)-block(b)||(block(a)===2?((b.audience??-1)-(a.audience??-1)||((a.number||99999)-(b.number||99999))):((a.number||99999)-(b.number||99999)))||a.name.localeCompare(b.name,"it",{numeric:true});
+ const block=g=>g.section<1?g.section:g.key==="skyuno"?0.5:g.section===1?1:([6,7,8,9].includes(g.lcn)?2:SKY_MAIN.has(g.key)?3:4);
+ const compare=(a,b)=>block(a)-block(b)||(block(a)>=3?((b.audience??-1)-(a.audience??-1)||((a.number||99999)-(b.number||99999))):((a.number||99999)-(b.number||99999)))||a.name.localeCompare(b.name,"it",{numeric:true});
+ for(const g of all)g.orderBlock=block(g);
  all.sort(compare);
  for(const [i,g] of all.entries())g.position=i;
  const used=new Set(),reserved=new Set(all.map(g=>g.lcn).filter(Boolean));let next=1000;
