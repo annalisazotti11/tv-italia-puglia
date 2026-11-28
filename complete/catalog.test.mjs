@@ -16,7 +16,7 @@ console.log("Catalog identity checks passed; no playback requests.");
 
 const ordered=rankedCombine({geo:{},lists:{a:["Rai 1","Rai 2","Rai 3","Rete 4","Canale 5","Telenorba","Italia 1","LA7","TV8","NOVE","Real Time","Rai Movie G","Rai Movie HD","Unknown Station","Sky Uno","Sky Uno +"].map((name,i)=>e(name,100+i))}});
 assert.equal(ordered.groups.slice(0,6).map(g=>g.key).join(","),"rai3tgrpuglia,rai1,rai2,rai3,rete4,canale5");
-const remaining=ordered.groups.filter(g=>g.section>1);
+const remaining=ordered.groups.filter(g=>g.orderBlock===4);
 for(let i=1;i<remaining.length;i++)assert.ok((remaining[i-1].audience??-1)>=(remaining[i].audience??-1),"Audience order");
 assert.notEqual(canonicalKey("Sky Uno",{}),canonicalKey("Sky Uno +",{}));
 assert.equal(ordered.groups.filter(g=>g.key==="raimovie").length,1);
@@ -43,3 +43,15 @@ const best=list=>rankedCombine({geo:{},lists:{a:list}}).groups.find(g=>g.key==="
 assert.equal(best(equalQuality),"A");
 assert.equal(best([...equalQuality].reverse()),"A");
 console.log("Regional classification, reserved LCN and stable tie-breaking checks passed.");
+
+const sky=rankedCombine({geo:{},lists:{a:["Rai 1","Rai 2","Rai 3","Rete 4","Canale 5","Sky 1","Sky Uno HD","Telenorba","Italia 1","LA7","TV8","NOVE","Sky Sport Uno","Sky Cinema Uno","Sky Atlantic","Sky TG24","Real Time","Sky Uno +","Sky Sport 251"].map((n,i)=>e(n,600+i))}});
+assert.equal(sky.groups.slice(0,7).map(g=>g.key).join(","),"rai3tgrpuglia,rai1,rai2,rai3,rete4,canale5,skyuno");
+assert.equal(sky.groups.filter(g=>g.key==="skyuno").length,1);
+const pos=k=>sky.groups.findIndex(g=>g.key===k);
+assert.ok(pos("skyuno")<pos("telenorba"));
+assert.ok(pos("telenorba")<pos("italia1"));
+assert.ok(pos("nove")<pos("skysportuno"));
+assert.ok(pos("skycinemauno")<pos("realtime"));
+assert.ok(pos("realtime")<pos("skysport251"));
+assert.ok(pos("skyunoplus")>pos("skyuno"));
+console.log("Sky priority and fixed DTT ordering passed.");
