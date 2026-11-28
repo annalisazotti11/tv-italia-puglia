@@ -62,6 +62,7 @@ if not namespace:
     namespace=api("",method="POST",body={"title":title})["result"]["id"]
 folder=pathlib.Path("complete")
 config={"name":"tv-italia-complete","main":"worker.mjs","compatibility_date":"2026-11-27","workers_dev":True,"triggers":{"crons":["17 * * * *"]},"kv_namespaces":[{"binding":"PLAYLISTS","id":namespace}]}
+config["assets"]={"directory":"./brand-assets"}
 (folder/"wrangler.generated.json").write_text(json.dumps(config))
 secret_path=pathlib.Path(os.environ["RUNNER_TEMP"])/"tv-complete-secrets.json"
 secret_path.touch(mode=0o600,exist_ok=True)
