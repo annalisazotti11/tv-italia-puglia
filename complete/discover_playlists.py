@@ -37,6 +37,10 @@ DIRS=[
  ("Nanobuo FTA project","https://github.com/Nanobuo/iptv-italia"),
  ("Dearbulut project","https://github.com/dearbulut/iptv"),
  ("OpenIPTVItaly project","https://github.com/xN1ckuz/OpenIPTVItaly"),
+ ("European Audiovisual Observatory - Italy public broadcasters","https://mavise.obs.coe.int/f/ondemand/advanced?countryofestablishment=66&statuename=Public"),
+ ("EBU members","https://www.ebu.ch/about/members"),
+ ("Aeranti-Corallo local broadcasters association","https://www.aeranticorallo.it/"),
+ ("Puglia DTT channels inventory","https://www.canalesalento.it/tv-mux-regionale-puglia/"),
 ]
 def read(url,github=False,max_bytes=6000000):
     headers={"User-Agent":"TVItaliaComplete-source-catalog/1.0"}
@@ -98,7 +102,8 @@ def metadata(p):
         body,headers=read(p["url"])
         raw=body.decode("utf-8-sig",errors="replace")
         if not raw.lstrip().startswith("#EXTM3U"):raise ValueError("not a playlist")
-        entries=sum(1 for line in raw.splitlines() if line.startswith("#EXTINF:"))
+        entries=sum(1 for line in raw.splitlines() if line.strip().startswith("#EXTINF:"))
+        if entries==0 or re.search(r"(?m)^#EXT-X-(?:TARGETDURATION|STREAM-INF|MEDIA-SEQUENCE):",raw):raise ValueError("not a channel collection")
         return {"name":p["name"],"status":"available","entries":entries,
             "sha256":hashlib.sha256(body).hexdigest(),"last_modified":headers.get("Last-Modified") or headers.get("last-modified")}
     except Exception as e:
@@ -244,11 +249,52 @@ def seeded_projects(dirs):
     with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
         return [p for p in pool.map(resolve,sorted(names)[:60]) if p]
 
+def expand_directories(initial):
+    """Follow relevant documentation only, within already selected public sites."""
+    seen={d.get("page") for d in initial}
+    roots={urllib.parse.urlsplit(u).hostname for _,u in DIRS}
+    frontier=initial
+    extra=[]
+    for depth in (1,2):
+        batch={}
+        for d in frontier:
+            for ref in d.get("collection_pages",[]):
+                page=ref.get("page","")
+                p=urllib.parse.urlsplit(page)
+                if p.hostname not in roots or p.hostname=="github.com" or p.query:continue
+                if p.scheme!="https" or page in seen:continue
+                # Follow only country-relevant directory documentation, not playback pages.
+                if not re.search(r"ital(?:ia|y|ian)|puglia|(?:/|-)it(?:/|-|$)|free.to.air|in.chiaro|public.broadcaster",p.path+" "+ref.get("label",""),re.I):continue
+                if re.search(r"\.(?:m3u8?|mpd|ts|mp4|zip|pdf)$",p.path,re.I):continue
+                batch[page]=("Directory depth "+str(depth),page)
+        selected=sorted(batch.values(),key=lambda item:item[1])[:30]
+        seen.update(u for _,u in selected)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+            frontier=list(pool.map(directory,selected))
+        extra.extend(frontier)
+        if not frontier:break
+    return initial+extra
+
+def repository_summary(projects,inventories):
+    """Count unique file paths separately from file hashes and independent publishers."""
+    by_name={p["name"]:p for p in projects}
+    results=[]
+    for inventory in inventories:
+        files=inventory.get("collection_files",[])
+        if not files:continue
+        p=by_name.get(inventory["name"],{})
+        results.append({"project":inventory["name"],"files":len(files),
+             "last_push":p.get("last_push"),"fork":p.get("fork"),
+             "freshness":"repository activity only; playlist update not established",
+             "review":"candidate, not approved"})
+    return sorted(results,key=lambda x:(not x.get("fork"),x.get("last_push") or "",x["files"]),reverse=True)
+
 def main():
     candidates=json.loads((ROOT/"playlist-candidates.json").read_text())
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
         inspected=list(pool.map(metadata,candidates))
         dirs=list(pool.map(directory,DIRS))
+    dirs=expand_directories(dirs)
     available=[p for p in inspected if p["status"]=="available"]
     unique=len({p["sha256"] for p in available})
     projects,queries,errors=search_projects()
@@ -258,6 +304,7 @@ def main():
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
         inventories=list(pool.map(project_inventory,projects[:150]))
     external_projects,external_queries=other_forges()
+    project_summary=repository_summary(projects,inventories)
     report={"generated_at":TODAY.isoformat(),"target":100,"public_candidates":len(candidates),
         "available_public_files":len(available),"byte_distinct_files":unique,
         "note":"Private configured sources are intentionally not inspected. Same bytes do not prove independent providers; repository push date is not necessarily playlist freshness. Unknown sources require review before import. No playback requests.",
@@ -265,6 +312,9 @@ def main():
         "search_queries":queries,"search_errors":errors,"repository_inventories":inventories,
         "other_forge_projects":external_projects,"other_forge_queries":external_queries,
         "distinct_project_count":len(projects)+len(external_projects),
+        "directory_pages_examined":len(dirs),
+        "projects_with_collection_files":len(project_summary),
+        "candidate_projects_ranked":project_summary,
         "gap_to_100_public_readable":max(0,100-len(available)),
         "potential_collection_files":sum(len(x.get("collection_files",[])) for x in inventories),
         "external_collection_pages":len({p["page"] for d in dirs for p in d.get("collection_pages",[])})}
