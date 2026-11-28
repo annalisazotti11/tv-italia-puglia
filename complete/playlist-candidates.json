@@ -98,5 +98,9 @@
   {
     "name": "Sfiorini IPTV Italy",
     "url": "https://raw.githubusercontent.com/sfiorini/IPTV-Italy/main/iptvitaly.m3u"
+  },
+  {
+    "name": "TVITALIA variante smartphone",
+    "url": "https://maginetweb-arch.github.io/tileoplayer/atvita.m3u"
   }
 ]
