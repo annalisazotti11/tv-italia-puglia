@@ -12,12 +12,13 @@ for(const b of registry)add(b.name,b.logo,10);
 try{
  const base="https://iptv-org.github.io/api/";
  const get=async file=>{const r=await fetch(base+file,{signal:AbortSignal.timeout(30000)});if(!r.ok)throw Error("HTTP "+r.status);return r.json();};
- const [channels,logos]=await Promise.all([get("channels.json"),get("logos.json")]);
+ const [channels,logos,feeds]=await Promise.all([get("channels.json"),get("logos.json"),get("feeds.json").catch(()=>[])]);
+ const mainFeeds=new Set(feeds.filter(f=>f.is_main).map(f=>f.channel+"@"+f.id));
  const names=new Map(channels.filter(c=>c.country==="IT").map(c=>[c.id,c.name]));
  for(const l of logos){
-   if(!l.in_use||l.feed||!names.has(l.channel))continue;
+   if(!l.in_use||!names.has(l.channel)||(l.feed&&!mainFeeds.has(l.channel+"@"+l.feed)))continue;
    const t=(l.tags||[]).map(x=>String(x).toLowerCase());
-   const score=30+(t.includes("color")?12:0)-(t.includes("white")?20:0)+(t.includes("horizontal")?3:0)+Math.min(Number(l.width)||0,1000)/1000;
+   const score=30+(l.feed?0:6)+(t.includes("color")?12:0)-(t.includes("white")?20:0)+(t.includes("horizontal")?3:0)+Math.min(Number(l.width)||0,1000)/1000;
    add(names.get(l.channel),l.url,score);
  }
 }catch(e){console.warn("Directory loghi non disponibile; uso registro locale:",e.message);}
