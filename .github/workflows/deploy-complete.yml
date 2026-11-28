@@ -6,6 +6,8 @@ on:
     paths:
       - 'complete/worker.mjs'
       - 'complete/catalog.mjs'
+      - 'complete/catalog.test.mjs'
+      - 'complete/puglia-fallback.mjs'
       - 'complete/brand-registry.mjs'
       - 'complete/brand-assets-index.mjs'
       - 'complete/prepare-brand-candidates.mjs'
@@ -32,8 +34,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Check JS syntax (no stream tests)
-        run: node --check complete/worker.mjs
+      - name: Check syntax and channel identity (no stream tests)
+        run: |
+          node --check complete/worker.mjs
+          node --check complete/catalog.mjs
+          node complete/catalog.test.mjs
       - name: Prepare original channel logos (no stream requests)
         env:
           CLOUDFLARE_API_TOKEN: ""
